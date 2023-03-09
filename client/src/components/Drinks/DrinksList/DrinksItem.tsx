@@ -1,19 +1,21 @@
 import React from "react";
-import DrinksInfo from "./DrinksInfo";
-import DrinksBody from "./DrinksBody";
-import DrinksLevel from "./DrinksLevel";
+import DrinksInfo from "./DrinksItemInfo";
+import DrinksBody from "./DrinksItemBody";
+import DrinksLevel from "./DrinksItemLevel";
 import Card from "../../UI/Card";
 import styled from "styled-components";
 
 function DrinksItem() {
   return (
-    <Card>
-      <ItemContainer>
-        <DrinksInfo />
-        <DrinksBody />
-        <DrinksLevel />
-      </ItemContainer>
-    </Card>
+    <Margin>
+      <Card>
+        <ItemContainer>
+          <DrinksInfo />
+          <DrinksBody />
+          <DrinksLevel />
+        </ItemContainer>
+      </Card>
+    </Margin>
   );
 }
 
@@ -21,8 +23,11 @@ export default DrinksItem;
 
 const ItemContainer = styled.div`
   width: 320px;
-  height: 495px;
+  height: 490px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
+
+const Margin = styled.div`
+  margin-bottom: var(--margin-xxx-large);
+`

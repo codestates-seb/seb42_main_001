@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     /* color */
     --color-main: #473F3F;
     --color-sub-dark-gray: #8F8F8F;
-    --color-sub-gray: #DODODO;
+    --color-sub-gray: #D0D0D0;
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
 
@@ -19,16 +19,31 @@ export const GlobalStyle = createGlobalStyle`
     --text-large: 22px;
     --text-x-large: 26px;
 
-    /* radius */
-    --radius-size: 10px;
-
-    /* padding */
-    --padding-small: 18px;
-    --padding-large: 30px;
-
     /* font-weight */
     --weight-large: 700;
     --weight-x-large: 900;
+
+    /* radius */
+    --radius-size: 10px;
+    --radius-large: 20px;
+    --radius-x-large: 30px;
+
+    /* padding */
+    --padding-xx-small: 10px;
+    --padding-x-small: 14px;
+    --padding-small: 18px;
+    --padding-medium: 23px;
+    --padding-large: 30px;
+
+    /* margin */
+    --margin-xxx-samll: 8px;
+    --margin-xx-samll: 10px;
+    --margin-x-samll: 14px;
+    --margin-samll: 18px;
+    --margin-medium: 23px;
+    --margin-large: 30px;
+    --margin-x-large: 40px;
+    --margin-xxx-large: 60px;
 }
 
 * {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function DrinksLevel() {
+function DrinksItemLevel() {
   return (
     <LevelContainer>
       Entry-Level
@@ -9,11 +9,11 @@ function DrinksLevel() {
   )
 }
 
-export default DrinksLevel
+export default DrinksItemLevel
 
 const LevelContainer = styled.div`
   font-size: var(--text-x-small);
-  color: var(--color-sub-light-gray);
+  color: var(--color-sub-gray);
   width: 100%;
   height: 50px;
   display: flex;

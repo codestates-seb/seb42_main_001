@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function DrinksBody() {
+function DrinksItemBody() {
   return (
     <BodyContainer>
       <div>img</div>
@@ -10,7 +10,7 @@ function DrinksBody() {
   )
 }
 
-export default DrinksBody
+export default DrinksItemBody
 
 const BodyContainer = styled.div`
   width: 100%;

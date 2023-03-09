@@ -1,23 +1,43 @@
-import React from 'react'
-import DrinksLikes from './DrinksLikes'
-import DrinksTags from './DrinksTags'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import DrinksTagList from "./DrinksTagList";
+import DrinkSearch from "./DrinksSearch";
+import styled from "styled-components";
 
 function DrinksInfo() {
+  const [search, setSearch] = useState(false)
+
+  const handleSearchChange = () => {
+    setSearch(prev => !prev)
+  }
+
   return (
     <InfoContainer>
-      <DrinksLikes />
-      <DrinksTags />
+      {search ? <DrinkSearch />
+      : <DrinksTagList />
+    }
+
+      <SearchButton onClick={handleSearchChange}>?</SearchButton>
     </InfoContainer>
-  )
+  );
 }
 
-export default DrinksInfo
+export default DrinksInfo;
 
 const InfoContainer = styled.div`
-  height: 75px;
+  width: 100%;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--padding-large) var(--padding-large) 0 var(--padding-large);
-`
+`;
+
+const SearchButton = styled.div`
+  color: var(--color-white);
+  background-color: var(--color-main);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-x-large);
+`;
