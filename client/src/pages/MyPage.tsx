@@ -13,4 +13,11 @@ function Mypage() {
 
 export default Mypage;
 
-const MypageContainer = styled.div``;
+const MypageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 130px 0;
+  background-color: var(--color-main);
+  display: flex;
+  justify-content: space-between;
+`;
