@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import Main from "./pages/Main";
 import styled from "styled-components";
+import DrinksList from "./pages/DrinksList";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
 
           <Route element={<MainLayout />}>
             <Route path="/" element={<Main />} />
+            <Route path="/drinks" element={<DrinksList />} />
           </Route>
 
         </Routes>
