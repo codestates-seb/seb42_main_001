@@ -28,7 +28,6 @@ const DefaultSize = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
 `;
 
 const Container = styled.div`
@@ -41,11 +40,3 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
-const CardTest = styled.div`
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`

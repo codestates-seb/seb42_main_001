@@ -17,7 +17,7 @@ function MenuNav() {
 export default MenuNav;
 
 const MenuStyled = styled.div`
-  font-size: var(--small-size);
+  font-size: var(--text-small);
   display: flex;
 `;
 

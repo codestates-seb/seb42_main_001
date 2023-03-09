@@ -12,15 +12,23 @@ export const GlobalStyle = createGlobalStyle`
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
 
-    /* font */
-    --x-small-font-size: 11px;
-    --small-font-size: 14px;
-    --medium-font-size: 18px;
-    --large-font-size: 22px;
-    --x-large-font-size: 26px;
+    /* font-size */
+    --text-x-small: 11px;
+    --text-small: 14px;
+    --text-medium: 18px;
+    --text-large: 22px;
+    --text-x-large: 26px;
 
     /* radius */
     --radius-size: 10px;
+
+    /* padding */
+    --padding-small: 18px;
+    --padding-large: 30px;
+
+    /* font-weight */
+    --weight-large: 700;
+    --weight-x-large: 900;
 }
 
 * {
