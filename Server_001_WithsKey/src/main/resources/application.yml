@@ -16,7 +16,7 @@ spring:
 #    sql:
 #      init:
 #        data-locations: classpath:data.sql
-# DB ?? ??? ?? ????
+#    DB
 
 logging:
   level:
