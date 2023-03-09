@@ -3,16 +3,16 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import Main from "./pages/Main";
 import styled from "styled-components";
+import Mypage from "./pages/MyPage";
 
 function App() {
   return (
-        <Routes>
-
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<Main />} />
-          </Route>
-
-        </Routes>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Main />} />
+        <Route path="/mypage" element={<Mypage />} />
+      </Route>
+    </Routes>
   );
 }
 
