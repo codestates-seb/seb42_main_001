@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import DrinksTagList from "./DrinksTagList";
 import DrinkSearch from "./DrinksSearch";
 import styled from "styled-components";
+import { AiOutlineSearch } from "react-icons/ai";
 
 function DrinksInfo() {
-  const [search, setSearch] = useState(false)
+  const [search, setSearch] = useState(false);
 
   const handleSearchChange = () => {
-    setSearch(prev => !prev)
-  }
+    setSearch((prev) => !prev);
+  };
 
   return (
     <InfoContainer>
-      {search ? <DrinkSearch />
-      : <DrinksTagList />
-    }
+      {search ? <DrinkSearch /> : <DrinksTagList />}
 
-      <SearchButton onClick={handleSearchChange}>?</SearchButton>
+      <SearchButton onClick={handleSearchChange}>
+        <AiOutlineSearch />
+      </SearchButton>
     </InfoContainer>
   );
 }
@@ -40,4 +41,9 @@ const SearchButton = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-x-large);
+  cursor: pointer;
+
+  svg {
+    font-size: var(--text-large);
+  }
 `;

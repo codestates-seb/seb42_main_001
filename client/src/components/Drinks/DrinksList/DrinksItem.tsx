@@ -1,5 +1,5 @@
 import React from "react";
-import DrinksInfo from "./DrinksItemInfo";
+import DrinksInfo from "./DrinksItemBox";
 import DrinksBody from "./DrinksItemBody";
 import DrinksLevel from "./DrinksItemLevel";
 import Card from "../../UI/Card";

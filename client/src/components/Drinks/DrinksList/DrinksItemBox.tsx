@@ -3,7 +3,7 @@ import DrinksLikes from './DrinksItemLikes'
 import DrinksTags from './DrinksItemTags'
 import styled from 'styled-components'
 
-function DrinksItemInfo() {
+function DrinksItemBox() {
   return (
     <InfoContainer>
       <DrinksLikes />
@@ -12,7 +12,7 @@ function DrinksItemInfo() {
   )
 }
 
-export default DrinksItemInfo
+export default DrinksItemBox
 
 const InfoContainer = styled.div`
   height: 75px;

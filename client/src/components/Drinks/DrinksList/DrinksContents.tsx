@@ -1,11 +1,14 @@
 import React from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function DrinksContents() {
   return (
     <ContentsContainer>
-      <DrinksItem />
+      <Link to="/drinksdetail">
+        <DrinksItem />
+      </Link>
       <DrinksItem />
       <DrinksItem />
       <DrinksItem />
