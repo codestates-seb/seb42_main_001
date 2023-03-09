@@ -43,7 +43,8 @@ export const GlobalStyle = createGlobalStyle`
     --margin-medium: 23px;
     --margin-large: 30px;
     --margin-x-large: 40px;
-    --margin-xxx-large: 60px;
+    --margin-xx-large: 60px;
+    --margin-xxx-large: 100px;
 }
 
 * {

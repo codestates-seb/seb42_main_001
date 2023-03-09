@@ -1,16 +1,27 @@
-import React from 'react'
-import DrinksDetailBox from './DrinksDetailBox'
-import DrinksDetailInfo from './DrinksDetailInfo'
-import DrinksDetailTitle from './DrinksDetailTitle'
+import React from "react";
+import styled from "styled-components";
+import DrinksDetailBox from "./DrinksDetailBox";
+import DrinksDetailInfo from "./DrinksDetailInfo";
+import DrinksDetailTitle from "./DrinksDetailTitle";
 
 function DrinksDetailTxt() {
   return (
-    <div>
+    <TxtContainer>
       <DrinksDetailInfo />
       <DrinksDetailTitle />
       <DrinksDetailBox />
-    </div>
-  )
+    </TxtContainer>
+  );
 }
 
-export default DrinksDetailTxt
+export default DrinksDetailTxt;
+
+const TxtContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: var(--margin-xxx-large);
+`;
