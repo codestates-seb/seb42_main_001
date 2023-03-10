@@ -1,11 +1,24 @@
+import { useState } from "react";
 import styled from "styled-components";
+
 import MyContent from "../components/Mypage/MyContent";
+import MyPageEdit from "../components/Mypage/MyPageEdit";
 import MyPageInfo from "../components/Mypage/MyPageInfo";
 
 function Mypage() {
+  const [isEdit, setEdit] = useState(false);
+
+  const handleMyPageEdit = () => {
+    setEdit(!isEdit);
+  };
+
   return (
     <MypageContainer>
-      <MyPageInfo />
+      {isEdit ? (
+        <MyPageEdit isEdit={isEdit} onClick={handleMyPageEdit} />
+      ) : (
+        <MyPageInfo isEdit={isEdit} onClick={handleMyPageEdit} />
+      )}
       <MyContent />
     </MypageContainer>
   );

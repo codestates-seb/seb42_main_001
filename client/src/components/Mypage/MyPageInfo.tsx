@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
 import Card from "../UI/Card";
-import MyPageInfoBotton from "./MyPageInfoBottons";
+import MyPageInfoButtons from "./MyPageInfoButtons";
 import MyPageInfoItem from "./MyPageInfoItem";
 import MyPageProfil from "./MyPageProfil";
 
-function MyPageInfo() {
+interface MyPageInfoProps {
+  isEdit: boolean;
+  onClick: () => void;
+}
+
+function MyPageInfo({ isEdit, onClick }: MyPageInfoProps) {
   return (
     <Card>
       <MyPageInfoContainer>
         <MyPageProfil />
-        <MyPageInfoItem />
-        <MyPageInfoBotton />
+        <MyPageInfoItem isEdit={isEdit} />
+        <MyPageInfoButtons onClick={onClick} />
       </MyPageInfoContainer>
     </Card>
   );

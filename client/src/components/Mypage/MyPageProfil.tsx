@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-const MyPageProfil = () => {
-  return <MyPageProfilContainer></MyPageProfilContainer>;
+interface MyPageProfilProps {
+  children?: any;
+}
+
+const MyPageProfil = ({ children }: MyPageProfilProps) => {
+  return <MyPageProfilContainer>{children}</MyPageProfilContainer>;
 };
 
 export default MyPageProfil;
