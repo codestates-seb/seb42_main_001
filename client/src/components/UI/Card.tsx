@@ -13,6 +13,6 @@ export default Card;
 
 const CardLayout = styled.div`
     background-color: var(--color-white);
-    box-shadow: 1px 1px 20px rgba(140, 140, 140, 0.4);
+    box-shadow: 1px 1px 20px rgba(181, 181, 181, 0.4);
     border-radius: var(--radius-size);
 `;

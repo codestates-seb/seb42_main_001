@@ -21,11 +21,10 @@ export default MainLayout;
 const DefaultSize = styled.div`
   background-color: var(--color-sub-light-gray);
   width: 100vw;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
 `;
 
 const Container = styled.div`
@@ -33,7 +32,7 @@ const Container = styled.div`
   background-color: var(--color-sub-light-gray);
   width: 85%;
   max-width: 1420px;
-  height: 95vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
