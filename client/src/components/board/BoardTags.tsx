@@ -14,7 +14,7 @@ function BoardTags() {
 export default BoardTags;
 
 const TagsContainer = styled.div`
-  margin: 0 12px 0 12px;
+  margin: 0 12px 24px 12px;
   display: flex;
   align-items: center;
 `;
