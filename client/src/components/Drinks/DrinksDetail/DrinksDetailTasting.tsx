@@ -18,5 +18,6 @@ const TastingContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  padding: var(--medium);
+  align-items: center;
+  padding: var(--medium) 0;
 `;

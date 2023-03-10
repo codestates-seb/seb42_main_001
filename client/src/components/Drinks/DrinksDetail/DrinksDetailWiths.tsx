@@ -1,9 +1,12 @@
 import React from 'react'
+import DrinksDetailWith from './DrinksDetailWith'
+import DrinksDetailWithTitle from './DrinksDetailWithTitle'
 
 function DrinksDetailWiths() {
   return (
     <div>
-      DrinksDetailWiths
+      <DrinksDetailWithTitle />
+      <DrinksDetailWith />
     </div>
   )
 }
