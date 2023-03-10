@@ -25,6 +25,11 @@ const IconWrapper = styled.div`
   margin-right: 5px;
   width: 20px;
   height: 20px;
+  color: var(--color-main);
 `;
 
-const LikesCount = styled.div``;
+const LikesCount = styled.div`
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  color: var(--color-main);
+`;
