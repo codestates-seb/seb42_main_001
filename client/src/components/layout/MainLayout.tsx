@@ -3,14 +3,11 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
-import Card from "../UI/Card";
-
 
 function MainLayout() {
   return (
     <DefaultSize>
       <Header />
-      
       <Container>
         <Outlet />
       </Container>
@@ -41,11 +38,3 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
-const CardTest = styled.div`
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
