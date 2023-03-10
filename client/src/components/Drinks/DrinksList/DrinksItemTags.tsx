@@ -3,17 +3,17 @@ import styled from "styled-components";
 
 function DrinksItemTags() {
   return (
-    <Body>
+    <TagsContainer>
       <div>#효도</div>
 
       <div>#데이트</div>
-    </Body>
+    </TagsContainer>
   );
 }
 
 export default DrinksItemTags;
 
-const Body = styled.div`
+const TagsContainer = styled.div`
   display: flex;
 
     div {
@@ -29,7 +29,3 @@ const Body = styled.div`
       padding: var( --padding-xx-small);
     }
   `;
-
-
-
-// color: var(--color-main);
