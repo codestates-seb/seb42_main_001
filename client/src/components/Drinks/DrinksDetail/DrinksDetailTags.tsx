@@ -19,12 +19,12 @@ const TagsContainer = styled.div`
       color: var(--color-main);
       font-size: var(--text-x-small);
       border: 1px solid var(--color-main);
-      border-radius: var(--radius-large);
+      border-radius: var(--medium);
       height: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: var(--margin-xxx-samll);
-      padding: var( --padding-xx-small);
+      margin-right: var(--xxx-samll);
+      padding: var( --xx-small);
     }
   `;

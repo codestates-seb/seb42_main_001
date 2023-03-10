@@ -56,7 +56,7 @@ const PageButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-x-large);
+  border-radius: var(--large);
   cursor: pointer;
 
   svg {

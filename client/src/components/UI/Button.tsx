@@ -23,7 +23,7 @@ const ButtonStyled = styled.button`
     color: var(--color-main);
     border: none;
     border: 1px solid var(--color-main);
-    border-radius: var(--radius-size);
+    border-radius: var(--xx-small);
     background-color: var(--color-white);
     cursor: pointer;
 `

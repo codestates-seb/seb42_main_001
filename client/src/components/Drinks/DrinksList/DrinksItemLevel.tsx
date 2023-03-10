@@ -19,6 +19,6 @@ const LevelContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--padding-small);
+  padding: var(--small);
   border-top: 1px solid var(--color-sub-light-gray);
 `

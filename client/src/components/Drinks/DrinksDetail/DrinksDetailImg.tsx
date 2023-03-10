@@ -20,5 +20,5 @@ const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: var(--margin-xx-samll);
+  margin-right: var(--xx-samll);
 `;

@@ -43,7 +43,7 @@ const TopBorder = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
-  padding: var(--padding-xx-small);
+  padding: var(--xx-small);
 `;
 
 const TopBorderMargin = styled.div`
@@ -53,6 +53,6 @@ const TopBorderMargin = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
-  padding: var(--padding-xx-small);
-  margin-left: var(--margin-samll);
+  padding: var(--xx-small);
+  margin-left: var(--samll);
 `;

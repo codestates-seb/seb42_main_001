@@ -20,7 +20,6 @@ const TagsContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-right: 100px;
-  background-color: aqua;
 
   div {
     width: 50px;

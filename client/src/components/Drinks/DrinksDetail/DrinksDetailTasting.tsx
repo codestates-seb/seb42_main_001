@@ -1,14 +1,22 @@
-import React from 'react'
-import DrinksDetailChart from './DrinksDetailChart'
-import DrinksDetailChartTitle from './DrinksDetailChartTitle'
+import React from "react";
+import DrinksDetailChart from "./DrinksDetailChart";
+import DrinksDetailChartTitle from "./DrinksDetailChartTitle";
+import styled from "styled-components";
 
 function DrinksDetailTasting() {
   return (
-    <div>
+    <TastingContainer>
       <DrinksDetailChartTitle />
       <DrinksDetailChart />
-    </div>
-  )
+    </TastingContainer>
+  );
 }
 
-export default DrinksDetailTasting
+export default DrinksDetailTasting;
+
+const TastingContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: var(--medium);
+`;

@@ -23,6 +23,6 @@ const TxtContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-left: var(--margin-xxx-large);
-  padding: var(--padding-medium) 0;
+  margin-left: var(--xxx-large);
+  padding: var(--medium) 0;
 `;

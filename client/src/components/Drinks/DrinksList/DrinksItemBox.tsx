@@ -19,5 +19,5 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--padding-large) var(--padding-large) 0 var(--padding-large);
+  padding: var(--large) var(--large) 0 var(--large);
 `

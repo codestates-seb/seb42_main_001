@@ -29,5 +29,5 @@ const ItemContainer = styled.div`
 `;
 
 const Margin = styled.div`
-  margin-bottom: var(--margin-xxx-large);
+  margin-bottom: var(--xxx-large);
 `
