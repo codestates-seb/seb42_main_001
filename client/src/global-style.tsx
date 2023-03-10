@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     /* color */
     --color-main: #473F3F;
     --color-sub-dark-gray: #8F8F8F;
-    --color-sub-gray: #DODODO;
+    --color-sub-gray: #d0d0d0;
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
 
@@ -38,4 +38,4 @@ div, button {
     letter-spacing: 0.4px;
 }
 
-`
+`;
