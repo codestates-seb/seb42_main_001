@@ -3,14 +3,11 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
-import Card from "../UI/Card";
-
 
 function MainLayout() {
   return (
     <DefaultSize>
       <Header />
-      
       <Container>
         <Outlet />
       </Container>
