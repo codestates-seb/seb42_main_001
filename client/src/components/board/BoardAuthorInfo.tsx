@@ -19,7 +19,7 @@ export default BoardAuthorInfo;
 const BoardAuthorInfoContainer = styled.div`
   width: 645px;
   height: 100px;
-  padding-top: 24px;
+  padding: 25px 0 25px 0;
   border-bottom: 0.5px solid #bababa;
   display: grid;
   grid-template-columns: 50px 1fr;
