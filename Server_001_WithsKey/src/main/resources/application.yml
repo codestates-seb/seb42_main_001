@@ -25,4 +25,8 @@ logging:
         orm:
           jpa: DEBUG
 
+file:
+  root:
+    dir: "C:\\Users\\MEcmp\\Desktop\\Main_Proj\\sampleImgPath\\"
+
 
