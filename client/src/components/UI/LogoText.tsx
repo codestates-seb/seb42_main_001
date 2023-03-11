@@ -16,6 +16,6 @@ export default LogoText
 
 const Logo = styled.div`
     font-family: 'Bayon', sans-serif;
-    font-size: 20px;
+    font-size: var(--text-medium);
     color: var(--color-white)
 `

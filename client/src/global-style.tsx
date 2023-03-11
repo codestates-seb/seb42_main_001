@@ -15,9 +15,11 @@ export const GlobalStyle = createGlobalStyle`
     --text-medium: 18px;
     --text-large: 22px;
     --text-x-large: 26px;
+
     /* font-weight */
     --weight-large: 700;
     --weight-x-large: 900;
+
     /* size */
     --xxx-samll: 8px;
     --xx-small: 10px;

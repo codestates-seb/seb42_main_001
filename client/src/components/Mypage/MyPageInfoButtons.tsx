@@ -21,7 +21,7 @@ export default MyPageInfoButtons;
 const MyPageInfoButtonContainer = styled.div`
   width: 350px;
   height: 200px;
-  margin-top: 80px;
+  margin-top: var(--xx-large);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

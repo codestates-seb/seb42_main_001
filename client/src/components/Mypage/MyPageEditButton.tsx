@@ -24,7 +24,7 @@ export default MyPageEditButton;
 const MyPageEditButtonContainer = styled.div`
   width: 350px;
   height: 200px;
-  margin-top: 80px;
+  margin-top: var(--xx-large);
   padding-bottom: var(--x-large);
   display: flex;
   flex-direction: column;

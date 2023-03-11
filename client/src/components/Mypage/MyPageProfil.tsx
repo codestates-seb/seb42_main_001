@@ -15,5 +15,5 @@ const MyPageProfilContainer = styled.div`
   height: 190px;
   border-radius: 50%;
   background-color: var(--color-sub-light-gray);
-  margin-top: 85px;
+  margin-top: 80px;
 `;

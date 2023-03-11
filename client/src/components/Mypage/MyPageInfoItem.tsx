@@ -23,7 +23,7 @@ const MyPageInfoItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: var(--x-large);
   > input {
     width: 350px;
     height: 60px;
@@ -33,7 +33,7 @@ const MyPageInfoItemContainer = styled.div`
 `;
 
 const MyPageInfoId = styled.div`
-  margin-bottom: 35px;
+  margin-bottom: var(--x-large);
   color: var(--color-main);
   font-size: var(--text-large);
   font-weight: 600;
@@ -45,7 +45,7 @@ const MyPageInfoOneLiner = styled.div`
 `;
 
 const MyPageEditId = styled.input`
-  margin-bottom: 35px;
+  margin-bottom: var(--x-large);
   color: var(--color-main);
   font-size: var(--text-large);
   font-weight: 600;
