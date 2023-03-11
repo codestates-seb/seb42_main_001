@@ -12,15 +12,27 @@ export const GlobalStyle = createGlobalStyle`
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
 
-    /* font */
-    --x-small-font-size: 11px;
-    --small-font-size: 14px;
-    --medium-font-size: 18px;
-    --large-font-size: 22px;
-    --x-large-font-size: 26px;
+    /* font-size */
+    --text-x-small: 11px;
+    --text-small: 14px;
+    --text-medium: 18px;
+    --text-large: 22px;
+    --text-x-large: 26px;
 
-    /* radius */
-    --radius-size: 10px;
+    /* font-weight */
+    --weight-large: 700;
+    --weight-x-large: 900;
+    
+    /* size */
+    --xxx-samll: 8px;
+    --xx-small: 10px;
+    --x-small: 14px;
+    --small: 18px;
+    --medium: 23px;
+    --large: 30px;
+    --x-large: 40px;
+    --xx-large: 60px;
+    --xxx-large: 100px;
 }
 
 * {
@@ -38,4 +50,4 @@ div, button {
     letter-spacing: 0.4px;
 }
 
-`
+`;

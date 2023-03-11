@@ -29,11 +29,11 @@ const ArticleContentNumber = styled.div`
   justify-content: center;
   align-items: center;
   font-size: var(--text-large);
-  font-weight: 600;
+  font-weight: var(--weight-large);
 `;
 
 const ArticleContentTitle = styled.div`
   font-size: var(--text-x-large);
-  font-weight: 600;
-  padding-top: 40px;
+  font-weight: var(--weight-large);
+  padding-top: var(--x-large);
 `;

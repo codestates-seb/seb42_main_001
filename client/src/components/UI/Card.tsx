@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 interface CardProps {
-    children?:any;
+  children?: any;
 }
 
-function Card({children} : CardProps) {
+function Card({ children }: CardProps) {
   return <CardLayout>{children}</CardLayout>;
 }
 
 export default Card;
 
 const CardLayout = styled.div`
-    background-color: var(--color-white);
-    box-shadow: 1px 1px 20px rgba(140, 140, 140, 0.4);
-    border-radius: var(--radius-size);
+  background-color: var(--color-white);
+  box-shadow: 1px 1px 20px rgba(140, 140, 140, 0.4);
+  border-radius: var(--xx-small);
 `;

@@ -34,7 +34,7 @@ const ArticleModalContainer = styled.div`
 `;
 
 const ArticleModalArrowButton = styled.div`
-  margin: 0 105px;
-  font-size: 100px;
+  margin: 0 var(--xxx-large);
+  font-size: var(--xxx-large);
   color: var(--color-white);
 `;

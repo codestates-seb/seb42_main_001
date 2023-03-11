@@ -13,7 +13,7 @@ export default ArticleContentBody;
 
 const ArticleContentBodyContainer = styled.div`
   flex: 2 0;
-  padding: 0 10%;
+  padding: 0 var(--xx-large);
   display: flex;
   justify-content: center;
   align-items: center;
