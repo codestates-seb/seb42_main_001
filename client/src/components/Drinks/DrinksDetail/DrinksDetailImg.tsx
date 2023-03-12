@@ -4,21 +4,25 @@ import Card from "../../UI/Card";
 
 function DrinksDetailImg() {
   return (
-    <div>
+    <Size>
       <Card>
         <ImgContainer>img</ImgContainer>
       </Card>
-    </div>
+    </Size>
   );
 }
 
 export default DrinksDetailImg;
 
 const ImgContainer = styled.div`
-  width: 695px;
+  max-width: 695px;
   height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: var(--xx-samll);
 `;
+
+const Size = styled.div`
+  width: 100%;
+`

@@ -7,8 +7,8 @@ function DrinksDetailWith() {
     <SnackContainer>
       <Card>
         <div>img</div>
+        <span>몽키 숄더</span>
       </Card>
-      <span>몽키 숄더</span>
     </SnackContainer>
   );
 }
@@ -18,19 +18,23 @@ export default DrinksDetailWith;
 const SnackContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  margin: 0 var(--large) var(--xx-large) var(--large);
 
   div {
-    width: 180px;
-    height: 180px;
+    width: 210px;
+    height: 260px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--x-small);
   }
 
   span {
-    font-size: var(--x-small)
+    font-size: var(--x-small);
+    font-weight: var(--weight-large);
+    margin-bottom: var(--medium);
   }
 `;

@@ -13,6 +13,12 @@ function DrinksDetailSnacks() {
         <DrinksDetailSnack />
         <DrinksDetailSnack />
         <DrinksDetailSnack />
+        <DrinksDetailSnack />
+        <DrinksDetailSnack />
+        <DrinksDetailSnack />
+        <DrinksDetailSnack />
+        <DrinksDetailSnack />
+        <DrinksDetailSnack />
       </SnackFlex>
     </SnackContainer>
   );
@@ -24,15 +30,13 @@ const SnackContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  padding: var(--medium) 0;
+  flex-wrap: wrap;
 `;
 
 const SnackFlex = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: var(--medium);
+  align-content: flex-start;
 `;

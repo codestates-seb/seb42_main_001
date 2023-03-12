@@ -54,5 +54,5 @@ const TopBorderMargin = styled.div`
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
   padding: var(--xx-small);
-  margin-left: var(--samll);
+  margin-left: var(--large);
 `;
