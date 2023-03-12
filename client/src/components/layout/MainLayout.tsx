@@ -3,17 +3,24 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
-import Card from "../UI/Card";
 
+interface MainLayoutProps {
+  color?: boolean;
+}
 
-function MainLayout() {
+function MainLayout({ color }: MainLayoutProps) {
   return (
     <DefaultSize>
-      <Header />
-      
+      {color ? (
+        <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
+      ) : (
+        <Header />
+      )}
+
       <Container>
         <Outlet />
       </Container>
+
       <Footer />
     </DefaultSize>
   );

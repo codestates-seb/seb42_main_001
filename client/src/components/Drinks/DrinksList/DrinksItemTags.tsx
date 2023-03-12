@@ -5,7 +5,6 @@ function DrinksItemTags() {
   return (
     <TagsContainer>
       <div>#효도</div>
-
       <div>#데이트</div>
     </TagsContainer>
   );
@@ -15,6 +14,7 @@ export default DrinksItemTags;
 
 const TagsContainer = styled.div`
   display: flex;
+  cursor: pointer;
 
     div {
       color: var(--color-sub-gray);

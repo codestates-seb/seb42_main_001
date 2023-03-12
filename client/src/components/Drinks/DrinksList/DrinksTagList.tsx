@@ -3,6 +3,16 @@ import styled from "styled-components";
 import DrinksTags from "./DrinksTags";
 
 function DrinksTagList() {
+
+  const scrollToSide = () => {
+    window.scrollTo({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    })
+  }
+
+
   return (
     <>
       <TagListContainer>
@@ -26,7 +36,7 @@ function DrinksTagList() {
         <DrinksTags />
         <DrinksTags />
       </TagListContainer>
-      <PageButton>{`>`}</PageButton>
+      <PageButton onClick={scrollToSide}>{`>`}</PageButton>
     </>
   );
 }

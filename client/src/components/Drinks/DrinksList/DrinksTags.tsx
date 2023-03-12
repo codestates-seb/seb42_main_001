@@ -6,7 +6,7 @@ function DrinksTags() {
   return (
     <TagsContainer>
       <AiFillApple />
-      <div>최고의 전망</div>
+      <div>데이트</div>
     </TagsContainer>
   );
 }
@@ -19,13 +19,14 @@ const TagsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-right: 100px;
+  margin-right: var(--medium);
 
   div {
-    width: 50px;
+    width: 70px;
     font-size: var(--text-x-small);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: var(--xx-small);
   }
 `;
