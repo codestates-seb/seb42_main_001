@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import Card from '../Card';
 import { FaUserCircle } from 'react-icons/fa';
+import More from '../More';
 
 function Comment() {
   return (
@@ -13,6 +14,9 @@ function Comment() {
           </CommentAuthorInfoImg>
           <CommentAuthorName>lampu</CommentAuthorName>
           <CommentCreatedAt>23.03.07</CommentCreatedAt>
+          <CommentMore>
+            <More></More>
+          </CommentMore>
         </CommentAuthorInfo>
         <CommentContents>
           아티클에 있는 안주를 다 드셔 보셨나요?? 멋지십니다 굿
@@ -37,7 +41,7 @@ const CommentAuthorInfo = styled.div`
   margin-bottom: 20px;
   height: 50px;
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 50px 1fr 20px;
   gap: 4px 14px;
 `;
 
@@ -62,6 +66,11 @@ const CommentCreatedAt = styled.div`
   font-weight: 500;
   line-height: 17px;
   color: var(--color-sub-light-gray);
+`;
+
+const CommentMore = styled.div`
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
 `;
 
 const CommentContents = styled.div`

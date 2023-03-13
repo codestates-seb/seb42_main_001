@@ -55,17 +55,22 @@ const Wrapper = styled.div`
 `;
 
 const BoardDetailContainer = styled.div`
+  width: calc(100% / 18 * 12);
   background-color: var(--color-white);
+  padding: 105px 0 95px 0;
 `;
 
 const BoardCommentsContainer = styled.div`
+  width: calc(100% / 18 * 12);
   background-color: var(--color-sub-gray);
+  padding: 55px 0 200px 0;
 `;
 
 const BoardDetailHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 65px 0 45px 0;
   border-bottom: 0.5px solid #bababa;
 `;
 
@@ -84,7 +89,7 @@ const BoardDetailBody = styled.div`
 const ListContainer = styled.div`
   width: 100%;
   display: grid;
-  gap: 23px;
+  gap: 25px;
 `;
 
 const CommentInputContainer = styled.div`
