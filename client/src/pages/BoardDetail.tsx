@@ -30,6 +30,7 @@ function BoardDetail() {
         </BoardDetailBody>
       </BoardDetailContainer>
       <BoardCommentsContainer>
+        <CommentsCount>Comments 2</CommentsCount>
         <CommentInputContainer>
           <CommentInput></CommentInput>
           <CommentSubmitBtn></CommentSubmitBtn>
@@ -90,4 +91,11 @@ const CommentInputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 15px 0 50px 0;
+`;
+
+const CommentsCount = styled.div`
+  font-weight: var(--weight-large);
+  font-size: var(--text-small);
+  line-height: 16px;
 `;
