@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 interface CardProps {
-    children?:any;
+  children?: any;
 }
 
-function Card({children} : CardProps) {
+function Card({ children }: CardProps) {
   return <CardLayout>{children}</CardLayout>;
 }
 

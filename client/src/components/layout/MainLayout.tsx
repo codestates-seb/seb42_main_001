@@ -16,7 +16,6 @@ function MainLayout({ color }: MainLayoutProps) {
       ) : (
         <Header />
       )}
-
       <Container>
         <Outlet />
       </Container>
