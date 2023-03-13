@@ -1,19 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import BoardAuthorInfo from "../components/Board/BoardAuthorInfo";
-import BoardDetailTitle from "../components/Board/BoardDetailTitle";
-import BoardLikes from "../components/Board/BoardLikes";
-import BoardComments from "../components/Board/BoardComments";
-import More from "../components/UI/More";
-import BoardDetailContents from "../components/Board/BoardDetailContents";
-import BoardTags from "../components/Board/BoardTags";
-import Comment from "../components/UI/Comment/Comment";
-import CommentInput from "../components/UI/Comment/CommentInput";
-import CommentSubmitBtn from "../components/UI/Comment/CommentSubmitBtn";
+import BoardAuthorInfo from '../components/Board/BoardAuthorInfo';
+import BoardDetailTitle from '../components/Board/BoardDetailTitle';
+import BoardLikes from '../components/Board/BoardLikes';
+import BoardComments from '../components/Board/BoardComments';
+import More from '../components/UI/More';
+import BoardDetailContents from '../components/Board/BoardDetailContents';
+import BoardTags from '../components/Board/BoardTags';
+import Comment from '../components/UI/Comment/Comment';
+import CommentInput from '../components/UI/Comment/CommentInput';
+import CommentSubmitBtn from '../components/UI/Comment/CommentSubmitBtn';
+import BoardSuggest from '../components/Board/BoardSuggest';
 
 function BoardDetail() {
   return (
     <Wrapper>
+      <BoardSuggest></BoardSuggest>
       <BoardDetailContainer>
         <BoardAuthorInfo />
         <BoardDetailHeader>
@@ -49,9 +51,10 @@ export default BoardDetail;
 const Wrapper = styled.div`
   width: 100%;
   height: auto;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const BoardDetailContainer = styled.div`
