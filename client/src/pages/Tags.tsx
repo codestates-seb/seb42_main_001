@@ -1,4 +1,4 @@
-import MainTags from "../Tags/MainTags";
+import MainTags from "../components/Tags/MainTags";
 
 const Tags = () => {
   return <MainTags />;
