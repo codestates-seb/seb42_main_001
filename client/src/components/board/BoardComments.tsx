@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
+import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 
 function BoardComments() {
   return (
     <CommentsWrapper>
-        <HiOutlineChatBubbleOvalLeft />
+      <HiOutlineChatBubbleOvalLeft />
       <CommentsCount>10</CommentsCount>
     </CommentsWrapper>
   );
@@ -18,7 +18,7 @@ const CommentsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   svg {
     margin-right: 5px;
     color: var(--color-main);
