@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.board.entity;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
 import com.codestates.server_001_withskey.domain.like.entity.LikeBoard;
+import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import java.util.ArrayList;
@@ -34,10 +35,10 @@ public class Board extends Auditable {
     private String content;
 
     @Column
-    private String boardImageUrl;
+    private String boardTitle;
 
-//    @ManyToOne
-//    private Member member;
+    @ManyToOne
+    private Member member;
 
     // Like 1:N
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)

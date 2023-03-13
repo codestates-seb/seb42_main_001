@@ -2,6 +2,8 @@ package com.codestates.server_001_withskey.domain.comment.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
+import com.codestates.server_001_withskey.domain.member.entity.Member;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +21,6 @@ public class CommentBoard {
     @ManyToOne(fetch = FetchType.LAZY)
     private Board board;
 
-//    @ManyToOne
-//    private Member member;
+    @ManyToOne
+    private Member member;
 }

@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.board.dto;
+package com.codestates.server_001_withskey.commondto;
 
 import java.util.List;
 import java.util.function.Function;
@@ -44,7 +44,7 @@ public class PageResultDto<DTO, EN>{
         this.page = pageable.getPageNumber() + 1; // 0부터 시작하므로 1을 추가
         this.size = pageable.getPageSize();
 
-        //temp end page
+        //temp end page: 마지막 페이지 return
         int tempEnd = (int)(Math.ceil(page/10.0)) * 10;
 
         start = tempEnd - 9;

@@ -1,8 +1,8 @@
 package com.codestates.server_001_withskey.domain.board.service;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.dto.PageRequestDto;
-import com.codestates.server_001_withskey.domain.board.dto.PageResultDto;
+import com.codestates.server_001_withskey.commondto.PageRequestDto;
+import com.codestates.server_001_withskey.commondto.PageResultDto;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 
 public interface BoardService {

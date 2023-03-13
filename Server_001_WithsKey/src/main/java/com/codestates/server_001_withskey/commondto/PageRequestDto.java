@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.board.dto;
+package com.codestates.server_001_withskey.commondto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
