@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Card from './Card';
+import Card from '../Card';
 import { FaUserCircle } from 'react-icons/fa';
 
 function Comment() {

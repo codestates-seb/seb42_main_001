@@ -7,7 +7,9 @@ import BoardComments from '../components/board/BoardComments';
 import More from '../components/UI/More';
 import BoardDetailContents from '../components/board/BoardDetailContents';
 import BoardTags from '../components/board/BoardTags';
-import Comment from '../components/UI/Comment';
+import Comment from '../components/UI/Comment/Comment';
+import CommentInput from '../components/UI/Comment/CommentInput';
+import CommentSubmitBtn from '../components/UI/Comment/CommentSubmitBtn';
 
 function BoardDetail() {
   return (
@@ -28,6 +30,10 @@ function BoardDetail() {
         </BoardDetailBody>
       </BoardDetailContainer>
       <BoardCommentsContainer>
+        <CommentInputContainer>
+          <CommentInput></CommentInput>
+          <CommentSubmitBtn></CommentSubmitBtn>
+        </CommentInputContainer>
         <ListContainer>
           <Comment></Comment>
           <Comment></Comment>
@@ -76,7 +82,12 @@ const BoardDetailBody = styled.div`
 
 const ListContainer = styled.div`
   width: 100%;
+  display: grid;
+  gap: 23px;
+`;
+
+const CommentInputContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 `;
