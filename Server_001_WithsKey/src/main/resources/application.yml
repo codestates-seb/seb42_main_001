@@ -7,16 +7,26 @@ spring:
     url: jdbc:h2:mem:test
   jpa:
     hibernate:
-      ddl-auto: create  # (1) ??? ?? ??
-    show-sql: true      # (2) SQL ?? ??
+      ddl-auto: create
+    show-sql: true
     properties:
       hibernate:
         format_sql: true  # (3) SQL pretty print
-#    defer-datasource-initialization: true
-#    sql:
-#      init:
-#        data-locations: classpath:data.sql
-#    DB
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
+            clientSecret: "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"
+            redirectUri: "http://localhost:8080/login/oauth2/code/google"
+            scope:
+              - email
+              - profile
+  redis:
+    host: localhost
+    port: 6379
+#    password: Optional, if Redis requires a password
 
 logging:
   level:
@@ -24,5 +34,12 @@ logging:
       springframework:
         orm:
           jpa: DEBUG
-
+mail:
+  address:
+    admin: han2041126@gmail.com
+jwt:
+  key:
+    secret: 001mainprojectwithskeyletsgoforitwecandoit
+  access-token-expiration-minutes: 30
+  refresh-token-expiration-minutes: 420
 
