@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function DrinksContents() {
   return (
     <ContentsContainer>
-      <Link to="/drinksdetail">
+      <Link to="/drinks/detail">
         <DrinksItem />
       </Link>
       <DrinksItem />
