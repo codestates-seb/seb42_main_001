@@ -4,13 +4,22 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import styled from 'styled-components';
 
-function MainLayout() {
+interface MainLayoutProps {
+  color?: boolean;
+}
+
+function MainLayout({ color }: MainLayoutProps) {
   return (
     <DefaultSize>
-      <Header />
+      {color ? (
+        <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
+      ) : (
+        <Header />
+      )}
       <Container>
         <Outlet />
       </Container>
+
       <Footer />
     </DefaultSize>
   );
@@ -21,11 +30,10 @@ export default MainLayout;
 const DefaultSize = styled.div`
   background-color: var(--color-sub-light-gray);
   width: 100vw;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
 `;
 
 const Container = styled.div`
@@ -33,7 +41,7 @@ const Container = styled.div`
   background-color: var(--color-sub-light-gray);
   width: 85%;
   max-width: 1420px;
-  height: 95vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

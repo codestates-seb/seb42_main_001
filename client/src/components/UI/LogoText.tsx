@@ -1,21 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-function LogoText() {
-  return (
-    <Link to="/">
-        <Logo>
-            WITH'S kEY
-            </Logo>
-    </Link>
- )
+interface LogoTextProps {
+  headerColor?: string;
 }
 
-export default LogoText
+function LogoText({ headerColor }: LogoTextProps) {
+  return (
+    <Link to="/">
+      <Logo headerColor={headerColor}>WITH'S kEY</Logo>
+    </Link>
+  );
+}
 
-const Logo = styled.div`
-    font-family: 'Bayon', sans-serif;
-    font-size: 20px;
-    color: var(--color-white)
-`
+export default LogoText;
+
+const Logo = styled.div<LogoTextProps>`
+  font-family: "Bayon", sans-serif;
+  font-size: var(--text-medium);
+  color: ${props => props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
+`;

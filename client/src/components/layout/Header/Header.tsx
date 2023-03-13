@@ -6,7 +6,12 @@ import Button from "../../UI/Button";
 import MenuNav from "./MenuNav";
 import UserNav from "./UserNav";
 
-function Header() {
+interface HeaderProps {
+  headerBgColor?: string; 
+  headerColor?: string; 
+}
+
+function Header({ headerBgColor, headerColor }: HeaderProps) {
   const [isLogin, setLogin] = useState(false);
 
   const handleLogin = () => {
@@ -14,35 +19,43 @@ function Header() {
   };
 
   return (
-    <HeaderBackground>
-
-      <HeaderContainer>
-        <LogoText />
-        <MenuNav />
-        {isLogin ? <UserNav /> : <Button onClick={handleLogin}>Login</Button>}
+    <HeaderBackground headerBgColor={headerBgColor}>
+      <HeaderContainer headerBgColor={headerBgColor}>
+        <LogoText headerColor={headerColor} />
+        <MenuNav headerColor={headerColor} />
+        {isLogin ? (
+          <UserNav />
+        ) : (
+          <LoginContainer>
+            <Button onClick={handleLogin}>Login</Button>
+          </LoginContainer>
+        )}
       </HeaderContainer>
-      
     </HeaderBackground>
   );
 }
 
 export default Header;
 
-const HeaderBackground = styled.div`
-  background-color: var(--color-main);
+const HeaderBackground = styled.div<HeaderProps>`
+  background-color: ${props => props.headerBgColor ? `var(${props.headerBgColor})`:`var(--color-white)`};
   width: 100%;
   height: 65px;
   display: flex;
   justify-content: center;
 `;
 
-const HeaderContainer = styled.div`
-  color: var(--color-white);
-  background-color: var(--color-main);
+const HeaderContainer = styled.div<HeaderProps>`
+  color: var(--color-main);
+  background-color: ${props => props.headerBgColor ? `var(${props.headerBgColor})`:`var(--color-white)`};
   width: 85%;
   max-width: 1420px;
   height: 65px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+const LoginContainer = styled.div`
+  width: 80px;
 `;

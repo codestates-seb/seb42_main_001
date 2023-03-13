@@ -1,23 +1,31 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-function MenuNav() {
-  return (
-    <MenuStyled>
-      <MenuItemStyled>Article</MenuItemStyled>
-      <MenuItemStyled>Drinks</MenuItemStyled>
-      <MenuItemStyled>Board</MenuItemStyled>
-    </MenuStyled>
-  )
+interface MenuNavProps {
+  headerColor?: string
 }
 
-export default MenuNav
+function MenuNav({ headerColor }: MenuNavProps) {
+  return (
+    <MenuStyled headerColor={headerColor} >
+      <MenuItemStyled>Article</MenuItemStyled>
+      <Link to="/drinks">
+        <MenuItemStyled>Drinks</MenuItemStyled>
+      </Link>
+      <MenuItemStyled>Board</MenuItemStyled>
+    </MenuStyled>
+  );
+}
 
-const MenuStyled = styled.div`
-    font-size: var(--small-size);
-    display: flex;
-`
+export default MenuNav;
+
+const MenuStyled = styled.div<MenuNavProps>`
+  color: ${props => props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
+  font-size: var(--text-small);
+  display: flex;
+`;
 
 const MenuItemStyled = styled.div`
-    margin: 0 35px;
-`
+  margin: 0 35px;
+`;
