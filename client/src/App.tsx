@@ -8,6 +8,7 @@ import ArticleList from "./pages/ArticleList";
 import MyPage from "./pages/MyPage";
 import BoardList from "./pages/BoardList";
 import BoardDetail from "./pages/BoardDetail";
+import Tags from "./pages/Tags";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/board/detail" element={<BoardDetail />} />
         <Route path="/drinks/list" element={<DrinksList />} />
         <Route path="/drinks/detail" element={<DrinksDetail />} />
+        <Route path="/tags" element={<Tags />} />
       </Route>
     </Routes>
   );
