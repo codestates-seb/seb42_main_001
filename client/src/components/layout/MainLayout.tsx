@@ -1,22 +1,24 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import styled from 'styled-components';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import styled from "styled-components";
+import johnnie from "../../img/johnnie_walker.svg";
 
 interface MainLayoutProps {
   color?: boolean;
+  img?: boolean;
 }
 
-function MainLayout({ color }: MainLayoutProps) {
+function MainLayout({ color, img }: MainLayoutProps) {
   return (
-    <DefaultSize>
+    <DefaultSize img={img}>
       {color ? (
         <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
       ) : (
         <Header />
       )}
-      <Container>
+      <Container img={img}>
         <Outlet />
       </Container>
 
@@ -27,8 +29,12 @@ function MainLayout({ color }: MainLayoutProps) {
 
 export default MainLayout;
 
-const DefaultSize = styled.div`
-  background-color: var(--color-sub-light-gray);
+const DefaultSize = styled.div<MainLayoutProps>`
+  background-color: ${(props) =>
+    props.img ? `var(--color-white)` : `var(--color-sub-light-gray)`};
+  background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
+  background-repeat: no-repeat;
+  background-position: 0 65px;
   width: 100vw;
   height: 100%;
   display: flex;
@@ -36,9 +42,10 @@ const DefaultSize = styled.div`
   flex-direction: column;
 `;
 
-const Container = styled.div`
+const Container = styled.div<MainLayoutProps>`
   color: var(--color-main);
-  background-color: var(--color-sub-light-gray);
+  background-color: ${(props) =>
+    props.img ? `none` : `var(--color-sub-light-gray)`};
   width: 85%;
   max-width: 1420px;
   height: 100%;
