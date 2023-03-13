@@ -50,7 +50,9 @@ public class JwtTokenizer {
                                       String subject,
                                       Date expiration,
                                       String base64EncodedSecretKey) {
+
         Key key = getKeyFromBase64EncodedKey(base64EncodedSecretKey);
+
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
@@ -70,21 +72,31 @@ public class JwtTokenizer {
                 .setExpiration(expiration)
                 .signWith(key)
                 .compact();
+
         return refreshToken;
     }
     public String regenerateAccessToken(String refreshToken) {
         try {
             Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
+
             Instant refreshTokenExpiration = Instant.ofEpochSecond((Long)refreshTokenClaims.getBody().get("exp"));
+
             if(refreshTokenExpiration.isBefore(Instant.now())) {
                 throw new RuntimeException("RefreshToken has expired");
             }
+
             String email = refreshTokenClaims.getBody().getSubject();
+
             Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
+
             Map<String, Object> accessTokenClaims = new HashMap<>();
+
             accessTokenClaims.put("email",email);
+
             String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
+
             return newAccessToken;
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -108,6 +120,7 @@ public class JwtTokenizer {
                 .build()
                 .parseClaimsJws(jws);
     }
+
     public Date getTokenExpiration(int expirationMinutes) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, expirationMinutes);
@@ -115,6 +128,7 @@ public class JwtTokenizer {
 
         return expiration;
     }
+
     private Key getKeyFromBase64EncodedKey (String base64EncodedSecretKey) {
         byte[] keyBytes = Decoders.BASE64.decode(base64EncodedSecretKey);
         Key key = Keys.hmacShaKeyFor(keyBytes);

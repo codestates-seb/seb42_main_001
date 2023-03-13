@@ -46,14 +46,21 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 setAuthenticationToContext(claims);
             } catch (SignatureException se) {
                 request.setAttribute("exception", se);
+
             } catch (ExpiredJwtException ee) {
+
                 // token이 만료가 될 경우, Request header에서 Refresh Token을 가져온다.
                 String refreshToken = request.getHeader("Refresh");
+
                 Map<String, Object> refreshTokenClaims = verifyJws(refreshToken);
+
+                //TODO : 해당 객체 타입의 역할을 알기
                 Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.get("exp"));
+
                 if (refreshTokenExpiration.isBefore(Instant.now())) {
                     throw new RuntimeException("RefreshToken has expired");
                 }
+
                 // Regenerate new Access Token from JwtTokenizer class.
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
                 // Set new Access Token to response header

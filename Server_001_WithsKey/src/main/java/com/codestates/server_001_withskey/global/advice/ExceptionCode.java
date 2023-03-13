@@ -9,7 +9,8 @@ public enum ExceptionCode {
     EMAIL_ALREADY_EXIST(403,"이미 가입된 이메일 입니다"),
     DATA_IS_EMPTY(404,"저장된 데이터가 없습니다."),
     METHOD_NOT_ALLOWED(405,"요청에 적합한 메서드가 아닙니다"),
-    INTERNAL_SERVER_ERROR(406,"Null Point Exception");
+    INTERNAL_SERVER_ERROR(406,"Null Point Exception"),
+    BUSINESS_LOGIC_NOT_IMPLEMENTED(404, "비즈니스 로직이 구현되지 않았습니다.");
 
     @Getter
     int status;
