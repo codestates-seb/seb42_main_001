@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import DrinksTagList from "./DrinksTagList";
-import DrinkSearch from "./DrinksSearch";
 import styled from "styled-components";
+
+import BoardCreate from "./BoardCreate";
+import BoardSearch from "./BoardSearch";
 import { AiOutlineSearch } from "react-icons/ai";
 
-function DrinksInfo() {
+function BoardInfo() {
   const [search, setSearch] = useState(false);
 
   const handleSearchChange = () => {
@@ -13,7 +14,13 @@ function DrinksInfo() {
 
   return (
     <InfoContainer>
-      {search ? <DrinkSearch /> : <DrinksTagList />}
+      {search ? (
+        <BoardSearch />
+      ) : (
+        <MarginDiv>
+          <BoardCreate />
+        </MarginDiv>
+      )}
       <SearchButton onClick={handleSearchChange}>
         <AiOutlineSearch />
       </SearchButton>
@@ -21,7 +28,7 @@ function DrinksInfo() {
   );
 }
 
-export default DrinksInfo;
+export default BoardInfo;
 
 const InfoContainer = styled.div`
   width: 100%;
@@ -29,6 +36,13 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+const MarginDiv = styled.div`
+  width: 93%;
+  margin-right: var(--x-small);
+  display: flex;
+  justify-content: end;
 `;
 
 const SearchButton = styled.div`

@@ -5,16 +5,16 @@ import Footer from './Footer/Footer';
 import styled from 'styled-components';
 
 interface MainLayoutProps {
-  color?: boolean;
+  bgColor?: boolean;
 }
 
-function MainLayout({ color }: MainLayoutProps) {
+function MainLayout({ bgColor }: MainLayoutProps) {
   return (
-    <DefaultSize>
-      {color ? (
+    <DefaultSize bgColor={bgColor}>
+      {bgColor ? (
         <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
       ) : (
-        <Header />
+        <Header profileColor={`--color-main`} />
       )}
       <Container>
         <Outlet />
@@ -27,8 +27,8 @@ function MainLayout({ color }: MainLayoutProps) {
 
 export default MainLayout;
 
-const DefaultSize = styled.div`
-  background-color: var(--color-sub-light-gray);
+const DefaultSize = styled.div<MainLayoutProps>`
+  background-color: ${props=>props.bgColor?`var(--color-sub-light-gray)`:`var(--color-main)`};
   width: 100vw;
   height: 100%;
   display: flex;

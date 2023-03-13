@@ -15,9 +15,13 @@ function Mypage() {
   return (
     <MypageContainer>
       {isEdit ? (
-        <MyPageEdit isEdit={isEdit} onClick={handleMyPageEdit} />
+        <MarginWarpper>
+          <MyPageEdit isEdit={isEdit} onClick={handleMyPageEdit} />
+        </MarginWarpper>
       ) : (
-        <MyPageInfo isEdit={isEdit} onClick={handleMyPageEdit} />
+        <MarginWarpper>
+          <MyPageInfo isEdit={isEdit} onClick={handleMyPageEdit} />
+        </MarginWarpper>
       )}
       <MyContent />
     </MypageContainer>
@@ -33,4 +37,8 @@ const MypageContainer = styled.div`
   background-color: var(--color-main);
   display: flex;
   justify-content: space-between;
+`;
+
+const MarginWarpper = styled.div`
+  margin-right: var(--medium);
 `;

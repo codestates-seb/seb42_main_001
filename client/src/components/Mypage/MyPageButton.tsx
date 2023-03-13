@@ -27,7 +27,8 @@ const MyPageButton = ({
 export default MyPageButton;
 
 const MyPageButtonContainer = styled.button<MyPageButtonProps>`
-  width: 350px;
+  width: 85%;
+  max-width: 350px;
   height: 60px;
   color: ${(props) => `var(${props.color})` || `var(--color-main)`};
   border: none;

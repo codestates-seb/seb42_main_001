@@ -17,6 +17,9 @@ export const GlobalStyle = createGlobalStyle`
     --text-x-large: 26px;
 
     /* font-weight */
+    --weight-x-small: 400;
+    --weight-small: 500;
+    --weight-medium: 600;
     --weight-large: 700;
     --weight-x-large: 900;
 

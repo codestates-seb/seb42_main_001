@@ -9,9 +9,10 @@ import UserNav from "./UserNav";
 interface HeaderProps {
   headerBgColor?: string; 
   headerColor?: string; 
+  profileColor?: string;
 }
 
-function Header({ headerBgColor, headerColor }: HeaderProps) {
+function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
   const [isLogin, setLogin] = useState(false);
 
   const handleLogin = () => {
@@ -24,7 +25,7 @@ function Header({ headerBgColor, headerColor }: HeaderProps) {
         <LogoText headerColor={headerColor} />
         <MenuNav headerColor={headerColor} />
         {isLogin ? (
-          <UserNav />
+          <UserNav profileColor={profileColor} />
         ) : (
           <LoginContainer>
             <Button onClick={handleLogin}>Login</Button>

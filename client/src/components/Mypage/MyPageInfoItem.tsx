@@ -25,7 +25,7 @@ const MyPageInfoItemContainer = styled.div`
   align-items: center;
   margin-top: var(--x-large);
   > input {
-    width: 350px;
+    width: 150%;
     height: 60px;
     border: 1px solid var(--color-sub-light-gray);
     border-radius: var(--xx-small);
@@ -36,7 +36,7 @@ const MyPageInfoId = styled.div`
   margin-bottom: var(--x-large);
   color: var(--color-main);
   font-size: var(--text-large);
-  font-weight: 600;
+  font-weight: var(--weight-medium);
 `;
 
 const MyPageInfoOneLiner = styled.div`
@@ -48,7 +48,7 @@ const MyPageEditId = styled.input`
   margin-bottom: var(--x-large);
   color: var(--color-main);
   font-size: var(--text-large);
-  font-weight: 600;
+  font-weight: var(--weight-medium);
   text-align: center;
 `;
 
