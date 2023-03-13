@@ -1,13 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { FaRegHeart } from 'react-icons/fa';
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 
 function BoardLikes() {
   return (
     <LikesWrapper>
-      <IconWrapper>
-        <FaRegHeart></FaRegHeart>
-      </IconWrapper>
+      <IoMdHeartEmpty />
       <LikesCount>12</LikesCount>
     </LikesWrapper>
   );
@@ -16,20 +14,20 @@ function BoardLikes() {
 export default BoardLikes;
 
 const LikesWrapper = styled.div`
-  margin-right: 25px;
+  margin-right: var(--medium);
   display: flex;
   align-items: center;
-`;
-
-const IconWrapper = styled.div`
-  margin-right: 5px;
-  width: 20px;
-  height: 20px;
-  color: var(--color-main);
+  justify-content: center;
+  
+  svg {
+    margin-right: 5px;
+    color: var(--color-main);
+    font-size: var(--medium);
+  }
 `;
 
 const LikesCount = styled.div`
-  font-size: var(--small-font-size);
-  font-weight: 600;
+  font-size: var(--x-small);
+  font-weight: var(--weight-medium);
   color: var(--color-main);
 `;

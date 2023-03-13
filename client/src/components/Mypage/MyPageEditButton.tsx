@@ -22,12 +22,14 @@ const MyPageEditButton = ({ onClick }: MyPageEditButtonProps) => {
 export default MyPageEditButton;
 
 const MyPageEditButtonContainer = styled.div`
-  width: 350px;
+  width: 90%;
+  max-width: 450px;
   height: 200px;
   margin-top: var(--xx-large);
   padding-bottom: var(--x-large);
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: flex-end;
   font-size: var(--text-small);
 `;

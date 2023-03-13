@@ -28,10 +28,12 @@ function MyContent() {
 export default MyContent;
 
 const MyContentContainer = styled.div`
-  width: 940px;
+  width: 100%;
+  max-width: 940px;
   height: 100%;
-  padding: var(--x-large) var(--xxx-large);
+  padding: var(--xx-large) 0 var(--xx-large) var(--xx-large);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 `;

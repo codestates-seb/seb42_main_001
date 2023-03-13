@@ -1,13 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { FaRegCommentAlt } from 'react-icons/fa';
+import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 
 function BoardComments() {
   return (
     <CommentsWrapper>
-      <IconWrapper>
-        <FaRegCommentAlt></FaRegCommentAlt>
-      </IconWrapper>
+      <HiOutlineChatBubbleOvalLeft />
       <CommentsCount>10</CommentsCount>
     </CommentsWrapper>
   );
@@ -16,20 +14,20 @@ function BoardComments() {
 export default BoardComments;
 
 const CommentsWrapper = styled.div`
-  margin-right: 25px;
+  margin-right: var(--medium);
   display: flex;
   align-items: center;
-`;
+  justify-content: center;
 
-const IconWrapper = styled.div`
-  margin-right: 5px;
-  width: 20px;
-  height: 20px;
-  color: var(--color-main);
+  svg {
+    margin-right: 5px;
+    color: var(--color-main);
+    font-size: var(--medium);
+  }
 `;
 
 const CommentsCount = styled.div`
-  font-size: var(--small-font-size);
-  font-weight: 600;
+  font-size: var(--x-small);
+  font-weight: var(--weight-medium);
   color: var(--color-main);
 `;

@@ -17,7 +17,7 @@ function App() {
         <Route path="/article" element={<ArticleList />} />
         <Route path="/mypage" element={<MyPage />} />
       </Route>
-      <Route element={<MainLayout color />}>
+      <Route element={<MainLayout bgColor />}>
         <Route path="/board/list" element={<BoardList />} />
         <Route path="/board/detail" element={<BoardDetail />} />
         <Route path="/drinks/list" element={<DrinksList />} />

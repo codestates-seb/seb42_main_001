@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 function BoardContents() {
   return (
@@ -15,22 +15,21 @@ function BoardContents() {
 export default BoardContents;
 
 const BoardContentsContainer = styled.div`
-  width: 645px;
+  margin: var(--medium) 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
 `;
 
 const BoardContentsTitle = styled.div`
-  font-size: var(--large-font-size);
-  font-weight: 600;
-  line-height: 27px;
-  margin: 25px 12px 13px 12px;
+  margin-bottom: var(--x-small);
+  font-size: var(--medium);
+  font-weight: var(--weight-large);
 `;
 
 const BoardContentsBody = styled.div`
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  line-height: 22px;
-  margin: 0 12px 20px 12px;
+  line-height: var(--medium);
+  font-size: var(--x-small);
+  font-weight: var(--weight-x-small);
 `;

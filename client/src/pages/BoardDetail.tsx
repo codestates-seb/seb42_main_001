@@ -1,43 +1,43 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import BoardAuthorInfo from '../components/board/BoardAuthorInfo';
-import BoardDetailTitle from '../components/board/BoardDetailTitle';
-import BoardLikes from '../components/board/BoardLikes';
-import BoardComments from '../components/board/BoardComments';
-import More from '../components/UI/More';
-import BoardDetailContents from '../components/board/BoardDetailContents';
-import BoardTags from '../components/board/BoardTags';
-import Comment from '../components/UI/Comment/Comment';
-import CommentInput from '../components/UI/Comment/CommentInput';
-import CommentSubmitBtn from '../components/UI/Comment/CommentSubmitBtn';
+import BoardAuthorInfo from "../components/Board/BoardAuthorInfo";
+import BoardDetailTitle from "../components/Board/BoardDetailTitle";
+import BoardLikes from "../components/Board/BoardLikes";
+import BoardComments from "../components/Board/BoardComments";
+import More from "../components/UI/More";
+import BoardDetailContents from "../components/Board/BoardDetailContents";
+import BoardTags from "../components/Board/BoardTags";
+import Comment from "../components/UI/Comment/Comment";
+import CommentInput from "../components/UI/Comment/CommentInput";
+import CommentSubmitBtn from "../components/UI/Comment/CommentSubmitBtn";
 
 function BoardDetail() {
   return (
     <Wrapper>
       <BoardDetailContainer>
-        <BoardAuthorInfo></BoardAuthorInfo>
+        <BoardAuthorInfo />
         <BoardDetailHeader>
-          <BoardDetailTitle></BoardDetailTitle>
+          <BoardDetailTitle />
           <BoardDetailController>
-            <BoardLikes></BoardLikes>
-            <BoardComments></BoardComments>
-            <More></More>
+            <BoardLikes />
+            <BoardComments />
+            <More />
           </BoardDetailController>
         </BoardDetailHeader>
         <BoardDetailBody>
-          <BoardDetailContents></BoardDetailContents>
-          <BoardTags></BoardTags>
+          <BoardDetailContents />
+          <BoardTags />
         </BoardDetailBody>
       </BoardDetailContainer>
       <BoardCommentsContainer>
         <CommentsCount>Comments 2</CommentsCount>
         <CommentInputContainer>
-          <CommentInput></CommentInput>
-          <CommentSubmitBtn></CommentSubmitBtn>
+          <CommentInput />
+          <CommentSubmitBtn />
         </CommentInputContainer>
         <ListContainer>
-          <Comment></Comment>
-          <Comment></Comment>
+          <Comment />
+          <Comment />
         </ListContainer>
       </BoardCommentsContainer>
     </Wrapper>
