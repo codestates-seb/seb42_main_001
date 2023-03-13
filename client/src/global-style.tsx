@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     /* color */
     --color-main: #473F3F;
     --color-sub-dark-gray: #8F8F8F;
-    --color-sub-gray: #DODODO;
+    --color-sub-gray: #D0D0D0;
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
 
@@ -44,6 +44,7 @@ export const GlobalStyle = createGlobalStyle`
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 div, button {
