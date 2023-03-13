@@ -8,6 +8,7 @@ import ArticleList from "./pages/ArticleList";
 import MyPage from "./pages/MyPage";
 import BoardList from "./pages/BoardList";
 import BoardDetail from "./pages/BoardDetail";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/article" element={<ArticleList />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/signup" element={<SignUp />} />
       </Route>
       <Route element={<MainLayout color />}>
         <Route path="/board/list" element={<BoardList />} />
