@@ -1,6 +1,8 @@
 package com.codestates.server_001_withskey.domain.like.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
+import com.codestates.server_001_withskey.domain.member.entity.Member;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,5 +20,6 @@ public class LikeBoard {
     @ManyToOne(fetch = FetchType.LAZY)
     private Board board;
 
-//    private Member member;
+    @ManyToOne
+    private Member member;
 }

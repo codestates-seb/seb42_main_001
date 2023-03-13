@@ -1,10 +1,9 @@
 package com.codestates.server_001_withskey.domain.board;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.dto.PageRequestDto;
-import com.codestates.server_001_withskey.domain.board.dto.PageResultDto;
+import com.codestates.server_001_withskey.commondto.PageRequestDto;
+import com.codestates.server_001_withskey.commondto.PageResultDto;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
-import com.codestates.server_001_withskey.domain.board.entity.repository.BoardRepository;
 import com.codestates.server_001_withskey.domain.board.service.BoardServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

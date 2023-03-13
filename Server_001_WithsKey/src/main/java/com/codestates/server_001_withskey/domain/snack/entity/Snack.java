@@ -23,7 +23,7 @@ public class Snack {
 
     private String snackInfo;
 
-    private String snackImageUrl;
+    private String snackImageUrl; //초기 데이터 대상이기 때문에 url 살릴 듯 합니다.
 
     @Column(nullable = false, unique = true)
     private String snackName;

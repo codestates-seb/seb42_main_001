@@ -20,6 +20,4 @@ public class SnackDrink {
     @ManyToOne(fetch = FetchType.LAZY)
     private Snack snack;
 
-
-
 }
