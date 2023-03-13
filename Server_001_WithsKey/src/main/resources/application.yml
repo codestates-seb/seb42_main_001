@@ -1,28 +1,44 @@
+#spring:
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
+#  datasource:
+#    url: jdbc:h2:mem:test
+#  jpa:
+#    hibernate:
+#      ddl-auto: create  # (1) ??? ?? ??
+#    show-sql: true      # (2) SQL ?? ??
+#    properties:
+#      hibernate:
+#        format_sql: true  # (3) SQL pretty print
+##    defer-datasource-initialization: true
+##    sql:
+##      init:
+##        data-locations: classpath:data.sql
+##    DB
+#
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        orm:
+#          jpa: DEBUG
+#
+#
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2
+  profiles:
+    include: oauth
   datasource:
-    url: jdbc:h2:mem:test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demoDB
+    username: demo
+    password: demo
   jpa:
     hibernate:
-      ddl-auto: create  # (1) ??? ?? ??
-    show-sql: true      # (2) SQL ?? ??
+      ddl-auto: update
     properties:
       hibernate:
-        format_sql: true  # (3) SQL pretty print
-#    defer-datasource-initialization: true
-#    sql:
-#      init:
-#        data-locations: classpath:data.sql
-#    DB
-
-logging:
-  level:
-    org:
-      springframework:
-        orm:
-          jpa: DEBUG
-
-
+        #        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
