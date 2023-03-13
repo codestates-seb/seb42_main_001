@@ -2,9 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function MenuNav() {
+interface MenuNavProps {
+  headerColor?: string
+}
+
+function MenuNav({ headerColor }: MenuNavProps) {
   return (
-    <MenuStyled>
+    <MenuStyled headerColor={headerColor} >
       <MenuItemStyled>Article</MenuItemStyled>
       <Link to="/drinks">
         <MenuItemStyled>Drinks</MenuItemStyled>
@@ -16,7 +20,8 @@ function MenuNav() {
 
 export default MenuNav;
 
-const MenuStyled = styled.div`
+const MenuStyled = styled.div<MenuNavProps>`
+  color: ${props => props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
   font-size: var(--text-small);
   display: flex;
 `;

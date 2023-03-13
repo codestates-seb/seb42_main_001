@@ -20,5 +20,5 @@ const MainDrinksContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: topz;
+  justify-content: top;
 `;

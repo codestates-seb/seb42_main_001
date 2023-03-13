@@ -3,6 +3,16 @@ import styled from "styled-components";
 import DrinksTags from "./DrinksTags";
 
 function DrinksTagList() {
+
+  const scrollToSide = () => {
+    window.scrollTo({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    })
+  }
+
+
   return (
     <>
       <TagListContainer>
@@ -26,7 +36,7 @@ function DrinksTagList() {
         <DrinksTags />
         <DrinksTags />
       </TagListContainer>
-      <PageButton>{`>`}</PageButton>
+      <PageButton onClick={scrollToSide}>{`>`}</PageButton>
     </>
   );
 }
@@ -36,14 +46,9 @@ export default DrinksTagList;
 const TagListContainer = styled.div`
   display: flex;
   width: 85%;
-  overflow: scroll;
-
-  scroll::-webkit-scrollbar {
+  overflow: overlay;
+  &::-webkit-scrollbar {
     display: none;
-  }
-  scroll {
-    -ms-overflow-style: none; /* 인터넷 익스플로러 */
-    scrollbar-width: none; /* 파이어폭스 */
   }
 `;
 
@@ -56,7 +61,7 @@ const PageButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-x-large);
+  border-radius: var(--large);
   cursor: pointer;
 
   svg {

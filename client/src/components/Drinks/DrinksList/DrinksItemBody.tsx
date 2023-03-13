@@ -19,7 +19,7 @@ const BodyContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  padding: var(--padding-large);
+  padding: var(--large);
 
     div {
       background-color: #f1f1f1;
@@ -28,7 +28,7 @@ const BodyContainer = styled.div`
     }
 
     span {
-      margin-top: var(--padding-large);
+      margin-top: var(--large);
       font-size: var(--text-medium);
       font-weight: var(--weight-large);
     }

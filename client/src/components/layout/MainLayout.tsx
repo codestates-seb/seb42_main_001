@@ -4,13 +4,22 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
 
-function MainLayout() {
+interface MainLayoutProps {
+  color?: boolean;
+}
+
+function MainLayout({ color }: MainLayoutProps) {
   return (
     <DefaultSize>
-      <Header />
+      {color ? (
+        <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
+      ) : (
+        <Header />
+      )}
       <Container>
         <Outlet />
       </Container>
+
       <Footer />
     </DefaultSize>
   );

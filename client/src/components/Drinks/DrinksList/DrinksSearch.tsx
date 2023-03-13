@@ -22,7 +22,7 @@ const SearchContainer = styled.div`
     height: 60px;
     border: none;
     outline: none;
-    border-radius: var(--radius-size);
-    padding-left: var(--padding-medium);
+    border-radius: var(--xx-small);
+    padding-left: var(--medium);
   }
 `;

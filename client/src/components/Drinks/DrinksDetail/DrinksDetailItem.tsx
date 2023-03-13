@@ -19,5 +19,5 @@ const ItemContainer = styled.div`
   height: 100%;
   display: flex;
   flex: 1 1 0;
-  margin-top: var(--margin-xxx-large);
+  margin-top: var(--xxx-large);
 `
