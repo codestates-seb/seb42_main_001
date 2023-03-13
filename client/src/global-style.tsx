@@ -22,29 +22,17 @@ export const GlobalStyle = createGlobalStyle`
     /* font-weight */
     --weight-large: 700;
     --weight-x-large: 900;
-
-    /* radius */
-    --radius-size: 10px;
-    --radius-large: 20px;
-    --radius-x-large: 30px;
-
-    /* padding */
-    --padding-xx-small: 10px;
-    --padding-x-small: 14px;
-    --padding-small: 18px;
-    --padding-medium: 23px;
-    --padding-large: 30px;
-
-    /* margin */
-    --margin-xxx-samll: 8px;
-    --margin-xx-samll: 10px;
-    --margin-x-samll: 14px;
-    --margin-samll: 18px;
-    --margin-medium: 23px;
-    --margin-large: 30px;
-    --margin-x-large: 40px;
-    --margin-xx-large: 60px;
-    --margin-xxx-large: 100px;
+    
+    /* size */
+    --xxx-samll: 8px;
+    --xx-small: 10px;
+    --x-small: 14px;
+    --small: 18px;
+    --medium: 23px;
+    --large: 30px;
+    --x-large: 40px;
+    --xx-large: 60px;
+    --xxx-large: 100px;
 }
 
 * {
@@ -63,4 +51,4 @@ div, button {
     letter-spacing: 0.4px;
 }
 
-`
+`;
