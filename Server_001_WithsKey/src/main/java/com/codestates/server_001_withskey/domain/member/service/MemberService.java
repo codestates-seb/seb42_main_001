@@ -4,7 +4,7 @@ import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.repository.MemberRepository;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
-import com.codestates.server_001_withskey.global.security.withsKeyAuthorityUtils;
+import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final withsKeyAuthorityUtils withsKeyAuthorityUtils;
 
-    public MemberService(MemberRepository memberRepository, com.codestates.server_001_withskey.global.security.withsKeyAuthorityUtils withsKeyAuthorityUtils) {
+    public MemberService(MemberRepository memberRepository, com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils withsKeyAuthorityUtils) {
         this.memberRepository = memberRepository;
         this.withsKeyAuthorityUtils = withsKeyAuthorityUtils;
     }

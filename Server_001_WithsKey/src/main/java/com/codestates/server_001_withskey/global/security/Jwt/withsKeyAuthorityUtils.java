@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.Jwt;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;

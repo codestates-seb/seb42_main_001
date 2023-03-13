@@ -38,43 +38,31 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-
         String authorizationHeader = request.getHeader("Authorization");
-        
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            
             String token = authorizationHeader.replace("Bearer ","");
-            
             try {
-                
                 Map<String, Object> claims = verifyJws(token);
-                
                 setAuthenticationToContext(claims);
-                
             } catch (SignatureException se) {
-                
                 request.setAttribute("exception", se);
-
             } catch (ExpiredJwtException ee) {
-
                 // token이 만료가 될 경우, Request header에서 Refresh Token을 가져온다.
                 String refreshToken = request.getHeader("Refresh");
-
                 Map<String, Object> refreshTokenClaims = verifyJws(refreshToken);
 
-                //TODO : 해당 객체 타입의 역할을 알기
-                Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.get("exp"));
+                long epochTime = (Long) refreshTokenClaims.get("exp");
+                // 1000L = 1 sec
+                Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
 
-                if (refreshTokenExpiration.isBefore(Instant.now())) {
-                    throw new RuntimeException("RefreshToken has expired");
+                if (refreshTokenExpiration.before(new Date())) {
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
+                            "Refresh Token has expired. Please re-login");
                 }
-
                 // Regenerate new Access Token from JwtTokenizer class.
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
-
                 // Set new Access Token to response header
-                response.setHeader("Authorization", "Bearer asdasda");
-
+                response.setHeader("Authorization", "Bearer " + newAccessToken);
             } catch (Exception e) {
                 request.setAttribute("exception", e);
             }

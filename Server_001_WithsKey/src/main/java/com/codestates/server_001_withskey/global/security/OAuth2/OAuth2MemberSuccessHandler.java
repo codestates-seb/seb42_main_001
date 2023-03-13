@@ -1,8 +1,10 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.OAuth2;
 
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.repository.MemberRepository;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
+import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
+import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;

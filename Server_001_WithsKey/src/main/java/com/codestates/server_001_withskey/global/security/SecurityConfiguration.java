@@ -1,21 +1,22 @@
 package com.codestates.server_001_withskey.global.security;
 
+
 import com.codestates.server_001_withskey.domain.member.repository.MemberRepository;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
-import io.jsonwebtoken.Jwt;
+import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
+import com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter;
+import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
+import com.codestates.server_001_withskey.global.security.OAuth2.OAuth2MemberSuccessHandler;
+import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAccessDeniedHandler;
+import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.config.oauth2.client.CommonOAuth2Provider;
-import org.springframework.security.oauth2.client.registration.ClientRegistration;
-import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
-import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
@@ -52,11 +53,7 @@ public class SecurityConfiguration {
         this.memberService = memberService;
         this.memberRepository = memberRepository;
     }
-    // remove v3
-//    @Bean
-//    public JwtVerificationFilter jwtVerificationFilter() {
-//        return new JwtVerificationFilter(jwtTokenizer,authorityUtils);
-//    }
+    
 
 
     @Bean
@@ -122,7 +119,6 @@ public class SecurityConfiguration {
         @Override
         public void configure(HttpSecurity builder) throws Exception {
             JwtVerificationFilter jwtVerificationFilter = new JwtVerificationFilter(jwtTokenizer, authorityUtils);
-
             builder.addFilterAfter(jwtVerificationFilter, OAuth2LoginAuthenticationFilter.class);
         }
     }
