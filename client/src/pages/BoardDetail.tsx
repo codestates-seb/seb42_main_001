@@ -28,7 +28,10 @@ function BoardDetail() {
         </BoardDetailBody>
       </BoardDetailContainer>
       <BoardCommentsContainer>
-        <Comment></Comment>
+        <ListContainer>
+          <Comment></Comment>
+          <Comment></Comment>
+        </ListContainer>
       </BoardCommentsContainer>
     </Wrapper>
   );
@@ -69,4 +72,11 @@ const BoardDetailBody = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const ListContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
