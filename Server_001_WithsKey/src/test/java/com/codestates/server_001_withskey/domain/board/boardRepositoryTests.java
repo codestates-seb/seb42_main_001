@@ -18,7 +18,6 @@ public class boardRepositoryTests {
         IntStream.rangeClosed(1,10).forEach(i->{
             Board board = Board.builder()
                 .content("test board "+i)
-                .boardImageUrl("img Url "+i)
                 .build();
             repository.save(board);
         });

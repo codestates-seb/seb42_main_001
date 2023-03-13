@@ -45,7 +45,7 @@ public class Board extends Auditable {
     private List<CommentBoard> commentBoardList = new ArrayList<>();
 
     // Comment 1:N
-    @OneToMany(mappedBy="board")
+    @OneToMany(mappedBy = "board")
     private List<LikeBoard> likeBoardsList = new ArrayList<>();
 
     @OneToMany(mappedBy = "board")

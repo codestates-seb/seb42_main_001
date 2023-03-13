@@ -22,7 +22,6 @@ public interface BoardService {
         Board entity = Board.builder()
             .boardId(dto.getBoardId())
             .content(dto.getContent())
-            .boardImageUrl(dto.getBoardImageUrl())
             .build();
 
         return entity;
@@ -32,7 +31,6 @@ public interface BoardService {
         BoardDto dto = BoardDto.builder()
             .boardId(entity.getBoardId())
             .content(entity.getContent())
-            .boardImageUrl(entity.getBoardImageUrl())
             .build();
 
         return dto;
