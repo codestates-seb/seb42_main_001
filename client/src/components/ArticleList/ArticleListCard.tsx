@@ -22,5 +22,6 @@ const CardChildContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--text-large);
+  color: var(--color-main);
+  font-size: var(--text-medium);
 `;

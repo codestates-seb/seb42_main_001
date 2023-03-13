@@ -9,6 +9,7 @@ import MyPage from "./pages/MyPage";
 import BoardList from "./pages/BoardList";
 import BoardDetail from "./pages/BoardDetail";
 import SignUp from "./pages/SignUp";
+import Tags from "./pages/Tags";
 
 function App() {
   return (
@@ -19,11 +20,12 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/signup" element={<SignUp />} />
       </Route>
-      <Route element={<MainLayout color />}>
+      <Route element={<MainLayout bgColor />}>
         <Route path="/board/list" element={<BoardList />} />
         <Route path="/board/detail" element={<BoardDetail />} />
         <Route path="/drinks/list" element={<DrinksList />} />
         <Route path="/drinks/detail" element={<DrinksDetail />} />
+        <Route path="/tags" element={<Tags />} />
       </Route>
     </Routes>
   );
