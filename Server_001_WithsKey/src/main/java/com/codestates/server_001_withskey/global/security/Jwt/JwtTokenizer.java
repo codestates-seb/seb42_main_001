@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.Jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -8,6 +8,7 @@ import io.jsonwebtoken.security.SignatureException;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -18,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 // JWT AccessToken, RefreshToken 생성
 
@@ -38,9 +40,14 @@ public class JwtTokenizer {
     @Value("${jwt.refresh-token-expiration-minutes}")
     private int refreshTokenExpirationMinutes;
 
-//    public JwtTokenizer(JwtVerificationFilter jwtVerificationFilter) {
-//        this.jwtVerificationFilter = jwtVerificationFilter;
+//    // redis 추가1
+//    private final RedisTemplate<String, Object> redisTemplate;
+//
+//    // redis 추가2
+//    public JwtTokenizer(RedisTemplate<String, Object> redisTemplate) {
+//        this.redisTemplate = redisTemplate;
 //    }
+
 
     public String encodeBase64SecretKey (String secretKey) {
         return Encoders.BASE64.encode(secretKey.getBytes(StandardCharsets.UTF_8));
@@ -70,26 +77,52 @@ public class JwtTokenizer {
                 .setExpiration(expiration)
                 .signWith(key)
                 .compact();
+
+        // redis 추가3 : Store refresh token in Redis with expiration time
+//        redisTemplate.opsForValue().set(refreshToken,subject,refreshTokenExpirationMinutes, TimeUnit.MINUTES);
+
         return refreshToken;
     }
     public String regenerateAccessToken(String refreshToken) {
+//        // redis 추가4
+//        try {
+//            // check if refreshToken exists in Redis
+//            if (redisTemplate.hasKey(refreshToken)) {
+//                String email = (String) redisTemplate.opsForValue().get(refreshToken);
+//                Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
+//                Map<String, Object> accessTokenClaims = new HashMap<>();
+//                accessTokenClaims.put("email", email);
+//                String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
+//                return newAccessToken;
+//            } else {
+//                throw new RuntimeException("Refresh Token not found in Redis");
+//            }
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//     redis 적용하기 전 code.
         try {
             Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
-            Instant refreshTokenExpiration = Instant.ofEpochSecond((Long)refreshTokenClaims.getBody().get("exp"));
-            if(refreshTokenExpiration.isBefore(Instant.now())) {
+
+//            Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.getBody().get("exp"));
+            long epochTime = (Long) refreshTokenClaims.getBody().get("exp");
+            // 1000L = 1sec,
+            Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
+
+            if (refreshTokenExpiration.before(new Date())) {
                 throw new RuntimeException("RefreshToken has expired");
             }
             String email = refreshTokenClaims.getBody().getSubject();
             Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
             Map<String, Object> accessTokenClaims = new HashMap<>();
-            accessTokenClaims.put("email",email);
+            accessTokenClaims.put("email", email);
             String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
             return newAccessToken;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-
     public Jws<Claims> getClaims(String jws, String base64EncodedSecretKey) {
         Key key = getKeyFromBase64EncodedKey(base64EncodedSecretKey);
 
@@ -99,7 +132,6 @@ public class JwtTokenizer {
                 .parseClaimsJws(jws);
         return claims;
     }
-
     public void verifySignature(String jws, String base64EncodedSecretKey) {
         Key key = getKeyFromBase64EncodedKey(base64EncodedSecretKey);
 

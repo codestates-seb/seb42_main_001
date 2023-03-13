@@ -1,8 +1,7 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.Jwt;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.security.SignatureException;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -50,9 +48,14 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 // token이 만료가 될 경우, Request header에서 Refresh Token을 가져온다.
                 String refreshToken = request.getHeader("Refresh");
                 Map<String, Object> refreshTokenClaims = verifyJws(refreshToken);
-                Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.get("exp"));
-                if (refreshTokenExpiration.isBefore(Instant.now())) {
-                    throw new RuntimeException("RefreshToken has expired");
+
+                long epochTime = (Long) refreshTokenClaims.get("exp");
+                // 1000L = 1 sec
+                Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
+
+                if (refreshTokenExpiration.before(new Date())) {
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
+                            "Refresh Token has expired. Please re-login");
                 }
                 // Regenerate new Access Token from JwtTokenizer class.
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
