@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.board.controller;
 
 import com.codestates.server_001_withskey.domain.board.service.BoardService;
+import com.codestates.server_001_withskey.domain.image.service.SimpleImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

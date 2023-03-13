@@ -38,13 +38,21 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+
         String authorizationHeader = request.getHeader("Authorization");
+        
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            
             String token = authorizationHeader.replace("Bearer ","");
+            
             try {
+                
                 Map<String, Object> claims = verifyJws(token);
+                
                 setAuthenticationToContext(claims);
+                
             } catch (SignatureException se) {
+                
                 request.setAttribute("exception", se);
 
             } catch (ExpiredJwtException ee) {
@@ -63,8 +71,10 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
 
                 // Regenerate new Access Token from JwtTokenizer class.
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
+
                 // Set new Access Token to response header
-                response.setHeader("Authorization", "Bearer " + newAccessToken);
+                response.setHeader("Authorization", "Bearer asdasda");
+
             } catch (Exception e) {
                 request.setAttribute("exception", e);
             }

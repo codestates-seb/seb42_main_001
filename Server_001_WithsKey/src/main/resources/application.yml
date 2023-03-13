@@ -40,6 +40,9 @@ mail:
 jwt:
   key:
     secret: 001mainprojectwithskeyletsgoforitwecandoit
-  access-token-expiration-minutes: 30
+  access-token-expiration-minutes: 1
   refresh-token-expiration-minutes: 420
 
+file:
+  root:
+    dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리

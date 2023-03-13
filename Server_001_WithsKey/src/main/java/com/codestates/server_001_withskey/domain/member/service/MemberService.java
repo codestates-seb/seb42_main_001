@@ -31,7 +31,6 @@ public class MemberService {
     }
     public Member updateMember(Member member) throws Exception{
         Member findMember = findMemberById(member.getMemberId());
-        verifyExistedEmail(member.getEmail());
 
         Optional.ofNullable(member.getDisplayName())
                         .ifPresent(displayName -> findMember.setDisplayName(displayName));
@@ -41,6 +40,7 @@ public class MemberService {
                         .ifPresent(phone->findMember.setPhoneNumber(phone));
         Optional.ofNullable(member.getProfilePicture())
                         .ifPresent(profile->findMember.setProfilePicture(profile));
+
         return memberRepository.save(findMember);
     }
 
