@@ -1,8 +1,8 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
-import styled from "styled-components";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import styled from 'styled-components';
 
 interface MainLayoutProps {
   color?: boolean;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 /* 그밖의 글로벌 스타일 작성하기 */
@@ -44,4 +44,5 @@ a {
 div, button {
     letter-spacing: 0.4px;
 }
+
 `;
