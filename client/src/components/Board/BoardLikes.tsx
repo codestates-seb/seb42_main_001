@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
+import { IoMdHeartEmpty } from "react-icons/io";
 
 function BoardLikes() {
   return (
@@ -18,7 +18,7 @@ const LikesWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   svg {
     margin-right: 5px;
     color: var(--color-main);
