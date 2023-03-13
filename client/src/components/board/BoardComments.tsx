@@ -16,6 +16,7 @@ function BoardComments() {
 export default BoardComments;
 
 const CommentsWrapper = styled.div`
+  margin-right: 25px;
   display: flex;
   align-items: center;
 `;
