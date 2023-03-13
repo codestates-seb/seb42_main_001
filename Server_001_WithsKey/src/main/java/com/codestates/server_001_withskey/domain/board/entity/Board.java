@@ -38,6 +38,7 @@ public class Board extends Auditable {
     private String boardTitle;
 
     @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
     // Like 1:N
@@ -50,5 +51,4 @@ public class Board extends Auditable {
 
     @OneToMany(mappedBy = "board")
     private List<TagBoard> tagBoardList = new ArrayList<>();
-
 }

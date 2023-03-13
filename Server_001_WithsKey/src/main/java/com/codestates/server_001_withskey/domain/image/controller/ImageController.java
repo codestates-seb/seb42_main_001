@@ -33,4 +33,9 @@ public class ImageController {
         List<Image> image = imageService.uploadImage(files);
         return ResponseEntity.ok(image);
     }
+
+    @GetMapping("/test")
+    public ResponseEntity getTest(){
+        return ResponseEntity.ok().build();
+    }
 }

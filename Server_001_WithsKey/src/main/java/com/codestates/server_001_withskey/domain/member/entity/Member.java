@@ -1,5 +1,6 @@
 package com.codestates.server_001_withskey.domain.member.entity;
 
+import com.codestates.server_001_withskey.domain.board.entity.Board;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,9 @@ public class Member {
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    List<Board> boards = new ArrayList<>();
 
     public Member (String email) {
         this.email = email;

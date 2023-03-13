@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.OAuth2;
 
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
@@ -27,13 +27,17 @@ public class withsKeyOAuth2UserService extends DefaultOAuth2UserService {
         String displayName = oAuth2User.getAttribute("name");
         String oauth2Type = userRequest.getClientRegistration().getRegistrationId();
 
-        Member member = memberService.findMemberByEmail(email);
+        Member member = memberService.findMemberByEmail(email);// 멤버를 찾은 상태.
+
+        // 처음 로그인한 사람은 회원가입 -> DB에 새로 저장
+        // 두번째 로그인한 사람은 -> 토큰만 발행해주면 됨.
 
         if(member ==null) {
             member = new Member(email);
             member.setDisplayName(displayName);
             member.setOauthType(oauth2Type);
             memberService.createMember(member);
+
         } else {
             member.setDisplayName(displayName);
             member.setOauthType(oauth2Type);
