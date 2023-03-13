@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.Jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -104,18 +104,21 @@ public class JwtTokenizer {
             Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
 
 //            Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.getBody().get("exp"));
-            long epochTime = (Long) refreshTokenClaims.getBody().get("exp");
+            int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
+
             // 1000L = 1sec,
             Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
 
             if (refreshTokenExpiration.before(new Date())) {
                 throw new RuntimeException("RefreshToken has expired");
             }
+
             String email = refreshTokenClaims.getBody().getSubject();
             Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
             Map<String, Object> accessTokenClaims = new HashMap<>();
             accessTokenClaims.put("email", email);
             String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
+
             return newAccessToken;
         } catch (Exception e) {
             throw new RuntimeException(e);

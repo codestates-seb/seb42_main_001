@@ -1,8 +1,8 @@
-package com.codestates.server_001_withskey.global.security;
+package com.codestates.server_001_withskey.global.security.Jwt;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.security.SignatureException;
-import org.springframework.context.annotation.Bean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +25,7 @@ import java.util.Map;
 // 검증을 수행하는 역
 // add v2
 @Component
+@Slf4j
 public class JwtVerificationFilter extends OncePerRequestFilter {
     private final JwtTokenizer jwtTokenizer;
     private final withsKeyAuthorityUtils authorityUtils;
@@ -48,21 +48,37 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 request.setAttribute("exception", se);
             } catch (ExpiredJwtException ee) {
                 // token이 만료가 될 경우, Request header에서 Refresh Token을 가져온다.
-                String refreshToken = request.getHeader("Refresh");
-                Map<String, Object> refreshTokenClaims = verifyJws(refreshToken);
 
-                long epochTime = (Long) refreshTokenClaims.get("exp");
+                Map<String, Object> refreshTokenClaims = new HashMap<>();
+
+                String refreshToken = request.getHeader("Refresh");
+
+                try{
+                    refreshTokenClaims = verifyJws(refreshToken);
+                } catch (ExpiredJwtException e){
+                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+                    log.info("리다이렉트 요청은 성공");
+                    return;
+                }
+
+
+                int epochTime = (Integer) refreshTokenClaims.get("exp");
                 // 1000L = 1 sec
                 Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
-
                 if (refreshTokenExpiration.before(new Date())) {
-                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
-                            "Refresh Token has expired. Please re-login");
+//                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
+//                            "Refresh Token has expired. Please re-login"
+                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+                    log.info("리다이렉트 요청 성공!");
                 }
+
+
                 // Regenerate new Access Token from JwtTokenizer class.
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
+
                 // Set new Access Token to response header
                 response.setHeader("Authorization", "Bearer " + newAccessToken);
+
             } catch (Exception e) {
                 request.setAttribute("exception", e);
             }
@@ -85,4 +101,5 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
         Authentication authentication = new UsernamePasswordAuthenticationToken(memberId,null,authorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
+
 }
