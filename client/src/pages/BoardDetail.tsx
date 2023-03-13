@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BoardAuthorInfo from '../components/board/BoardAuthorInfo';
+import BoardAuthorInfo from '../components/Board/BoardAuthorInfo';
 
 function BoardDetail() {
   return (

@@ -6,8 +6,8 @@ import BoardTags from './BoardTags';
 function BoardMetaInfo() {
   return (
     <BoardMetaInfoContainer>
-      <BoardTags></BoardTags>
-      <BoardStats></BoardStats>
+      <BoardTags />
+      <BoardStats />
     </BoardMetaInfoContainer>
   );
 }
@@ -15,7 +15,7 @@ function BoardMetaInfo() {
 export default BoardMetaInfo;
 
 const BoardMetaInfoContainer = styled.div`
-  width: 645px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

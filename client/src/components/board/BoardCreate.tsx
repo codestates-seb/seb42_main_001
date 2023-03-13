@@ -1,23 +1,24 @@
-import styled from 'styled-components';
-
-import { CiCirclePlus } from 'react-icons/ci';
+import styled from "styled-components";
 
 function BoardCreate() {
-  return (
-    <Wrapper>
-      <CiCirclePlus></CiCirclePlus>
-    </Wrapper>
-  );
+  return <PageButton>{`New Post`}</PageButton>;
 }
 
 export default BoardCreate;
 
-const Wrapper = styled.div`
-  margin-right: 40px;
+const PageButton = styled.div`
+  color: var(--color-main);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-main);
+  width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--large);
   cursor: pointer;
 
-  > svg {
-    width: 40px;
-    height: 40px;
+  svg {
+    font-size: var(--text-large);
   }
 `;
