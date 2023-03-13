@@ -49,7 +49,8 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 String refreshToken = request.getHeader("Refresh");
                 Map<String, Object> refreshTokenClaims = verifyJws(refreshToken);
 
-                long epochTime = (Long) refreshTokenClaims.get("exp");
+
+                int epochTime = (Integer) refreshTokenClaims.get("exp");
                 // 1000L = 1 sec
                 Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
 

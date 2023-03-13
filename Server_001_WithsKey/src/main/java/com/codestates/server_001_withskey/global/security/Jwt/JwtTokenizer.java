@@ -104,12 +104,9 @@ public class JwtTokenizer {
 //     redis 적용하기 전 code.
         try {
             Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
-
-//            Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.getBody().get("exp"));
-            long epochTime = (Long) refreshTokenClaims.getBody().get("exp");
+            int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
             // 1000L = 1sec,
             Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
-
             if (refreshTokenExpiration.before(new Date())) {
                 throw new RuntimeException("RefreshToken has expired");
             }
