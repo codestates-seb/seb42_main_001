@@ -17,6 +17,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +29,6 @@ public class Tag {
     @Column(nullable = false)
     private String tagInfo;
 
-//    @OneToMany(mappedBy="tagId")
-//    private List<Tag> tagList = new ArrayList<>();
-    // tag-board 1:N
     @OneToMany(mappedBy = "tag")
     private List<TagBoard> tagBoardList = new ArrayList<>();
 
