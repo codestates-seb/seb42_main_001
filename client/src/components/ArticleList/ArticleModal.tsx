@@ -25,8 +25,8 @@ const ArticleModalContainer = styled.div`
   position: absolute;
   top: 65px;
   left: 0;
-  width: 101%;
-  height: 97%;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;

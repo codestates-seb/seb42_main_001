@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Card from '../UI/Card';
+import Card from "../UI/Card";
 
 function BoardCreateInput() {
   return (
     <Card>
       <InputContainer>
         <input type="text" placeholder="제목을 입력해 주세요"></input>
-        <EditorContainer></EditorContainer>
+        <EditorContainer />
       </InputContainer>
     </Card>
   );

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Card from '../UI/Card';
+import Card from "../UI/Card";
 
 function BoardCreateTag() {
   return (
@@ -16,14 +16,12 @@ export default BoardCreateTag;
 
 const OuterWrapper = styled.li`
   list-style: none;
-  margin-right: 5px;
+  margin-left: var(--xxx-small);
 `;
 
 const TagWrapper = styled.div`
   width: auto;
-  height: 35px;
-  padding: 13px 9px;
+  padding: var(--xx-small);
   font-weight: var(--weight-x-small);
   font-size: var(--text-small);
-  line-height: 16px;
 `;

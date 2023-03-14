@@ -4,6 +4,7 @@ import styled from "styled-components";
 import BoardCreate from "./BoardCreate";
 import BoardSearch from "./BoardSearch";
 import { AiOutlineSearch } from "react-icons/ai";
+import Button from "../UI/Button";
 
 function BoardInfo() {
   const [search, setSearch] = useState(false);
@@ -21,9 +22,19 @@ function BoardInfo() {
           <BoardCreate />
         </MarginDiv>
       )}
-      <SearchButton onClick={handleSearchChange}>
-        <AiOutlineSearch />
-      </SearchButton>
+      <Button
+        type="button"
+        size={`--x-large`}
+        radius={`--large`}
+        color={`--color-white`}
+        bgColor={`--color-main`}
+        borderColor={`--color-main`}
+        onClick={handleSearchChange}
+      >
+        <SvgSize>
+          <AiOutlineSearch />
+        </SvgSize>
+      </Button>
     </InfoContainer>
   );
 }
@@ -45,18 +56,9 @@ const MarginDiv = styled.div`
   justify-content: end;
 `;
 
-const SearchButton = styled.div`
-  color: var(--color-white);
-  background-color: var(--color-main);
-  width: 45px;
-  height: 45px;
+const SvgSize = styled.div`
+  font-size: var(--small);
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: var(--large);
-  cursor: pointer;
-
-  svg {
-    font-size: var(--text-large);
-  }
+  align-items: center;
 `;

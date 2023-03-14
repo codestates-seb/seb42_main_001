@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 /* 그밖의 글로벌 스타일 작성하기 */
@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-sub-gray: #D0D0D0;
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
+
     /* font-size */
     --text-x-small: 11px;
     --text-small: 14px;
@@ -24,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     --weight-x-large: 900;
 
     /* size */
-    --xxx-samll: 8px;
+    --xxx-small: 8px;
     --xx-small: 10px;
     --x-small: 14px;
     --small: 18px;
@@ -32,13 +33,16 @@ export const GlobalStyle = createGlobalStyle`
     --large: 30px;
     --x-large: 40px;
     --xx-large: 60px;
+    --3x-large: 80px;
     --xxx-large: 100px;
+    --5x-large: 130px;
 }
 * {
     font-family: ‘SUIT Variable’, sans-serif;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 a {
     text-decoration: none;

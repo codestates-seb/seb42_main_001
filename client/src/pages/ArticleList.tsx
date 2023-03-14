@@ -33,7 +33,7 @@ export default ArticleList;
 const ArticleListContauner = styled.div`
   width: 100%;
   height: 100%;
-  padding: 130px 0;
+  padding: 150px 0;
   background-color: var(--color-main);
 `;
 

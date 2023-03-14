@@ -16,7 +16,7 @@ function MenuNav({ headerColor }: MenuNavProps) {
         <MenuItemStyled>Drinks</MenuItemStyled>
       </Link>
       <Link to="/board/list">
-      <MenuItemStyled>Board</MenuItemStyled>
+        <MenuItemStyled>Board</MenuItemStyled>
       </Link>
     </MenuStyled>
   );
@@ -25,12 +25,25 @@ function MenuNav({ headerColor }: MenuNavProps) {
 export default MenuNav;
 
 const MenuStyled = styled.div<MenuNavProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 60px;
   color: ${(props) =>
     props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
   font-size: var(--text-small);
   display: flex;
 `;
 
-const MenuItemStyled = styled.div`
-  margin: 0 35px;
+const MenuItemStyled = styled.div<MenuNavProps>`
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+
+  &:hover {
+    margin-bottom: var(--xxx-small);
+  }
 `;

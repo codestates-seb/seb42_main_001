@@ -7,9 +7,10 @@ import MenuNav from "./MenuNav";
 import UserNav from "./UserNav";
 
 interface HeaderProps {
-  headerBgColor?: string; 
-  headerColor?: string; 
+  headerBgColor?: string;
+  headerColor?: string;
   profileColor?: string;
+  hover?: string;
 }
 
 function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
@@ -27,8 +28,10 @@ function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
         {isLogin ? (
           <UserNav profileColor={profileColor} />
         ) : (
-          <LoginContainer>
-            <Button onClick={handleLogin}>Login</Button>
+          <LoginContainer headerColor={headerColor}>
+            <Button type="submit" onClick={handleLogin}>
+              Login
+            </Button>
           </LoginContainer>
         )}
       </HeaderContainer>
@@ -39,7 +42,8 @@ function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
 export default Header;
 
 const HeaderBackground = styled.div<HeaderProps>`
-  background-color: ${props => props.headerBgColor ? `var(${props.headerBgColor})`:`var(--color-white)`};
+  background-color: ${(props) =>
+    props.headerBgColor ? `var(${props.headerBgColor})` : `var(--color-white)`};
   width: 100%;
   height: 65px;
   display: flex;
@@ -48,7 +52,8 @@ const HeaderBackground = styled.div<HeaderProps>`
 
 const HeaderContainer = styled.div<HeaderProps>`
   color: var(--color-main);
-  background-color: ${props => props.headerBgColor ? `var(${props.headerBgColor})`:`var(--color-white)`};
+  background-color: ${(props) =>
+    props.headerBgColor ? `var(${props.headerBgColor})` : `var(--color-white)`};
   width: 85%;
   max-width: 1420px;
   height: 65px;
@@ -57,6 +62,6 @@ const HeaderContainer = styled.div<HeaderProps>`
   align-items: center;
 `;
 
-const LoginContainer = styled.div`
-  width: 80px;
+const LoginContainer = styled.div<HeaderProps>`
+  display: flex;
 `;

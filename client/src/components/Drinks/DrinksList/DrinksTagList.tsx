@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
 
 function DrinksTagList() {
+  const homeRef = useRef<HTMLDivElement>(null);
 
   const scrollToSide = () => {
-    window.scrollTo({
-      top: 0,
-      left: 100,
-      behavior: 'smooth'
-    })
-  }
+    homeRef.current?.scrollTo({ left: 1000, top: 0, behavior: "smooth" });
+  };
 
+  const scrollToBack = () => {
+    homeRef.current?.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
-      <TagListContainer>
+      <Button
+        type="button"
+        size={`--x-large`}
+        radius={`--large`}
+        onClick={scrollToBack}
+        borderColor={`--color-main`}
+      >{`<`}</Button>
+      <TagListContainer ref={homeRef}>
         <DrinksTags />
         <DrinksTags />
         <DrinksTags />
@@ -36,7 +44,13 @@ function DrinksTagList() {
         <DrinksTags />
         <DrinksTags />
       </TagListContainer>
-      <PageButton onClick={scrollToSide}>{`>`}</PageButton>
+      <Button
+        type="button"
+        size={`--x-large`}
+        radius={`--large`}
+        onClick={scrollToSide}
+        borderColor={`--color-main`}
+      >{`>`}</Button>
     </>
   );
 }
@@ -49,22 +63,5 @@ const TagListContainer = styled.div`
   overflow: overlay;
   &::-webkit-scrollbar {
     display: none;
-  }
-`;
-
-const PageButton = styled.div`
-  color: var(--color-main);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-main);
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--large);
-  cursor: pointer;
-
-  svg {
-    font-size: var(--text-large);
   }
 `;

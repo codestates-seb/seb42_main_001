@@ -1,14 +1,17 @@
-import styled from 'styled-components';
-
-import { SubmitBtn } from '../UI/Comment/CommentSubmitBtn';
+import Button from "../UI/Button";
 
 function BoardCreateBtn() {
-  return <BoardSubmitBtn>submit</BoardSubmitBtn>;
+  return (
+    <Button
+      type="submit"
+      bgColor={`--color-main`}
+      color={`--color-white`}
+      borderColor={`--color-main`}
+      size={`--5x-large`}
+    >
+      submit
+    </Button>
+  );
 }
 
 export default BoardCreateBtn;
-
-const BoardSubmitBtn = styled(SubmitBtn)`
-  width: 210px;
-  height: 55px;
-`;

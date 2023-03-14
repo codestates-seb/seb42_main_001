@@ -16,16 +16,16 @@ const TagsContainer = styled.div`
   display: flex;
   cursor: pointer;
 
-    div {
-      color: var(--color-sub-gray);
-      font-size: var(--text-x-small);
-      border: 1px solid var(--color-sub-gray);
-      border-radius: var(--medium);
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: var(--xxx-samll);
-      padding: var(--xx-small);
-    }
-  `;
+  div {
+    color: var(--color-sub-gray);
+    font-size: var(--text-x-small);
+    border: 1px solid var(--color-sub-gray);
+    border-radius: var(--medium);
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--xxx-small);
+    padding: var(--xx-small);
+  }
+`;

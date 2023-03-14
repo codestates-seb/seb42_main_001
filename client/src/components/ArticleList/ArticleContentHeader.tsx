@@ -21,18 +21,23 @@ const ArticleContentHeaderContainer = styled.div`
 `;
 
 const ArticleContentNumber = styled.div`
-  width: 45px;
-  height: 45px;
-  border: 3px solid var(--color-main);
+  width: 40px;
+  height: 40px;
+  display: flex;
+
+  border: 1px solid var(--color-main);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--text-large);
-  font-weight: var(--weight-large);
+  font-size: var(--text-medium);
+  font-weight: var(--weight-x-small);
 `;
 
 const ArticleContentTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: var(--text-x-large);
   font-weight: var(--weight-large);
   padding-top: var(--x-large);
