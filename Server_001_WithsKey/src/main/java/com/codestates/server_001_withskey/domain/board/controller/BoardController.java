@@ -57,7 +57,6 @@ public class BoardController {
         patch.setBoardId(boardId);
         //TODO mapper 작성
 
-
         Board board = boardService.updateBoard(patch);
 
         return new ResponseEntity<>(mapper.PatchDtoToBoard(patch), HttpStatus.OK);

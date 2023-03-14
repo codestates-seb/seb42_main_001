@@ -7,9 +7,14 @@ import com.codestates.server_001_withskey.domain.image.dto.ImageDto.Response;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 public class TagDto {
-    @Data
+    @Getter
+    @Setter
+    @NoArgsConstructor
     public static class Post{
         private long tagId;
         private String tagName;
@@ -20,7 +25,9 @@ public class TagDto {
 
     }
 
-    @Data
+    @Getter
+    @Setter
+    @NoArgsConstructor
     public static class Response{
         private long tagId;
         private String tagName;

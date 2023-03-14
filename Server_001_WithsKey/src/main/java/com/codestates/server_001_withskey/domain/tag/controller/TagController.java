@@ -1,5 +1,6 @@
 package com.codestates.server_001_withskey.domain.tag.controller;
 
+import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
@@ -20,20 +21,23 @@ public class TagController {
     private final TagService tagService;
     private final TagMapper mapper;
 
-    @GetMapping("/{tag-id}")
-    public ResponseEntity getTag(@PathVariable("tag-id") long tagId){
-        Tag tag = tagService.findTag(tagId);
+    @GetMapping("/tag-id")
+    public ResponseEntity getTag(@PathVariable("tag-id")long tagId){
+        Tag tag = tagService.findVerifiedTag(tagId);
+        TagDto.Response response = mapper.tagToDto(tag);
 
-        return new ResponseEntity<>(mapper.tagToDto(tag), HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    // 전체 return
     @GetMapping
     public List<Tag> getTags(){
-        return tagService.findTags();
+        return tagService.findAllTags();
         }
+
 }
 
-// 전체 조회(실패)
+// 전체 조회
 //    public ResponseEntity getTags(@Positive @RequestParam int page,
 //                                  @Positive @RequestParam int size){
 //
@@ -42,4 +46,5 @@ public class TagController {
 //
 //        return new ResponseEntity<>(
 //            new MultiResponseDto<>(mapper.tagsToDtos(tags), pageTags), HttpStatus.OK);
+
 

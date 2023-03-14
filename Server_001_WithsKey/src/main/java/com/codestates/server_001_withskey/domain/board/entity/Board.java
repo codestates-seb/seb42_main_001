@@ -46,6 +46,8 @@ public class Board extends Auditable {
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 
+
+
     // Like 1:N
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
     private List<CommentBoard> commentBoardList = new ArrayList<>();
