@@ -11,4 +11,5 @@ export const SubmitBtn = styled.button`
   color: var(--color-white);
   box-shadow: 1px 1px 20px rgba(71, 63, 63, 0.1);
   border-radius: 10px;
+  cursor: pointer;
 `;
