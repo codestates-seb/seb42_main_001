@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ fix: yml dir 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/test/java/com/codestates/server_001_withskey/domain/board/boardRepositoryTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/test/java/com/codestates/server_001_withskey/domain/board/boardServiceTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="🔨 fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678766609783</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="🔨 fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ">
+      <created>1678767411477</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678767411477</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +227,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="✨ feat: Board 패키지 기능 추가" />
     <MESSAGE value="✨ fix: yml dir 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ fix: yml dir 수정" />
+    <MESSAGE value=" fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ" />
+    <option name="LAST_COMMIT_MESSAGE" value=" fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
