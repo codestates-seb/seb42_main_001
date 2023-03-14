@@ -53,9 +53,6 @@ public class SecurityConfiguration {
         this.memberService = memberService;
         this.memberRepository = memberRepository;
     }
-    
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -82,7 +79,6 @@ public class SecurityConfiguration {
 
         return http.build();
     }
-
     //CORS 설정 하는 메서드
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
@@ -114,7 +110,6 @@ public class SecurityConfiguration {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
     public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
         @Override
         public void configure(HttpSecurity builder) throws Exception {
