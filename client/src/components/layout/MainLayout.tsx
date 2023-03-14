@@ -12,15 +12,17 @@ interface MainLayoutProps {
 
 function MainLayout({ color, img }: MainLayoutProps) {
   return (
-    <DefaultSize img={img}>
+    <DefaultSize>
       {color ? (
         <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
       ) : (
         <Header />
       )}
-      <Container img={img}>
-        <Outlet />
-      </Container>
+      <ContainerBox img={img}>
+        <Container img={img}>
+          <Outlet />
+        </Container>
+      </ContainerBox>
 
       <Footer />
     </DefaultSize>
@@ -29,17 +31,25 @@ function MainLayout({ color, img }: MainLayoutProps) {
 
 export default MainLayout;
 
-const DefaultSize = styled.div<MainLayoutProps>`
-  background-color: ${(props) =>
-    props.img ? `var(--color-white)` : `var(--color-sub-light-gray)`};
-  background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
-  background-repeat: no-repeat;
-  background-position: 0 65px;
+const DefaultSize = styled.div`
   width: 100vw;
   height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+
+const ContainerBox = styled.div<MainLayoutProps>`
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) =>
+    props.img ? `var(--color-white)` : `var(--color-sub-light-gray)`};
+  background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Container = styled.div<MainLayoutProps>`
