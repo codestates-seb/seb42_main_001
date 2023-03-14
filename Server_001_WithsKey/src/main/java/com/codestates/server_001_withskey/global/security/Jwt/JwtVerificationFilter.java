@@ -49,30 +49,15 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
             } catch (ExpiredJwtException ee) {
                 // token이 만료가 될 경우, Request header에서 Refresh Token을 가져온다.
 
-                Map<String, Object> refreshTokenClaims = new HashMap<>();
-
                 String refreshToken = request.getHeader("Refresh");
 
                 try{
-                    refreshTokenClaims = verifyJws(refreshToken);
+                    verifyJws(refreshToken);
                 } catch (ExpiredJwtException e){
-                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
                     log.info("리다이렉트 요청은 성공");
                     return;
                 }
-
-
-                int epochTime = (Integer) refreshTokenClaims.get("exp");
-                // 1000L = 1 sec
-                Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
-                if (refreshTokenExpiration.before(new Date())) {
-//                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
-//                            "Refresh Token has expired. Please re-login"
-                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
-                    log.info("리다이렉트 요청 성공!");
-                }
-
-
                 // Regenerate new Access Token from JwtTokenizer class.
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
 

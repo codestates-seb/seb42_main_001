@@ -92,12 +92,12 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // 1. 브라우저가 허용하는 출처 (request를 보내는 입장의 주소)에 대한 설정.
-        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000","http://localhost:8080",
+                "http:ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080"));
         // 2. 이거는 1번과 동일한 역할을 함.
 //        configuration.setAllowedOrigins(Arrays.asList("*"));
         // 3. 여기에는 pre-flight를 위해 OPTIONS을 추가.
         configuration.setAllowedMethods(Arrays.asList("POST","GET","PATCH","DELETE","OPTIONS"));
-
 
         // BE 정하는 규칙.(Arrays.asList) "Authrorization",
         // 4. request에 어떤 헤더값을 우리(BE)가 응답에 넣어서 보내줄지 ex) 회원가입하면 JWT auth를 넣어주듯.
@@ -105,15 +105,11 @@ public class SecurityConfiguration {
         // 5. request에 어떤 헤더값을 받아들이는데 성공할지
         configuration.setAllowedHeaders(Arrays.asList("*"));
 
-
-
         // 6. 프론트에서 로그인 인증이나 인증이 필요한 요청에는
         // withCrednetial라고 FE 에서하는게 있는데 거기에 대한 결과가 true여야지만 CORS 통과하도록 설정.
         // FE에 혹시 withCredential 설정은 어떻게 했는지 물어보고 안만들었다 하면 false로 해야함
         // 단 true일 경우에는 #1. allowedOriginPatterns()에는 * 를 사용할 수 없음.
-//        configuration.setAllowCredentials(true);
-
-
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         // 위에서 정한 configuration의 CORS 정책을 적용하고 싶은 URL ex)
