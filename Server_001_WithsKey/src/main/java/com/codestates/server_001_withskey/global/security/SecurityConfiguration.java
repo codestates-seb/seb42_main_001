@@ -87,7 +87,8 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // 1. 브라우저가 허용하는 출처 (request를 보내는 입장의 주소)에 대한 설정.
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000","http://localhost:8080",
+                "http:ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080"));
         // 2. 이거는 1번과 동일한 역할을 함.
 //        configuration.setAllowedOrigins(Arrays.asList("*"));
         // 3. 여기에는 pre-flight를 위해 OPTIONS을 추가.
