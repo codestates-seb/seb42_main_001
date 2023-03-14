@@ -15,8 +15,10 @@ import Tags from './pages/Tags';
 function App() {
   return (
     <Routes>
-      <Route element={<MainLayout />}>
+      <Route element={<MainLayout img />}>
         <Route path="/" element={<Main />} />
+      </Route>
+      <Route element={<MainLayout />}>
         <Route path="/article" element={<ArticleList />} />
         <Route path="/mypage" element={<MyPage />} />
       </Route>

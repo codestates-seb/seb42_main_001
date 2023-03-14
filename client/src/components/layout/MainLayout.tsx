@@ -3,14 +3,16 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
+import johnnie from "../../img/johnnie_walker.svg";
 
 interface MainLayoutProps {
   bgColor?: boolean;
+  img?: boolean;
 }
 
-function MainLayout({ bgColor }: MainLayoutProps) {
+function MainLayout({ bgColor, img }: MainLayoutProps) {
   return (
-    <DefaultSize bgColor={bgColor}>
+    <DefaultSize>
       {bgColor ? (
         <Header
           headerBgColor={`--color-main`}
@@ -20,9 +22,11 @@ function MainLayout({ bgColor }: MainLayoutProps) {
       ) : (
         <Header profileColor={`--color-main`} hover={`--color-white`} />
       )}
-      <Container>
-        <Outlet />
-      </Container>
+      <ContainerBox img={img}>
+        <Container img={img}>
+          <Outlet />
+        </Container>
+      </ContainerBox>
 
       <Footer />
     </DefaultSize>
@@ -31,9 +35,7 @@ function MainLayout({ bgColor }: MainLayoutProps) {
 
 export default MainLayout;
 
-const DefaultSize = styled.div<MainLayoutProps>`
-  background-color: ${(props) =>
-    props.bgColor ? `var(--color-sub-light-gray)` : `var(--color-main)`};
+const DefaultSize = styled.div`
   width: 100vw;
   height: 100%;
   display: flex;
@@ -41,9 +43,23 @@ const DefaultSize = styled.div<MainLayoutProps>`
   flex-direction: column;
 `;
 
-const Container = styled.div`
+const ContainerBox = styled.div<MainLayoutProps>`
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) =>
+    props.img ? `var(--color-white)` : `var(--color-sub-light-gray)`};
+  background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Container = styled.div<MainLayoutProps>`
   color: var(--color-main);
-  background-color: var(--color-sub-light-gray);
+  background-color: ${(props) =>
+    props.img ? `none` : `var(--color-sub-light-gray)`};
   width: 85%;
   max-width: 1420px;
   height: 100%;

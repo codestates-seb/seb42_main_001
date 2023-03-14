@@ -1,13 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import MainMain from "../components/Main/MainMain";
 
 function Main() {
-  return <MainContainer>main</MainContainer>;
+  return <MainMain />;
 }
 
 export default Main;
-
-const MainContainer = styled.div`
-  width: 100%;
-  height: 95vh;
-`;
