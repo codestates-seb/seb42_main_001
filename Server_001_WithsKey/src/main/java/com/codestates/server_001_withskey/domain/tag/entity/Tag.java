@@ -28,6 +28,7 @@ public class Tag {
     @Column(nullable = false)
     private String tagInfo;
 
+
 //    @OneToMany(mappedBy="tagId")
 //    private List<Tag> tagList = new ArrayList<>();
     // tag-board 1:N

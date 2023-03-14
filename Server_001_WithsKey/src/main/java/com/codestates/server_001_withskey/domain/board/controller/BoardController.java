@@ -52,9 +52,13 @@ public class BoardController {
 
     // 수정
     @PatchMapping("/{board-id}")
-    public ResponseEntity updateBoard(@PathVariable("board-id") long boardId, @RequestBody BoardDto.Patch patch){
+    public ResponseEntity updateBoard(@PathVariable("board-id") long boardId,
+                                      @RequestBody BoardDto.Patch patch){
         patch.setBoardId(boardId);
-        Board board = boardService.updateBoard(mapper.PatchDtoToBoard(patch));
+        //TODO mapper 작성
+
+
+        Board board = boardService.updateBoard(patch);
 
         return new ResponseEntity<>(mapper.PatchDtoToBoard(patch), HttpStatus.OK);
     }

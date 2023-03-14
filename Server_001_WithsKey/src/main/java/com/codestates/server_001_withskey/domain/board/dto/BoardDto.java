@@ -33,6 +33,8 @@ public class BoardDto {
         private long boardId;
         private String boardTitle;
         private String content;
+        private List<ImageDto.Patch> images;
+        private List<TagDto.Post> tags;
     }
 
     @Data

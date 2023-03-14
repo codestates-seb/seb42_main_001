@@ -30,8 +30,10 @@ public class BoardMapperImpl implements BoardMapper{
             board.setBoardTitle(requestBody.getBoardTitle());
             board.setContent(requestBody.getBoardContent());
 
+            Object one = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
             //Member 매핑
-            long memberId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
             Member member = new Member();
             member.setMemberId(memberId);
             board.setMember(member);
@@ -58,6 +60,7 @@ public class BoardMapperImpl implements BoardMapper{
             return board;
         }
     }
+
 
     @Override
     public Board PatchDtoToBoard(BoardDto.Patch requestBody) {
