@@ -1,8 +1,8 @@
 package com.codestates.server_001_withskey.domain.image.controller;
 
 
-import com.codestates.server_001_withskey.domain.image.entity.Image;
-import com.codestates.server_001_withskey.domain.image.service.SimpleImageService;
+import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
+import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -21,18 +21,24 @@ import java.util.List;
 @RequestMapping("/spring")
 @RequiredArgsConstructor
 public class ImageController {
-    private final SimpleImageService imageService;
+    private final ImageService imageService;
 
-    @GetMapping("/upload")
-    public String newFile() {
-        return "upload-form";
-    }
+//    @GetMapping("/upload")
+//    public String newFile() {
+//        return "upload-form";
+//    }
 
     @PostMapping("/upload")
     public ResponseEntity uploadImage(@RequestParam(value = "file") List<MultipartFile> files) throws IOException {
-        List<Image> image = imageService.uploadImage(files);
+        List<ImageDto.Post> image = imageService.uploadFiles(files);
         return ResponseEntity.ok(image);
     }
+
+//    @GetMapping("/upload")
+//    public ResponseEntity uploadImage(@RequestParam(value = "file") List<MultipartFile> files) throws IOException {
+//        List<ImageDto.Post> image = imageService.uploadFiles(files);
+//        return ResponseEntity.ok(image);
+//    }
 
     @GetMapping("/test")
     public ResponseEntity getTest(){
