@@ -16,7 +16,7 @@ export default DrinksSearch;
 
 const SearchContainer = styled.div`
   width: 92%;
-  
+
   input {
     width: 100%;
     height: 60px;

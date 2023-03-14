@@ -19,10 +19,13 @@ const MyPageInfoButtons = ({ onClick }: MyPageInfoButtonsProps) => {
 export default MyPageInfoButtons;
 
 const MyPageInfoButtonContainer = styled.div`
-  width: 350px;
+  width: 95%;
+  max-width: 450px;
   height: 200px;
   margin-top: var(--xx-large);
+  margin-bottom: var(--x-large);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 `;

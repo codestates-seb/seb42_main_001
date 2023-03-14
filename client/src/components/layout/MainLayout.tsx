@@ -6,17 +6,21 @@ import styled from "styled-components";
 import johnnie from "../../img/johnnie_walker.svg";
 
 interface MainLayoutProps {
-  color?: boolean;
+  bgColor?: boolean;
   img?: boolean;
 }
 
-function MainLayout({ color, img }: MainLayoutProps) {
+function MainLayout({ bgColor, img }: MainLayoutProps) {
   return (
     <DefaultSize>
-      {color ? (
-        <Header headerBgColor={`--color-main`} headerColor={`--color-white`} />
+      {bgColor ? (
+        <Header
+          headerBgColor={`--color-main`}
+          headerColor={`--color-white`}
+          hover={`--color-sub-light-gray`}
+        />
       ) : (
-        <Header />
+        <Header profileColor={`--color-main`} hover={`--color-white`} />
       )}
       <ContainerBox img={img}>
         <Container img={img}>

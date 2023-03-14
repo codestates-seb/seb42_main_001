@@ -20,9 +20,9 @@ const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: var(--xx-samll);
+  margin-right: var(--xx-small);
 `;
 
 const Size = styled.div`
   width: 100%;
-`
+`;

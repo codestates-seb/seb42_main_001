@@ -19,5 +19,12 @@ export default LogoText;
 const Logo = styled.div<LogoTextProps>`
   font-family: "Bayon", sans-serif;
   font-size: var(--text-medium);
-  color: ${props => props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
+  color: ${(props) =>
+    props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
+  transition: 1s;
+  width: 100px;
+
+  &:hover {
+    letter-spacing: 2px;
+  }
 `;
