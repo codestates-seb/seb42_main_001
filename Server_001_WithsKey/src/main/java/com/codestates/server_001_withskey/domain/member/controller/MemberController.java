@@ -33,7 +33,9 @@ public class  MemberController {
     @PatchMapping
     public ResponseEntity patchMember(@RequestBody @Valid MemberDto.Patch patchMember) throws Exception{
         Member member = mapper.memberDtoPatchToMember(patchMember);
-        Long memberId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        // Ojbect 타입을 바로 Long으로 바꿀수는 없으니 String -> Long으로 돌린다.
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+
         member.setMemberId(memberId);
         Member updatedMember = memberService.updateMember(member);
         MemberDto.Response response = mapper.memberToMemberDtoResponse(updatedMember);

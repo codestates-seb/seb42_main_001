@@ -42,7 +42,7 @@ public class Board extends Auditable {
     @Column(nullable = false)
     private String boardTitle;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 

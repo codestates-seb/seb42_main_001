@@ -23,8 +23,6 @@ import java.util.Map;
 
 @Component
 public class JwtTokenizer {
-// remove v1
-//    private final JwtVerificationFilter jwtVerificationFilter;
 
     @Getter
     @Value("${jwt.key.secret}")
@@ -37,15 +35,6 @@ public class JwtTokenizer {
     @Getter
     @Value("${jwt.refresh-token-expiration-minutes}")
     private int refreshTokenExpirationMinutes;
-
-//    // redis 추가1
-//    private final RedisTemplate<String, Object> redisTemplate;
-//
-//    // redis 추가2
-//    public JwtTokenizer(RedisTemplate<String, Object> redisTemplate) {
-//        this.redisTemplate = redisTemplate;
-//    }
-
 
     public String encodeBase64SecretKey (String secretKey) {
         return Encoders.BASE64.encode(secretKey.getBytes(StandardCharsets.UTF_8));
@@ -76,34 +65,14 @@ public class JwtTokenizer {
                 .signWith(key)
                 .compact();
 
-        // redis 추가3 : Store refresh token in Redis with expiration time
-//        redisTemplate.opsForValue().set(refreshToken,subject,refreshTokenExpirationMinutes, TimeUnit.MINUTES);
-
         return refreshToken;
     }
     public String regenerateAccessToken(String refreshToken) {
-//        // redis 추가4
-//        try {
-//            // check if refreshToken exists in Redis
-//            if (redisTemplate.hasKey(refreshToken)) {
-//                String email = (String) redisTemplate.opsForValue().get(refreshToken);
-//                Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
-//                Map<String, Object> accessTokenClaims = new HashMap<>();
-//                accessTokenClaims.put("email", email);
-//                String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
-//                return newAccessToken;
-//            } else {
-//                throw new RuntimeException("Refresh Token not found in Redis");
-//            }
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+
 //     redis 적용하기 전 code.
         try {
             Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
 
-//            Instant refreshTokenExpiration = Instant.ofEpochSecond((Long) refreshTokenClaims.getBody().get("exp"));
             int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
 
             // 1000L = 1sec,
