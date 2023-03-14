@@ -19,7 +19,7 @@ spring:
           google:
             clientId: "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
             clientSecret: "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"
-            redirectUri: "http://localhost:8080/login/oauth2/code/google"
+            redirectUri: "http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google"
             scope:
               - email
               - profile
