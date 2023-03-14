@@ -91,7 +91,7 @@ public class BoardMapperImpl implements BoardMapper{
             response.setCommentCount(board.getCommentBoardList().size());
             response.setMemberId(board.getMember().getMemberId());
             response.setMemberName(board.getMember().getDisplayName());
-            response.setCreatedAt(board.getCreateAt());
+            response.setCreatedAt(board.getCreatedAt());
             response.setModifiedAt(board.getModifiedAt());
 //            response.setProfileImageUrl(board.getMember().getProfilePicture()); 추가 예정
 
