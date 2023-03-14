@@ -3,6 +3,7 @@ import DrinksTagList from "./DrinksTagList";
 import DrinkSearch from "./DrinksSearch";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
+import Button from "../../UI/Button";
 
 function DrinksInfo() {
   const [search, setSearch] = useState(false);
@@ -14,9 +15,19 @@ function DrinksInfo() {
   return (
     <InfoContainer>
       {search ? <DrinkSearch /> : <DrinksTagList />}
-      <SearchButton onClick={handleSearchChange}>
-        <AiOutlineSearch />
-      </SearchButton>
+      <Button
+        type="button"
+        size={`--x-large`}
+        radius={`--large`}
+        color={`--color-white`}
+        bgColor={`--color-main`}
+        borderColor={`--color-main`}
+        onClick={handleSearchChange}
+      >
+        <SvgSize>
+          <AiOutlineSearch />
+        </SvgSize>
+      </Button>
     </InfoContainer>
   );
 }
@@ -31,18 +42,9 @@ const InfoContainer = styled.div`
   justify-content: space-between;
 `;
 
-const SearchButton = styled.div`
-  color: var(--color-white);
-  background-color: var(--color-main);
-  width: 45px;
-  height: 45px;
+const SvgSize = styled.div`
+  font-size: var(--small);
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: var(--large);
-  cursor: pointer;
-
-  svg {
-    font-size: var(--text-large);
-  }
+  align-items: center;
 `;

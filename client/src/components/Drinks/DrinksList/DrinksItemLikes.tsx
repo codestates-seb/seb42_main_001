@@ -25,7 +25,7 @@ export default DrinksItemLikes;
 const LikesSize = styled.div`
   color: var(--color-main);
   display: flex;
-  
+
   svg {
     font-size: var(--text-x-large);
     color: var(--color-main);

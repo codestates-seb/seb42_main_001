@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 function BoardSuggestItem() {
   return <ItemContainer>잭콕 취향이신 분 계실까요?</ItemContainer>;

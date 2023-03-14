@@ -19,7 +19,6 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/article" element={<ArticleList />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/signup" element={<SignUp />} />
       </Route>
       <Route element={<MainLayout bgColor />}>
         <Route path="/board/list" element={<BoardList />} />
@@ -27,6 +26,7 @@ function App() {
         <Route path="/board/create" element={<BoardCreate />} />
         <Route path="/drinks/list" element={<DrinksList />} />
         <Route path="/drinks/detail" element={<DrinksDetail />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/tags" element={<Tags />} />
       </Route>
     </Routes>

@@ -1,17 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import BoardSuggestItem from './BoardSuggestItem';
+import BoardSuggestItem from "./BoardSuggestItem";
 
 function BoardSuggestList() {
   return (
     <ListContainer>
-      <BoardSuggestItem></BoardSuggestItem>
-      <BoardSuggestItem></BoardSuggestItem>
-      <BoardSuggestItem></BoardSuggestItem>
-      <BoardSuggestItem></BoardSuggestItem>
-      <BoardSuggestItem></BoardSuggestItem>
-      <BoardSuggestItem></BoardSuggestItem>
-      <BoardSuggestItem></BoardSuggestItem>
+      <BoardSuggestItem />
+      <BoardSuggestItem />
+      <BoardSuggestItem />
+      <BoardSuggestItem />
+      <BoardSuggestItem />
     </ListContainer>
   );
 }

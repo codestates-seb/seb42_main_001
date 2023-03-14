@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import BoardCreateTag from './BoardCreateTag';
+import BoardCreateTag from "./BoardCreateTag";
 
 function BoardCreateTags() {
   return (
     <ListContainer>
-      <BoardCreateTag></BoardCreateTag>
-      <BoardCreateTag></BoardCreateTag>
-      <BoardCreateTag></BoardCreateTag>
+      <BoardCreateTag />
+      <BoardCreateTag />
+      <BoardCreateTag />
     </ListContainer>
   );
 }
