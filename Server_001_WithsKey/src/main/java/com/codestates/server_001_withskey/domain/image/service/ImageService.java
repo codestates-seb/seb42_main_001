@@ -84,9 +84,38 @@ public class ImageService {
         images.stream()
                 .map(image -> {
                     Optional<Image> findImage = imageRepository.findById(image.getImageId());
+
                     Image img = findImage.orElseThrow(
                             ()-> new BusinessLogicException(ExceptionCode.IMAGES_NOT_FOUND));
+
                     img.setBoard(saveBoard);
+
+                    return img;
+                }).collect(Collectors.toList());
+    }
+
+    public void updateImage(Board updatedBoard, List<ImageDto.Patch> images){
+        //원래 있던 이미지  매핑 null화
+        List<Image> originImages = imageRepository.findAllByBoard(updatedBoard).get();
+        originImages = originImages.stream()
+                        .map(image -> {
+                            image.setBoard(null);
+                            return image;
+                        })
+                                .collect(Collectors.toList());
+        imageRepository.saveAll(originImages);
+
+
+        //새로 수정된 이미지 매핑
+         images.stream()
+                .map(image -> {
+                    Optional<Image> findImage = imageRepository.findById(image.getImageId());
+
+                    Image img = findImage.orElseThrow(
+                            ()-> new BusinessLogicException(ExceptionCode.IMAGES_NOT_FOUND));
+
+                    img.setBoard(updatedBoard);
+
                     return img;
                 }).collect(Collectors.toList());
     }

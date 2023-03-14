@@ -1,7 +1,6 @@
 package com.codestates.server_001_withskey.domain.board.mapper;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.dto.BoardDto.Patch;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import java.util.List;
@@ -18,7 +17,7 @@ public interface BoardMapper {
 
     BoardDto.Response BoardToDto(Board board);
 
-    List<Response> BoardsToDto(List<Board> board);
+    List<Response> BoardsToDtos(List<Board> board);
 
 
 }

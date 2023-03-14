@@ -54,7 +54,6 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         if (member != null) {
             username = member.getDisplayName();
         }
-        long memberId = member.getMemberId();
         String accessToken = delegateAccessToken(member, authorities);
         String refreshToken = delegateRefreshToken(username);
 
@@ -71,8 +70,10 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
     private String delegateAccessToken(Member member, List<String> authorities) {
         Map<String, Object> claims = new HashMap<>();
+
         claims.put("username", member.getDisplayName());
         claims.put("memberId", String.valueOf(member.getMemberId()));
+
         claims.put("roles", authorities);
 
         String subject = String.valueOf(member.getMemberId());

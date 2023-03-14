@@ -9,11 +9,14 @@ public class ImageDto {
     @NoArgsConstructor
     public static class Post{
         private long imageId;
-        private String imageUrl;
+        private String boardImageUrl;
     }
 
+    @Data
+    @NoArgsConstructor
     public static class Patch{
-
+        private long imageId;
+        private String boardImageUrl;
     }
 
     @Data

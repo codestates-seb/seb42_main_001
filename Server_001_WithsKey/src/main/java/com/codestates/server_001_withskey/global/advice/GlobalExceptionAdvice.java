@@ -28,9 +28,9 @@ public class GlobalExceptionAdvice {
         final ErrorResponse response = ErrorResponse.of(e);
         return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
     }
-    @ExceptionHandler
-    public ResponseEntity handleException(NullPointerException e) {
-        final ErrorResponse response = ErrorResponse.of(e);
-        return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
-    }
+//    @ExceptionHandler
+//    public ResponseEntity handleException(NullPointerException e) {
+//        final ErrorResponse response = ErrorResponse.of(e);
+//        return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
+//    }
 }

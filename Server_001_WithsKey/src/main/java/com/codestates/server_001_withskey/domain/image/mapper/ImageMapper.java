@@ -22,7 +22,7 @@ public class ImageMapper {
     public ImageDto.Post imageToPost(Image image){
         ImageDto.Post response = new ImageDto.Post();
         response.setImageId(image.getImageId());
-        response.setImageUrl(image.getImgUrl());
+        response.setBoardImageUrl(image.getImgUrl());
         return response;
     }
 

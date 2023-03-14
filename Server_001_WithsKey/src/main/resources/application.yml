@@ -12,6 +12,8 @@ spring:
     properties:
       hibernate:
         format_sql: true  # (3) SQL pretty print
+    defer-datasource-initialization: true
+
   security:
     oauth2:
       client:
@@ -40,12 +42,21 @@ mail:
 jwt:
   key:
     secret: 001mainprojectwithskeyletsgoforitwecandoit
-  access-token-expiration-minutes: 1
+  access-token-expiration-minutes: 30
   refresh-token-expiration-minutes: 420
 
 file:
   root:
-    dir : /Users/yj/IdeaProjects/MainProject/Server_001_WithsKey/sampleImgPath
+    dir : C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
+
+resource:
+  handler: /admin/post/image/**
+  location: file:///D:/imgUpload/
+
+image:
+  upload:
+    path: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
 
 #    dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
+# /home/ssm-user/imag
 

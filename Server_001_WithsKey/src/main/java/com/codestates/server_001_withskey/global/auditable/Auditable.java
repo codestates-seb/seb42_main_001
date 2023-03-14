@@ -2,6 +2,7 @@ package com.codestates.server_001_withskey.global.auditable;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
