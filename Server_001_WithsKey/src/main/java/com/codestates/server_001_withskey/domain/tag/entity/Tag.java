@@ -8,16 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
+@ToString(exclude = {"board","tagBoardList","tagDrinkList"})
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +31,9 @@ public class Tag {
     @Column(nullable = false)
     private String tagInfo;
 
-//    @OneToMany(mappedBy="tagId")
-//    private List<Tag> tagList = new ArrayList<>();
-    // tag-board 1:N
+    @ManyToOne
+    private Board board;
+
     @OneToMany(mappedBy = "tag")
     private List<TagBoard> tagBoardList = new ArrayList<>();
 

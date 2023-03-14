@@ -5,18 +5,14 @@ import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.repository.BoardRepository;
 import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
-import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,9 +35,9 @@ public class BoardService {
         Board findBoard = findVerifiedBoard(patchBoard.getBoardId());
 
         Optional.ofNullable(patchBoard.getBoardTitle())
-                        .ifPresent(title -> findBoard.setBoardTitle(title));
+            .ifPresent(title->findBoard.setBoardTitle(title));
         Optional.ofNullable(patchBoard.getContent())
-                        .ifPresent(content -> findBoard.setContent(content));
+            .ifPresent(content->findBoard.setContent(content));
         Optional.ofNullable(patchBoard.getImages())
                 .ifPresent(image -> imageService.updateImage(findBoard, image));
 
@@ -51,6 +47,7 @@ public class BoardService {
 
         return boardRepository.save(findBoard);
     }
+
 
     // 제거
     public void deleteBoard(long boardId) {
@@ -90,14 +87,14 @@ public class BoardService {
     public List<Board> findBoardsByTag(Tag tag){
 
         List<Board> boardList = tag.getTagBoardList()
-                .stream()
-                .filter(tagBoard -> {
-                    return tagBoard.getTag().getTagId()!=tag.getTagId();
-                })
-                .map(tagBoard -> {
-                    return tagBoard.getBoard();
-                })
-                .collect(Collectors.toList());
+            .stream()
+            .filter(tagBoard -> {
+                return tagBoard.getTag().getTagId()!=tag.getTagId();
+            })
+            .map(tagBoard -> {
+                return tagBoard.getBoard();
+            })
+            .collect(Collectors.toList());
 
 
         return boardList;
