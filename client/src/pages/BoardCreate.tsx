@@ -8,16 +8,18 @@ import BoardCreateInput from '../components/Board/BoardCreateInput';
 function BoardCreate() {
   return (
     <Wrapper>
-      <BoardCreateController>
-        <BoardCreateTagController>
-          <IconWrapper>
-            <BsPlusCircle />
-          </IconWrapper>
-          <BoardCreateTags></BoardCreateTags>
-        </BoardCreateTagController>
-        <BoardCreateBtn></BoardCreateBtn>
-      </BoardCreateController>
-      <BoardCreateInput></BoardCreateInput>
+      <div>
+        <BoardCreateController>
+          <BoardCreateTagController>
+            <IconWrapper>
+              <BsPlusCircle />
+            </IconWrapper>
+            <BoardCreateTags></BoardCreateTags>
+          </BoardCreateTagController>
+          <BoardCreateBtn></BoardCreateBtn>
+        </BoardCreateController>
+        <BoardCreateInput></BoardCreateInput>
+      </div>
     </Wrapper>
   );
 }
@@ -29,6 +31,13 @@ const Wrapper = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    width: 70%;
+    height: auto;
+  }
 `;
 
 const BoardCreateController = styled.div`
