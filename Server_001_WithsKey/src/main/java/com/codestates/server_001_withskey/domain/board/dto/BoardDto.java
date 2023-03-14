@@ -1,24 +1,43 @@
 package com.codestates.server_001_withskey.domain.board.dto;
 
-import com.codestates.server_001_withskey.domain.board.entity.Board;
-import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
-import lombok.AllArgsConstructor;
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
-import java.util.List;
-
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 public class BoardDto {
+    @Getter
+    @Setter
+//    @Builder
+    @NoArgsConstructor
+    public static class Post{
+        private long boardId;
+        private String boardTitle;
+        private String content;
+//        private String boardImageUrl;
+    }
 
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class Patch{
+        private long boardId;
+        private String boardTitle;
+        private String content;
+    }
 
-    private Long boardId;
-    private String content;
-    private List<ImageDto.Response> boardImageUrl;
+    @Getter
+    @Setter
 
+    @NoArgsConstructor
+    public static class Response{
+        private long boardId;
+        private String boardTitle;
+        private String content;
+//        private String boardImageUrl;
+
+    }
 }

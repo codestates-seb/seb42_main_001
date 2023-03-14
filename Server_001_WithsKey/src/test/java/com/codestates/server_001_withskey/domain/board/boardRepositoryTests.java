@@ -3,7 +3,6 @@ package com.codestates.server_001_withskey.domain.board;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.repository.BoardRepository;
 import java.util.stream.IntStream;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

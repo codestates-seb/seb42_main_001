@@ -1,8 +1,6 @@
 package com.codestates.server_001_withskey.domain.board.entity;
-
 import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
 import com.codestates.server_001_withskey.domain.like.entity.LikeBoard;
-import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import java.util.ArrayList;
@@ -11,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,31 +17,27 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @Getter
-@Setter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"member","commentBoardList","likeBoardsList", "tagBoardList"})
+@NoArgsConstructor
+@ToString
 public class Board extends Auditable {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long boardId;
+    @GeneratedValue
+    private long boardId;
 
     @Column(nullable = false)
     private String content;
 
-    @Column(nullable = false)
-    private String boardTitle;
+    @Column
+    private String boardImageUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="MEMBER_ID")
-    private Member member;
+//    @ManyToOne
+//    private Member member;
 
     // Like 1:N
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
@@ -56,6 +49,5 @@ public class Board extends Auditable {
 
     @OneToMany(mappedBy = "board")
     private List<TagBoard> tagBoardList = new ArrayList<>();
-
 
 }
