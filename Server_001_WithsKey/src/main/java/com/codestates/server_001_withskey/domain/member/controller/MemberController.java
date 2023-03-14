@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @RestController
 @Validated
 @RequestMapping("/members")
-public class MemberController {
+public class  MemberController {
     @Getter
     private final String url = "http://localhost:8080/members/";
 

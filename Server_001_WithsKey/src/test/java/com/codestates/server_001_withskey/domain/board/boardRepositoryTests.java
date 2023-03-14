@@ -1,10 +1,8 @@
 package com.codestates.server_001_withskey.domain.board;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
-import com.codestates.server_001_withskey.domain.board.entity.repository.BoardRepository;
+import com.codestates.server_001_withskey.domain.board.repository.BoardRepository;
 import java.util.stream.IntStream;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +17,6 @@ public class boardRepositoryTests {
         IntStream.rangeClosed(1,10).forEach(i->{
             Board board = Board.builder()
                 .content("test board "+i)
-                .boardImageUrl("img Url "+i)
                 .build();
             repository.save(board);
         });
