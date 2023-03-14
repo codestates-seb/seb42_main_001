@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="🔨 fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ" />
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="🔨 fix: cke">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678767411477</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="🔨 fix: cke">
+      <created>1678768089493</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678768089493</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +237,8 @@
     <MESSAGE value="✨ feat: Board 패키지 기능 추가" />
     <MESSAGE value="✨ fix: yml dir 수정" />
     <MESSAGE value=" fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ" />
-    <option name="LAST_COMMIT_MESSAGE" value=" fix: yml 수정 및 테스트 코드 삭제 범인은 ... ㅎㅎ" />
+    <MESSAGE value=" fix: cke" />
+    <option name="LAST_COMMIT_MESSAGE" value=" fix: cke" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
