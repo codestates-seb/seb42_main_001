@@ -9,7 +9,7 @@ import BoardDetailContents from '../components/Board/BoardDetailContents';
 import BoardTags from '../components/Board/BoardTags';
 import Comment from '../components/UI/Comment/Comment';
 import CommentInput from '../components/UI/Comment/CommentInput';
-import CommentSubmitBtn from '../components/UI/Comment/CommentSubmitBtn';
+import { CommentSubmitBtn } from '../components/UI/Comment/CommentSubmitBtn';
 import BoardSuggest from '../components/Board/BoardSuggest';
 
 function BoardDetail() {

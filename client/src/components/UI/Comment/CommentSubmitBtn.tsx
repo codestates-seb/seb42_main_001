@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-function CommentSubmitBtn() {
+export function CommentSubmitBtn() {
   return <SubmitBtn>submit</SubmitBtn>;
 }
 
-export default CommentSubmitBtn;
-
-const SubmitBtn = styled.button`
+export const SubmitBtn = styled.button`
   width: 130px;
   height: 55px;
   background-color: var(--color-main);
