@@ -19,5 +19,4 @@ public interface BoardMapper {
 
     List<Response> BoardsToDtos(List<Board> board);
 
-
 }
