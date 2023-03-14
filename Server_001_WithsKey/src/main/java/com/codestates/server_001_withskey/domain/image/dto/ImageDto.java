@@ -9,7 +9,7 @@ public class ImageDto {
     @NoArgsConstructor
     public static class Post{
         private long imageId;
-        private String imageUrl;
+        private String boardImageUrl;
     }
 
     public static class Patch{

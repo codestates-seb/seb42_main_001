@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.board.controller;
 
 import com.codestates.server_001_withskey.commondto.MultiResponseDto;
+import com.codestates.server_001_withskey.commondto.SingleResponseDto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 
@@ -10,6 +11,8 @@ import javax.validation.constraints.Positive;
 
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapper;
 import com.codestates.server_001_withskey.domain.board.service.BoardService;
+import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
+import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -34,13 +37,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class BoardController {
     private final BoardService boardService;
     private final BoardMapper mapper;
+    private final ImageService imageService;
 
     // 등록
     @PostMapping
     public ResponseEntity createBoard(@Valid @RequestBody BoardDto.Post postBoard) {
-        Board board = boardService.createBoard(mapper.PostDtoToBoard(postBoard));
-        return new ResponseEntity<>(board, HttpStatus.CREATED);
+        Board board = mapper.PostDtoToBoard(postBoard);
+        Board result = boardService.createBoard(board);
+        imageService.saveImage(result, postBoard.getImages());
 
+        // 결과 반환은 변동사항 있을 수 있음.
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     // 수정
@@ -61,13 +68,24 @@ public class BoardController {
     }
 
     // 조회
+    @GetMapping("/{board-id}")
+    public ResponseEntity getBoard(@PathVariable("board-id") long boardId){
+        Board board = boardService.findVerifiedBoard(boardId);
+        BoardDto.Response response = mapper.BoardToDto(board);
+
+        //TODO 이미지 url 매핑이 빠져있음.
+        response.setImages(imageService.findByBoard(board));
+
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity getBoards(@Positive @RequestParam int page,
-        @Positive @RequestParam int size) {
+                                    @Positive @RequestParam int size) {
         Page<Board> boardsPage = boardService.findBoards(page - 1, size);
         List<Board> boards = boardsPage.getContent();
 
-        return new ResponseEntity<>(new MultiResponseDto<>(mapper.BoardsToDto(boards), boardsPage),
+        return new ResponseEntity<>(new MultiResponseDto<>(mapper.BoardsToDtos(boards), boardsPage),
             HttpStatus.OK);
     }
 

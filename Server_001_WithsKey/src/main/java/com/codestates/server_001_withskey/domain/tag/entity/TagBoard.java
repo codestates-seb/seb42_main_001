@@ -1,6 +1,8 @@
 package com.codestates.server_001_withskey.domain.tag.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
+@Data
 public class TagBoard {
 
     @Id
@@ -20,4 +23,11 @@ public class TagBoard {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Tag tag;
+
+    public void setTag(Tag tag){
+        this.tag = tag;
+        if(!tag.getTagBoardList().contains(this)){
+                tag.getTagBoardList().add(this);
+        }
+    }
 }

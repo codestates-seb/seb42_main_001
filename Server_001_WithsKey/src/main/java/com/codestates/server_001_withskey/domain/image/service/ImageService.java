@@ -84,9 +84,12 @@ public class ImageService {
         images.stream()
                 .map(image -> {
                     Optional<Image> findImage = imageRepository.findById(image.getImageId());
+
                     Image img = findImage.orElseThrow(
                             ()-> new BusinessLogicException(ExceptionCode.IMAGES_NOT_FOUND));
+
                     img.setBoard(saveBoard);
+
                     return img;
                 }).collect(Collectors.toList());
     }

@@ -72,7 +72,9 @@ public class BoardService {
 //        return searchQuestion;
 //    }
 
-    // 유효성 검사
+
+
+    // 게시글 찾기 기능 + 유효성 검사
     public Board findVerifiedBoard(long boardId){
     Optional<Board> optionalBoard = boardRepository.findById(boardId);
     Board findBoard =
@@ -80,6 +82,5 @@ public class BoardService {
             new BusinessLogicException(ExceptionCode.BOARD_NOT_FOUND));
         return findBoard;
     }
-
 
 }

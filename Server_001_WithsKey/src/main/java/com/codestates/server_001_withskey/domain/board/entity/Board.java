@@ -58,4 +58,13 @@ public class Board extends Auditable {
     private List<TagBoard> tagBoardList = new ArrayList<>();
 
 
+    public void setMember(Member member){
+        this.member = member;
+        if(!member.getBoards().contains(this)){
+            member.getBoards().add(this);
+        }
+    }
+
+
+
 }
