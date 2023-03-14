@@ -18,8 +18,6 @@ public interface DrinkMapper {
 
         DrinkDto.Response response = DrinkDto.Response
                 .builder()
-                .createdAt(drink.getCreatedAt())
-                .modifiedAt(drink.getModifiedAt())
                 .drinkId(drink.getDrinkId())
                 .drinkName(drink.getDrinkName())
                 .priceRank(drink.getPriceRank())

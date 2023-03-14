@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CommentDrinkMapper {
 
-
     default List<CommentDrinkDto.Response> commentsToCommentDrinkDtoResponse(List<CommentDrink> commentDrinkList) {
 
         return commentDrinkList

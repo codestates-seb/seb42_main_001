@@ -15,10 +15,6 @@ public class DrinkDto {
         @AllArgsConstructor
         @NoArgsConstructor
         public static class Response {
-            @Column(name = "created_at", updatable = false)
-            private LocalDateTime createdAt;
-            @Column(name = "LAST_MODIFIED_AT")
-            private LocalDateTime modifiedAt;
             private long drinkId;
             private String drinkName;
             private String priceRank;
