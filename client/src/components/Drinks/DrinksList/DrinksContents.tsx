@@ -30,4 +30,11 @@ const ContentsContainer = styled.div`
   flex-wrap: wrap;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;

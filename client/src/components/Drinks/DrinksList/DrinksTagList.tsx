@@ -64,4 +64,10 @@ const TagListContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 768px) {
+    width: 60%;
+    display: flex;
+    align-items: center;
+  }
 `;
