@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.member.Dto;
+package com.codestates.server_001_withskey.domain.member.dto;
 
 //        @Email
 //        @NotBlank(message = "email must be not blank")

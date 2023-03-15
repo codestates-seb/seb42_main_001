@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.drink.Repository;
+package com.codestates.server_001_withskey.domain.drink.repository;
 
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import org.springframework.data.domain.Page;

@@ -1,12 +1,12 @@
-package com.codestates.server_001_withskey.domain.drink.Controller;
+package com.codestates.server_001_withskey.domain.drink.controller;
 
 
 import com.codestates.server_001_withskey.commondto.MultiResponseDto;
 import com.codestates.server_001_withskey.commondto.PageInfo;
-import com.codestates.server_001_withskey.domain.drink.Mapper.DMapper;
-import com.codestates.server_001_withskey.domain.drink.Service.DrinkService;
+import com.codestates.server_001_withskey.domain.drink.mapper.DMapper;
+import com.codestates.server_001_withskey.domain.drink.service.DrinkService;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
-import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

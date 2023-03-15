@@ -1,21 +1,34 @@
 package com.codestates.server_001_withskey.domain.drink.tastingNote;
 
+import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Getter
-public enum TastingNote {
-    JACKDANIELHONEY("SWEET",4/5);
+@Entity
+@Setter
+@NoArgsConstructor
+public class TastingNote {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    long tastingNoteId;
+    @Column
+    long Sweet;
+    @Column
+    long Smoky;
+    @Column
+    long Citrus;
+    @Column
+    long Herbal;
+    @Column
+    long Tropical;
 
-// SWEET, NUTTY, BITTER
-
-
-    @Getter
-    String taste;
-    @Getter
-    int score;
-
-    TastingNote(String taste, int score) {
-        this.score = score;
-        this.taste = taste;
-    }
+    // Drink 랑 1:1,
+    @OneToOne
+    @JoinColumn(name="drinkId")
+    // 1:1 관계에서 @JoinColumn은 주가 되는 쪽에 붙인다.
+    private Drink drink;
 }
