@@ -2,6 +2,8 @@ package com.codestates.server_001_withskey.domain.tag.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
