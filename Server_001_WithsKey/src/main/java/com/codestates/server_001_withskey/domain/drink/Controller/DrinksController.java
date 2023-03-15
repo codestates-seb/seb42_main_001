@@ -50,9 +50,7 @@ public class DrinksController {
                 DrinkPage.getTotalPages());
         List<Drink> drinks = DrinkPage.getContent();
         List<DrinkDto.Response> responses = mapper.drinksToDrinkResponse(drinks);
-        return new ResponseEntity(
-                new MultiResponseDto<>(responses, pageInfo), HttpStatus.OK
-        );
+        return new ResponseEntity(new MultiResponseDto<>(responses, pageInfo), HttpStatus.OK);
     }
 
 
