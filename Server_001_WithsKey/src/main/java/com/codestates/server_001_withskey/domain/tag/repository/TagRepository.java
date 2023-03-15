@@ -8,7 +8,9 @@ import org.springframework.data.jpa.repository.EntityGraph.EntityGraphType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
     // board 찾기
 //    @EntityGraph(attributePaths = {"tag"},type = EntityGraphType.FETCH)

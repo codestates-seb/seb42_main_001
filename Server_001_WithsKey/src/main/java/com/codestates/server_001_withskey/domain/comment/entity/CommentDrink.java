@@ -22,9 +22,6 @@ public class CommentDrink extends Auditable {
     private Drink drink;
 
     @Column
-    private LocalDateTime createdAt;
-
-    @Column
     private long commentId;
 
     @Column
