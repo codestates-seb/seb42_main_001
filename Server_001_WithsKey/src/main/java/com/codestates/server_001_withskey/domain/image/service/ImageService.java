@@ -81,7 +81,8 @@ public class ImageService {
 
     // Id로 찾은 Image에 Board를 매핑해주는 메서드
     public void saveImage(Board saveBoard, List<ImageDto.Post> images){
-        images.stream()
+
+        List<Image> imageList = images.stream()
                 .map(image -> {
                     Optional<Image> findImage = imageRepository.findById(image.getImageId());
 
@@ -92,6 +93,8 @@ public class ImageService {
 
                     return img;
                 }).collect(Collectors.toList());
+
+        imageRepository.saveAll(imageList);
     }
 
     public void updateImage(Board updatedBoard, List<ImageDto.Patch> images){
@@ -102,7 +105,7 @@ public class ImageService {
                             image.setBoard(null);
                             return image;
                         })
-                                .collect(Collectors.toList());
+                        .collect(Collectors.toList());
         imageRepository.saveAll(originImages);
 
 

@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
 import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
+import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -21,10 +23,7 @@ public class BoardDto {
     public static class Post{
         private String boardTitle;
         private String BoardContent;
-        // ImageService에서 처리
-        private List<ImageDto.Post> images;
-
-        // TagService에서 처리
+        private List<ImageDto.Post> boardImageUrl;
         private List<TagDto.Post> tags;
     }
 
@@ -35,7 +34,7 @@ public class BoardDto {
         private long boardId;
         private String boardTitle;
         private String content;
-        private List<ImageDto.Patch> images;
+        private List<ImageDto.Patch> boardImageUrl;
         private List<TagDto.Post> tags;
     }
 
@@ -46,7 +45,6 @@ public class BoardDto {
         private long boardId;
         private String boardTitle;
         private String content;
-//        private String boardImageUrl;
         private long memberId;
         private String memberName;
 
@@ -58,8 +56,25 @@ public class BoardDto {
         private int likeCount;
         private int commentCount;
 
-        //TODO
-        private List<ImageDto.Response> images;
+        //TODO Tags 추가
+        private List<TagDto.Info> tags;
+    }
 
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class Recommand{
+        private long boardId;
+        private String boardTitle;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class ResponseDetail extends Response{
+        private List<ImageDto.Response> boardImages;
+        private List<BoardDto.Recommand> recommandBoards;
+        private List<CommentBoard> comments;
     }
 }

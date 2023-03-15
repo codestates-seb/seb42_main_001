@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -34,7 +36,12 @@ public class TagDto {
         private String tagInfo;
 
         private List<BoardDto.Response> board;
-//        private List<DrinkDto.Response> drink;
+    }
 
+    @Getter
+    @Setter
+    public static class Info{
+        private long tagId;
+        private String tagName;
     }
 }

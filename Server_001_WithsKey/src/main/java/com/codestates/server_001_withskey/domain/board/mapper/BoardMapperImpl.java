@@ -3,12 +3,17 @@ package com.codestates.server_001_withskey.domain.board.mapper;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
+import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
+import com.codestates.server_001_withskey.domain.image.entity.Image;
+import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
+import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -16,8 +21,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class BoardMapperImpl implements BoardMapper{
+    private final ImageService imageService;
 
     @Override
     public Board PostDtoToBoard(BoardDto.Post requestBody) {
@@ -30,7 +36,6 @@ public class BoardMapperImpl implements BoardMapper{
             board.setBoardTitle(requestBody.getBoardTitle());
             board.setContent(requestBody.getBoardContent());
 
-            Object one = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
             //Member 매핑
             Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
@@ -40,20 +45,20 @@ public class BoardMapperImpl implements BoardMapper{
 
             List<TagBoard> tagBoardList =
             //TagDto => tagId, tagName
-            requestBody.getTags()
-                    .stream()
-                    .map( tagPost -> {
-                        TagBoard tagBoard = new TagBoard();
+                requestBody.getTags()
+                        .stream()
+                        .map( tagPost -> {
+                            TagBoard tagBoard = new TagBoard();
 
-                        tagBoard.setBoard(board);
+                            tagBoard.setBoard(board);
 
-                        Tag tag = new Tag();
-                        tag.setTagId(tagPost.getTagId());
-                        tagBoard.setTag(tag);
+                            Tag tag = new Tag();
+                            tag.setTagId(tagPost.getTagId());
+                            tagBoard.setTag(tag);
 
-                        return tagBoard;
-                    })
-                    .collect(Collectors.toList());
+                            return tagBoard;
+                        })
+                        .collect(Collectors.toList());
 
             board.setTagBoardList(tagBoardList);
 
@@ -89,63 +94,89 @@ public class BoardMapperImpl implements BoardMapper{
             response.setContent(board.getContent());
             response.setLikeCount(board.getLikeBoardsList().size());
             response.setCommentCount(board.getCommentBoardList().size());
+
             response.setMemberId(board.getMember().getMemberId());
             response.setMemberName(board.getMember().getDisplayName());
-            response.setCreatedAt(board.getCreatedAt());
+            response.setProfileImageUrl(board.getMember().getProfilePicture());
+
+            response.setCreatedAt(board.getCreateAt());
             response.setModifiedAt(board.getModifiedAt());
-//            response.setProfileImageUrl(board.getMember().getProfilePicture()); 추가 예정
+
+            //TODO Tag
+            List<TagDto.Info> tagList = board.getTagBoardList()
+                                    .stream()
+                                    .map(tagBoard -> {
+                                        Tag tag = tagBoard.getTag();
+
+                                        TagDto.Info info = new TagDto.Info();
+                                        info.setTagId(tag.getTagId());
+                                        info.setTagName(tag.getTag_name());
+
+                                        return info;
+                                    }).collect(Collectors.toList());
+
+            response.setTags(tagList);
+
+            return response;
+        }
+    }
+
+    public BoardDto.ResponseDetail BoardToDetail(Board board){
+        if(board == null){
+            throw new BusinessLogicException(ExceptionCode.BOARD_NOT_FOUND);
+        } else {
+            BoardDto.ResponseDetail response = new BoardDto.ResponseDetail();
+
+            response.setBoardId(board.getBoardId());
+            response.setBoardTitle(board.getBoardTitle());
+            response.setContent(board.getContent());
+            response.setLikeCount(board.getLikeBoardsList().size());
+            response.setCommentCount(board.getCommentBoardList().size());
+
+            response.setMemberId(board.getMember().getMemberId());
+            response.setMemberName(board.getMember().getDisplayName());
+            response.setProfileImageUrl(board.getMember().getProfilePicture());
+
+            response.setCreatedAt(board.getCreateAt());
+            response.setModifiedAt(board.getModifiedAt());
+
+            List<TagDto.Info> tagList = board.getTagBoardList()
+                    .stream()
+                    .map(tagBoard -> {
+                        Tag tag = tagBoard.getTag();
+
+                        TagDto.Info info = new TagDto.Info();
+                        info.setTagId(tag.getTagId());
+                        info.setTagName(tag.getTag_name());
+
+                        return info;
+                    }).collect(Collectors.toList());
+            response.setTags(tagList);
+
 
             return response;
         }
     }
 
     @Override
-    public List<Response> BoardsToDtos(List<Board> board) {
+    public List<BoardDto.Response> BoardsToDtos(List<Board> board) {
         return board.stream()
                 .map(board1 -> { return BoardToDto(board1); })
                 .collect(Collectors.toList());
     }
+
+    public BoardDto.Recommand boardToRecommand(Board board){
+        BoardDto.Recommand recommand = new BoardDto.Recommand();
+        recommand.setBoardId(board.getBoardId());
+        recommand.setBoardTitle(board.getBoardTitle());
+
+        return recommand;
+    }
+
+    public List<BoardDto.Recommand> boardsToRecommands(List<Board> boards){
+        return boards.stream()
+                .map(board -> {
+                    return boardToRecommand(board);
+                }).collect(Collectors.toList());
+    }
 }
-/*
-// DTO To Entity
-    default Board boardDtoToEntity(BoardDto.Post postDto){
-
-        if(postDto==null){return null;}
-        Board boardPost = Board.builder()
-            .boardId(postDto.getBoardId())
-            .boardTitle(postDto.getBoardTitle())
-            .content(postDto.getContent())
-            //.board(Board.builder().boardId(postDto.getBoardId).build()) // 멤버 빌딩
-            .build();
-        return boardPost;
-    }
-
-
-    default Board boardPatchDtoToBoards(BoardDto.Patch patch) {
-        if(patch==null){
-            return null;
-        }
-
-        Board boardPatch = Board.builder()
-            .boardTitle(patch.getBoardTitle())
-            .content(patch.getContent())
-            .build();
-
-        return boardPatch;
-    }
-
-
-    // Entity To DTO
-    default BoardDto.Response entityToBoardDto(Board board){
-        BoardDto.Response responseDto = BoardDto.Response.builder()
-            .boardId(board.getBoardId())
-            .boardTitle(board.getBoardTitle())
-            .content(board.getContent())
-            .build();
-
-        return responseDto;
-    }
-
-
-
-* */

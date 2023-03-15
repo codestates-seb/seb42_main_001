@@ -1,21 +1,15 @@
 package com.codestates.server_001_withskey.domain.board.entity;
 
 import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
+import com.codestates.server_001_withskey.domain.image.entity.Image;
 import com.codestates.server_001_withskey.domain.like.entity.LikeBoard;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -46,17 +40,18 @@ public class Board extends Auditable {
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 
-
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
+    private List<Image> imageList = new ArrayList<>();
 
     // Like 1:N
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "board")
     private List<CommentBoard> commentBoardList = new ArrayList<>();
 
     // Comment 1:N
     @OneToMany(mappedBy="board")
     private List<LikeBoard> likeBoardsList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "board")
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
     private List<TagBoard> tagBoardList = new ArrayList<>();
 
 

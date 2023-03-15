@@ -23,6 +23,7 @@ import java.util.Map;
 // OAuth2 인증에 성공하면 FE 앱 쪽에서 request를 전송할 때 마다
 // Authorization header에 실어 보내는 Access Token에 대한
 // 검증을 수행하는 역
+// add v2
 @Component
 @Slf4j
 public class JwtVerificationFilter extends OncePerRequestFilter {
@@ -81,13 +82,10 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
         return claims;
     }
     private void setAuthenticationToContext(Map<String, Object> claims) {
-        // ContextHolder에 저장되는 UsernamePasswordAuthenticationToken의 Principal을 memberId로 변환
-        // memberId는 Object 타입이므로 String 타입으로 형변환하여 claims 객체에 담아준다
-        // Controller를 통해 들어오는 요청에서 같은 USER 권한이더라도 요청에 담긴 member 객체의 memberId로
-        // 요청자를 구분하여 resource에 접근하려는 주체를 구분할 수 있다. + Request URL 의 간단함.
-        String memberId = (String)claims.get("memberId");
+        String memberId = (String) claims.get("memberId");
         List<GrantedAuthority> authorities = authorityUtils.createAuthorities((List)claims.get("roles"));
         Authentication authentication = new UsernamePasswordAuthenticationToken(memberId,null,authorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
+
 }

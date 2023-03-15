@@ -2,15 +2,10 @@ package com.codestates.server_001_withskey.domain.tag.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
 @Setter
@@ -21,10 +16,12 @@ public class TagBoard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long tagBoardId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "BOARD_ID")
     private Board board;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "TAG_ID")
     private Tag tag;
 
     public void setTag(Tag tag){
