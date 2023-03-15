@@ -25,6 +25,10 @@ const OuterContainer = styled.div`
   position: absolute;
   top: 80px;
   left: 1050px;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const InnerContainer = styled.div`
