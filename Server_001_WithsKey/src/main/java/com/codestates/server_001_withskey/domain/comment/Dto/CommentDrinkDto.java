@@ -16,7 +16,6 @@ public class CommentDrinkDto {
         private long commentId;
         private long memberId;
         private String displayName;
-        private String profileImageUrl;
-
+        private String content;
     }
 }

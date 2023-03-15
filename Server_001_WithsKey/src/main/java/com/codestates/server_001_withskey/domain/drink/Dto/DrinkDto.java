@@ -25,7 +25,6 @@ public class DrinkDto {
             // List<TastingNote>
             // List<tag>
             // List<Snacks>
-            // List<Comment>
         }
 }
 

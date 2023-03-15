@@ -22,7 +22,7 @@ public interface CommentDrinkMapper {
                         .commentId(commentDrink.getCommentId())
                         .memberId(commentDrink.getMemberId())
                         .displayName(commentDrink.getDisplayName())
-                        .profileImageUrl(commentDrink.getProfileImageUrl())
+                        .content(commentDrink.getContent())
                         .build())
                 .collect(Collectors.toList());
     }

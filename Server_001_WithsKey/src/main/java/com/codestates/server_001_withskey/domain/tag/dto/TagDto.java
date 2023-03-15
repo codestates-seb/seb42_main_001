@@ -1,17 +1,12 @@
 package com.codestates.server_001_withskey.domain.tag.dto;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.drink.entity.Drink;
-import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
-import com.codestates.server_001_withskey.domain.image.dto.ImageDto.Response;
-import java.time.LocalDateTime;
+
 import java.util.List;
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.Setter;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 public class TagDto {
     @Getter
