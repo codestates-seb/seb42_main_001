@@ -12,7 +12,7 @@ interface MainLayoutProps {
 
 function MainLayout({ bgColor, img }: MainLayoutProps) {
   return (
-    <DefaultSize>
+    <DefaultSize bgColor={bgColor}>
       {bgColor ? (
         <Header
           headerBgColor={`--color-main`}
@@ -35,9 +35,11 @@ function MainLayout({ bgColor, img }: MainLayoutProps) {
 
 export default MainLayout;
 
-const DefaultSize = styled.div`
+const DefaultSize = styled.div<MainLayoutProps>`
   width: 100vw;
   height: 100%;
+  background-color: ${(props) =>
+    props.bgColor ? `var(--color-sub-light-gray)` : `var(--color-main)`};
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -46,8 +48,6 @@ const DefaultSize = styled.div`
 const ContainerBox = styled.div<MainLayoutProps>`
   width: 100%;
   height: 100%;
-  background-color: ${(props) =>
-    props.img ? `var(--color-white)` : `var(--color-sub-light-gray)`};
   background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
   background-repeat: no-repeat;
   background-size: cover;
