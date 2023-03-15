@@ -18,7 +18,7 @@ function DrinksTagList() {
     <>
       <Button
         type="button"
-        size={`--x-large`}
+        width={`--x-large`}
         radius={`--large`}
         onClick={scrollToBack}
         borderColor={`--color-main`}
@@ -46,7 +46,7 @@ function DrinksTagList() {
       </TagListContainer>
       <Button
         type="button"
-        size={`--x-large`}
+        width={`--x-large`}
         radius={`--large`}
         onClick={scrollToSide}
         borderColor={`--color-main`}
@@ -63,5 +63,11 @@ const TagListContainer = styled.div`
   overflow: overlay;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 60%;
+    display: flex;
+    align-items: center;
   }
 `;

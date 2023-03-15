@@ -32,4 +32,12 @@ const ContentContainer = styled.div`
 const BottomMargin = styled.div`
   margin-top: var(--xxx-large);
   margin-bottom: var(--xxx-large);
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--3x-large) 0;
+  }
 `;

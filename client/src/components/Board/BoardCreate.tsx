@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 function BoardCreate() {
   return (
     <Link to="/board/create">
-      <Button type="button" borderColor={`--color-main`} size={`--5x-large`}>
+      <Button type="button" borderColor={`--color-main`} width={`--5x-large`}>
         New Post
       </Button>
     </Link>

@@ -21,6 +21,14 @@ const ImgContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: var(--xx-small);
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--x-large);
+  }
 `;
 
 const Size = styled.div`

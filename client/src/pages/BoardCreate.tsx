@@ -14,7 +14,7 @@ function BoardCreate() {
           <BoardCreateTagController>
             <Button
               type="button"
-              size={`--x-large`}
+              width={`--x-large`}
               radius={`--large`}
               borderColor={`--color-main`}>
               <SvgSize>

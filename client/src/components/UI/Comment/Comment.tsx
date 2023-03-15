@@ -1,80 +1,66 @@
-import styled from 'styled-components';
-
-import Card from '../Card';
-import { FaUserCircle } from 'react-icons/fa';
-import More from '../More';
+import styled from "styled-components";
+import Card from "../Card";
 
 function Comment() {
   return (
-    <Card>
-      <ItemContainer>
-        <CommentAuthorInfo>
-          <CommentAuthorInfoImg>
-            <FaUserCircle></FaUserCircle>
-          </CommentAuthorInfoImg>
-          <CommentAuthorName>lampu</CommentAuthorName>
-          <CommentCreatedAt>23.03.07</CommentCreatedAt>
-          <CommentMore>
-            <More></More>
-          </CommentMore>
-        </CommentAuthorInfo>
-        <CommentContents>
-          아티클에 있는 안주를 다 드셔 보셨나요?? 멋지십니다 굿
-        </CommentContents>
-      </ItemContainer>
-    </Card>
+    <MainContainer>
+      <Card>
+        <SubContainer>
+          <CommentAuthorInfo>
+            <CommentAuthorInfoImg></CommentAuthorInfoImg>
+            <CommentAuthorContents>
+              <h4>lapmu</h4>
+              <span>23.03.07</span>
+            </CommentAuthorContents>
+          </CommentAuthorInfo>
+          <CommentContents>댓글 내용</CommentContents>
+        </SubContainer>
+      </Card>
+    </MainContainer>
   );
 }
-
 export default Comment;
 
-const ItemContainer = styled.div`
-  padding: 30px 35px 30px 35px;
-  width: 935px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+const MainContainer = styled.div`
+  width: 100%;
+  margin-bottom: var(--medium);
+`;
+
+const SubContainer = styled.div`
+  width: 100%;
+  padding: var(--large);
 `;
 
 const CommentAuthorInfo = styled.div`
-  margin-bottom: 20px;
-  height: 50px;
-  display: grid;
-  grid-template-columns: 50px 1fr 20px;
-  gap: 4px 14px;
-`;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: var(--text-small);
 
-const CommentAuthorInfoImg = styled.div`
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 2;
-
-  > svg {
-    width: 50px;
-    height: 50px;
+  span {
+    margin-top: 4px;
+    font-size: var(--text-small);
   }
 `;
 
-const CommentAuthorName = styled.div`
-  font-size: var(--text-small);
-  font-weight: 500;
-  line-height: 17px;
+const CommentAuthorInfoImg = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: var(--large);
+  background-color: var(--color-sub-light-gray);
 `;
 
-const CommentCreatedAt = styled.div`
-  font-size: var(--text-small);
-  font-weight: 500;
-  line-height: 17px;
-  color: var(--color-sub-light-gray);
-`;
-
-const CommentMore = styled.div`
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 2;
+const CommentAuthorContents = styled.div`
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: var(--x-small);
 `;
 
 const CommentContents = styled.div`
-  font-size: var(--text-medium);
-  font-weight: 500;
-  line-height: 30px;
+  width: 100%;
+  height: 100%;
+  padding-top: var(--medium);
+  padding-left: var(--xxx-small);
 `;

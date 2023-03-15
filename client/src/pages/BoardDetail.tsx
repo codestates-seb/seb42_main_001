@@ -1,21 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import BoardAuthorInfo from '../components/Board/BoardAuthorInfo';
-import BoardDetailTitle from '../components/Board/BoardDetailTitle';
-import BoardLikes from '../components/Board/BoardLikes';
-import BoardComments from '../components/Board/BoardComments';
-import More from '../components/UI/More';
-import BoardDetailContents from '../components/Board/BoardDetailContents';
-import BoardTags from '../components/Board/BoardTags';
-import Comment from '../components/UI/Comment/Comment';
-import CommentInput from '../components/UI/Comment/CommentInput';
-import { CommentSubmitBtn } from '../components/UI/Comment/CommentSubmitBtn';
-import BoardSuggest from '../components/Board/BoardSuggest';
+import BoardAuthorInfo from "../components/Board/BoardAuthorInfo";
+import BoardDetailTitle from "../components/Board/BoardDetailTitle";
+import BoardLikes from "../components/Board/BoardLikes";
+import BoardComments from "../components/Board/BoardComments";
+import More from "../components/UI/More";
+import BoardDetailContents from "../components/Board/BoardDetailContents";
+import BoardTags from "../components/Board/BoardTags";
+import Comment from "../components/UI/Comment/Comment";
+import CommentInput from "../components/UI/Comment/CommentInput";
+import BoardSuggest from "../components/Board/BoardSuggest";
 
 function BoardDetail() {
   return (
     <Wrapper>
-      <BoardSuggest></BoardSuggest>
+      <BoardSuggest />
       <BoardDetailContainer>
         <BoardAuthorInfo />
         <BoardDetailHeader>
@@ -35,10 +34,8 @@ function BoardDetail() {
         <CommentsCount>Comments 2</CommentsCount>
         <CommentInputContainer>
           <CommentInput />
-          <CommentSubmitBtn />
         </CommentInputContainer>
         <ListContainer>
-          <Comment />
           <Comment />
         </ListContainer>
       </BoardCommentsContainer>
@@ -59,7 +56,6 @@ const Wrapper = styled.div`
 
 const BoardDetailContainer = styled.div`
   width: calc(100% / 18 * 12);
-  background-color: var(--color-white);
   padding: 105px 0 95px 0;
 
   @media only screen and (max-width: 768px) {
@@ -69,7 +65,6 @@ const BoardDetailContainer = styled.div`
 
 const BoardCommentsContainer = styled.div`
   width: calc(100% / 18 * 12);
-  background-color: var(--color-sub-gray);
   padding: 55px 0 200px 0;
 
   @media only screen and (max-width: 768px) {
@@ -107,7 +102,7 @@ const CommentInputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px 0 50px 0;
+  margin-top: var(--x-small);
 `;
 
 const CommentsCount = styled.div`

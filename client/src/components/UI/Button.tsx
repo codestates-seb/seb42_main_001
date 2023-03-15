@@ -7,7 +7,8 @@ interface ButtonProps {
   borderColor?: string;
   bgColor?: string;
   color?: string;
-  size?: string;
+  width?: string;
+  height?: string;
   radius?: string;
   children?: React.ReactNode;
 }
@@ -19,7 +20,8 @@ function Button({
   borderColor,
   bgColor,
   color,
-  size,
+  width,
+  height,
   radius,
 }: ButtonProps) {
   return (
@@ -29,7 +31,8 @@ function Button({
       borderColor={borderColor}
       bgColor={bgColor}
       onClick={onClick}
-      size={size}
+      width={width}
+      height={height}
       radius={radius}
     >
       {children}
@@ -40,14 +43,14 @@ function Button({
 export default Button;
 
 const ButtonStyled = styled.button<ButtonProps>`
-  width: ${(props) => (props.size ? `var(${props.size})` : `var(--3x-large)`)};
-  height: var(--x-large);
+  width: ${(props) => (props.width ? `var(${props.width})` : `var(--3x-large)`)};
+  height: ${(props) => (props.height ? `var(${props.height})` : `var(--x-large)`)};
   color: ${(props) =>
     props.color ? `var(${props.color})` : `var(--color-main)`};
   border: none;
   border: 1px solid
     ${(props) =>
-      props.borderColor ? `var(${props.borderColor})` : `var(--color-main)`};
+    props.borderColor ? `var(${props.borderColor})` : `var(--color-main)`};
   border-radius: ${(props) =>
     props.radius ? `var(${props.radius})` : `var(--xx-small)`};
   background-color: ${(props) =>
@@ -57,11 +60,11 @@ const ButtonStyled = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${(props) =>
-      props.bgColor ? `var(--color-white)` : `var(--color-main)`};
+    props.bgColor ? `var(--color-white)` : `var(--color-main)`};
     color: ${(props) =>
-      props.color ? `var(--color-main)` : `var(--color-white)`};
+    props.color ? `var(--color-main)` : `var(--color-white)`};
     border: 1px solid
       ${(props) =>
-        props.borderColor ? `var(${props.borderColor})` : `var(--color-white)`};
+    props.borderColor ? `var(${props.borderColor})` : `var(--color-white)`};
   }
 `;

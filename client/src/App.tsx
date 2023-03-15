@@ -22,9 +22,11 @@ function App() {
         <Route path="/article" element={<ArticleList />} />
         <Route path="/mypage" element={<MyPage />} />
       </Route>
+      <Route element={<MainLayout bgWhite />}>
+        <Route path="/board/detail" element={<BoardDetail />} />
+      </Route>
       <Route element={<MainLayout bgColor />}>
         <Route path="/board/list" element={<BoardList />} />
-        <Route path="/board/detail" element={<BoardDetail />} />
         <Route path="/board/create" element={<BoardCreate />} />
         <Route path="/drinks/list" element={<DrinksList />} />
         <Route path="/drinks/detail" element={<DrinksDetail />} />

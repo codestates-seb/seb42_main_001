@@ -17,7 +17,7 @@ function DrinksInfo() {
       {search ? <DrinkSearch /> : <DrinksTagList />}
       <Button
         type="button"
-        size={`--x-large`}
+        width={`--x-large`}
         radius={`--large`}
         color={`--color-white`}
         bgColor={`--color-main`}

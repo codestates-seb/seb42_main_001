@@ -1,14 +1,19 @@
-import React from 'react'
-import DrinksDetailCommentContent from './DrinksDetailCommentContent'
-import DrinksDetailCommentInput from './DrinksDetailCommentInput'
+import React from "react";
+import styled from "styled-components";
+import Comment from "../../UI/Comment/Comment";
+import CommentInput from "../../UI/Comment/CommentInput";
 
 function DrinksDetailComment() {
   return (
-    <div>
-      <DrinksDetailCommentInput />
-      <DrinksDetailCommentContent />
-    </div>
-  )
+    <MainContainer>
+      <CommentInput />
+      <Comment />
+    </MainContainer>
+  );
 }
 
-export default DrinksDetailComment
+export default DrinksDetailComment;
+
+const MainContainer = styled.div`
+  margin-bottom: var(--5x-large);
+`

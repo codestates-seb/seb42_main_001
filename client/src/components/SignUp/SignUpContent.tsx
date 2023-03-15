@@ -7,13 +7,15 @@ import SignUpTitle from "./SignUpTitle";
 
 const SignUpContent = () => {
   return (
-    <Card>
-      <SignUpContentContainer>
-        <SignUpTitle />
-        <SignUpButton />
-        <SignUpFooter />
-      </SignUpContentContainer>
-    </Card>
+    <SizeContainer>
+      <Card>
+        <SignUpContentContainer>
+          <SignUpTitle />
+          <SignUpButton />
+          <SignUpFooter />
+        </SignUpContentContainer>
+      </Card>
+    </SizeContainer>
   );
 };
 
@@ -26,4 +28,19 @@ const SignUpContentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 670px;
+    min-width: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const SizeContainer = styled.div`
+  width: 100%;
+  max-width: 670px;
+  min-width: 340px;
 `;

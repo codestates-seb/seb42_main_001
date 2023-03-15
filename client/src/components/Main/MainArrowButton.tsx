@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface MainArrowButtonProps {
-  arrow: string;
+  arrow: any;
 }
 
 const MainArrowButton = ({ arrow }: MainArrowButtonProps) => {
