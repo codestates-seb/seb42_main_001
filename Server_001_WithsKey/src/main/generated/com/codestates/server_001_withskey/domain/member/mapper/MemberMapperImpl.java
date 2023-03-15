@@ -1,7 +1,7 @@
 package com.codestates.server_001_withskey.domain.member.mapper;
 
-import com.codestates.server_001_withskey.domain.member.Dto.MemberDto.Patch;
-import com.codestates.server_001_withskey.domain.member.Dto.MemberDto.Response;
+import com.codestates.server_001_withskey.domain.member.dto.MemberDto.Patch;
+import com.codestates.server_001_withskey.domain.member.dto.MemberDto.Response;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
