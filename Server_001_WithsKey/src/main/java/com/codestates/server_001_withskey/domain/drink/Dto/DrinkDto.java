@@ -20,6 +20,7 @@ public class DrinkDto {
             private String priceRank;
             private int drinkAbv;
             private String drinkImageUrl;
+            private LocalDateTime createAt;
             private List<CommentDrinkDto.Response> commentDrinks;
             // List<TastingNote>
             // List<tag>
