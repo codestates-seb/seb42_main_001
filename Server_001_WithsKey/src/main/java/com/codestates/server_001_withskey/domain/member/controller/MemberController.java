@@ -2,11 +2,14 @@ package com.codestates.server_001_withskey.domain.member.controller;
 //
 //import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
 import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
 import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapper;
 import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
+import com.codestates.server_001_withskey.domain.like.entity.LikeBoard;
+import com.codestates.server_001_withskey.domain.like.service.LikeBoardService;
 import com.codestates.server_001_withskey.domain.member.Dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
@@ -39,6 +42,7 @@ public class  MemberController {
     private final BoardMapperImpl boardMapper;
     private final CommentBoardService commentBoardService;
     private final CommentBoardMapper commentBoardMapper;
+    private final LikeBoardService likeBoardService;
 
 
     @PatchMapping
@@ -69,6 +73,9 @@ public class  MemberController {
         myPage.setWriteComments(myComment);
 
         //TODO 멤버가 좋아요한 Board 리스트
+        List<Board> likeList = likeBoardService.getLikeBoardsByMemberId(findMember.getMemberId());
+        List<BoardDto.Response> myLikeBoard = boardMapper.BoardsToDtos(likeList);
+        myPage.setLikeBoards(myLikeBoard);
 
         myPage.setUrl(url + memberId);
         return new ResponseEntity(myPage, HttpStatus.OK);
