@@ -1,6 +1,6 @@
 package com.codestates.server_001_withskey.domain.member.mapper;
 
-import com.codestates.server_001_withskey.domain.member.Dto.MemberDto;
+import com.codestates.server_001_withskey.domain.member.dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class MemberMapperImpl implements MemberMapper{
-
 
     public Member memberDtoPatchToMember(MemberDto.Patch memberPatch) {
         if (memberPatch == null) {

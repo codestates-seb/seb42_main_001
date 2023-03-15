@@ -1,8 +1,9 @@
-package com.codestates.server_001_withskey.domain.drink.Mapper;
+package com.codestates.server_001_withskey.domain.drink.mapper;
 
 import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
+
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
-import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import lombok.Getter;
 import lombok.Setter;

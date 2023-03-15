@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.drink.entity;
 
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
+import com.codestates.server_001_withskey.domain.drink.tastingNote.TastingNote;
 import com.codestates.server_001_withskey.domain.like.entity.LikeDrink;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import lombok.Getter;
@@ -9,12 +10,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -38,9 +34,6 @@ public class Drink extends Auditable {
     private int drinkAbv;
 
     @Column(nullable = false)
-    private String testingNote;
-
-    @Column(nullable = false)
     private String drinkImageUrl; //얘는 보드랑 다르게 살릴 수도 있읍니다.
 
     // Like 1:N
@@ -50,4 +43,9 @@ public class Drink extends Auditable {
     // Comment 1:N
     @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY)
     private List<CommentDrink> commentDrinkList = new ArrayList<>();
+
+    // TastingNote 1:1
+    @OneToOne(mappedBy = "drink")
+    private TastingNote tastingNote;
 }
+//1:1에서는 주 테이블에 @JoinColum(name="부 테이블의 PK명")을 붙인다.

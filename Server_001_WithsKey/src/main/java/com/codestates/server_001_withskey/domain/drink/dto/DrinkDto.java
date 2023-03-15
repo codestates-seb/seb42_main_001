@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.drink.Dto;
+package com.codestates.server_001_withskey.domain.drink.dto;
 
 import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import lombok.*;

@@ -1,6 +1,6 @@
-package com.codestates.server_001_withskey.domain.drink.Service;
+package com.codestates.server_001_withskey.domain.drink.service;
 
-import com.codestates.server_001_withskey.domain.drink.Repository.DrinkRepository;
+import com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
