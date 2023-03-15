@@ -9,23 +9,32 @@ import java.util.List;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 public class TagDto {
     @Getter
     @Setter
+    @NoArgsConstructor
     public static class Post{
         private long tagId;
         private String tagName;
         private String tagInfo;
+
         private List<BoardDto.Post> board;
+//        private List<DrinkDto.Post> drinks;
+
     }
 
     @Getter
     @Setter
+    @NoArgsConstructor
     public static class Response{
         private long tagId;
         private String tagName;
         private String tagInfo;
+
         private List<BoardDto.Response> board;
     }
 

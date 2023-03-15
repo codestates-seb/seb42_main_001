@@ -1,15 +1,21 @@
 package com.codestates.server_001_withskey.domain.board.entity;
 
 import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
-import com.codestates.server_001_withskey.domain.image.entity.Image;
 import com.codestates.server_001_withskey.domain.like.entity.LikeBoard;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

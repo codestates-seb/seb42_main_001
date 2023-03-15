@@ -16,7 +16,8 @@ import lombok.Setter;
 
 @Data
 public class BoardDto {
-    @Data
+    @Getter
+    @Setter
 //    @Builder
     @NoArgsConstructor
     public static class Post{
@@ -26,7 +27,8 @@ public class BoardDto {
         private List<TagDto.Post> tags;
     }
 
-    @Data
+    @Getter
+    @Setter
     @NoArgsConstructor
     public static class Patch{
         private long boardId;

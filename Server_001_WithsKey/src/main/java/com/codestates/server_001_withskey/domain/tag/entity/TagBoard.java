@@ -6,7 +6,8 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Data
+@Setter
+@Getter
 public class TagBoard {
 
     @Id
