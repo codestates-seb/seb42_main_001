@@ -22,4 +22,15 @@ const TitleContainer = styled.div`
   span {
     font-size: 70px;
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--5x-large);
+    span {
+      font-size: var(--3x-large);
+    }
+  }
 `;

@@ -22,8 +22,6 @@ const SnackContainer = styled.div`
   flex-direction: column;
   margin: 0 var(--x-large) var(--xx-large) var(--x-large);
 
-
-
   div {
     width: 180px;
     height: 180px;

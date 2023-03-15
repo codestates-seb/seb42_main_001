@@ -29,11 +29,20 @@ export default MyContent;
 
 const MyContentContainer = styled.div`
   width: 100%;
-  max-width: 940px;
   height: 100%;
   padding: var(--xx-large) 0 var(--xx-large) var(--xx-large);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    padding: var(--large);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;

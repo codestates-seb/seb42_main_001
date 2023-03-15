@@ -37,8 +37,25 @@ const MypageContainer = styled.div`
   background-color: var(--color-main);
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const MarginWarpper = styled.div`
+  width: 100%;
+  max-width: 500px;
   margin-right: var(--medium);
+  display: flex;
+  justify-content: center;
+  align-items: top;
+
+  @media only screen and (max-width: 768px) {
+    margin: 0;
+  }
 `;

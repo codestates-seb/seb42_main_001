@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { BsPlusLg } from "react-icons/bs";
-import BoardCreateTags from "../components/Board/BoardCreateTags";
-import BoardCreateBtn from "../components/Board/BoardCreateBtn";
-import BoardCreateInput from "../components/Board/BoardCreateInput";
-import Button from "../components/UI/Button";
+import { BsPlusLg } from 'react-icons/bs';
+import BoardCreateTags from '../components/Board/BoardCreateTags';
+import BoardCreateBtn from '../components/Board/BoardCreateBtn';
+import BoardCreateInput from '../components/Board/BoardCreateInput';
+import Button from '../components/UI/Button';
 
 function BoardCreate() {
   return (
@@ -14,10 +14,9 @@ function BoardCreate() {
           <BoardCreateTagController>
             <Button
               type="button"
-              size={`--x-large`}
+              width={`--x-large`}
               radius={`--large`}
-              borderColor={`--color-main`}
-            >
+              borderColor={`--color-main`}>
               <SvgSize>
                 <BsPlusLg />
               </SvgSize>
@@ -46,6 +45,10 @@ const Wrapper = styled.div`
   > div {
     width: 70%;
     height: auto;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;
 

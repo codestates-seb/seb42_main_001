@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import DrinksDetailImg from './DrinksDetailImg'
-import DrinksDetailTxt from './DrinksDetailTxt'
+import React from "react";
+import styled from "styled-components";
+import DrinksDetailImg from "./DrinksDetailImg";
+import DrinksDetailTxt from "./DrinksDetailTxt";
 
 function DrinksDetailItem() {
   return (
@@ -9,10 +9,10 @@ function DrinksDetailItem() {
       <DrinksDetailImg />
       <DrinksDetailTxt />
     </ItemContainer>
-  )
+  );
 }
 
-export default DrinksDetailItem
+export default DrinksDetailItem;
 
 const ItemContainer = styled.div`
   width: 100%;
@@ -20,4 +20,11 @@ const ItemContainer = styled.div`
   display: flex;
   flex: 1 1 0;
   margin-top: var(--xxx-large);
-`
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
