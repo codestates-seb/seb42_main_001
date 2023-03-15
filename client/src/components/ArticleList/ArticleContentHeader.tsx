@@ -12,7 +12,7 @@ function ArticleContentHeader() {
 export default ArticleContentHeader;
 
 const ArticleContentHeaderContainer = styled.div`
-  flex: 1 0;
+  padding-bottom: var(--large);
   border-bottom: 1px dotted var(--color-sub-dark-gray);
   display: flex;
   flex-direction: column;
@@ -41,8 +41,8 @@ const ArticleContentTitle = styled.div`
   font-size: var(--text-x-large);
   font-weight: var(--weight-large);
   padding-top: var(--x-large);
+  
   @media only screen and (max-width: 768px) {
-    padding-bottom: var(--x-large);
     white-space: nowrap;
   }
 `;

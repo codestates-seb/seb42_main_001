@@ -25,21 +25,26 @@ function ArticleContentBody() {
 export default ArticleContentBody;
 
 const ArticleContentBodyContainer = styled.div`
+  height: 100%;
   flex: 2 0;
-  padding: 0 var(--xx-large);
+  margin-top: var(--x-large);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: var(--text-medium);
   line-height: 26px;
   text-align: center;
+  overflow: scroll;
+
   @media only screen and (max-width: 768px) {
-    max-height: 450px;
+    width: 100%;
+    height: 100%;
     align-items: flex-start;
-    padding: var(--large);
-    font-size: var(--text-large);
+    padding: 0;
+    font-size: var(--text-medium);
     line-height: var(--large);
     overflow-x: scroll;
+
     &::-webkit-scrollbar {
       display: none;
     }

@@ -8,9 +8,11 @@ interface ArticleListCardProps {
 
 function ArticleListCard({ onClick, text }: ArticleListCardProps) {
   return (
-    <Card>
-      <CardChildContainer onClick={onClick}>{text}</CardChildContainer>
-    </Card>
+    <MainContainer>
+      <Card>
+        <CardChildContainer onClick={onClick}>{text}</CardChildContainer>
+      </Card>
+    </MainContainer>
   );
 }
 
@@ -24,4 +26,13 @@ const CardChildContainer = styled.div`
   align-items: center;
   color: var(--color-main);
   font-size: var(--text-medium);
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: 200px;
+  }
 `;
+
+const MainContainer = styled.div`
+  width: 100%
+`

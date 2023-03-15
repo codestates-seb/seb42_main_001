@@ -28,8 +28,6 @@ const ItemContainer = styled.div`
   flex-direction: column;
 
   @media only screen and (max-width: 768px) {
-    width: 400px;
-    height: 620px;
     display: flex;
     flex-direction: column;
     align-items: center;

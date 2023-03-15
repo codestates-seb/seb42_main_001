@@ -24,4 +24,8 @@ const MainArrowButtonContainer = styled.div`
     color: var(--color-white);
     cursor: pointer;
   }
+
+    @media only screen and (max-width: 768px) {
+  width: 400px;
+  }
 `;

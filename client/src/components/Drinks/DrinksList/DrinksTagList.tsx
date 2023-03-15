@@ -15,7 +15,7 @@ function DrinksTagList() {
   };
 
   return (
-    <>
+    <DisplayContainer>
       <Button
         type="button"
         width={`--x-large`}
@@ -51,7 +51,7 @@ function DrinksTagList() {
         onClick={scrollToSide}
         borderColor={`--color-main`}
       >{`>`}</Button>
-    </>
+    </DisplayContainer>
   );
 }
 
@@ -59,15 +59,24 @@ export default DrinksTagList;
 
 const TagListContainer = styled.div`
   display: flex;
-  width: 85%;
+  width: 80%;
   overflow: overlay;
   &::-webkit-scrollbar {
     display: none;
   }
 
   @media only screen and (max-width: 768px) {
-    width: 60%;
     display: flex;
+    width: 100%;
     align-items: center;
   }
 `;
+
+const DisplayContainer = styled.div`
+    display: flex;
+    width: 95%;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`
