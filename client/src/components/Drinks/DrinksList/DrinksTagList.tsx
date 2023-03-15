@@ -65,7 +65,7 @@ const TagListContainer = styled.div`
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
     width: 60%;
     display: flex;
     align-items: center;

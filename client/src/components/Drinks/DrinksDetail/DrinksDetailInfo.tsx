@@ -34,6 +34,14 @@ const InfoContainer = styled.div`
   span {
     font-weight: var(--weight-large);
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--3x-large);
+  }
 `;
 
 const TopBorder = styled.div`
@@ -44,6 +52,11 @@ const TopBorder = styled.div`
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
   padding: var(--xx-small);
+
+  @media only screen and (max-width: 768px) {
+    margin: 0;
+    margin-bottom: var(--x-small);
+  }
 `;
 
 const TopBorderMargin = styled.div`
@@ -55,4 +68,9 @@ const TopBorderMargin = styled.div`
   border-top: 1px solid var(--color-main);
   padding: var(--xx-small);
   margin-left: var(--large);
+
+  @media only screen and (max-width: 768px) {
+    margin: 0;
+    margin-bottom: var(--x-small);
+  }
 `;

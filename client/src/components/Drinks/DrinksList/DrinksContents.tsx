@@ -31,7 +31,7 @@ const ContentsContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -27,7 +27,7 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
     width: 400px;
     height: 620px;
     display: flex;

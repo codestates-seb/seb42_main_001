@@ -25,4 +25,13 @@ const TxtContainer = styled.div`
   flex-direction: column;
   margin-left: var(--xxx-large);
   padding: var(--medium) 0;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    margin-bottom: var(--xx-large);
+  }
 `;
