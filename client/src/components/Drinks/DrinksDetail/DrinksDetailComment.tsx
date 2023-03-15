@@ -1,14 +1,14 @@
-import React from 'react'
-import DrinksDetailCommentContent from './DrinksDetailCommentContent'
-import DrinksDetailCommentInput from './DrinksDetailCommentInput'
+import React from "react";
+import Comment from "../../UI/Comment/Comment";
+import CommentInput from "../../UI/Comment/CommentInput";
 
 function DrinksDetailComment() {
   return (
     <div>
-      <DrinksDetailCommentInput />
-      <DrinksDetailCommentContent />
+      <CommentInput />
+      <Comment />
     </div>
-  )
+  );
 }
 
-export default DrinksDetailComment
+export default DrinksDetailComment;

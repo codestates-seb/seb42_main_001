@@ -7,7 +7,7 @@ function BoardCreateBtn() {
       bgColor={`--color-main`}
       color={`--color-white`}
       borderColor={`--color-main`}
-      size={`--5x-large`}
+      width={`--5x-large`}
     >
       submit
     </Button>
