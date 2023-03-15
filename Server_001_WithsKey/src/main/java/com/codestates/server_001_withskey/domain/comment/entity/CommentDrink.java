@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,9 +21,6 @@ public class CommentDrink extends Auditable {
     private Drink drink;
 
     @Column
-    private LocalDateTime createdAt;
-
-    @Column
     private long commentId;
 
     @Column
@@ -36,6 +32,8 @@ public class CommentDrink extends Auditable {
     @Column
     private String profileImageUrl;
 
+    @Column
+    private String Content;
 
 //    @ManyToOne
 //    private Member member;

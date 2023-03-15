@@ -3,10 +3,10 @@ package com.codestates.server_001_withskey.domain.drink.Controller;
 
 import com.codestates.server_001_withskey.commondto.MultiResponseDto;
 import com.codestates.server_001_withskey.commondto.PageInfo;
-import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
-import com.codestates.server_001_withskey.domain.drink.Mapper.DrinkMapper;
+import com.codestates.server_001_withskey.domain.drink.Mapper.DMapper;
 import com.codestates.server_001_withskey.domain.drink.Service.DrinkService;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
+import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -24,10 +24,10 @@ import java.util.List;
 public class DrinksController {
 
     private final DrinkService drinkService;
-    private final DrinkMapper mapper;
+    private final DMapper mapper;
 
     public DrinksController(DrinkService drinkService,
-                            DrinkMapper mapper) {
+                            DMapper mapper) {
         this.drinkService = drinkService;
         this.mapper = mapper;
     }
@@ -43,18 +43,11 @@ public class DrinksController {
     public ResponseEntity getDrinks(@Positive @RequestParam int page,
                                     @Positive @RequestParam int size) {
         Page<Drink> DrinkPage = drinkService.findAllDrink(page-1, size);
-        PageInfo pageInfo = new PageInfo(
-                DrinkPage.getNumber(),
-                DrinkPage.getSize(),
-                (int) DrinkPage.getTotalElements(),
-                DrinkPage.getTotalPages());
+        PageInfo pageInfo = new PageInfo(DrinkPage.getNumber(), DrinkPage.getSize(), (int) DrinkPage.getTotalElements(), DrinkPage.getTotalPages());
         List<Drink> drinks = DrinkPage.getContent();
         List<DrinkDto.Response> responses = mapper.drinksToDrinkResponse(drinks);
         return new ResponseEntity(
                 new MultiResponseDto<>(responses, pageInfo), HttpStatus.OK
         );
     }
-
-
-
 }

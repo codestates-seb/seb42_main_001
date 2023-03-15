@@ -49,7 +49,6 @@ public class BoardController {
         return new ResponseEntity<>(board.getBoardTitle(), HttpStatus.OK);
     }
 
-
     // 삭제
     @DeleteMapping("/{board-id}")
     public ResponseEntity deleteBoard(@PathVariable("board-id") @Positive long boardId){

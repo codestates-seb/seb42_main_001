@@ -19,7 +19,6 @@ public class DrinkService {
         this.drinkRepository = drinkRepository;
     }
 
-
     public Drink findDrink(long drinkId) {
         return findDrinkById(drinkId);
     }

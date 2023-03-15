@@ -18,11 +18,11 @@ public interface CommentDrinkMapper {
                 .stream()
                 .map(commentDrink -> CommentDrinkDto.Response
                         .builder()
-                        .createdAt(commentDrink.getCreatedAt())
+                        .createdAt(commentDrink.getCreateAt())
                         .commentId(commentDrink.getCommentId())
                         .memberId(commentDrink.getMemberId())
                         .displayName(commentDrink.getDisplayName())
-                        .profileImageUrl(commentDrink.getProfileImageUrl())
+                        .content(commentDrink.getContent())
                         .build())
                 .collect(Collectors.toList());
     }

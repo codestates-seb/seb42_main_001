@@ -16,6 +16,6 @@ public interface TagRepository extends JpaRepository<Tag, Long> {
 
 
     // tag에 딸린 board 출력
-    @Query("select t, b from Tag t left join t.board b where t.tagId =:tagId")
+//    @Query("select t, b from Tag t left join t.board b where t.tagId =:tagId")
     List<Object> getTagWithBoard(@Param("tagId")Long tagId);
 }
