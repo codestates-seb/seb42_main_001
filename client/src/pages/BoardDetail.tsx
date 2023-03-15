@@ -58,12 +58,20 @@ const BoardDetailContainer = styled.div`
   width: calc(100% / 18 * 12);
   background-color: var(--color-white);
   padding: 105px 0 95px 0;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const BoardCommentsContainer = styled.div`
   width: calc(100% / 18 * 12);
   background-color: var(--color-sub-gray);
   padding: 55px 0 200px 0;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const BoardDetailHeader = styled.div`
