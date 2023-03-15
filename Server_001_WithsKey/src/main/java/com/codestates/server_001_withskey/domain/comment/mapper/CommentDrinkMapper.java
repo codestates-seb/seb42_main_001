@@ -1,6 +1,6 @@
-package com.codestates.server_001_withskey.domain.comment.Mapper;
+package com.codestates.server_001_withskey.domain.comment.mapper;
 
-import com.codestates.server_001_withskey.domain.comment.Dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

@@ -1,11 +1,19 @@
 package com.codestates.server_001_withskey.domain.member.controller;
 //
 //import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
+import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
+import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
+import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapper;
+import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.member.Dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
+import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;

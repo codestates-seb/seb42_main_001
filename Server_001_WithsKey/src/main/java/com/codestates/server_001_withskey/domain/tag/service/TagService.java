@@ -23,7 +23,9 @@ public class TagService {
     // tag - board / drink 출력
     public List<Object> findTag(long tagId){
         Tag tag = findVerifiedTag(tagId);
-        return tagRepository.getTagWithBoard(tag.getTagId());
+//        return tagRepository.getTagWithBoard(tag.getTagId());
+
+        return null;
     }
 
     // 전체 tag 조회

@@ -1,6 +1,6 @@
 package com.codestates.server_001_withskey.domain.drink.Mapper;
 
-import com.codestates.server_001_withskey.domain.comment.Dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
