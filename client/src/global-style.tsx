@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     --5x-large: 130px;
 }
 * {
-    font-family: ‘SUIT Variable’, sans-serif;
+    font-family: 'SUIT', sans-serif;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
