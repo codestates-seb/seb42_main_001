@@ -54,6 +54,12 @@ const ContainerBox = styled.div<MainLayoutProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    background-position: 40% 50%;
+    background-size: cover;
+  }
 `;
 
 const Container = styled.div<MainLayoutProps>`

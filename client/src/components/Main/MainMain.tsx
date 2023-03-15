@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import MainArrowButton from "./MainArrowButton";
 import MainContent from "./MainContent";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 const MainMain = () => {
   return (
     <MainContainer>
-      <MainArrowButton arrow="<" />
+      <MainArrowButton arrow={<SlArrowLeft />} />
       <MainContent />
-      <MainArrowButton arrow=">" />
+      <MainArrowButton arrow={<SlArrowRight />} />
     </MainContainer>
   );
 };
