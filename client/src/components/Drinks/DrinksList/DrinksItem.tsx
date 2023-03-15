@@ -26,8 +26,16 @@ const ItemContainer = styled.div`
   height: 490px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 400px;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Margin = styled.div`
   margin-bottom: var(--xxx-large);
-`
+`;
