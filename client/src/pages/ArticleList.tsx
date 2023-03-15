@@ -35,6 +35,9 @@ const ArticleListContauner = styled.div`
   height: 100%;
   padding: 150px 0;
   background-color: var(--color-main);
+  @media only screen and (max-width: 768px) {
+    padding: 100px 0;
+  }
 `;
 
 const ArticleListCardContainer = styled.div`

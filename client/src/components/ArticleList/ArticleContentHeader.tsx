@@ -41,4 +41,8 @@ const ArticleContentTitle = styled.div`
   font-size: var(--text-x-large);
   font-weight: var(--weight-large);
   padding-top: var(--x-large);
+  @media only screen and (max-width: 768px) {
+    padding-bottom: var(--x-large);
+    white-space: nowrap;
+  }
 `;
