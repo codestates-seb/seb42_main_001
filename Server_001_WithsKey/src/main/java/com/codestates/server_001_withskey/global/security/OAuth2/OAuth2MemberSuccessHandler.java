@@ -72,7 +72,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
     private String delegateAccessToken(Member member, List<String> authorities) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("memberId", member.getMemberId());
+        claims.put("memberId", String.valueOf(member.getMemberId()));
         claims.put("username", member.getDisplayName());
         claims.put("roles", authorities);
 

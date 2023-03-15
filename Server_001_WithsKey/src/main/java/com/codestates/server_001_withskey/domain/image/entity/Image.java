@@ -2,13 +2,12 @@ package com.codestates.server_001_withskey.domain.image.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 public class Image {
@@ -20,7 +19,7 @@ public class Image {
     @Column
     private String imgUrl;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "BOARD_ID")
     private Board board;
 

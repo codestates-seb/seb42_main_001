@@ -7,27 +7,32 @@ import com.codestates.server_001_withskey.domain.image.dto.ImageDto.Response;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 public class TagDto {
-    @Data
+    @Getter
+    @Setter
     public static class Post{
         private long tagId;
         private String tagName;
         private String tagInfo;
-
         private List<BoardDto.Post> board;
-//        private List<DrinkDto.Post> drinks;
-
     }
 
-    @Data
+    @Getter
+    @Setter
     public static class Response{
         private long tagId;
         private String tagName;
         private String tagInfo;
-
         private List<BoardDto.Response> board;
-//        private List<DrinkDto.Response> drink;
+    }
 
+    @Getter
+    @Setter
+    public static class Info{
+        private long tagId;
+        private String tagName;
     }
 }

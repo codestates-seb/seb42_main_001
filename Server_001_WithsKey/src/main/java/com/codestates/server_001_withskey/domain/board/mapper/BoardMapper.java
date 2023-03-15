@@ -10,7 +10,6 @@ import java.util.List;
 //    unmappedTargetPolicy = ReportingPolicy.IGNORE
 //)
 public interface BoardMapper {
-
     Board PostDtoToBoard(BoardDto.Post requestBody);
 
     Board PatchDtoToBoard(BoardDto.Patch requestBody);
@@ -18,6 +17,4 @@ public interface BoardMapper {
     BoardDto.Response BoardToDto(Board board);
 
     List<Response> BoardsToDtos(List<Board> board);
-
-
 }

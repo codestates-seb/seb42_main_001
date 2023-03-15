@@ -33,7 +33,8 @@ public class  MemberController {
     @PatchMapping
     public ResponseEntity patchMember(@RequestBody @Valid MemberDto.Patch patchMember) throws Exception{
         Member member = mapper.memberDtoPatchToMember(patchMember);
-        Long memberId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+
         member.setMemberId(memberId);
         Member updatedMember = memberService.updateMember(member);
         MemberDto.Response response = mapper.memberToMemberDtoResponse(updatedMember);
