@@ -1,23 +1,15 @@
 package com.codestates.server_001_withskey.domain.member.controller;
 //
 //import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
-import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.entity.Board;
-import com.codestates.server_001_withskey.domain.board.mapper.BoardMapper;
-import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
-import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
-import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
-import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapper;
-import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.member.Dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
-import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
+import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -76,7 +68,7 @@ public class  MemberController {
 
     @DeleteMapping
     public ResponseEntity deleteMember() {
-        Long memberId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         memberService.deletedMember(memberId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

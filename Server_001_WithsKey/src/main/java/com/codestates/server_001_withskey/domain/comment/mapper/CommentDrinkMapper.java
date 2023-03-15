@@ -1,10 +1,11 @@
-package com.codestates.server_001_withskey.domain.comment.mapper;
+package com.codestates.server_001_withskey.domain.comment.Mapper;
 
-import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.comment.Dto.CommentDrinkDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,7 @@ public interface CommentDrinkMapper {
                         .commentId(commentDrink.getCommentId())
                         .memberId(commentDrink.getMemberId())
                         .displayName(commentDrink.getDisplayName())
+                        .content(commentDrink.getContent())
                         .build())
                 .collect(Collectors.toList());
     }
