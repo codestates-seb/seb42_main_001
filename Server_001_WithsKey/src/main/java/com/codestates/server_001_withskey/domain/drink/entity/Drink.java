@@ -2,6 +2,7 @@ package com.codestates.server_001_withskey.domain.drink.entity;
 
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import com.codestates.server_001_withskey.domain.like.entity.LikeDrink;
+import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,8 +38,6 @@ public class Drink extends Auditable {
     @Column(nullable = false)
     private int drinkAbv;
 
-    @Column(nullable = false)
-    private String testingNote;
 
     @Column(nullable = false)
     private String drinkImageUrl; //얘는 보드랑 다르게 살릴 수도 있읍니다.
@@ -46,6 +45,9 @@ public class Drink extends Auditable {
     // Like 1:N
     @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY)
     private List<LikeDrink> likeDrinksList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "drink", fetch = FetchType.EAGER)
+    private List<TagDrink> tagDrinkList = new ArrayList<>();
 
     // Comment 1:N
     @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY)

@@ -12,7 +12,10 @@ spring:
     properties:
       hibernate:
         format_sql: true  # (3) SQL pretty print
+        hbm2ddl:
+          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
     defer-datasource-initialization: true
+
 
   security:
     oauth2:

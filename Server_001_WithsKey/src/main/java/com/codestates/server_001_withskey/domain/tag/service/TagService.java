@@ -2,6 +2,8 @@ package com.codestates.server_001_withskey.domain.tag.service;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
+import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
+import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.repository.TagRepository;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TagService {
     private final TagRepository tagRepository;
+
+    private final TagBoardRepository tagBoardRepository;
 
     // 단일 tag 조회
 //    public Tag findTag(long tagId){return findVerifiedTag(tagId);}
@@ -50,6 +54,9 @@ public class TagService {
                 }).collect(Collectors.toList());
     }
 
+
+
+
 }
 //    // 전체 조회(실패)
 //    public List<Response> getTags(Long tagId){
@@ -59,4 +66,14 @@ public class TagService {
 //        return result.stream()
 //            .map(boarTag -> mapper.tagToDto(boarTag))
 //            .collect(Collectors.toList());
+//    }
+
+//    public List<Board> findBoardByTag(Tag tag){
+//        List<TagBoard> tagBoardList = tagBoardRepository.findTagBoardsByTag(tag);
+//
+//        return tagBoardList.stream()
+//                .map(tagBoard -> {
+//                    return tagBoard.getBoard();
+//                })
+//                .collect(Collectors.toList());
 //    }

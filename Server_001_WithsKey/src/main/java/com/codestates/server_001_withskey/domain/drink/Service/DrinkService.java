@@ -1,7 +1,11 @@
 package com.codestates.server_001_withskey.domain.drink.Service;
 
+import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.Repository.DrinkRepository;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
+import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
+import com.codestates.server_001_withskey.domain.tag.entity.Tag;
+import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
 import org.springframework.data.domain.Page;
@@ -9,7 +13,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DrinkService {
@@ -23,11 +30,8 @@ public class DrinkService {
         return findDrinkById(drinkId);
     }
 
-    public Page<Drink> findAllDrink(int page, int size) {
-        return drinkRepository.findAll(PageRequest.of(
-                page, size,
-                Sort.by("id").descending()
-        ));
+    public List<Drink> findAllDrink() {
+        return drinkRepository.findAll();
     }
     public Drink findDrinkById(long drinkId) {
         Optional<Drink> optionalDrink = drinkRepository.findById(drinkId);
