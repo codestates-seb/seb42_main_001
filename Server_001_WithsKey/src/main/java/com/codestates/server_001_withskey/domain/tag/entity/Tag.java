@@ -24,7 +24,6 @@ public class Tag {
     @Column(nullable = false)
     private String tagInfo;
 
-
     // tag-board 1:N
     @ManyToOne
     private Board board;

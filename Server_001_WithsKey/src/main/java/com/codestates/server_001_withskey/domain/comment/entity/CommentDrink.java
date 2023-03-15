@@ -31,10 +31,5 @@ public class CommentDrink extends Auditable {
     private String displayName;
 
     @Column
-    private String profileImageUrl;
-
-
-//    @ManyToOne
-//    private Member member;
-
+    private String commentContent;
 }

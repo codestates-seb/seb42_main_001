@@ -44,7 +44,7 @@ public class Board extends Auditable {
     private List<Image> imageList = new ArrayList<>();
 
     // Like 1:N
-    @OneToMany(mappedBy = "board")
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
     private List<CommentBoard> commentBoardList = new ArrayList<>();
 
     // Comment 1:N

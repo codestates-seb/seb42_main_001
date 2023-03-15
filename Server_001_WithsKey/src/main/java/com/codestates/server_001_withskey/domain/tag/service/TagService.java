@@ -1,11 +1,14 @@
 package com.codestates.server_001_withskey.domain.tag.service;
 
+import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.repository.TagRepository;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +37,15 @@ public class TagService {
         Tag findTag = optionalTag.orElseThrow(() ->
             new BusinessLogicException(ExceptionCode.TAG_NOT_FOUND));
         return findTag;
+    }
+
+
+    public List<Board> findBoardsByTag(Tag tag){
+        return tag.getTagBoardList()
+                .stream()
+                .map(tagBoard -> {
+                    return tagBoard.getBoard();
+                }).collect(Collectors.toList());
     }
 
 }

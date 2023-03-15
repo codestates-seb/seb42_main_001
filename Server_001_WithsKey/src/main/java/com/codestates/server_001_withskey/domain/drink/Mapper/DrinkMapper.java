@@ -1,13 +1,11 @@
 package com.codestates.server_001_withskey.domain.drink.Mapper;
 
-import com.codestates.server_001_withskey.domain.comment.Dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import com.codestates.server_001_withskey.domain.drink.Dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import lombok.Getter;
 import lombok.Setter;
-import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -70,7 +68,6 @@ public class DrinkMapper {
                             .commentId(commentDrink.getCommentId())
                             .memberId(commentDrink.getMemberId())
                             .displayName(commentDrink.getDisplayName())
-                            .profileImageUrl(commentDrink.getProfileImageUrl())
                             .build())
                     .collect(Collectors.toList());
         }

@@ -4,6 +4,9 @@ import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
 import com.codestates.server_001_withskey.domain.board.service.BoardService;
+import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapper;
+import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
+import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,17 +26,17 @@ import java.util.List;
 @RequestMapping("/boards")
 public class BoardController {
     private final BoardService boardService;
-    private final BoardMapperImpl mapper;
+    private final BoardMapperImpl boardMapper;
     private final ImageService imageService;
+    private final CommentBoardService commentService;
+    private final CommentBoardMapper commentMapper;
 
     // 등록
     @PostMapping
     public ResponseEntity createBoard(@Valid @RequestBody BoardDto.Post postBoard) {
-        Board board = mapper.PostDtoToBoard(postBoard);
+        Board board = boardMapper.PostDtoToBoard(postBoard);
         Board result = boardService.createBoard(board);
         imageService.saveImage(result, postBoard.getBoardImageUrl());
-
-        // 결과 반환은 변동사항 있을 수 있음.
         return new ResponseEntity(result.getBoardTitle(), HttpStatus.CREATED);
     }
 
@@ -42,11 +45,8 @@ public class BoardController {
     public ResponseEntity updateBoard(@PathVariable("board-id") long boardId,
                                       @RequestBody BoardDto.Patch patch){
         patch.setBoardId(boardId);
-        Board board = boardService.updateBoard(patch);
-        //TODO Tag 수정 기능
-
-
-        return new ResponseEntity<>(board.getBoardTitle(), HttpStatus.OK);
+        Board result = boardService.updateBoard(patch);
+        return new ResponseEntity<>(result.getBoardTitle(), HttpStatus.OK);
     }
 
 
@@ -61,15 +61,16 @@ public class BoardController {
     @GetMapping("/{board-id}")
     public ResponseEntity getBoard(@PathVariable("board-id") long boardId){
         Board board = boardService.findVerifiedBoard(boardId);
-        BoardDto.ResponseDetail response = mapper.BoardToDetail(board);
+        BoardDto.ResponseDetail response = boardMapper.BoardToDetail(board);
 
         // TODO 이미지 가져오기 : 리팩토링 필요
         response.setBoardImages(imageService.findByBoard(board));
         //Recommand Board 가져오기
-        List<Board> recommandBoard = boardService.findBoardsByTag(board);
-        response.setRecommandBoards(mapper.boardsToRecommands(recommandBoard));
+        List<Board> recommandBoard = boardService.findRecommandBoardsByTag(board);
+        response.setRecommandBoards(boardMapper.boardsToRecommands(recommandBoard));
         //TODO Comment 가져오기
-        response.setComments(null);
+        List<CommentBoard> commentBoards = commentService.getCommentByBoard(board);
+        response.setComments(commentMapper.commentsToResponses(commentBoards));
 
         return new ResponseEntity(response, HttpStatus.OK);
     }
@@ -77,7 +78,7 @@ public class BoardController {
     @GetMapping
     public ResponseEntity getBoards() {
         List<Board> boards = boardService.findBoards();
-        List<BoardDto.Response> responses = mapper.BoardsToDtos(boards);
+        List<BoardDto.Response> responses = boardMapper.BoardsToDtos(boards);
         return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 

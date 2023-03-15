@@ -1,9 +1,8 @@
 package com.codestates.server_001_withskey.domain.drink.Dto;
 
-import com.codestates.server_001_withskey.domain.comment.Dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import lombok.*;
 
-import javax.persistence.Column;
 import java.time.LocalDateTime;
 import java.util.List;
 

@@ -1,54 +1,77 @@
 package com.codestates.server_001_withskey.domain.member.controller;
 //
 //import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
+import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.board.entity.Board;
+import com.codestates.server_001_withskey.domain.board.mapper.BoardMapper;
+import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
+import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
+import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapper;
+import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.member.Dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
-import com.codestates.server_001_withskey.domain.member.mapper.MemberMapper;
+import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @Validated
 @RequestMapping("/members")
+@RequiredArgsConstructor
 public class  MemberController {
     @Getter
     private final String url = "http://localhost:8080/members/";
 
-    MemberMapper mapper;
-    MemberService memberService;
+    private final MemberMapperImpl memberMapper;
 
-    public MemberController(MemberMapper mapper, MemberService memberService) {
-        this.mapper = mapper;
-        this.memberService = memberService;
-    }
+    private final MemberService memberService;
+
+    private final BoardMapperImpl boardMapper;
+    private final CommentBoardService commentBoardService;
+    private final CommentBoardMapper commentBoardMapper;
+
 
     @PatchMapping
     public ResponseEntity patchMember(@RequestBody @Valid MemberDto.Patch patchMember) throws Exception{
-        Member member = mapper.memberDtoPatchToMember(patchMember);
+        Member member = memberMapper.memberDtoPatchToMember(patchMember);
         Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
 
         member.setMemberId(memberId);
         Member updatedMember = memberService.updateMember(member);
-        MemberDto.Response response = mapper.memberToMemberDtoResponse(updatedMember);
+        MemberDto.Response response = memberMapper.memberToMemberDtoResponse(updatedMember);
         response.setUrl(url+memberId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/mypage")
     public ResponseEntity getMyPage() {
-        Long memberId = (Long)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         Member findMember = memberService.findMemberById(memberId);
-        MemberDto.Response response = mapper.memberToMemberDtoResponse(findMember);
-        response.setUrl(url+memberId);
-        return new ResponseEntity(response, HttpStatus.OK);
+        MemberDto.MyPage myPage = memberMapper.memberToMyPage(findMember);
+
+        //멤버가 작성한 board List -> Response로 바꿔서 set
+        List<BoardDto.Response> myBoard = boardMapper.BoardsToDtos(findMember.getBoards());
+        myPage.setWriteBoards(myBoard);
+
+        //멤버가 작성한 CommentList -> MyPage로 바꿔서 set
+        List<CommentBoard> comments = commentBoardService.findAllByMemberId(findMember.getMemberId());
+        List<CommentBoardDto.MyPage> myComment = commentBoardMapper.commentsToMyPageComments(comments);
+        myPage.setWriteComments(myComment);
+
+        //TODO 멤버가 좋아요한 Board 리스트
+
+        myPage.setUrl(url + memberId);
+        return new ResponseEntity(myPage, HttpStatus.OK);
     }
 
     @DeleteMapping

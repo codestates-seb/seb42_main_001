@@ -10,8 +10,12 @@ package com.codestates.server_001_withskey.domain.member.Dto;
 //        @Pattern(regexp = "^010-\\d{3,4}-\\d{4}$")
 //        private String phone;
 
+import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 public class MemberDto {
 
@@ -20,6 +24,7 @@ public class MemberDto {
     public static class Patch {
         private long memberId;
         private String phoneNumber;
+        private String aboutMe;
         private String displayName;
         private String profilePicture;
     }
@@ -30,6 +35,24 @@ public class MemberDto {
         private String phoneNumber;
         private String displayName;
         private String profilePicture;
+        private String url;
+    }
+
+    @Getter
+    @Setter
+    public static class MyPage{
+        private long memberId;
+        private String displayName;
+        private String profilePicture;
+        private String aboutMe;
+        //좋아요 한 Boards
+        private List<BoardDto.Response> likeBoards;
+
+        //작성한 Boards
+        private List<BoardDto.Response> writeBoards;
+
+        //작성한 Comment
+        private List<CommentBoardDto.MyPage> writeComments;
         private String url;
     }
 }

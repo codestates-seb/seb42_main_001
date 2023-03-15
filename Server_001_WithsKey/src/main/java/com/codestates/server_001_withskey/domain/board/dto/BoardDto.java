@@ -1,14 +1,11 @@
 package com.codestates.server_001_withskey.domain.board.dto;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
-import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
 import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
-import com.codestates.server_001_withskey.domain.tag.entity.Tag;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -75,6 +72,6 @@ public class BoardDto {
     public static class ResponseDetail extends Response{
         private List<ImageDto.Response> boardImages;
         private List<BoardDto.Recommand> recommandBoards;
-        private List<CommentBoard> comments;
+        private List<CommentBoardDto.Response> comments;
     }
 }

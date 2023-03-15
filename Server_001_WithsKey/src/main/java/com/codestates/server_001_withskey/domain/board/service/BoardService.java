@@ -16,10 +16,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,7 +72,7 @@ public class BoardService {
 
 
     //보드가 가진 태그를 기준으로 추천 보드 조회
-    public List<Board> findBoardsByTag(Board board){
+    public List<Board> findRecommandBoardsByTag(Board board){
 
         List<Board> boardList = board.getTagBoardList()
                 .stream()

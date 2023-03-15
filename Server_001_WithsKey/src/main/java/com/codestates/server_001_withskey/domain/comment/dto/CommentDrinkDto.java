@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.comment.Dto;
+package com.codestates.server_001_withskey.domain.comment.dto;
 
 import lombok.*;
 
