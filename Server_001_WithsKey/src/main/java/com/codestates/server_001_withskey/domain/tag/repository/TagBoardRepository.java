@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface TagBoardRepository extends JpaRepository<TagBoard, Long> {
     List<TagBoard> findTagBoardsByBoard(Board board);
+
+    List<TagBoard> findTagBoardsByTag(Tag tag);
 }

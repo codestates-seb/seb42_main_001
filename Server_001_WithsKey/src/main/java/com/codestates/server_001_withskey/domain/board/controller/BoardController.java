@@ -37,6 +37,7 @@ public class BoardController {
         Board board = boardMapper.PostDtoToBoard(postBoard);
         Board result = boardService.createBoard(board);
         imageService.saveImage(result, postBoard.getBoardImageUrl());
+
         return new ResponseEntity(result.getBoardTitle(), HttpStatus.CREATED);
     }
 
@@ -62,11 +63,13 @@ public class BoardController {
         Board board = boardService.findVerifiedBoard(boardId);
         BoardDto.ResponseDetail response = boardMapper.BoardToDetail(board);
 
-        // TODO 이미지 가져오기 : 리팩토링 필요
+        // 이미지 가져오기 : 리팩토링 필요
         response.setBoardImages(imageService.findByBoard(board));
+
         //Recommand Board 가져오기
         List<Board> recommandBoard = boardService.findRecommandBoardsByTag(board);
         response.setRecommandBoards(boardMapper.boardsToRecommands(recommandBoard));
+
         //TODO Comment 가져오기
         List<CommentBoard> commentBoards = commentService.getCommentByBoard(board);
         response.setComments(commentMapper.commentsToResponses(commentBoards));
