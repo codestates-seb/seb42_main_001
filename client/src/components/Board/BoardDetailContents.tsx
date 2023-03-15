@@ -12,7 +12,7 @@ function BoardDetailContents() {
 export default BoardDetailContents;
 
 const ContentsContainer = styled.div`
-  font-weight: 500;
   font-size: var(--text-medium);
+  line-height: var(--large);
   padding: 40px 0 70px 0;
 `;

@@ -14,7 +14,7 @@ import BoardSuggest from "../components/Board/BoardSuggest";
 function BoardDetail() {
   return (
     <Wrapper>
-      <BoardSuggest></BoardSuggest>
+      <BoardSuggest />
       <BoardDetailContainer>
         <BoardAuthorInfo />
         <BoardDetailHeader>
@@ -56,7 +56,6 @@ const Wrapper = styled.div`
 
 const BoardDetailContainer = styled.div`
   width: calc(100% / 18 * 12);
-  background-color: var(--color-white);
   padding: 105px 0 95px 0;
 
   @media only screen and (max-width: 768px) {
@@ -66,7 +65,6 @@ const BoardDetailContainer = styled.div`
 
 const BoardCommentsContainer = styled.div`
   width: calc(100% / 18 * 12);
-  background-color: var(--color-sub-gray);
   padding: 55px 0 200px 0;
 
   @media only screen and (max-width: 768px) {
@@ -104,7 +102,7 @@ const CommentInputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px 0 50px 0;
+  margin-top: var(--x-small);
 `;
 
 const CommentsCount = styled.div`
