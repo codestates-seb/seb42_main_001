@@ -34,6 +34,8 @@ const MenuStyled = styled.div<MenuNavProps>`
     props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
   font-size: var(--text-small);
   display: flex;
+
+  
 `;
 
 const MenuItemStyled = styled.div<MenuNavProps>`
@@ -46,4 +48,8 @@ const MenuItemStyled = styled.div<MenuNavProps>`
   &:hover {
     margin-bottom: var(--xxx-small);
   }
+
+  @media only screen and (max-width: 768px) {
+  display: none;
+}
 `;
