@@ -36,13 +36,17 @@ public class CommentBoardService {
     }
 
     public CommentBoard findVerifiedCommentById(long commentId){
-        Optional<CommentBoard> findComment =
-                repository.findById(commentId)
-                ;
+        Optional<CommentBoard> findComment = repository.findById(commentId);
 
         CommentBoard result = findComment.orElseThrow(()-> new BusinessLogicException(ExceptionCode.COMMENT_NOT_FOUND));
 
         return result;
+    }
+
+    public void deleteComment(long commentId){
+        findVerifiedCommentById(commentId);
+
+        repository.deleteById(commentId);
     }
 
     public List<CommentBoard> findAllByMemberId(long memberId){

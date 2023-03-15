@@ -29,9 +29,7 @@ public class CommentBoardController {
         long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         Member member = memberService.findMemberById(memberId);
         CommentBoard commentBoard = mapper.dtoToComment(postComment, member);
-
         commentBoardService.saveCommentBoard(commentBoard);
-
         return ResponseEntity.ok().build();
     }
 
@@ -39,12 +37,13 @@ public class CommentBoardController {
     public ResponseEntity patchComment(@PathVariable long commentBoardId,
                                        @RequestBody CommentBoardDto.Patch patch){
         patch.setCommentBoardId(commentBoardId);
-
-        long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
-        Member member = memberService.findMemberById(memberId);
-
         commentBoardService.updateComment(patch);
-
         return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{commentBoardId}")
+    public ResponseEntity deleteComment(@PathVariable long commentBoardId){
+        commentBoardService.deleteComment(commentBoardId);
+        return ResponseEntity.noContent().build();
     }
 }
