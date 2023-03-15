@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Card from "../UI/Card";
-import BoardContents from "./BoardContents";
-import BoardMetaInfo from "./BoardMetaInfo";
-import BoardAuthorInfo from "./BoardAuthorInfo";
+import Card from '../UI/Card';
+import BoardContents from './BoardContents';
+import BoardMetaInfo from './BoardMetaInfo';
+import BoardAuthorInfo from './BoardAuthorInfo';
 
 function BoardItem() {
   return (
@@ -32,4 +32,8 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 600px;
+  }
 `;

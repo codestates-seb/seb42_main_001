@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import BoardInfo from "../components/Board/BoardInfo";
-import BoardItem from "../components/Board/BoardItem";
+import BoardInfo from '../components/Board/BoardInfo';
+import BoardItem from '../components/Board/BoardItem';
 
 function BoardList() {
   return (
@@ -36,4 +36,8 @@ const ListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;
