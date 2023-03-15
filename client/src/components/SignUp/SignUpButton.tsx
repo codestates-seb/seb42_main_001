@@ -28,4 +28,15 @@ const SignUpButtonContainer = styled.button`
     margin-left: var(--medium);
     margin-right: 140px;
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      margin-right: var(--xx-small);
+    }
+  }
 `;
