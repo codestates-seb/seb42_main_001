@@ -51,16 +51,11 @@ function ArticleModal({ onClick }: ArticleModalPorps) {
       <ArticleModalArrowButton onClick={handleLeftClick}>
         <div>{"<"}</div>
       </ArticleModalArrowButton>
-      <CardWrapper>
-        <CardContainer ref={modalRef}>
-          <Card>
-            <ArticleModalContent />
-          </Card>
-          <Card>
-            <ArticleModalContent />
-          </Card>
-        </CardContainer>
-      </CardWrapper>
+      <CardContainer ref={modalRef}>
+        <Card>
+          <ArticleModalContent />
+        </Card>
+      </CardContainer>
       <ArticleModalArrowButton onClick={handleRightClick}>
         <div>{">"}</div>
       </ArticleModalArrowButton>
@@ -82,8 +77,10 @@ const ArticleModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
   @media only screen and (max-width: 768px) {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -100,18 +97,7 @@ const ArticleModalArrowButton = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    margin: 0 var(--large);
-  }
-`;
-
-const CardWrapper = styled.div`
-  height: 1000px;
-  min-width: 800px;
-  overflow: hidden;
-
-  @media only screen and (max-width: 768px) {
-    height: 706.25px;
-    min-width: 270px;
+    display: none;
   }
 `;
 

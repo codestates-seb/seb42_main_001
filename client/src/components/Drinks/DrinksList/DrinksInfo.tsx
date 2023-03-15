@@ -40,6 +40,10 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 768px) {
+  justify-content: end;
+  }
 `;
 
 const SvgSize = styled.div`
@@ -47,4 +51,6 @@ const SvgSize = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  
 `;
