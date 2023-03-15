@@ -19,8 +19,6 @@ import javax.validation.Valid;
 @Validated
 @RequestMapping("/members")
 public class  MemberController {
-    @Getter
-    private final String url = "http://localhost:8080/members/";
 
     MemberMapper mapper;
     MemberService memberService;
@@ -38,25 +36,23 @@ public class  MemberController {
         member.setMemberId(memberId);
         Member updatedMember = memberService.updateMember(member);
         MemberDto.Response response = mapper.memberToMemberDtoResponse(updatedMember);
-        response.setUrl(url+memberId);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/mypage")
     public ResponseEntity getMyPage() {
-        Long memberId = (Long)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         Member findMember = memberService.findMemberById(memberId);
         MemberDto.Response response = mapper.memberToMemberDtoResponse(findMember);
-        response.setUrl(url+memberId);
+
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @DeleteMapping
     public ResponseEntity deleteMember() {
-        Long memberId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         memberService.deletedMember(memberId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-
-
 }
