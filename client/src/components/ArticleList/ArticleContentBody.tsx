@@ -33,4 +33,15 @@ const ArticleContentBodyContainer = styled.div`
   font-size: var(--text-medium);
   line-height: 26px;
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    max-height: 450px;
+    align-items: flex-start;
+    padding: var(--large);
+    font-size: var(--text-large);
+    line-height: var(--large);
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
