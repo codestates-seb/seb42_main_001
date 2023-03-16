@@ -7,6 +7,7 @@ import com.codestates.server_001_withskey.global.advice.ExceptionCode;
 import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class MemberService {
 
         return memberRepository.save(findMember);
     }
-
+    @Transactional
     public void deletedMember(long memberId) {
         Member member = findMemberById(memberId);
         memberRepository.delete(member);

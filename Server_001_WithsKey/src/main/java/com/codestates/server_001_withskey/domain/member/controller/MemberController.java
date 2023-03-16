@@ -79,6 +79,7 @@ public class  MemberController {
     }
 
     @DeleteMapping
+    @Transactional
     public ResponseEntity deleteMember() {
         Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         memberService.deletedMember(memberId);

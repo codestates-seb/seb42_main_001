@@ -70,13 +70,9 @@ public class DrinksController {
     @GetMapping
     @Transactional
     public ResponseEntity getDrinks() {
-
-        //TODO 페이지네이션 추가
-
         List<Drink> drinks = drinkService.findAllDrink();
         List<DrinkDto.Response> responses = mapper.drinksToResponses(drinks);
         List<DrinkDto.Short> likeList = new ArrayList<>();
-
         // 멤버가 로그인한 상태라면
         try {
             Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
@@ -89,9 +85,6 @@ public class DrinksController {
                         return drinkShort;
                     }).collect(Collectors.toList());
         } catch (Exception e){}
-
-
-        // 현재 페이지, 페이지당 표현 개수(16개), 총 페이지 수, 총 요소 개수
 
         return new ResponseEntity(new DuoResponseDto<>(responses, likeList), HttpStatus.OK);
     }
