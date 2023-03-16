@@ -1,18 +1,25 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import { BsPlusLg } from 'react-icons/bs';
 import BoardCreateTags from '../components/Board/BoardCreateTags';
 import BoardCreateBtn from '../components/Board/BoardCreateBtn';
 import BoardCreateInput from '../components/Board/BoardCreateInput';
 import Button from '../components/UI/Button';
+import BoardTagSearch from '../components/Board/BoardTagSearch';
 
 function BoardCreate() {
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const handleTagSearchOpen = () => setSearchOpen(!searchOpen);
+
   return (
     <Wrapper>
       <div>
         <BoardCreateController>
           <BoardCreateTagController>
             <Button
+              onClick={handleTagSearchOpen}
               type="button"
               width={`--x-large`}
               radius={`--large`}
@@ -21,7 +28,7 @@ function BoardCreate() {
                 <BsPlusLg />
               </SvgSize>
             </Button>
-            <BoardCreateTags />
+            {searchOpen ? <BoardTagSearch /> : <BoardCreateTags />}
           </BoardCreateTagController>
           <BoardCreateBtn />
         </BoardCreateController>
@@ -62,6 +69,7 @@ const BoardCreateController = styled.div`
 const BoardCreateTagController = styled.div`
   display: flex;
   align-items: center;
+  flex-grow: 1;
 `;
 
 const SvgSize = styled.div`
