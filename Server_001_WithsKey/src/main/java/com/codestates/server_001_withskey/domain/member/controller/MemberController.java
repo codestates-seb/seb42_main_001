@@ -21,6 +21,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -53,6 +54,7 @@ public class  MemberController {
     }
 
     @GetMapping("/mypage")
+    @Transactional
     public ResponseEntity getMyPage() {
         Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         Member findMember = memberService.findMemberById(memberId);

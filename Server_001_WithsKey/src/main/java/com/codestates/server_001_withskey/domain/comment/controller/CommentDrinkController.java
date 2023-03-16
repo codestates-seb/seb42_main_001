@@ -13,15 +13,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+
 @RestController
 @RequestMapping("/comments/drinks")
 @RequiredArgsConstructor
+
 public class CommentDrinkController {
     private final MemberService memberService;
     private final CommentDrinkMapper mapper;
     private final CommentDrinkService commentDrinkService;
 
     @PostMapping
+    @Transactional
     public ResponseEntity postComment(@RequestBody CommentDrinkDto.Post postComment){
         long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         Member member = memberService.findMemberById(memberId);
@@ -33,6 +37,7 @@ public class CommentDrinkController {
     }
 
     @PatchMapping("/{commentDrinkId}")
+    @Transactional
     public ResponseEntity patchComment(@PathVariable long commentDrinkId,
                                        @RequestBody CommentDrinkDto.Patch patch){
 
@@ -43,6 +48,7 @@ public class CommentDrinkController {
     }
 
     @DeleteMapping("/{commentBoardId}")
+    @Transactional
     public ResponseEntity deleteComment(@PathVariable long commentBoardId){
         commentDrinkService.deleteComment(commentBoardId);
         return ResponseEntity.noContent().build();

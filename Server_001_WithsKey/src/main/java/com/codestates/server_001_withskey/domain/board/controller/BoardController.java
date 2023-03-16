@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.board.controller;
 
 import com.codestates.server_001_withskey.commondto.MultiResponseDto;
+import com.codestates.server_001_withskey.commondto.PageInfo;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
@@ -12,12 +13,16 @@ import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import com.codestates.server_001_withskey.domain.like.service.LikeBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.util.ArrayList;
@@ -25,6 +30,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -41,6 +47,7 @@ public class BoardController {
 
     // 등록
     @PostMapping
+    @Transactional
     public ResponseEntity createBoard(@Valid @RequestBody BoardDto.Post postBoard) {
         Board board = boardMapper.PostDtoToBoard(postBoard);
         Board result = boardService.createBoard(board);
@@ -51,13 +58,7 @@ public class BoardController {
 
     // 수정
     @PatchMapping("/{board-id}")
-    /*
-    'updateBoard(com.codestates.server_001_withskey.domain.board.dto.BoardDto.Patch)'
-    in
-    'com.codestates.server_001_withskey.domain.board.service.BoardService'
-    cannot be applied to
-    '(com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response)'
-    * */
+    @Transactional
     public ResponseEntity updateBoard(@PathVariable("board-id") long boardId,
                                       @RequestBody BoardDto.Patch patch){
         patch.setBoardId(boardId);
@@ -67,6 +68,7 @@ public class BoardController {
 
     // 삭제
     @DeleteMapping("/{board-id}")
+    @Transactional
     public ResponseEntity deleteBoard(@PathVariable("board-id") @Positive long boardId){
         this.boardService.deleteBoard(boardId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -74,6 +76,7 @@ public class BoardController {
 
     // 조회
     @GetMapping("/{board-id}")
+    @Transactional
     public ResponseEntity getBoard(@PathVariable("board-id") long boardId){
         Board board = boardService.findVerifiedBoard(boardId);
         BoardDto.ResponseDetail response = boardMapper.BoardToDetail(board);
@@ -94,11 +97,17 @@ public class BoardController {
     }
 
     @GetMapping
-    public ResponseEntity getBoards() {
-        List<Board> boards = boardService.findBoards();
-        List<BoardDto.Response> responses = boardMapper.BoardsToDtos(boards);
-        List<BoardDto.Short> likeList = new ArrayList<>();
+    @Transactional
+    public ResponseEntity getBoards(@RequestParam int page,
+                                    @RequestParam int size) {
 
+        //TODO 페이지네이션 추가
+        Page<Board> boards = boardService.findBoards(page, size);
+        List<BoardDto.Response> responses = boardMapper.BoardsToDtos(boards.getContent());
+        PageInfo pageInfo = new PageInfo(boards.getNumber()+1, boards.getSize(), boards.getTotalPages(), boards
+                .getTotalElements());
+
+        List<BoardDto.Short> likeList = new ArrayList<>();
         // 멤버가 로그인 한 상태라면 좋아요 한 보드 게시글 id, 제목 조회
         try {
             Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
@@ -114,7 +123,7 @@ public class BoardController {
 
 
 
-        return new ResponseEntity<>(new MultiResponseDto<>(responses, likeList), HttpStatus.OK);
+        return new ResponseEntity<>(new MultiResponseDto<>(responses, likeList, pageInfo), HttpStatus.OK);
     }
 
 }

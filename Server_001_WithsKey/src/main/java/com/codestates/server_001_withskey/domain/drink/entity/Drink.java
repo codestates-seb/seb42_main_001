@@ -34,7 +34,7 @@ public class Drink extends Auditable {
     @Column(nullable = false)
     private int drinkAbv;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String drinkImageUrl; //얘는 보드랑 다르게 살릴 수도 있읍니다.
 
     // Like 1:N

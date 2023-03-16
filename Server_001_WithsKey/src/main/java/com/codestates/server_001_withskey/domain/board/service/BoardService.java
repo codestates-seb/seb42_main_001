@@ -17,6 +17,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,8 +61,8 @@ public class BoardService {
     // 조회
     // 전체 질문 조회(최신순)
     @Transactional(readOnly = true)
-    public List<Board> findBoards() {
-        return boardRepository.findAll();
+    public Page<Board> findBoards(int page, int size) {
+        return boardRepository.findAll(PageRequest.of(page-1, size));
     }
 
     // 게시글 찾기 기능 + 유효성 검사

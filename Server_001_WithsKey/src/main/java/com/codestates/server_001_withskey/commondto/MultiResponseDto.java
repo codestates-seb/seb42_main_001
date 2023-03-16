@@ -6,7 +6,11 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class MultiResponseDto <T, P>{
+public class MultiResponseDto <T, L, P>{
     T data;
-    P likeList;
+    L likeList;
+
+    P pageInfo;
+
+
 }

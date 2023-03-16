@@ -27,7 +27,7 @@ import lombok.ToString;
 public class Board extends Auditable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long boardId;
 
     @Column(nullable = false)

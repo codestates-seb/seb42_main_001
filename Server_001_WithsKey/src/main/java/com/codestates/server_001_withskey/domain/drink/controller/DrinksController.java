@@ -2,6 +2,7 @@ package com.codestates.server_001_withskey.domain.drink.controller;
 
 
 
+import com.codestates.server_001_withskey.commondto.DuoResponseDto;
 import com.codestates.server_001_withskey.commondto.MultiResponseDto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
@@ -24,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +49,7 @@ public class DrinksController {
 
 
     @GetMapping("/{drink-id}")
+    @Transactional
     public ResponseEntity getDrink(@PathVariable("drink-id")@Positive long drinkId) {
         Drink drink = drinkService.findDrink(drinkId);
 
@@ -65,7 +68,11 @@ public class DrinksController {
     }
 
     @GetMapping
+    @Transactional
     public ResponseEntity getDrinks() {
+
+        //TODO 페이지네이션 추가
+
         List<Drink> drinks = drinkService.findAllDrink();
         List<DrinkDto.Response> responses = mapper.drinksToResponses(drinks);
         List<DrinkDto.Short> likeList = new ArrayList<>();
@@ -83,6 +90,9 @@ public class DrinksController {
                     }).collect(Collectors.toList());
         } catch (Exception e){}
 
-        return new ResponseEntity(new MultiResponseDto<>(responses, likeList), HttpStatus.OK);
+
+        // 현재 페이지, 페이지당 표현 개수(16개), 총 페이지 수, 총 요소 개수
+
+        return new ResponseEntity(new DuoResponseDto<>(responses, likeList), HttpStatus.OK);
     }
 }
