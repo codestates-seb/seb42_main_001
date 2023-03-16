@@ -1,7 +1,15 @@
-import styled from "styled-components";
-import Card from "../Card";
+import styled from 'styled-components';
+import { useState } from 'react';
+
+import Card from '../Card';
+import CommentModal from './CommentModal';
+import More from '../More';
 
 function Comment() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleModalOpen = () => setIsOpen(!isOpen);
+
   return (
     <MainContainer>
       <Card>
@@ -12,6 +20,10 @@ function Comment() {
               <h4>lapmu</h4>
               <span>23.03.07</span>
             </CommentAuthorContents>
+            <div>
+              <More handleModalOpen={handleModalOpen} />
+            </div>
+            {isOpen ? <CommentModal /> : null}
           </CommentAuthorInfo>
           <CommentContents>댓글 내용</CommentContents>
         </SubContainer>
@@ -36,6 +48,7 @@ const CommentAuthorInfo = styled.div`
   display: flex;
   justify-content: flex-start;
   font-size: var(--text-small);
+  position: relative;
 
   span {
     margin-top: 4px;
