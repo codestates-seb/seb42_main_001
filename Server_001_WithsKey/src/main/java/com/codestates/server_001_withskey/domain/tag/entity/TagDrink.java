@@ -21,4 +21,11 @@ public class TagDrink {
     @ManyToOne
     @JoinColumn(name = "TAG_ID")
     private Tag tag;
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
+        if (!tag.getTagDrinkList().contains(this)) {
+            tag.getTagDrinkList().add(this);
+        }
+    }
 }

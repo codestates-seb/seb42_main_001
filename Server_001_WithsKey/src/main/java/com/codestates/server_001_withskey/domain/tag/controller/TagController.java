@@ -1,18 +1,21 @@
 package com.codestates.server_001_withskey.domain.tag.controller;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapper;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto.Response;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
-import com.codestates.server_001_withskey.domain.tag.dto.TagDto.Response;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
+import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
+import com.codestates.server_001_withskey.domain.drink.mapper.*;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,11 +33,14 @@ public class TagController {
     private final TagMapper mapper;
     private final TagBoardRepository tagBoardRepository;
     private final BoardMapper boardMapper;
+    private final DrinkMapper drinkMapper;
 
 
+    @Transactional
     @GetMapping("/{tag-id}")
-    public ResponseEntity getTag(@PathVariable("tag-id") long tagId){
+    public ResponseEntity getTagBoard(@PathVariable("tag-id") long tagId){
         Tag tag = tagService.findVerifiedTag(tagId);
+        /*====Board Section====*/
         // TagBoard List 찾기
         List<TagBoard> tagBoardList = tagService.findTag(tag.getTagId());
 
@@ -44,23 +50,38 @@ public class TagController {
                     return boardMapper.BoardToDto(tagBoard.getBoard());
                 }).collect(Collectors.toList());
 
+
+        /*====Drink Section====*/
+        List<TagDrink> tagDrinkList = tagService.findDrinkTag(tag.getTagId());
+
+        // TagDrink 에서 DrinkList 추출 후 Response 변환
+        List<Response> drinkResponse = tagDrinkList.stream()
+            .map(tagDrink -> {
+                return drinkMapper.drinkToResponse(tagDrink.getDrink());
+            }).collect(Collectors.toList());
+
+
+
         //BoardList를 제외한 태그 정보를 TagResponseDTO로 변환
-        TagDto.Response response = mapper.tagToDto(tag);
+        TagDto.Response response = mapper.tagBoardToDto(tag);
 
         //TagResponse에 BoardResponseList 할당
         response.setBoard(boardResponse);
+        response.setDrink(drinkResponse);
 
+        // 보드 리스 받고 매퍼로 변환 후 세팅
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+
+
     // 전체 return
     @GetMapping
-    public ResponseEntity getTage(){
+    public ResponseEntity getTagBoard(){
         List<Tag> tags = tagService.findAllTags();
         List<TagDto.Response> response = mapper.tagsToDtos(tags);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 
 }
 

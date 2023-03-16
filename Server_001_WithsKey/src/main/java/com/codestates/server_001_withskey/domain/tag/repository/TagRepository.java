@@ -12,19 +12,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
-    // board 찾기
-//    @EntityGraph(attributePaths = {"tag"},type = EntityGraphType.FETCH)
-//    List<Tag> findByBoard(Board board);
-
-//     성공 - tag / tagBoardListId 출력
+    // tag >> tagBoardListId 출력
     @Query("select t, b from Tag t left join t.tagBoardList b where t.tagId =:tagId")
     List<Object> getTagWithBoard(@Param("tagId") Long tagId);
-
-    @Query("select t, b"
-        + " from Tag t "
-        + "left join TagBoard b on b.tag=t "
-        + "where t.tagId = :tagId")
-    List<Tag> findTagWithBoard(@Param("tagId") Long tagId);
 
 
 }

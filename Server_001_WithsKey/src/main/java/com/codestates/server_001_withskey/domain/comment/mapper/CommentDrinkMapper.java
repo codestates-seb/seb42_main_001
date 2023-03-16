@@ -8,8 +8,11 @@ import org.mapstruct.ReportingPolicy;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 
-
+/*
+Error loading class [com.codestates.server_001_withskey.domain.comment.mapper.CommentDrinkMapperImpl] for bean with name 'commentDrinkMapperImpl' defined in file
+* */
 public class CommentDrinkMapper {
 
     public List<CommentDrinkDto.Response> commentsToCommentDrinkDtoResponse(List<CommentDrink> commentDrinkList) {

@@ -2,7 +2,9 @@ package com.codestates.server_001_withskey.domain.tag.service;
 
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
+import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
+import com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository;
 import com.codestates.server_001_withskey.domain.tag.repository.TagRepository;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
@@ -18,23 +20,28 @@ public class TagService {
     private final TagRepository tagRepository;
 
     private final TagBoardRepository tagBoardRepository;
+    private final TagDrinkRepository tagDrinkRepository;
 
-    // 단일 tag 조회
-//    public Tag findTag(long tagId){return findVerifiedTag(tagId);}
 
-    // tag - board / drink 출력
-//    public List<Object> findByTag(long tagId){
-//        Tag tag = findVerifiedTag(tagId);
-//        return tagRepository.getTagWithBoard(tag.getTagId());
-//    }
+    // 태그 Id로 BoardList 불러오기
     @Transactional
     public List<TagBoard> findTag(Long tagId){
         Tag tag = findVerifiedTag(tagId);
 
         List<TagBoard> response = tagBoardRepository.findBoardByTagBoard(tag.getTagId());
-
         return response;
 
+        // 리스트 두 개 묶는 방법
+    }
+
+    // 태그 Id로 DrinkList 불러오기
+    @Transactional
+    public List<TagDrink> findDrinkTag(Long tagId){
+        Tag tag = findVerifiedTag(tagId);
+
+        List<TagDrink> response = tagDrinkRepository.findDrinkByTagDrink(tag.getTagId());
+
+        return response;
     }
 
     // 전체 tag 조회
@@ -50,6 +57,8 @@ public class TagService {
             new BusinessLogicException(ExceptionCode.TAG_NOT_FOUND));
         return findTag;
     }
+
+    //
 
 }
 //    // 전체 조회(실패)
