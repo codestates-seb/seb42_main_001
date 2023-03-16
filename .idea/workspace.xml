@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment=" fix: Get all Tag Result 수정">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="merge : for merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/Mapper/DrinkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/controller/DrinksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/controller/DrinksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/controller/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/controller/TagController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +213,7 @@
       <updated>1678757501712</updated>
       <workItem from="1678757503965" duration="6986000" />
       <workItem from="1678837124089" duration="26512000" />
-      <workItem from="1678922318843" duration="16562000" />
+      <workItem from="1678922318843" duration="16906000" />
     </task>
     <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
       <created>1678757996568</created>
@@ -392,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678941139030</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="merge : for merge">
+      <created>1678941999524</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1678941999524</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +451,8 @@
     <MESSAGE value="✨ feat: Drinks 댓글 기능 추가" />
     <MESSAGE value="✨ feat: GET all Board 조회 시 Like List 조회 되도록 하기" />
     <MESSAGE value=" fix: Get all Tag Result 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value=" fix: Get all Tag Result 수정" />
+    <MESSAGE value="merge : for merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge : for merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
