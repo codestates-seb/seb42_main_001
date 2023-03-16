@@ -29,12 +29,6 @@ public class ImageController {
         return ResponseEntity.ok(image);
     }
 
-//    @GetMapping("/upload")
-//    public ResponseEntity uploadImage(@RequestParam(value = "file") List<MultipartFile> files) throws IOException {
-//        List<ImageDto.Post> image = imageService.uploadFiles(files);
-//        return ResponseEntity.ok(image);
-//    }
-
     @GetMapping("/test")
     public ResponseEntity getTest(){
         return ResponseEntity.ok().build();
