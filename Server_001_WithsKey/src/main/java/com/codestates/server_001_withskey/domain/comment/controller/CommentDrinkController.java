@@ -2,9 +2,10 @@ package com.codestates.server_001_withskey.domain.comment.controller;
 
 
 import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
-import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
-import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapper;
-import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
+import com.codestates.server_001_withskey.domain.comment.mapper.CommentDrinkMapper;
+import com.codestates.server_001_withskey.domain.comment.service.CommentDrinkService;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -17,29 +18,33 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CommentDrinkController {
     private final MemberService memberService;
-    private final CommentBoardMapper mapper;
-    private final CommentBoardService commentBoardService;
+    private final CommentDrinkMapper mapper;
+    private final CommentDrinkService commentDrinkService;
 
     @PostMapping
-    public ResponseEntity postComment(@RequestBody CommentBoardDto.Post postComment){
+    public ResponseEntity postComment(@RequestBody CommentDrinkDto.Post postComment){
         long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         Member member = memberService.findMemberById(memberId);
-        CommentBoard commentBoard = mapper.dtoToComment(postComment, member);
-        commentBoardService.saveCommentBoard(commentBoard);
+
+        CommentDrink commentDrink = mapper.dtoToComment(postComment, member);
+        commentDrinkService.saveCommentDrink(commentDrink);
+
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping("/{commentBoardId}")
-    public ResponseEntity patchComment(@PathVariable long commentBoardId,
-                                       @RequestBody CommentBoardDto.Patch patch){
-        patch.setCommentBoardId(commentBoardId);
-        commentBoardService.updateComment(patch);
+    @PatchMapping("/{commentDrinkId}")
+    public ResponseEntity patchComment(@PathVariable long commentDrinkId,
+                                       @RequestBody CommentDrinkDto.Patch patch){
+
+        patch.setCommentDrinkId(commentDrinkId);
+        commentDrinkService.updateComment(patch);
+
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{commentBoardId}")
     public ResponseEntity deleteComment(@PathVariable long commentBoardId){
-        commentBoardService.deleteComment(commentBoardId);
+        commentDrinkService.deleteComment(commentBoardId);
         return ResponseEntity.noContent().build();
     }
 }

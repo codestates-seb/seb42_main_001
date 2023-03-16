@@ -66,18 +66,4 @@ public class DrinkMapper {
 //     List<tag>
 //     List<Snacks>
 
-    List<CommentDrinkDto.Response> commentsToCommentDrinkDtoResponse(List<CommentDrink> commentDrinkList) {
-
-        return commentDrinkList
-                .stream()
-                .map(commentDrink -> CommentDrinkDto.Response
-                        .builder()
-                        .createdAt(commentDrink.getCreateAt())
-                        .commentId(commentDrink.getCommentId())
-                        .memberId(commentDrink.getMemberId())
-                        .displayName(commentDrink.getDisplayName())
-                        .content(commentDrink.getContent())
-                        .build())
-                .collect(Collectors.toList());
-    }
 }

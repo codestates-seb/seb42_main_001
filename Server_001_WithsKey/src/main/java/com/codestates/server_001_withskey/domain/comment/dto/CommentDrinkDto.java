@@ -8,14 +8,25 @@ public class CommentDrinkDto {
 
     @Getter
     @Setter
-    @Builder
-    @AllArgsConstructor
-    @NoArgsConstructor
+    public static class Post{
+        private long drinkId;
+        private String commentContent;
+    }
+
+    @Getter
+    @Setter
+    public static class Patch{
+        private long commentDrinkId;
+        private String commentContent;
+    }
+
+    @Getter
+    @Setter
     public static class Response{
-        private LocalDateTime createdAt;
         private long commentId;
         private long memberId;
         private String displayName;
-        private String content;
+        private String commentContent;
+        private LocalDateTime createAt;
     }
 }

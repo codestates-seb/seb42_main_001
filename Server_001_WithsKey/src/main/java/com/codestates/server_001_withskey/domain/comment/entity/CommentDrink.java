@@ -1,5 +1,6 @@
 package com.codestates.server_001_withskey.domain.comment.entity;
 
+import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import com.codestates.server_001_withskey.global.auditable.Auditable;
 import lombok.Getter;
@@ -18,11 +19,8 @@ public class CommentDrink extends Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentDrinkId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Drink drink;
-
-    @Column
-    private long commentId;
 
     @Column
     private long memberId;
@@ -31,12 +29,6 @@ public class CommentDrink extends Auditable {
     private String displayName;
 
     @Column
-    private String profileImageUrl;
-
-    @Column
-    private String Content;
-
-//    @ManyToOne
-//    private Member member;
+    private String commentContent;
 
 }

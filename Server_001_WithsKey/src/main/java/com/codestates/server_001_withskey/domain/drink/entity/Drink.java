@@ -45,7 +45,7 @@ public class Drink extends Auditable {
     private List<TagDrink> tagDrinkList = new ArrayList<>();
 
     // Comment 1:N
-    @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "drink")
     private List<CommentDrink> commentDrinkList = new ArrayList<>();
 
     // TastingNote 1:1
