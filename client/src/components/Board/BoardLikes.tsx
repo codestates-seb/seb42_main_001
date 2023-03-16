@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 import { IoMdHeartEmpty } from "react-icons/io";
 
-function BoardLikes() {
+interface BoardLikesProps {
+  like: number;
+}
+
+function BoardLikes({ like }: BoardLikesProps) {
   return (
     <LikesWrapper>
       <IoMdHeartEmpty />
-      <LikesCount>12</LikesCount>
+      <LikesCount>{like}</LikesCount>
     </LikesWrapper>
   );
 }

@@ -20,14 +20,14 @@ function BoardDetail() {
         <BoardDetailHeader>
           <BoardDetailTitle />
           <BoardDetailController>
-            <BoardLikes />
-            <BoardComments />
+            <BoardLikes like={1} />
+            <BoardComments comment={10} />
             <More />
           </BoardDetailController>
         </BoardDetailHeader>
         <BoardDetailBody>
           <BoardDetailContents />
-          <BoardTags />
+          <BoardTags tags={[]} />
         </BoardDetailBody>
       </BoardDetailContainer>
       <BoardCommentsContainer>

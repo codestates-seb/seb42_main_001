@@ -1,12 +1,28 @@
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-import BoardTag from './BoardTag';
+import BoardTag from "./BoardTag";
 
-function BoardTags() {
+interface BoardTagsProps {
+  tags: Array<{
+    tagId: number;
+    tagName1: string;
+  }>;
+}
+
+function BoardTags({ tags }: BoardTagsProps) {
   return (
-    <TagsContainer>
-      <BoardTag />
-    </TagsContainer>
+    <>
+      {tags.map((el) => {
+        return (
+          <Link to={`/tags/${el.tagId}`}>
+            <TagsContainer>
+              <BoardTag tag={el.tagName1} />
+            </TagsContainer>
+          </Link>
+        );
+      })}
+    </>
   );
 }
 

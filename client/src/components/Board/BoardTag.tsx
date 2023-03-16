@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-function BoardTag() {
+interface BoardTagProps {
+  tag: string;
+}
+
+function BoardTag({ tag }: BoardTagProps) {
   return (
     <TagWrapper>
-      <div>#효도</div>
+      <div>{tag}</div>
     </TagWrapper>
   );
 }
