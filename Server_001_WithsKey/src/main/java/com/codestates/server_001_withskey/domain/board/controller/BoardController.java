@@ -47,7 +47,6 @@ public class BoardController {
 
     // 등록
     @PostMapping
-    @Transactional
     public ResponseEntity createBoard(@Valid @RequestBody BoardDto.Post postBoard) {
         Board board = boardMapper.PostDtoToBoard(postBoard);
         Board result = boardService.createBoard(board);
