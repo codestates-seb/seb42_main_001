@@ -7,7 +7,7 @@ const TagsTitle = () => {
 export default TagsTitle;
 
 const TitleContainer = styled.div`
-  margin-bottom: var(--xxx-large);
+  margin-bottom: var(--4x-large);
   font-size: var(--xx-large);
   font-weight: var(--weight-x-large);
 `;

@@ -19,7 +19,7 @@ const ItemContainer = styled.div`
   height: 100%;
   display: flex;
   flex: 1 1 0;
-  margin-top: var(--xxx-large);
+  margin-top: var(--4x-large);
 
   @media only screen and (max-width: 768px) {
     width: 100%;

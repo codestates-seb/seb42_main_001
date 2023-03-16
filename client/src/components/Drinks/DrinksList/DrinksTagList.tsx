@@ -59,7 +59,7 @@ export default DrinksTagList;
 
 const TagListContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 90%;
   overflow: overlay;
   &::-webkit-scrollbar {
     display: none;

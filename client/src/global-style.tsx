@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     --x-large: 40px;
     --xx-large: 60px;
     --3x-large: 80px;
-    --xxx-large: 100px;
+    --4x-large: 100px;
     --5x-large: 130px;
 }
 * {

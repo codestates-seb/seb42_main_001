@@ -18,8 +18,8 @@ export default BoardAuthorInfo;
 
 const BoardAuthorInfoContainer = styled.div`
   width: 100%;
-  padding-bottom: var(--medium);
   border-bottom: 1px solid var(--color-sub-light-gray);
+  padding-bottom: var(--small);
   display: flex;
   align-items: center;
 

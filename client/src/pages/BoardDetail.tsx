@@ -37,6 +37,12 @@ function BoardDetail() {
         </CommentInputContainer>
         <ListContainer>
           <Comment />
+          <Comment />
+          <Comment />
+          <Comment />
+          <Comment />
+          <Comment />
+          <Comment />
         </ListContainer>
       </BoardCommentsContainer>
     </Wrapper>
@@ -47,7 +53,7 @@ export default BoardDetail;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -56,7 +62,13 @@ const Wrapper = styled.div`
 
 const BoardDetailContainer = styled.div`
   width: calc(100% / 18 * 12);
-  padding: 105px 0 95px 0;
+  margin-top: var(--3x-large);
+  padding: var(--xx-large);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-main);
+  border-top-left-radius: var(--xx-small);
+  border-top-right-radius: var(--xx-small);
+  border-bottom: none;
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -65,7 +77,13 @@ const BoardDetailContainer = styled.div`
 
 const BoardCommentsContainer = styled.div`
   width: calc(100% / 18 * 12);
-  padding: 55px 0 200px 0;
+  margin-bottom: var(--3x-large);
+  padding: var(--xx-large);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-main);
+  border-top: 1px solid var(--color-sub-light-gray);
+  border-bottom-left-radius: var(--xx-small);
+  border-bottom-right-radius: var(--xx-small);
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -76,8 +94,7 @@ const BoardDetailHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 65px 0 45px 0;
-  border-bottom: 0.5px solid #bababa;
+  padding: var(--xx-large) 0;
 `;
 
 const BoardDetailController = styled.div`

@@ -29,7 +29,7 @@ const SnackContainer = styled.div`
     align-items: center;
     justify-content: center;
     background-color: var(--color-white);
-    border-radius: var(--xxx-large);
+    border-radius: var(--4x-large);
   }
 
   span {
