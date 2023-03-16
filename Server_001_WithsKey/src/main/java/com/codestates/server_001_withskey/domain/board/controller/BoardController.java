@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.board.controller;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
 import com.codestates.server_001_withskey.domain.board.service.BoardService;
@@ -43,6 +44,13 @@ public class BoardController {
 
     // 수정
     @PatchMapping("/{board-id}")
+    /*
+    'updateBoard(com.codestates.server_001_withskey.domain.board.dto.BoardDto.Patch)'
+    in
+    'com.codestates.server_001_withskey.domain.board.service.BoardService'
+    cannot be applied to
+    '(com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response)'
+    * */
     public ResponseEntity updateBoard(@PathVariable("board-id") long boardId,
                                       @RequestBody BoardDto.Patch patch){
         patch.setBoardId(boardId);

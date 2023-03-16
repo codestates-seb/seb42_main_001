@@ -27,7 +27,7 @@ public class BoardDto {
     @Getter
     @Setter
     @NoArgsConstructor
-    public static class Patch{
+    public static class Patch {
         private long boardId;
         private String boardTitle;
         private String content;
