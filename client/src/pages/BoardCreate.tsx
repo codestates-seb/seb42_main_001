@@ -8,8 +8,65 @@ import BoardCreateInput from '../components/Board/BoardCreateInput';
 import Button from '../components/UI/Button';
 import BoardTagSearch from '../components/Board/BoardTagSearch';
 
+// 테스용 더미 데이터입니다.
+const tagData = [
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'input',
+  'output',
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'input',
+  'output',
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'understand',
+  'react',
+  'typescript',
+  'typescript',
+  'input',
+  'output',
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'understand',
+  'react',
+  'typescript',
+];
+
 function BoardCreate() {
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
 
   const handleTagSearchOpen = () => setSearchOpen(!searchOpen);
 
@@ -28,7 +85,11 @@ function BoardCreate() {
                 <BsPlusLg />
               </SvgSize>
             </Button>
-            {searchOpen ? <BoardTagSearch /> : <BoardCreateTags />}
+            {searchOpen ? (
+              <BoardTagSearch tagData={tagData} />
+            ) : (
+              <BoardCreateTags />
+            )}
           </BoardCreateTagController>
           <BoardCreateBtn />
         </BoardCreateController>
