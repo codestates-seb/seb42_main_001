@@ -6,10 +6,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import lombok.ToString;
 
 @Entity
 @Setter
 @Getter
+//@ToString(exclude = {"board","tag"}) // 원본
+//@ToString(exclude = "board")
+@ToString(exclude = "tag")
 public class TagBoard {
 
     @Id

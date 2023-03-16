@@ -3,7 +3,7 @@ package com.codestates.server_001_withskey.domain.tag.dto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
-import com.codestates.server_001_withskey.domain.image.dto.ImageDto.Response;
+import com.codestates.server_001_withskey.domain.tag.dto.TagBoardDto.Response;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Data;
@@ -36,6 +36,7 @@ public class TagDto {
         private String tagInfo;
 
         private List<BoardDto.Response> board;
+
     }
 
     @Getter

@@ -43,11 +43,11 @@ public class Board extends Auditable {
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
     private List<Image> imageList = new ArrayList<>();
 
-    // Like 1:N
+    // Comment 1:N
     @OneToMany(mappedBy = "board")
     private List<CommentBoard> commentBoardList = new ArrayList<>();
 
-    // Comment 1:N
+    // Like 1:N
     @OneToMany(mappedBy="board")
     private List<LikeBoard> likeBoardsList = new ArrayList<>();
 

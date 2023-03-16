@@ -67,7 +67,7 @@ public class BoardController {
         response.setBoardImages(imageService.findByBoard(board));
         //Recommand Board 가져오기
         List<Board> recommandBoard = boardService.findBoardsByTag(board);
-        response.setRecommandBoards(mapper.boardsToRecommands(recommandBoard));
+        response.setRecommendBoards(mapper.boardsToRecommands(recommandBoard));
         //TODO Comment 가져오기
         response.setComments(null);
 

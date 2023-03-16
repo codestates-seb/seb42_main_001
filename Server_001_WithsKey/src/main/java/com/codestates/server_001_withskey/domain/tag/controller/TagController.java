@@ -1,8 +1,11 @@
 package com.codestates.server_001_withskey.domain.tag.controller;
 
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
+import com.codestates.server_001_withskey.domain.tag.dto.TagDto.Response;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
+import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
+import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -20,20 +23,27 @@ public class TagController {
 
     private final TagService tagService;
     private final TagMapper mapper;
+    private final TagBoardRepository tagBoardRepository;
 
-    @GetMapping("/tag-id")
-    public ResponseEntity getTag(@PathVariable("tag-id")long tagId){
+    @GetMapping("/{tag-id}")
+    public ResponseEntity getTag(@PathVariable("tag-id") long tagId){
         Tag tag = tagService.findVerifiedTag(tagId);
-        TagDto.Response response = mapper.tagToDto(tag);
+
+        List<TagBoard >tagBoardList = tagService.findTag(tag.getTagId());
+
+        TagDto.Response response = mapper.tagToDto((Tag) tagBoardList);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     // 전체 return
     @GetMapping
-    public List<Tag> getTags(){
-        return tagService.findAllTags();
-        }
+    public ResponseEntity getTage(){
+        List<Tag> tags = tagService.findAllTags();
+        List<TagDto.Response> response = mapper.tagsToDtos(tags);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 
 }
 
