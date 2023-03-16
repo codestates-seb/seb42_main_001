@@ -1,13 +1,23 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Editor } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
 
-import Card from "../UI/Card";
+import Card from '../UI/Card';
 
 function BoardCreateInput() {
   return (
     <Card>
       <InputContainer>
         <input type="text" placeholder="제목을 입력해 주세요"></input>
-        <EditorContainer />
+        <EditorContainer>
+          <Editor
+            initialValue="내용을 입력해주세요"
+            previewStyle="vertical"
+            height="600px"
+            initialEditType="markdown"
+            useCommandShortcut={true}
+          />
+        </EditorContainer>
       </InputContainer>
     </Card>
   );
@@ -35,5 +45,6 @@ const InputContainer = styled.div`
 const EditorContainer = styled.div`
   width: 100%;
   height: auto;
+  padding-top: 30px;
   border-top: 1px solid var(--color-sub-light-gray);
 `;
