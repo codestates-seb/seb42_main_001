@@ -12,11 +12,13 @@ import lombok.Setter;
 public class TagDrink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tagBoardId;
+    private long tagDrinkId;
 
     @ManyToOne
+    @JoinColumn(name = "DRINK_ID")
     private Drink drink;
 
     @ManyToOne
+    @JoinColumn(name = "TAG_ID")
     private Tag tag;
 }
