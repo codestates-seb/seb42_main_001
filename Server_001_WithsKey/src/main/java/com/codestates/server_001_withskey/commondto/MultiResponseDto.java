@@ -8,5 +8,5 @@ import lombok.Getter;
 @Getter
 public class MultiResponseDto <T, P>{
     T data;
-    P pageInfo;
+    P likeList;
 }

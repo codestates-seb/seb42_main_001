@@ -1,7 +1,7 @@
 package com.codestates.server_001_withskey.domain.board.controller;
 
+import com.codestates.server_001_withskey.commondto.MultiResponseDto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
 import com.codestates.server_001_withskey.domain.board.service.BoardService;
@@ -9,16 +9,20 @@ import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapp
 import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
 import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.image.service.ImageService;
+import com.codestates.server_001_withskey.domain.like.service.LikeBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +35,7 @@ public class BoardController {
     private final ImageService imageService;
     private final CommentBoardService commentService;
     private final CommentBoardMapper commentMapper;
+    private final LikeBoardService likeBoardService;
 
     // 등록
     @PostMapping
@@ -82,9 +87,6 @@ public class BoardController {
         List<CommentBoard> commentBoards = commentService.getCommentByBoard(board);
         response.setComments(commentMapper.commentsToResponses(commentBoards));
 
-        //TODO LikeList 가져오기
-
-
 
         return new ResponseEntity(response, HttpStatus.OK);
     }
@@ -93,7 +95,24 @@ public class BoardController {
     public ResponseEntity getBoards() {
         List<Board> boards = boardService.findBoards();
         List<BoardDto.Response> responses = boardMapper.BoardsToDtos(boards);
-        return new ResponseEntity<>(responses, HttpStatus.OK);
+
+
+        // 멤버가 로그인 한 상태라면 좋아요 한 보드 게시글 id, 제목 조회
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+        List<BoardDto.Short> likeList = new ArrayList<>();
+        if(memberId != null){
+            likeList = likeBoardService.getLikeBoardsByMemberId(memberId)
+                    .stream()
+                    .map(board -> {
+                        BoardDto.Short like = new BoardDto.Short();
+                        like.setBoardTitle(board.getBoardTitle());
+                        like.setBoardId(board.getBoardId());
+                        return like;
+                    }).collect(Collectors.toList());
+        }
+
+
+        return new ResponseEntity<>(new MultiResponseDto<>(responses, likeList), HttpStatus.OK);
     }
 
 }

@@ -3,8 +3,6 @@ package com.codestates.server_001_withskey.domain.board.mapper;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response;
 import com.codestates.server_001_withskey.domain.board.entity.Board;
-import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
-import com.codestates.server_001_withskey.domain.image.entity.Image;
 import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
@@ -12,7 +10,6 @@ import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -165,15 +162,15 @@ public class BoardMapperImpl implements BoardMapper{
                 .collect(Collectors.toList());
     }
 
-    public BoardDto.Recommand boardToRecommand(Board board){
-        BoardDto.Recommand recommand = new BoardDto.Recommand();
+    public BoardDto.Short boardToRecommand(Board board){
+        BoardDto.Short recommand = new BoardDto.Short();
         recommand.setBoardId(board.getBoardId());
         recommand.setBoardTitle(board.getBoardTitle());
 
         return recommand;
     }
 
-    public List<BoardDto.Recommand> boardsToRecommands(List<Board> boards){
+    public List<BoardDto.Short> boardsToRecommands(List<Board> boards){
         return boards.stream()
                 .map(board -> {
                     return boardToRecommand(board);

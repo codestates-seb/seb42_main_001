@@ -53,25 +53,30 @@ public class BoardDto {
         private int likeCount;
         private int commentCount;
 
-        //TODO Tags 추가
         private List<TagDto.Info> tags;
+
+        //TODO LikeList 추가
+        private List<Short> likeList;
     }
 
 
     @Getter
     @Setter
     @NoArgsConstructor
-    public static class Recommand{
+    public static class Short {
         private long boardId;
         private String boardTitle;
     }
+
 
     @Getter
     @Setter
     @NoArgsConstructor
     public static class ResponseDetail extends Response{
         private List<ImageDto.Response> boardImages;
-        private List<BoardDto.Recommand> recommandBoards;
+        private List<Short> recommandBoards;
         private List<CommentBoardDto.Response> comments;
+
+
     }
 }
