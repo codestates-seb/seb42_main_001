@@ -55,8 +55,6 @@ public class BoardDto {
 
         private List<TagDto.Info> tags;
 
-        //TODO LikeList 추가
-        private List<Short> likeList;
     }
 
 
@@ -76,7 +74,5 @@ public class BoardDto {
         private List<ImageDto.Response> boardImages;
         private List<Short> recommandBoards;
         private List<CommentBoardDto.Response> comments;
-
-
     }
 }

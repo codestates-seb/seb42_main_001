@@ -49,7 +49,7 @@ public class Board extends Auditable {
 
     // Comment 1:N
     @OneToMany(mappedBy="board")
-    private List<LikeBoard> likeBoardsList = new ArrayList<>();
+    private List<LikeBoard> likeBoardsList = new ArrayList<>(); //size = 6
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
     private List<TagBoard> tagBoardList = new ArrayList<>();

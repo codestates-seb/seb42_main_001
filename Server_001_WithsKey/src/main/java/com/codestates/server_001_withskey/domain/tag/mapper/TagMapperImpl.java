@@ -59,4 +59,21 @@ public class TagMapperImpl implements TagMapper{
             .map(tags -> {return tagToDto(tags);})
             .collect(Collectors.toList());
     }
+
+    public TagDto.Info tagToInfo(Tag tag){
+        TagDto.Info info = new TagDto.Info();
+
+        info.setTagId(tag.getTagId());
+        info.setTagName(tag.getTag_name());
+
+        return info;
+    }
+
+    public List<TagDto.Info> tagsToInfos(List<Tag> tags){
+        return tags.stream()
+                .map(tag -> {
+                    return tagToInfo(tag);
+                }).collect(Collectors.toList());
+    }
+
 }

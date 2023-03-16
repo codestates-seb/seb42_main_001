@@ -8,6 +8,7 @@ import com.codestates.server_001_withskey.domain.tag.dto.TagDto.Response;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
+import com.codestates.server_001_withskey.domain.tag.mapper.TagMapperImpl;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
 import java.util.List;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TagController {
 
     private final TagService tagService;
-    private final TagMapper mapper;
+    private final TagMapperImpl mapper;
     private final TagBoardRepository tagBoardRepository;
     private final BoardMapper boardMapper;
 
@@ -55,9 +56,9 @@ public class TagController {
 
     // 전체 return
     @GetMapping
-    public ResponseEntity getTage(){
+    public ResponseEntity getTag(){
         List<Tag> tags = tagService.findAllTags();
-        List<TagDto.Response> response = mapper.tagsToDtos(tags);
+        List<TagDto.Info> response = mapper.tagsToInfos(tags);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
