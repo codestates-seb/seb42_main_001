@@ -56,6 +56,11 @@ const CommentAuthorContents = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: var(--x-small);
+
+  span {
+  color: var(--color-sub-gray);
+
+  }
 `;
 
 const CommentContents = styled.div`

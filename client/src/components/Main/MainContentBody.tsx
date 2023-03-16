@@ -33,7 +33,7 @@ const MainContentDrink = styled.div`
 
 const MainContentDrinkName = styled.div`
   font-family: "Alegreya SC", serif;
-  font-size: var(--xxx-large);
+  font-size: var(--4x-large);
   color: var(--color-white);
 
   @media only screen and (max-width: 768px) {

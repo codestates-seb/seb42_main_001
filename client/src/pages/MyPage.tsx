@@ -32,7 +32,7 @@ export default Mypage;
 
 const MypageContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 130px 0;
   background-color: var(--color-main);
   display: flex;
@@ -40,6 +40,7 @@ const MypageContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;

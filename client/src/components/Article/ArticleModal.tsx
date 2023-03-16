@@ -89,8 +89,8 @@ const ArticleModalArrowButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 var(--xxx-large);
-  font-size: var(--xxx-large);
+  margin: 0 var(--4x-large);
+  font-size: var(--4x-large);
   color: var(--color-white);
   > div {
     cursor: pointer;

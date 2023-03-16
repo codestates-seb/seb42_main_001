@@ -15,6 +15,11 @@ function BoardList() {
         <BoardItem />
         <BoardItem />
         <BoardItem />
+        <BoardItem />
+        <BoardItem />
+        <BoardItem />
+        <BoardItem />
+        <BoardItem />
       </ListContainer>
     </Wrapper>
   );
@@ -24,7 +29,7 @@ export default BoardList;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,11 +38,13 @@ const Wrapper = styled.div`
 const ListContainer = styled.div`
   margin-bottom: var(--xx-large);
   width: 100%;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
   @media only screen and (max-width: 768px) {
+    display: flex;
     justify-content: center;
   }
 `;
