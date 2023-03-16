@@ -1,6 +1,7 @@
 package com.codestates.server_001_withskey.domain.tag.dto;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
 import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagBoardDto.Response;
@@ -35,7 +36,9 @@ public class TagDto {
         private String tagName;
         private String tagInfo;
 
-        private List<BoardDto.Response> board;
+        private List<BoardDto.Response> boards;
+
+        private List<DrinkDto.Response> drinks;
     }
 
     @Getter

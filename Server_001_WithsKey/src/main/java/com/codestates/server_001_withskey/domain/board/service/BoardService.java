@@ -27,7 +27,7 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
     private final ImageService imageService;
-    private final TagBoardRepository tagBoardRepository;
+    private final TagBoardRepository tagBoardRepository; //태그가 바뀌는 업데이트 되는 경우
 
     /*CRUD*/
     // 생성
@@ -122,7 +122,4 @@ public class BoardService {
 
         return tagBoardList;
     }
-
-
-
 }

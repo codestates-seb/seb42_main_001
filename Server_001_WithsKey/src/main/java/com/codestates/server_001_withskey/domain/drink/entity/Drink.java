@@ -51,5 +51,8 @@ public class Drink extends Auditable {
     // TastingNote 1:1
     @OneToOne(mappedBy = "drink")
     private TastingNote tastingNote;
+
+    @OneToMany(mappedBy = "drink")
+    private List<SnackDrink> snackDrinks;
 }
 //1:1에서는 주 테이블에 @JoinColum(name="부 테이블의 PK명")을 붙인다.

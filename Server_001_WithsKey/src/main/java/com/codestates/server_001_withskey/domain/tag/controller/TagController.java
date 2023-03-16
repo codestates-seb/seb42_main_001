@@ -1,13 +1,10 @@
 package com.codestates.server_001_withskey.domain.tag.controller;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.board.mapper.BoardMapper;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
-import com.codestates.server_001_withskey.domain.tag.dto.TagDto.Response;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
-import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapperImpl;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
@@ -37,7 +34,7 @@ public class TagController {
     public ResponseEntity getTag(@PathVariable("tag-id") long tagId){
         Tag tag = tagService.findVerifiedTag(tagId);
         // TagBoard List 찾기
-        List<TagBoard> tagBoardList = tagService.findTag(tag.getTagId());
+        List<TagBoard> tagBoardList = tagService.findTagBoard(tag.getTagId());
 
         //TagBoard에서 BoardList 추출 후 Response로 변환
         List<BoardDto.Response> boardResponse = tagBoardList.stream()
@@ -49,10 +46,18 @@ public class TagController {
         TagDto.Response response = mapper.tagToDto(tag);
 
         //TagResponse에 BoardResponseList 할당
-        response.setBoard(boardResponse);
+        response.setBoards(boardResponse);
 
         //+ Drink 가져오는 로직을 구현
         //List<Drink> -> List<DrinkDto> -> response.set()
+
+        //TagDrink List -> DrinkDto.Response 변환 by 매퍼
+
+        //매퍼하는 Case : 엔티티가 자체적으로 객체를 가지고 있을 때
+        //컨트롤러에서 외부 서비스로부터 공급을 받아야할 때
+
+        //보드 리스트를 받고 매퍼로 변환 후 세팅
+        //드링크 리스트를 받고 매퍼로 변환 후 세팅
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

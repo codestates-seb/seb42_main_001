@@ -32,5 +32,22 @@ public class CommentDrinkMapper {
         return commentDrink;
     }
 
+    public CommentDrinkDto.Response commentToResponse(CommentDrink commentDrink){
+        CommentDrinkDto.Response response = new CommentDrinkDto.Response();
+        response.setCommentId(commentDrink.getCommentDrinkId());
+        response.setCreateAt(commentDrink.getCreateAt());
+        response.setDisplayName(commentDrink.getDisplayName());
+        response.setMemberId(commentDrink.getMemberId());
+        response.setCommentContent(commentDrink.getCommentContent());
+        return response;
+    }
+
+    public List<CommentDrinkDto.Response> commentsToResponses(List<CommentDrink> commentDrinks){
+        return commentDrinks.stream()
+                .map(commentDrink -> {
+                    return commentToResponse(commentDrink);
+                }).collect(Collectors.toList());
+    }
+
 }
 

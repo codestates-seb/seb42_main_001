@@ -55,4 +55,9 @@ public class MemberDto {
         private List<CommentBoardDto.MyPage> writeComments;
         private String url;
     }
+
+    //1. Boards -> BoardService Tag를 기준으로 Board를 찾아줘 + BoardRepository
+    //2. Drinks -> DrinkService Tag를 기준으로 Drnik를 찾아줘 + DrinkRepository
+    //3. TagService
+
 }

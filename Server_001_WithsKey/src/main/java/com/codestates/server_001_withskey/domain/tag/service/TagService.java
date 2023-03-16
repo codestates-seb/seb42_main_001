@@ -2,6 +2,7 @@ package com.codestates.server_001_withskey.domain.tag.service;
 
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
+import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.repository.TagRepository;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
@@ -28,13 +29,12 @@ public class TagService {
 //        return tagRepository.getTagWithBoard(tag.getTagId());
 //    }
     @Transactional
-    public List<TagBoard> findTag(Long tagId){
+    public List<TagBoard> findTagBoard(Long tagId) {
         Tag tag = findVerifiedTag(tagId);
 
         List<TagBoard> response = tagBoardRepository.findBoardByTagBoard(tag.getTagId());
 
         return response;
-
     }
 
     // 전체 tag 조회

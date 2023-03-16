@@ -1,6 +1,9 @@
 package com.codestates.server_001_withskey.domain.snack.entity;
 
 import com.codestates.server_001_withskey.domain.drink.entity.SnackDrink;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -12,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
+@Getter
+@Setter
 public class Snack {
 
     @Id

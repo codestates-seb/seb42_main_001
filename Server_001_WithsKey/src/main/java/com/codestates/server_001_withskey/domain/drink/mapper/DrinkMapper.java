@@ -4,9 +4,13 @@ import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
+import com.codestates.server_001_withskey.domain.snack.dto.SnackDto;
+import com.codestates.server_001_withskey.domain.snack.entity.Snack;
+import com.codestates.server_001_withskey.domain.snack.mapper.SnackMapper;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +20,10 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Component
+@RequiredArgsConstructor
 public class DrinkMapper {
+    private final SnackMapper snackMapper;
+
     public DrinkDto.ResponseDetail drinkToDrinkResponseDetail(Drink drink) {
 
         DrinkDto.ResponseDetail responseDetail = new DrinkDto.ResponseDetail();
@@ -24,11 +31,29 @@ public class DrinkMapper {
         responseDetail.setDrinkId(drink.getDrinkId());
         responseDetail.setDrinkAbv(drink.getDrinkAbv());
         responseDetail.setDrinkName(drink.getDrinkName());
+        responseDetail.setLikeCount(drink.getLikeDrinksList().size());
+        responseDetail.setDrinkImageUrl(drink.getDrinkImageUrl());
+        responseDetail.setPriceRank(drink.getPriceRank());
+
+        responseDetail.setTags(drink.getTagDrinkList().stream()
+                .map(tagDrink -> {
+                    TagDto.Info tagInfo = new TagDto.Info();
+                    tagInfo.setTagId(tagDrink.getTag().getTagId());
+                    tagInfo.setTagName(tagDrink.getTag().getTag_name());
+                    return tagInfo;
+                }).collect(Collectors.toList()));
+
+        List<Snack> snacks = drink.getSnackDrinks().stream()
+                .map(snackDrink -> {
+                    return snackDrink.getSnack();
+                }).collect(Collectors.toList());
+        List<SnackDto.Response> snackResponse = snackMapper.snacksToResponses(snacks);
+        responseDetail.setSnacks(snackResponse);
 
 
 
 
-        return null;
+        return responseDetail;
     }
     public List<DrinkDto.Response> drinksToResponses(List<Drink> drinks) {
 

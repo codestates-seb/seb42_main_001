@@ -11,5 +11,4 @@ import org.springframework.data.repository.query.Param;
 public interface BoardRepository extends JpaRepository<Board, Long> {
     boolean existsById(Long boardId);
 
-
 }

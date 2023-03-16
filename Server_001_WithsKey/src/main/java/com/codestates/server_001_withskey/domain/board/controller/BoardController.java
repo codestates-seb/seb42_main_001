@@ -22,6 +22,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -95,21 +97,21 @@ public class BoardController {
     public ResponseEntity getBoards() {
         List<Board> boards = boardService.findBoards();
         List<BoardDto.Response> responses = boardMapper.BoardsToDtos(boards);
-
+        List<BoardDto.Short> likeList = new ArrayList<>();
 
         // 멤버가 로그인 한 상태라면 좋아요 한 보드 게시글 id, 제목 조회
-        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
-        List<BoardDto.Short> likeList = new ArrayList<>();
-        if(memberId != null){
+        try {
+            Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
             likeList = likeBoardService.getLikeBoardsByMemberId(memberId)
-                    .stream()
-                    .map(board -> {
-                        BoardDto.Short like = new BoardDto.Short();
-                        like.setBoardTitle(board.getBoardTitle());
-                        like.setBoardId(board.getBoardId());
-                        return like;
-                    }).collect(Collectors.toList());
-        }
+                        .stream()
+                        .map(board -> {
+                            BoardDto.Short like = new BoardDto.Short();
+                            like.setBoardTitle(board.getBoardTitle());
+                            like.setBoardId(board.getBoardId());
+                            return like;
+                        }).collect(Collectors.toList());
+        } catch (Exception e){}
+
 
 
         return new ResponseEntity<>(new MultiResponseDto<>(responses, likeList), HttpStatus.OK);

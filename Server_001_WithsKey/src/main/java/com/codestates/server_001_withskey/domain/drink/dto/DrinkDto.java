@@ -1,9 +1,9 @@
 package com.codestates.server_001_withskey.domain.drink.dto;
 
 import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
-import com.codestates.server_001_withskey.domain.snack.entity.Snack;
+import com.codestates.server_001_withskey.domain.drink.tastingNote.dto.TastingNoteDto;
+import com.codestates.server_001_withskey.domain.snack.dto.SnackDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
-import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -40,7 +40,18 @@ public class DrinkDto {
 
         private int likeCount;
 
-        private List<Snack> snacks;
+        private TastingNoteDto.Response tastingNote;
+
+        private List<SnackDto.Response> snacks;
+    }
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Short{
+        private long drinkId;
+        private String drinkName;
     }
 }
 
