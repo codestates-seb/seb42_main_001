@@ -10,7 +10,7 @@ function ArticleListItem({ onClick }: ArticleListItemProps) {
   return (
     <>
       <MarginContainer>
-        <Link to='/article/detail'>
+        <Link to={`/article/detail/articleId`}>
           <ArticleListCard onClick={onClick} text={"Whiskey"} />
         </Link>
       </MarginContainer>

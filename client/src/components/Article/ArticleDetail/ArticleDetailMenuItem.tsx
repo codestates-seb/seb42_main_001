@@ -5,13 +5,15 @@ import Card from '../../UI/Card'
 
 interface MenuItemProps {
     title: string;
+    value: string;
+    onClick: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-function ArticleDetailMenuItem({ title }: MenuItemProps) {
+function ArticleDetailMenuItem({ title, value, onClick }: MenuItemProps) {
     return (
         <MainContainer>
             <Card>
-                <SizeContainer>
+                <SizeContainer onClick={onClick} value={value}>
                     {title}
                 </SizeContainer>
             </Card>
@@ -29,6 +31,7 @@ const MainContainer = styled.div`
     opacity: 0.6;
     font-weight: var(--weight-small);
     transition: .4s;
+    cursor: pointer;
 
     &:hover {
         opacity: 1;
@@ -40,6 +43,10 @@ const MainContainer = styled.div`
     }
 `
 
-const SizeContainer = styled.div`
+const SizeContainer = styled.button`
+    width: 100%;
+    display: flex;
+    border: 0;
+    background-color: transparent;
     padding: var(--medium);
 `
