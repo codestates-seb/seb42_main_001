@@ -4,14 +4,14 @@ import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
 
 function DrinksTagList() {
-  const homeRef = useRef<HTMLDivElement>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSide = () => {
-    homeRef.current?.scrollTo({ left: 1000, top: 0, behavior: "smooth" });
+  const handleRightClick = () => {
+    pageRef.current?.scrollTo({ left: 500, top: 0, behavior: "smooth" });
   };
 
-  const scrollToBack = () => {
-    homeRef.current?.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+  const handleLeftClick = () => {
+    pageRef.current?.scrollTo({ left: 0, top: 0, behavior: "smooth" });
   };
 
   return (
@@ -20,10 +20,10 @@ function DrinksTagList() {
         type="button"
         width={`--x-large`}
         radius={`--large`}
-        onClick={scrollToBack}
+        onClick={handleLeftClick}
         borderColor={`--color-main`}
       >{`<`}</Button>
-      <TagListContainer ref={homeRef}>
+      <TagListContainer ref={pageRef}>
         <DrinksTags />
         <DrinksTags />
         <DrinksTags />
@@ -48,7 +48,7 @@ function DrinksTagList() {
         type="button"
         width={`--x-large`}
         radius={`--large`}
-        onClick={scrollToSide}
+        onClick={handleRightClick}
         borderColor={`--color-main`}
       >{`>`}</Button>
     </DisplayContainer>
