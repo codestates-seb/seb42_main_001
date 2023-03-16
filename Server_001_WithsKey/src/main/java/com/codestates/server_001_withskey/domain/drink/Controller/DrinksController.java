@@ -42,8 +42,6 @@ public class DrinksController {
 
         List<DrinkDto.Response> responses = mapper.drinksToResponses(drinks);
 
-        //띵킹이 필요한 시점 ... TODO tag를 할당해야합니다...
-
         return new ResponseEntity(responses, HttpStatus.OK);
     }
 }

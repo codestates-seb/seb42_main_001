@@ -70,9 +70,13 @@ public class BoardController {
         List<Board> recommandBoard = boardService.findRecommandBoardsByTag(board);
         response.setRecommandBoards(boardMapper.boardsToRecommands(recommandBoard));
 
-        //TODO Comment 가져오기
+        //Comment 가져오기
         List<CommentBoard> commentBoards = commentService.getCommentByBoard(board);
         response.setComments(commentMapper.commentsToResponses(commentBoards));
+
+        //LikeList 가져오기
+
+
 
         return new ResponseEntity(response, HttpStatus.OK);
     }
