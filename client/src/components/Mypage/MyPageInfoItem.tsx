@@ -25,7 +25,7 @@ const MyPageInfoItemContainer = styled.div`
   align-items: center;
   margin-top: var(--x-large);
   > input {
-    width: 150%;
+    width: 120%;
     height: 60px;
     border: 1px solid var(--color-sub-light-gray);
     border-radius: var(--xx-small);
