@@ -52,5 +52,4 @@ public class LikeDrinkService {
         return findLikeDrink.orElseThrow(()->
                 new BusinessLogicException(ExceptionCode.LIKE_NOT_EXIST));
     }
-
 }

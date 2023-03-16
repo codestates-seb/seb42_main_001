@@ -55,7 +55,7 @@ public class BoardController {
     'com.codestates.server_001_withskey.domain.board.service.BoardService'
     cannot be applied to
     '(com.codestates.server_001_withskey.domain.board.dto.BoardDto.Response)'
-    * */
+    */
     public ResponseEntity updateBoard(@PathVariable("board-id") long boardId,
                                       @RequestBody BoardDto.Patch patch){
         patch.setBoardId(boardId);

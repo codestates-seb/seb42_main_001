@@ -48,7 +48,6 @@ public class LikeBoardService {
         }
     }
 
-
     public void deleteLike(long memberId, long boardId){
         Board findBoard = boardService.findVerifiedBoard(boardId);
 

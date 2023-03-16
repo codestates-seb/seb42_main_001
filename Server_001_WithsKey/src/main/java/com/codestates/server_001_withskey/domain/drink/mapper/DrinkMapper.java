@@ -25,9 +25,6 @@ public class DrinkMapper {
         responseDetail.setDrinkAbv(drink.getDrinkAbv());
         responseDetail.setDrinkName(drink.getDrinkName());
 
-
-
-
         return null;
     }
     public List<DrinkDto.Response> drinksToResponses(List<Drink> drinks) {
