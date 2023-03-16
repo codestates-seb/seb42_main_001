@@ -23,11 +23,6 @@ import java.util.List;
 public class ImageController {
     private final ImageService imageService;
 
-//    @GetMapping("/upload")
-//    public String newFile() {
-//        return "upload-form";
-//    }
-
     @PostMapping("/upload")
     public ResponseEntity uploadImage(@RequestParam(value = "file") List<MultipartFile> files) throws IOException {
         List<ImageDto.Post> image = imageService.uploadFiles(files);

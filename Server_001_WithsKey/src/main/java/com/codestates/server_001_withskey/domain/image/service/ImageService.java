@@ -33,6 +33,8 @@ public class ImageService {
     private String rootPath;
 
     //단일 파일 서버에 업로드
+
+    //TODO S3 연동
     public Image uploadFile(MultipartFile file) throws IOException {
         if(file.isEmpty()){ throw new BusinessLogicException(ExceptionCode.IMAGES_NOT_FOUND); }
 
