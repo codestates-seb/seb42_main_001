@@ -2,7 +2,9 @@ package com.codestates.server_001_withskey.tag.repository;
 
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
+import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
+import com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository;
 import com.codestates.server_001_withskey.domain.tag.repository.TagRepository;
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +20,10 @@ public class TagRepositoryTests {
 //    private TagRepository repository;
 
     @Autowired
-    private TagBoardRepository tbRepository;
+    private TagBoardRepository tagBoardRepository;
+
+    @Autowired
+    private TagDrinkRepository tagDrinkRepository;
 
 //    @Test
 //    public void testTagWithBoard(){
@@ -41,36 +46,39 @@ public class TagRepositoryTests {
     @Test
     @Transactional
     public void testTagBoard(){
-        /*
-        1.List <TagBoard> 타입의 result를 선언해서
-        2.레파지토리에 선언된 findBoardsByTag 메서드 선언하고
-        3.tagId는 1을 준다
-        4.향상된 for문에서
-        5.arr에 result에 담긴 값을 프린트
-        * */
-        List<TagBoard> result = tbRepository.findBoardByTagBoard(1L);
-        // 태그보드에서 태그 id가 1인 board 가져오기
+        List<TagBoard> result = tagBoardRepository.findBoardByTagBoard(1L);
 
         for(TagBoard arr:result){
             System.out.println(Arrays.toString(new TagBoard[]{arr}));
         }
+    }
 
-        /*
-    [TagBoard(tagBoardId=1, board=Board(boardId=1, content=내용, boardTitle=제목, imageList=[]))]
-    [TagBoard(tagBoardId=2, board=Board(boardId=1, content=내용, boardTitle=제목, imageList=[]))]
+    @Test
+    @Transactional
+    public void testTagWithDrinkAndBoard(){
 
-    -----
-    [TagBoard(tagBoardId=1, board=Board(boardId=1, content=내용, boardTitle=제목, imageList=[]))]
-    [TagBoard(tagBoardId=2, board=Board(boardId=1, content=내용, boardTitle=제목, imageList=[]))]
-
-        */
+        List<TagDrink> drinkResult = tagDrinkRepository.findDrinkByTagDrink(1L);
+        List<TagBoard> boardResult = tagBoardRepository.findBoardByTagBoard(1L);
 
 
-//        result = [1,2,3,4,5];
-//        for(int arr: result){
-//            System.out.println(arr+2);
+        for(TagDrink arr:drinkResult){
+            System.out.println(Arrays.toString(new TagDrink[]{arr}));
+        }
+        for(TagBoard arr:boardResult){
+            System.out.println(Arrays.toString(new TagBoard[]{arr}));
         }
     }
+
+    @Test
+    @Transactional
+    public void testTagDrink(){
+        List<TagDrink> drinkResult = tagDrinkRepository.findDrinkByTagDrink(1L);
+
+        for(TagDrink arr:drinkResult){
+            System.out.println(Arrays.toString(new TagDrink[]{arr}));
+        }
+    }
+}
 
 
 

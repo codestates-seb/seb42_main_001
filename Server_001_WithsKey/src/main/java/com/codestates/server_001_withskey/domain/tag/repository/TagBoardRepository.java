@@ -21,13 +21,5 @@ public interface TagBoardRepository extends JpaRepository<TagBoard, Long> {
     @Query("select b, t"
         + " from TagBoard b left join Tag t on b.tag = t"
         + " where t.tagId = :tagId")
-
     List<TagBoard> findBoardByTagBoard(@Param("tagId") long tagId);
-
-
-//    @Query("SELECT tb "
-//        + " FROM TagBoard tb "
-//        + " WHERE tb.tag.tagId =: tagId")
-//    List<TagBoard> findBoardByTagBoard(@Param("tagId") long tagId);
-
 }

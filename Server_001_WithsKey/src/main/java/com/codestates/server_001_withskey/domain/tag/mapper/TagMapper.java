@@ -6,7 +6,7 @@ import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import java.util.List;
 
 public interface TagMapper {
-    TagDto.Response tagToDto(Tag tag);
+    TagDto.Response tagBoardToDto(Tag tag);
 
     List<Response> tagsToDtos(List<Tag> tag);
 }

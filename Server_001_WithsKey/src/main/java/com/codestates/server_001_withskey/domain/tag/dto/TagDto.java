@@ -36,9 +36,8 @@ public class TagDto {
         private String tagName;
         private String tagInfo;
 
-        private List<BoardDto.Response> boards;
-
-        private List<DrinkDto.Response> drinks;
+        private List<BoardDto.Response> board;
+        private List<DrinkDto.Response> drink;
     }
 
     @Getter
