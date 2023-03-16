@@ -22,7 +22,9 @@ interface BoardItemprops {
     commentCount: number;
     createdAt: string;
     modifiedAt: string;
-    LikeList: Array<{}>;
+    LikeList: Array<{
+      boardId: number;
+    }>;
   };
 }
 
@@ -38,7 +40,7 @@ function BoardItem({ data }: BoardItemprops) {
               date={data.createdAt}
             />
           </Link>
-          <Link to={`/board/detail/${data.boardId}`}>
+          <Link to={`/board/detail${data.boardId}`}>
             <BoardContents
               title={data.boardTitle}
               content={data.boardContent}
