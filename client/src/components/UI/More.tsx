@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 import { RiMoreLine } from 'react-icons/ri';
 
-function More() {
+interface CommentModalProps {
+  handleModalOpen?: () => void;
+}
+
+function More({ handleModalOpen }: CommentModalProps) {
   return (
-    <IconWrapper>
+    <IconWrapper onClick={handleModalOpen}>
       <RiMoreLine></RiMoreLine>
     </IconWrapper>
   );
