@@ -18,9 +18,11 @@ import java.util.List;
 @Getter
 @Setter
 public class Member {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     long memberId;
+
     @Column
     @Email
     private String email;
