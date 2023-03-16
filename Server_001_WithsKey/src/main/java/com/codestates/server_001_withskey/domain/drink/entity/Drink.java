@@ -28,13 +28,13 @@ public class Drink extends Auditable {
     @Column(unique = true, nullable = false)
     private String drinkCode;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String priceRank;
 
     @Column(nullable = false)
     private int drinkAbv;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100000)
     private String drinkImageUrl; //얘는 보드랑 다르게 살릴 수도 있읍니다.
 
     // Like 1:N

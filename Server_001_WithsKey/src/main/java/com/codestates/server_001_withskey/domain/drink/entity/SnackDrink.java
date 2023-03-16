@@ -1,12 +1,8 @@
 package com.codestates.server_001_withskey.domain.drink.entity;
 
 import com.codestates.server_001_withskey.domain.snack.entity.Snack;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.*;
 
 @Entity
 public class SnackDrink {
@@ -15,9 +11,13 @@ public class SnackDrink {
     private Long snackDrinkId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DRINK_ID")
     private Drink drink;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SNACK_ID")
     private Snack snack;
+
+
 
 }
