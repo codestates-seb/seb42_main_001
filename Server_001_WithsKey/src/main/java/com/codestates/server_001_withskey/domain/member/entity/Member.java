@@ -40,7 +40,7 @@ public class Member {
     @Column
     private String oauthType;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection
     private List<String> roles = new ArrayList<>();
 
     @OneToMany(mappedBy = "member")

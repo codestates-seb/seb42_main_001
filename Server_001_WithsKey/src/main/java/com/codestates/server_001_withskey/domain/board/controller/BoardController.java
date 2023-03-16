@@ -82,7 +82,7 @@ public class BoardController {
         List<CommentBoard> commentBoards = commentService.getCommentByBoard(board);
         response.setComments(commentMapper.commentsToResponses(commentBoards));
 
-        //LikeList 가져오기
+        //TODO LikeList 가져오기
 
 
 

@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: Article 조회 기능 추가">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 머지 후 푸쉬">
+      <change afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/controller/CommentDrinkController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/repository/BoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/repository/BoardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/Controller/DrinksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/Controller/DrinksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/controller/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/controller/TagController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/mapper/TagMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/mapper/TagMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="my" />
+        <entry key="$PROJECT_DIR$" value="merge" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -168,6 +170,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TagRepositoryTests.testTagBoard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Server_001_WithsKey" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.codestates.server_001_withskey.tag.repository.TagRepositoryTests.testTagBoard&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Server001WithsKeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Server_001_WithsKey.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
@@ -178,6 +203,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
+        <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
         <item itemvalue="Gradle.Server_001_WithsKey [build]" />
       </list>
     </recent_temporary>
@@ -192,7 +218,7 @@
       <updated>1678757501712</updated>
       <workItem from="1678757503965" duration="6986000" />
       <workItem from="1678837124089" duration="26512000" />
-      <workItem from="1678922318843" duration="6112000" />
+      <workItem from="1678922318843" duration="8726000" />
     </task>
     <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
       <created>1678757996568</created>
@@ -327,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678927713606</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="✨ feat: 머지 후 푸쉬">
+      <created>1678930455236</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678930455236</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +377,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="merge" />
+                        <option value="origin/feat/snack" />
                       </list>
                     </value>
                   </entry>
@@ -376,7 +409,8 @@
     <MESSAGE value=" fix: 추천 관련 게시글 기능 수정" />
     <MESSAGE value=" fix: GET all Drinks 로직 수정" />
     <MESSAGE value="✨ feat: Article 조회 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Article 조회 기능 추가" />
+    <MESSAGE value="✨ feat: 머지 후 푸쉬" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 머지 후 푸쉬" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

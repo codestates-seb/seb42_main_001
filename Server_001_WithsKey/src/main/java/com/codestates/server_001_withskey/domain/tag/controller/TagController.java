@@ -1,5 +1,8 @@
 package com.codestates.server_001_withskey.domain.tag.controller;
 
+import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
+import com.codestates.server_001_withskey.domain.board.entity.Board;
+import com.codestates.server_001_withskey.domain.board.mapper.BoardMapper;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto.Response;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
@@ -8,6 +11,8 @@ import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,14 +29,26 @@ public class TagController {
     private final TagService tagService;
     private final TagMapper mapper;
     private final TagBoardRepository tagBoardRepository;
+    private final BoardMapper boardMapper;
+
 
     @GetMapping("/{tag-id}")
     public ResponseEntity getTag(@PathVariable("tag-id") long tagId){
         Tag tag = tagService.findVerifiedTag(tagId);
+        // TagBoard List 찾기
+        List<TagBoard> tagBoardList = tagService.findTag(tag.getTagId());
 
-        List<TagBoard >tagBoardList = tagService.findTag(tag.getTagId());
+        //TagBoard에서 BoardList 추출 후 Response로 변환
+        List<BoardDto.Response> boardResponse = tagBoardList.stream()
+                .map(tagBoard -> {
+                    return boardMapper.BoardToDto(tagBoard.getBoard());
+                }).collect(Collectors.toList());
 
-        TagDto.Response response = mapper.tagToDto((Tag) tagBoardList);
+        //BoardList를 제외한 태그 정보를 TagResponseDTO로 변환
+        TagDto.Response response = mapper.tagToDto(tag);
+
+        //TagResponse에 BoardResponseList 할당
+        response.setBoard(boardResponse);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

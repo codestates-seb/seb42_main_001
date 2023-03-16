@@ -34,21 +34,21 @@ public class TagMapperImpl implements TagMapper{
 
             /// response 에 tagBoard add
 
-            // TODO Board - TagBoard 하위 Board 가져오기
-            List<BoardDto.Response> boardList = tag.getTagBoardList()
-                .stream()
-                    .map(tagBoard -> {
-                        Board board = tagBoard.getBoard();
-
-                        BoardDto.Response response1 = new BoardDto.Response();
-                        response1.setBoardId(board.getBoardId());
-                        response1.setBoardTitle(board.getBoardTitle());
-                        response1.setContent(board.getContent());
-
-                        return response1;
-                    }).collect(Collectors.toList());
-
-            response.setBoard(boardList);
+//            // TODO Board - TagBoard 하위 Board 가져오기
+//            List<BoardDto.Response> boardList = tag.getTagBoardList()
+//                .stream()
+//                    .map(tagBoard -> {
+//                        Board board = tagBoard.getBoard();
+//
+//                        BoardDto.Response response1 = new BoardDto.Response();
+//                        response1.setBoardId(board.getBoardId());
+//                        response1.setBoardTitle(board.getBoardTitle());
+//                        response1.setContent(board.getContent());
+//
+//                        return response1;
+//                    }).collect(Collectors.toList());
+//
+//            response.setBoard(boardList);
             return response;
         }
     }
