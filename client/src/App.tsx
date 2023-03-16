@@ -12,6 +12,7 @@ import BoardDetail from './pages/BoardDetail';
 import BoardCreate from './pages/BoardCreate';
 import SignUp from './pages/SignUp';
 import Tags from './pages/Tags';
+import ArticleDetail from './pages/ArticleDetail';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       </Route>
       <Route element={<BaseLayout />}>
         <Route path="/article" element={<ArticleList />} />
+        <Route path="/article/detail" element={<ArticleDetail />} />
         <Route path="/mypage" element={<MyPage />} />
       </Route>
       <Route element={<BaseLayout bgColor />}>
