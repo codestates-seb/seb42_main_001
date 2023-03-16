@@ -16,7 +16,8 @@ public enum ExceptionCode {
     IMAGES_NOT_FOUND(404, "이미지를 찾을 수 없습니다."),
     DRINK_NOT_FOUND(404,"찾으시는 주류 정보가 없습니다."),
     COMMENT_NOT_FOUND(404, "찾으시는 댓글 정보가 없습니다."),
-    LIKE_ALREADY_EXISTS(406, "좋아요는 한번만 누를 수 있습니다");
+    LIKE_ALREADY_EXISTS(406, "좋아요는 한번만 누를 수 있습니다"),
+    ARTICLE_NOT_EXISTS(404, "아티클 정보를 찾을 수 없습니다.");
 
     @Getter
     int status;
