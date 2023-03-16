@@ -12,7 +12,10 @@ spring:
     properties:
       hibernate:
         format_sql: true  # (3) SQL pretty print
+        hbm2ddl:
+          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
     defer-datasource-initialization: true
+
 
   security:
     oauth2:
@@ -43,8 +46,8 @@ mail:
 jwt:
   key:
     secret: 001mainprojectwithskeyletsgoforitwecandoit
-  access-token-expiration-minutes: 1000
-  refresh-token-expiration-minutes: 1000
+  access-token-expiration-minutes: 10000
+  refresh-token-expiration-minutes: 10000
 
 file:
   root:
@@ -58,6 +61,6 @@ image:
   upload:
     path: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
 
-#    dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
+#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
 # /home/ssm-user/imag
 

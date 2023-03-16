@@ -13,6 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = {"board","tagBoardList","tagDrinkList"})
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

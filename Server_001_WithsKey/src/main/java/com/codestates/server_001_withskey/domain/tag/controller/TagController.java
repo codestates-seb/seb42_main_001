@@ -1,11 +1,11 @@
 package com.codestates.server_001_withskey.domain.tag.controller;
 
-import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
-import com.codestates.server_001_withskey.domain.board.entity.Board;
-import com.codestates.server_001_withskey.domain.board.mapper.BoardMapperImpl;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
+import com.codestates.server_001_withskey.domain.tag.dto.TagDto.Response;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
+import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapper;
+import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -22,28 +22,26 @@ import org.springframework.web.bind.annotation.RestController;
 public class TagController {
 
     private final TagService tagService;
-    private final TagMapper tagMapper;
-    private final BoardMapperImpl boardMapper;
+    private final TagMapper mapper;
+    private final TagBoardRepository tagBoardRepository;
 
     @GetMapping("/{tag-id}")
-    public ResponseEntity getTag(@PathVariable("tag-id")long tagId){
+    public ResponseEntity getTag(@PathVariable("tag-id") long tagId){
         Tag tag = tagService.findVerifiedTag(tagId);
-        TagDto.Response response = tagMapper.tagToDto(tag);
 
-        // 하나의 태그와 관련된 Board를 가져오는 것.
-        List<Board> boards = tagService.findBoardsByTag(tag);
-        List<BoardDto.Response> boradResponses = boardMapper.BoardsToDtos(boards);
-        response.setBoard(boradResponses);
+        List<TagBoard >tagBoardList = tagService.findTag(tag.getTagId());
 
-        // 하나의 태그와 관련된 Drinks를 가져오는 것.
+        TagDto.Response response = mapper.tagToDto((Tag) tagBoardList);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     // 전체 return
     @GetMapping
-    public List<Tag> getTags(){
-        return tagService.findAllTags();
+    public ResponseEntity getTage(){
+        List<Tag> tags = tagService.findAllTags();
+        List<TagDto.Response> response = mapper.tagsToDtos(tags);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 

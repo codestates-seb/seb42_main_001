@@ -11,6 +11,7 @@ import com.codestates.server_001_withskey.domain.tag.repository.TagBoardReposito
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -73,19 +74,30 @@ public class BoardService {
 
     //보드가 가진 태그를 기준으로 추천 보드 조회
     public List<Board> findRecommandBoardsByTag(Board board){
+        //관련 태그 가져오기
+        List<Tag> tags = board.getTagBoardList().stream()
+                .map(tagBoard -> {
+                    return tagBoard.getTag();
+                }).collect(Collectors.toList());
 
-        List<Board> boardList = board.getTagBoardList()
-                .stream()
-                .filter(tagBoard -> {
-                    return tagBoard.getBoard() != board;
-                })
+        //관련 태그 관련된 TagBoard 가져오기.
+        List<TagBoard> tagBoardList = new ArrayList<>();
+        for(Tag tag : tags){
+            if (tagBoardList.size() >= 6){
+                break;
+            }
+            tagBoardList.addAll(tagBoardRepository.findTagBoardsByTag(tag));
+        }
+
+        //TagBoard에서 게시글들 가져오기 + 중복제거 및 개수제한 설정
+        return tagBoardList.stream()
                 .map(tagBoard -> {
                     return tagBoard.getBoard();
-                })
-                .limit(15)
+                }).filter( board1 -> {
+                    return board1 != board;
+                }).distinct()
+                .limit(10)
                 .collect(Collectors.toList());
-
-        return boardList;
     }
 
 
