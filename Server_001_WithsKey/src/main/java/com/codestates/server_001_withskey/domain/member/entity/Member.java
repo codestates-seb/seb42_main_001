@@ -45,7 +45,7 @@ public class Member {
     @ElementCollection
     private List<String> roles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member",cascade = CascadeType.ALL)
     List<Board> boards = new ArrayList<>();
 
     public Member (String email) {
