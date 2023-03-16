@@ -29,8 +29,6 @@ import java.util.List;
 @RequestMapping("/members")
 @RequiredArgsConstructor
 public class  MemberController {
-    @Getter
-    private final String url = "http://localhost:8080/members/";
 
     private final MemberMapperImpl memberMapper;
 
@@ -50,7 +48,7 @@ public class  MemberController {
         member.setMemberId(memberId);
         Member updatedMember = memberService.updateMember(member);
         MemberDto.Response response = memberMapper.memberToMemberDtoResponse(updatedMember);
-        response.setUrl(url+memberId);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -75,7 +73,6 @@ public class  MemberController {
         List<BoardDto.Response> myLikeBoard = boardMapper.BoardsToDtos(likeList);
         myPage.setLikeBoards(myLikeBoard);
 
-        myPage.setUrl(url + memberId);
         return new ResponseEntity(myPage, HttpStatus.OK);
     }
 
