@@ -14,5 +14,5 @@ export default BoardDetailContents;
 const ContentsContainer = styled.div`
   font-size: var(--text-medium);
   line-height: var(--large);
-  padding: 40px 0 70px 0;
+  margin-bottom: var(--4x-large);
 `;

@@ -26,7 +26,7 @@ const MarginContainer = styled.div`
 `;
 
 const ItemContainer = styled.div`
-  padding: var(--large);
+  padding: var(--x-large);
   width: 695px;
   height: 100%;
   display: flex;

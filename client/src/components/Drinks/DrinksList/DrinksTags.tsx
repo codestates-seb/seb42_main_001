@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { AiFillApple } from "react-icons/ai";
 
 function DrinksTags() {
   return (
     <TagsContainer>
-      <AiFillApple />
       <div>데이트</div>
     </TagsContainer>
   );
@@ -23,10 +21,9 @@ const TagsContainer = styled.div`
 
   div {
     width: 70px;
-    font-size: var(--text-x-small);
+    font-size: var(--text-small);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: var(--xx-small);
   }
 `;

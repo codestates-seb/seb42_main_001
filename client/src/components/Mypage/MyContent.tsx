@@ -8,20 +8,22 @@ import MyLikeContentBox from "./MyLikeContentBox";
 
 function MyContent() {
   return (
-    <Card>
-      <MyContentContainer>
-        <MyContentBox>
-          <MyConstentTitle text={"Likes"} />
-          <MyLikeContentBox />
-        </MyContentBox>
-        <MyContentBox>
-          <MyConstentTitle text={"Board"} />
-          <MyCreateContent />
-          <MyConstentTitle text={"Comment"} />
-          <MyCreateContent />
-        </MyContentBox>
-      </MyContentContainer>
-    </Card>
+    <MainContainer>
+      <Card>
+        <MyContentContainer>
+          <MyContentBox>
+            <MyConstentTitle text={"Likes"} />
+            <MyLikeContentBox />
+          </MyContentBox>
+          <MyContentBox>
+            <MyConstentTitle text={"Board"} />
+            <MyCreateContent />
+            <MyConstentTitle text={"Comment"} />
+            <MyCreateContent />
+          </MyContentBox>
+        </MyContentContainer>
+      </Card>
+    </MainContainer>
   );
 }
 
@@ -46,3 +48,8 @@ const MyContentContainer = styled.div`
     align-items: center;
   }
 `;
+
+
+const MainContainer = styled.div`
+  height: 100%;
+`

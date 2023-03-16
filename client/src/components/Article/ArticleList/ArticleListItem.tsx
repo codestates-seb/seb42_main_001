@@ -29,10 +29,9 @@ export default ArticleListItem;
 const MarginContainer = styled.div`
   margin-bottom: var(--xx-large);
 
-
   @media only screen and (max-width: 768px) {
     display: flex;
-  flex-direction: column;
-  width: 100%;
+    flex-direction: column;
+    width: 100%;
   }
 `;
