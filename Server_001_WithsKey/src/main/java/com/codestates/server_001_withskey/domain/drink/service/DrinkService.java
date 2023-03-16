@@ -30,7 +30,11 @@ public class DrinkService {
     }
 
     public Drink findDrink(long drinkId) {
-        return findDrinkById(drinkId);
+        Optional<Drink> optionalDrink = drinkRepository.findById(drinkId);
+        Drink findDrink =
+                optionalDrink.orElseThrow(() ->
+                        new BusinessLogicException(ExceptionCode.DRINK_NOT_FOUND));
+        return findDrink;
     }
 
     public List<Drink> findAllDrink() {
