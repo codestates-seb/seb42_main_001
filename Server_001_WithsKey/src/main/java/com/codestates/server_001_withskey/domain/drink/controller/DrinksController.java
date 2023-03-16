@@ -35,7 +35,9 @@ public class DrinksController {
     @GetMapping("/{drink-id}")
     public ResponseEntity getDrink(@PathVariable("drink-id")@Positive long drinkId) {
         Drink drink = drinkService.findDrink(drinkId);
-        DrinkDto.Response response = mapper.drinkToDrinkResponseDetail(drink);
+
+        DrinkDto.ResponseDetail response = mapper.drinkToDrinkResponseDetail(drink);
+
         return new ResponseEntity(response, HttpStatus.OK);
     }
 

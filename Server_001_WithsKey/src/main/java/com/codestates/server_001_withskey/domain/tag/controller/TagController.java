@@ -51,6 +51,9 @@ public class TagController {
         //TagResponse에 BoardResponseList 할당
         response.setBoard(boardResponse);
 
+        //+ Drink 가져오는 로직을 구현
+        //List<Drink> -> List<DrinkDto> -> response.set()
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

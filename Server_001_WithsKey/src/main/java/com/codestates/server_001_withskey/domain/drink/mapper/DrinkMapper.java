@@ -17,19 +17,18 @@ import java.util.stream.Collectors;
 @Setter
 @Component
 public class DrinkMapper {
-    public DrinkDto.Response drinkToDrinkResponseDetail(Drink drink) {
-        List<CommentDrink> commentDrinkList = drink.getCommentDrinkList();
+    public DrinkDto.ResponseDetail drinkToDrinkResponseDetail(Drink drink) {
 
-        DrinkDto.Response response = DrinkDto.Response
-                .builder()
-                .drinkId(drink.getDrinkId())
-                .drinkName(drink.getDrinkName())
-                .priceRank(drink.getPriceRank())
-                .drinkAbv(drink.getDrinkAbv())
-                .drinkImageUrl(drink.getDrinkImageUrl())
-                .build();
+        DrinkDto.ResponseDetail responseDetail = new DrinkDto.ResponseDetail();
 
-        return response;
+        responseDetail.setDrinkId(drink.getDrinkId());
+        responseDetail.setDrinkAbv(drink.getDrinkAbv());
+        responseDetail.setDrinkName(drink.getDrinkName());
+
+
+
+
+        return null;
     }
     public List<DrinkDto.Response> drinksToResponses(List<Drink> drinks) {
 
