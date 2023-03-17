@@ -26,10 +26,12 @@ spring:
       client:
         registration:
           google:
-            clientId: "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
-            clientSecret: "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"
-            redirectUri: "http://localhost:8080/login/oauth2/code/google"
-#            EC2에 올릴 때는 http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google 로 변경해야함.
+            clientId: ${/main001/oauth2.client.registration.google.clientId}
+#            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
+            clientSecret: ${/main001/oauth2.client.registration.google.clientsecret}
+#            "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"
+            redirectUri: ${/main001/oauth2.client.registration.google.redirecturi}
+
             scope:
               - email
               - profile
@@ -49,29 +51,29 @@ mail:
     admin: han2041126@gmail.com
 jwt:
   key:
-    secret: 001mainprojectwithskeyletsgoforitwecandoit
+    secret: ${/main001/jwt.key.secret}
   access-token-expiration-minutes: 10000
   refresh-token-expiration-minutes: 10000
+
+#  001mainprojectwithskeyletsgoforitwecandoit
 
 file:
   root:
     dir : C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
 
-resource:
-  handler: /admin/post/image/**
-  location: file:///D:/imgUpload/
-
 #  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
-# /home/ssm-user/imag
+# dir : /home/ssm-user/image/
 
 cloud:
   aws:
     s3:
-      bucket: ${BUCKET_NAME} #버킷 이름
+      bucket: ${/main001/cloud.aws.s3.bucketname} #버킷 이름
     credentials:
-      access-key: ${S3_ACCESSKEY}
-      secret-key: ${S3_SECRETKEY}
+      access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
+      secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
     region:
-      static: ${REGION_STATIC}
+      static: ${/main001/cloud.aws.region.static}
     stack:
       auto: false
+awsParameterStorePropertySource:
+  enabled: true
