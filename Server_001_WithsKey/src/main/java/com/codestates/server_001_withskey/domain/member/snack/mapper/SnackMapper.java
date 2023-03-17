@@ -1,8 +1,7 @@
-package com.codestates.server_001_withskey.domain.snack.mapper;
+package com.codestates.server_001_withskey.domain.member.snack.mapper;
 
-import com.codestates.server_001_withskey.domain.drink.entity.SnackDrink;
-import com.codestates.server_001_withskey.domain.snack.dto.SnackDto;
-import com.codestates.server_001_withskey.domain.snack.entity.Snack;
+import com.codestates.server_001_withskey.domain.member.snack.dto.SnackDto.Response;
+import com.codestates.server_001_withskey.domain.member.snack.entity.Snack;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,8 +10,8 @@ import java.util.stream.Collectors;
 @Component
 public class SnackMapper {
 
-    public SnackDto.Response snackToResponse(Snack snack){
-        SnackDto.Response response = new SnackDto.Response();
+    public Response snackToResponse(Snack snack){
+        Response response = new Response();
         response.setSnackImageUrl(snack.getSnackImageUrl());
         response.setSnackKcal(snack.getSnackKcal());
         response.setSnackInfo(snack.getSnackInfo());
@@ -20,7 +19,7 @@ public class SnackMapper {
         return response;
     }
 
-    public List<SnackDto.Response> snacksToResponses(List<Snack> snackList){
+    public List<Response> snacksToResponses(List<Snack> snackList){
         return snackList.stream()
                 .map(snack -> {
                    return snackToResponse(snack);

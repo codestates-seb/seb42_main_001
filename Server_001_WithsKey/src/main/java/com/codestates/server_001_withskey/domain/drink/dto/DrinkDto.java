@@ -2,7 +2,7 @@ package com.codestates.server_001_withskey.domain.drink.dto;
 
 import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import com.codestates.server_001_withskey.domain.drink.tastingNote.dto.TastingNoteDto;
-import com.codestates.server_001_withskey.domain.snack.dto.SnackDto;
+import com.codestates.server_001_withskey.domain.member.snack.dto.SnackDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
 import lombok.*;
 
