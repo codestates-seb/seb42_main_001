@@ -30,11 +30,20 @@ spring:
 #            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com" 다현님
 #            507005838545-hvvt7qcag876mbrr6arcr6nkdo680eu9.apps.googleusercontent.com 성현님
             clientSecret: "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"
-#            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
-#            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
+#            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 성현
+#            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 다현
             redirectUri: "http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google"
 #            EC2에 올릴 때는 http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google 로 변경해야함.
+#            http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google
+#
+
+#            로그인 url
 #            http://localhost:8080/login/oauth2/code/google
+#            http://localhost:8080/oauth2/authorization/google
+
+#            로그인 url
+#            http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google
+
             scope:
               - email
               - profile
@@ -54,7 +63,7 @@ mail:
     admin: han2041126@gmail.com
 jwt:
   key:
-    secret: ${/main001/serverkey/jwt.key.secret}
+    secret: 001mainprojectwithskeyletsgoforitwecandoit
   access-token-expiration-minutes: 10000
   refresh-token-expiration-minutes: 10000
 #  001mainprojectwithskeyletsgoforitwecandoit
@@ -62,7 +71,7 @@ jwt:
 
 file:
   root:
-    dir : /home/ssm-user/image/
+    dir : C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
 #  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\ #임시로 업로드 이미지 저장하는 디렉토리
 # /home/ssm-user/image/
 
@@ -82,5 +91,5 @@ cloud:
     stack:
       auto: false
 
-awsParameterStorePropertySource:
-  enabled: true
+#awsParameterStorePropertySource:
+#  enabled: true
