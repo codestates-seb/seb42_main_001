@@ -1,17 +1,25 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
 
 function DrinksTagList() {
+  const [tagPage, setTagPage] = useState(3)
   const pageRef = useRef<HTMLDivElement>(null);
 
   const handleRightClick = () => {
-    pageRef.current?.scrollTo({ left: 500, top: 0, behavior: "smooth" });
+    setTagPage(prev => prev + 3)
+    pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
   const handleLeftClick = () => {
-    pageRef.current?.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    console.log(tagPage)
+    if (tagPage < 0) {
+      setTagPage(0)
+    } else {
+      setTagPage(prev => prev - 3)
+    }
+    pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
   return (
