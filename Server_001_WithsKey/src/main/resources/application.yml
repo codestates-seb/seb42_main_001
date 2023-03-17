@@ -26,11 +26,11 @@ spring:
       client:
         registration:
           google:
-            clientId: ${/main001/oauth2.client.registration.google.clientId}
+            clientId: ${/main001/oauth2.clientId}
 #            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
-            clientSecret: ${/main001/oauth2.client.registration.google.clientsecret}
+            clientSecret: ${/main001/oauth2.clientsecret}
 #            "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"
-            redirectUri: ${/main001/oauth2.client.registration.google.redirecturi}
+            redirectUri: ${/main001/oauth2.redirecturi}
 
             scope:
               - email
