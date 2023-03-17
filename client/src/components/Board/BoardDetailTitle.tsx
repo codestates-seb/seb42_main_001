@@ -8,5 +8,5 @@ export default BoardDetailTitle;
 
 const TitleContainer = styled.div`
   font-weight: var(--weight-large);
-  font-size: var(--text-x-large);
+  font-size: var(--text-large);
 `;

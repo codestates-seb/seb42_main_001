@@ -25,7 +25,7 @@ const MyPageEditButtonContainer = styled.div`
   width: 90%;
   max-width: 450px;
   height: 200px;
-  margin-top: var(--xx-large);
+  margin-top: var(--large);
   padding-bottom: var(--x-large);
   display: flex;
   flex-direction: column;

@@ -19,9 +19,9 @@ const TagWrapper = styled.div`
   cursor: pointer;
 
   div {
-    color: var(--color-sub-gray);
+    color: var(--color-sub-dark-gray);
     font-size: var(--text-x-small);
-    border: 1px solid var(--color-sub-gray);
+    border: 1px solid var(--color-sub-dark-gray);
     border-radius: var(--medium);
     height: 25px;
     display: flex;

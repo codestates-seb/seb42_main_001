@@ -1,18 +1,82 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import { BsPlusLg } from 'react-icons/bs';
 import BoardCreateTags from '../components/Board/BoardCreateTags';
 import BoardCreateBtn from '../components/Board/BoardCreateBtn';
 import BoardCreateInput from '../components/Board/BoardCreateInput';
 import Button from '../components/UI/Button';
+import BoardTagSearch from '../components/Board/BoardTagSearch';
+
+// 테스용 더미 데이터입니다.
+const tagData = [
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'input',
+  'output',
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'input',
+  'output',
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'understand',
+  'react',
+  'typescript',
+  'typescript',
+  'input',
+  'output',
+  'date',
+  'love',
+  'good',
+  'test',
+  'camping',
+  'complete',
+  'school',
+  'understand',
+  'react',
+  'typescript',
+  'understand',
+  'react',
+  'typescript',
+];
 
 function BoardCreate() {
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
+
+  const handleTagSearchOpen = () => setSearchOpen(!searchOpen);
+
   return (
     <Wrapper>
       <div>
         <BoardCreateController>
           <BoardCreateTagController>
             <Button
+              onClick={handleTagSearchOpen}
               type="button"
               width={`--x-large`}
               radius={`--large`}
@@ -21,7 +85,11 @@ function BoardCreate() {
                 <BsPlusLg />
               </SvgSize>
             </Button>
-            <BoardCreateTags />
+            {searchOpen ? (
+              <BoardTagSearch tagData={tagData} />
+            ) : (
+              <BoardCreateTags />
+            )}
           </BoardCreateTagController>
           <BoardCreateBtn />
         </BoardCreateController>
@@ -62,6 +130,8 @@ const BoardCreateController = styled.div`
 const BoardCreateTagController = styled.div`
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  position: relative;
 `;
 
 const SvgSize = styled.div`

@@ -9,7 +9,7 @@ function BoardSuggest() {
       <Card>
         <InnerContainer>
           <div>추천 보드</div>
-          <BoardSuggestList></BoardSuggestList>
+          <BoardSuggestList />
         </InnerContainer>
       </Card>
     </OuterContainer>
@@ -24,7 +24,7 @@ const OuterContainer = styled.div`
   max-height: 600px;
   position: absolute;
   top: 80px;
-  left: 1050px;
+  left: 1000px;
 
   @media only screen and (max-width: 768px) {
     display: none;

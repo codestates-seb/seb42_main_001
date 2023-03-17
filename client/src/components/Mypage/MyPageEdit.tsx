@@ -12,23 +12,38 @@ interface MyPageEditProps {
 
 const MyPageEdit = ({ isEdit, onClick }: MyPageEditProps) => {
   return (
-    <Card>
-      <MyPageEditContainer>
-        <MyPageProfil></MyPageProfil>
-        <MyPageInfoItem isEdit={isEdit} />
-        <MyPageEditButton onClick={onClick} />
-      </MyPageEditContainer>
-    </Card>
+    <SizeContainer>
+      <Card>
+        <MyPageEditContainer>
+          <MyPageProfil></MyPageProfil>
+          <MyPageInfoItem isEdit={isEdit} />
+          <MyPageEditButton onClick={onClick} />
+        </MyPageEditContainer>
+      </Card>
+    </SizeContainer>
   );
 };
 
 export default MyPageEdit;
 
 const MyPageEditContainer = styled.div`
-  width: 450px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 700px;
+    min-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--x-large);
+  }
+`;
+
+const SizeContainer = styled.div`
+  width: 100%;
+  max-width: 700px;
+  min-width: 350px;
 `;

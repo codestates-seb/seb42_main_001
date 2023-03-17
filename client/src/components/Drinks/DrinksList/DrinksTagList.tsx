@@ -1,17 +1,25 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
 
 function DrinksTagList() {
-  const homeRef = useRef<HTMLDivElement>(null);
+  const [tagPage, setTagPage] = useState(3)
+  const pageRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSide = () => {
-    homeRef.current?.scrollTo({ left: 1000, top: 0, behavior: "smooth" });
+  const handleRightClick = () => {
+    setTagPage(prev => prev + 3)
+    pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
-  const scrollToBack = () => {
-    homeRef.current?.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+  const handleLeftClick = () => {
+    console.log(tagPage)
+    if (tagPage < 0) {
+      setTagPage(0)
+    } else {
+      setTagPage(prev => prev - 3)
+    }
+    pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
   return (
@@ -20,10 +28,10 @@ function DrinksTagList() {
         type="button"
         width={`--x-large`}
         radius={`--large`}
-        onClick={scrollToBack}
+        onClick={handleLeftClick}
         borderColor={`--color-main`}
       >{`<`}</Button>
-      <TagListContainer ref={homeRef}>
+      <TagListContainer ref={pageRef}>
         <DrinksTags />
         <DrinksTags />
         <DrinksTags />
@@ -48,7 +56,7 @@ function DrinksTagList() {
         type="button"
         width={`--x-large`}
         radius={`--large`}
-        onClick={scrollToSide}
+        onClick={handleRightClick}
         borderColor={`--color-main`}
       >{`>`}</Button>
     </DisplayContainer>
@@ -59,7 +67,7 @@ export default DrinksTagList;
 
 const TagListContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 90%;
   overflow: overlay;
   &::-webkit-scrollbar {
     display: none;

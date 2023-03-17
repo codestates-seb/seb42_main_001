@@ -20,7 +20,7 @@ const MainArrowButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   > div {
-    font-size: var(--xxx-large);
+    font-size: var(--4x-large);
     color: var(--color-white);
     cursor: pointer;
   }

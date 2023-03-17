@@ -1,12 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Card from "../UI/Card";
+import Card from '../UI/Card';
 
-function BoardCreateTag() {
+interface props {
+  ele?: string;
+}
+
+function BoardCreateTag({ ele }: props) {
   return (
     <OuterWrapper>
       <Card>
-        <TagWrapper>데이트</TagWrapper>
+        <TagWrapper>{ele ? ele : '데이트'}</TagWrapper>
       </Card>
     </OuterWrapper>
   );
@@ -16,7 +20,8 @@ export default BoardCreateTag;
 
 const OuterWrapper = styled.li`
   list-style: none;
-  margin-left: var(--xxx-small);
+  margin: var(--xxx-small);
+  margin-right: 0;
 `;
 
 const TagWrapper = styled.div`

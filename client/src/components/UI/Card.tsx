@@ -12,6 +12,8 @@ function Card({ children }: CardProps) {
 export default Card;
 
 const CardLayout = styled.div`
+    width: auto;
+    height: auto;
     background-color: var(--color-white);
     box-shadow: 1px 1px 20px rgba(181, 181, 181, 0.4);
     border-radius: var(--xx-small);

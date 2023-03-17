@@ -28,15 +28,14 @@ export default BoardAuthorInfo;
 
 const BoardAuthorInfoContainer = styled.div`
   width: 100%;
-  padding-bottom: var(--medium);
   border-bottom: 1px solid var(--color-sub-light-gray);
+  padding-bottom: var(--small);
   display: flex;
   align-items: center;
 
-  > svg,
-  img {
-    width: 50px;
-    height: 50px;
+  > svg {
+    width: 40px;
+    height: 40px;
   }
 `;
 

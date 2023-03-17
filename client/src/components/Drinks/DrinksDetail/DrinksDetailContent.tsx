@@ -30,8 +30,8 @@ const ContentContainer = styled.div`
 `;
 
 const BottomMargin = styled.div`
-  margin-top: var(--xxx-large);
-  margin-bottom: var(--xxx-large);
+  margin-top: var(--4x-large);
+  margin-bottom: var(--4x-large);
 
   @media only screen and (max-width: 768px) {
     width: 100%;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
 
 interface ArticleListCardProps {
   onClick?: () => void;
@@ -18,8 +18,12 @@ function ArticleListCard({ onClick, text }: ArticleListCardProps) {
 
 export default ArticleListCard;
 
+const MainContainer = styled.div`
+  width: 100%;
+`
+
 const CardChildContainer = styled.div`
-  width: 670px;
+  width: 600px;
   height: 345px;
   display: flex;
   justify-content: center;
@@ -33,6 +37,3 @@ const CardChildContainer = styled.div`
   }
 `;
 
-const MainContainer = styled.div`
-  width: 100%
-`
