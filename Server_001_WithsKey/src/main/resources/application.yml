@@ -71,7 +71,7 @@ jwt:
 
 file:
   root:
-    dir : C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
+    dir : /home/ssm-user/image/
 #  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\ #임시로 업로드 이미지 저장하는 디렉토리
 # /home/ssm-user/image/
 
