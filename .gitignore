@@ -290,3 +290,6 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,gradle,java,intellij,intellij+iml
+
+
+.application-aws.yml

@@ -18,9 +18,11 @@ import java.util.List;
 @Getter
 @Setter
 public class Member {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     long memberId;
+
     @Column
     @Email
     private String email;
@@ -40,10 +42,10 @@ public class Member {
     @Column
     private String oauthType;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection
     private List<String> roles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member",cascade = CascadeType.ALL)
     List<Board> boards = new ArrayList<>();
 
     public Member (String email) {

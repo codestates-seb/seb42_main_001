@@ -1,24 +1,34 @@
 package com.codestates.server_001_withskey.domain.comment.entity;
 
+import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.codestates.server_001_withskey.global.auditable.Auditable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-public class CommentDrink {
+@Getter
+@Setter
+@NoArgsConstructor
+public class CommentDrink extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentDrinkId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Drink drink;
 
-//    @ManyToOne
-//    private Member member;
+    @Column
+    private long memberId;
+
+    @Column
+    private String displayName;
+
+    @Column
+    private String commentContent;
 
 }

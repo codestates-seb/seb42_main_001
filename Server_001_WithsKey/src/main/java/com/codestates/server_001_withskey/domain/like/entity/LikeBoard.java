@@ -2,15 +2,17 @@ package com.codestates.server_001_withskey.domain.like.entity;
 
 import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class LikeBoard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +21,11 @@ public class LikeBoard {
     @ManyToOne(fetch = FetchType.LAZY)
     private Board board;
 
-    @ManyToOne
-    private Member member;
+    @Column
+    private long memberId;
+
+    public LikeBoard(Board board, long memberId) {
+        this.board = board;
+        this.memberId = memberId;
+    }
 }

@@ -1,21 +1,31 @@
 package com.codestates.server_001_withskey.domain.tag.entity;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class TagDrink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tagBoardId;
+    private long tagDrinkId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "DRINK_ID")
     private Drink drink;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "TAG_ID")
     private Tag tag;
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
+        if (!tag.getTagDrinkList().contains(this)) {
+            tag.getTagDrinkList().add(this);
+        }
+    }
 }

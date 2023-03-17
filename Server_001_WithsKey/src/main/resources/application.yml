@@ -5,21 +5,33 @@ spring:
       path: /h2
   datasource:
     url: jdbc:h2:mem:test
+    initialization-mode: always
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
     show-sql: true
     properties:
       hibernate:
         format_sql: true  # (3) SQL pretty print
+        hbm2ddl:
+          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+    open-in-view: false
+  sql:
+    init:
+      data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
+
   security:
     oauth2:
       client:
         registration:
           google:
-            clientId: "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
-            clientSecret: "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"
-            redirectUri: "http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google"
+            clientId: ${/main001/oauth2.client.registration.google.clientId}
+#            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
+            clientSecret: ${/main001/oauth2.client.registration.google.clientsecret}
+#            "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"
+            redirectUri: ${/main001/oauth2.client.registration.google.redirecturi}
+
             scope:
               - email
               - profile
@@ -39,13 +51,29 @@ mail:
     admin: han2041126@gmail.com
 jwt:
   key:
-    secret: 001mainprojectwithskeyletsgoforitwecandoit
-  access-token-expiration-minutes: 1
-  refresh-token-expiration-minutes: 420
+    secret: ${/main001/jwt.key.secret}
+  access-token-expiration-minutes: 10000
+  refresh-token-expiration-minutes: 10000
+
+#  001mainprojectwithskeyletsgoforitwecandoit
 
 file:
   root:
-    dir : /Users/yj/IdeaProjects/MainProject/Server_001_WithsKey/sampleImgPath
+    dir : /home/ssm-user/image/
 
-#    dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
+#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
+# dir : /home/ssm-user/image/
 
+cloud:
+  aws:
+    s3:
+      bucket: ${/main001/cloud.aws.s3.bucketname} #버킷 이름
+    credentials:
+      access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
+      secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
+    region:
+      static: ${/main001/cloud.aws.region.static}
+    stack:
+      auto: false
+awsParameterStorePropertySource:
+  enabled: true

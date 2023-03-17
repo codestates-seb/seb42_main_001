@@ -53,10 +53,13 @@ public class SecurityConfiguration {
         this.memberService = memberService;
         this.memberRepository = memberRepository;
     }
+    
+
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .headers().frameOptions().sameOrigin()
+                .headers().frameOptions().disable() //<= frameOptions disable
                 .and()
                 .csrf().disable()
                 .cors(withDefaults())
@@ -68,6 +71,7 @@ public class SecurityConfiguration {
                 .authenticationEntryPoint(new withsKeyAuthenticationEntryPoint())
                 .accessDeniedHandler(new withsKeyAccessDeniedHandler())
                 .and()
+                .anonymous().disable()
                 .apply(new CustomFilterConfigurer())
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
@@ -79,6 +83,7 @@ public class SecurityConfiguration {
 
         return http.build();
     }
+
     //CORS 설정 하는 메서드
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
@@ -93,24 +98,14 @@ public class SecurityConfiguration {
 //        configuration.setAllowedOrigins(Arrays.asList("*"));
         // 3. 여기에는 pre-flight를 위해 OPTIONS을 추가.
         configuration.setAllowedMethods(Arrays.asList("POST","GET","PATCH","DELETE","OPTIONS"));
-
-        // BE 정하는 규칙.(Arrays.asList) "Authrorization",
-        // 4. request에 어떤 헤더값을 우리(BE)가 응답에 넣어서 보내줄지 ex) 회원가입하면 JWT auth를 넣어주듯.
         configuration.setExposedHeaders(Arrays.asList("*"));
-        // 5. request에 어떤 헤더값을 받아들이는데 성공할지
         configuration.setAllowedHeaders(Arrays.asList("*"));
 
-        // 6. 프론트에서 로그인 인증이나 인증이 필요한 요청에는
-        // withCrednetial라고 FE 에서하는게 있는데 거기에 대한 결과가 true여야지만 CORS 통과하도록 설정.
-        // FE에 혹시 withCredential 설정은 어떻게 했는지 물어보고 안만들었다 하면 false로 해야함
-        // 단 true일 경우에는 #1. allowedOriginPatterns()에는 * 를 사용할 수 없음.
-        configuration.setAllowCredentials(true);
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        // 위에서 정한 configuration의 CORS 정책을 적용하고 싶은 URL ex)
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
     public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
         @Override
         public void configure(HttpSecurity builder) throws Exception {
