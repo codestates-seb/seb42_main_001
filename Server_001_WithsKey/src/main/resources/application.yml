@@ -58,10 +58,17 @@ resource:
   handler: /admin/post/image/**
   location: file:///D:/imgUpload/
 
-image:
-  upload:
-    path: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
-
 #  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
 # /home/ssm-user/imag
 
+cloud:
+  aws:
+    s3:
+      bucket: ${BUCKET_NAME} #버킷 이름
+    credentials:
+      access-key: ${S3_ACCESSKEY}
+      secret-key: ${S3_SECRETKEY}
+    region:
+      static: ${REGION_STATIC}
+    stack:
+      auto: false

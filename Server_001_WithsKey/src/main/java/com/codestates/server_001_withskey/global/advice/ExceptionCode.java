@@ -18,7 +18,8 @@ public enum ExceptionCode {
     COMMENT_NOT_FOUND(404, "찾으시는 댓글 정보가 없습니다."),
     LIKE_ALREADY_EXISTS(406, "좋아요는 한번만 누를 수 있습니다"),
     ARTICLE_NOT_EXISTS(404, "아티클 정보를 찾을 수 없습니다."),
-    LIKE_NOT_EXIST(404, "좋아요가 없습니다.");
+    LIKE_NOT_EXIST(404, "좋아요가 없습니다."),
+    IMAGE_UPLOAD_FAIL(406, "이미지 업로드 실패");
 
     @Getter
     int status;

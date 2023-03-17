@@ -124,4 +124,12 @@ public class BoardService {
 
         return tagBoardList;
     }
+
+    public void verifyBoardExist(Board board){
+        Optional<Board> findBoard = boardRepository.findById(board.getBoardId());
+
+        if(!findBoard.isPresent()){
+            throw new BusinessLogicException(ExceptionCode.BOARD_NOT_FOUND);
+        }
+    }
 }
