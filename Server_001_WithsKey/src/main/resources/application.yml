@@ -91,5 +91,5 @@ cloud:
     stack:
       auto: false
 
-#awsParameterStorePropertySource:
-#  enabled: true
+awsParameterStorePropertySource:
+  enabled: true
