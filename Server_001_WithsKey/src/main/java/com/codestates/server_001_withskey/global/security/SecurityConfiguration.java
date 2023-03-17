@@ -91,14 +91,10 @@ public class SecurityConfiguration {
         // CORS 설정에 대한 객체.
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // 1. 브라우저가 허용하는 출처 (request를 보내는 입장의 주소)에 대한 설정.
         configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-        // 2. 이거는 1번과 동일한 역할을 함.
-//        configuration.setAllowedOrigins(Arrays.asList("*"));
-        // 3. 여기에는 pre-flight를 위해 OPTIONS을 추가.
         configuration.setAllowedMethods(Arrays.asList("POST","GET","PATCH","DELETE","OPTIONS"));
-        configuration.setExposedHeaders(Arrays.asList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setExposedHeaders(Arrays.asList("*")); //서버 측에서 제공하는 추가적인 헤더 명시
+        configuration.setAllowedHeaders(Arrays.asList("*")); //요청 측에서 제공하는 추가적인 헤더 명시
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
