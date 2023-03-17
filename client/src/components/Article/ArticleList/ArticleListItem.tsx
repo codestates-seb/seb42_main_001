@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ArticleListCard from "./ArticleListCard";
 
@@ -9,7 +10,9 @@ function ArticleListItem({ onClick }: ArticleListItemProps) {
   return (
     <>
       <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Whiskey"} />
+        <Link to={`/article/detail/articleId`}>
+          <ArticleListCard onClick={onClick} text={"Whiskey"} />
+        </Link>
       </MarginContainer>
       <MarginContainer>
         <ArticleListCard onClick={onClick} text={"Blended"} />
