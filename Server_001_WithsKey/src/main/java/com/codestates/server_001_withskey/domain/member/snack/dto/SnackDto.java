@@ -1,4 +1,4 @@
-package com.codestates.server_001_withskey.domain.snack.dto;
+package com.codestates.server_001_withskey.domain.member.snack.dto;
 
 import lombok.Getter;
 import lombok.Setter;

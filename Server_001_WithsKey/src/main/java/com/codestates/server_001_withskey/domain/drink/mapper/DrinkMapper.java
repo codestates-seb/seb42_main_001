@@ -1,12 +1,10 @@
 package com.codestates.server_001_withskey.domain.drink.mapper;
 
-import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
-import com.codestates.server_001_withskey.domain.comment.entity.CommentDrink;
 import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
 import com.codestates.server_001_withskey.domain.drink.entity.Drink;
-import com.codestates.server_001_withskey.domain.snack.dto.SnackDto;
-import com.codestates.server_001_withskey.domain.snack.entity.Snack;
-import com.codestates.server_001_withskey.domain.snack.mapper.SnackMapper;
+import com.codestates.server_001_withskey.domain.member.snack.dto.SnackDto;
+import com.codestates.server_001_withskey.domain.member.snack.entity.Snack;
+import com.codestates.server_001_withskey.domain.member.snack.mapper.SnackMapper;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
 import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import lombok.Getter;

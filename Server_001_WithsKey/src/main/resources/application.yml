@@ -19,7 +19,7 @@ spring:
     open-in-view: false
   sql:
     init:
-      data-locations: classpath:db/* #{classpath:article.sql, import.sql}
+      data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
 
   security:
     oauth2:

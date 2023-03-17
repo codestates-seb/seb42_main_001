@@ -1,6 +1,6 @@
 package com.codestates.server_001_withskey.domain.drink.entity;
 
-import com.codestates.server_001_withskey.domain.snack.entity.Snack;
+import com.codestates.server_001_withskey.domain.member.snack.entity.Snack;
 import lombok.Getter;
 import lombok.Setter;
 
