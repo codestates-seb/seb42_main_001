@@ -49,29 +49,28 @@ mail:
     admin: han2041126@gmail.com
 jwt:
   key:
-    secret: 001mainprojectwithskeyletsgoforitwecandoit
+    secret: ${/main001/serverkey/jwt.key.secret}
   access-token-expiration-minutes: 10000
   refresh-token-expiration-minutes: 10000
+#  001mainprojectwithskeyletsgoforitwecandoit
 
 file:
   root:
-    dir : C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
-
-resource:
-  handler: /admin/post/image/**
-  location: file:///D:/imgUpload/
-
-#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
-# /home/ssm-user/imag
+    dir : /home/ssm-user/image/
+#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\ #임시로 업로드 이미지 저장하는 디렉토리
+# /home/ssm-user/image/
 
 cloud:
   aws:
     s3:
-      bucket: ${BUCKET_NAME} #버킷 이름
+      bucket: ${/main001/s3access/cloud.aws.s3.bucket} #버킷 이름 ${BUCKET_NAME}
     credentials:
-      access-key: ${S3_ACCESSKEY}
-      secret-key: ${S3_SECRETKEY}
+      access-key: ${/main001/s3access/cloud.aws.credentials.access-key} # ${S3_ACCESSKEY}
+      secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key} # ${S3_SECRETKEY}
     region:
-      static: ${REGION_STATIC}
+      static: ${/main001/s3access/cloud.aws.region.static} # ${REGION_STATIC}
     stack:
       auto: false
+
+awsParameterStorePropertySource:
+  enabled: true
