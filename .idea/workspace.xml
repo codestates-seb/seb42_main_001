@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 배포시도 5">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 순서 정렬하기2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/service/BoardService.java" afterDir="false" />
     </list>
@@ -431,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679025446543</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="✨ feat: 순서 정렬하기2">
+      <created>1679109409057</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1679109409057</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +468,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" merge: Merging workfile" />
     <MESSAGE value="✨ feat: Board CRUD 기능 완성" />
     <MESSAGE value=" merge: 코드 머지" />
     <MESSAGE value=" fix: DI 해결" />
@@ -486,7 +492,8 @@
     <MESSAGE value="✨ feat: 페이지네이션 처리 완료" />
     <MESSAGE value="✨ feat: 배포시도 4" />
     <MESSAGE value="✨ feat: 배포시도 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 배포시도 5" />
+    <MESSAGE value="✨ feat: 순서 정렬하기2" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 순서 정렬하기2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
