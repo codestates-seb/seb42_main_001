@@ -78,28 +78,27 @@ public class SecurityConfiguration {
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(new OAuth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService,memberRepository))
-                )
-                .cors();
+                );
 
         return http.build();
     }
 
     //CORS 설정 하는 메서드
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-
-        // CORS 설정에 대한 객체.
-        CorsConfiguration configuration = new CorsConfiguration();
-
-        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("POST","GET","PATCH","DELETE","OPTIONS"));
-        configuration.setExposedHeaders(Arrays.asList("*")); //서버 측에서 제공하는 추가적인 헤더 명시
-        configuration.setAllowedHeaders(Arrays.asList("*")); //요청 측에서 제공하는 추가적인 헤더 명시
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
+//    @Bean
+//    CorsConfigurationSource corsConfigurationSource() {
+//
+//        // CORS 설정에 대한 객체.
+//        CorsConfiguration configuration = new CorsConfiguration();
+//
+//        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
+//        configuration.setAllowedMethods(Arrays.asList("POST","GET","PATCH","DELETE","OPTIONS"));
+//        configuration.setExposedHeaders(Arrays.asList("*")); //서버 측에서 제공하는 추가적인 헤더 명시
+//        configuration.setAllowedHeaders(Arrays.asList("*")); //요청 측에서 제공하는 추가적인 헤더 명시
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+//    }
 
     public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
         @Override
