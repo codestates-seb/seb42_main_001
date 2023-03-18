@@ -63,7 +63,7 @@ public class BoardService {
     // 전체 질문 조회(최신순)
     @Transactional(readOnly = true)
     public Page<Board> findBoards(int page, int size) {
-        return boardRepository.findAll(PageRequest.of(page-1, size, Sort.by("boardId").descending()));
+        return boardRepository.findAll(PageRequest.of(page-1, size, Sort.by("creatAt").descending()));
     }
 
     // 게시글 찾기 기능 + 유효성 검사
