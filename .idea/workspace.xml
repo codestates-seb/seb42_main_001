@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 초기 데이터 작성 article 1">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: CORS 설정 방식 변경4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
     </list>
@@ -438,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679109409057</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="✨ feat: CORS 설정 방식 변경4">
+      <created>1679120628934</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1679120628934</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,8 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: Board CRUD 기능 완성" />
-    <MESSAGE value=" merge: 코드 머지" />
     <MESSAGE value=" fix: DI 해결" />
     <MESSAGE value="✨ feat: Member 패키지 API 명세서에 맞게 응답 요청 수정&#10;✨ feat: MemberMapper 구현체 생성 -&gt; MemberMapperImpl.java&#10;✨ feat: myPage 일부 구현&#10;✨ feat: Board Comment 기능 구현" />
     <MESSAGE value="✨ feat: CommentBoard 삭제 기능 추가" />
@@ -498,7 +503,9 @@
     <MESSAGE value="✨ feat: 배포시도 4" />
     <MESSAGE value="✨ feat: 배포시도 5" />
     <MESSAGE value="✨ feat: 순서 정렬하기2" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 순서 정렬하기2" />
+    <MESSAGE value="✨ feat: CORS 설정 방식 변경3" />
+    <MESSAGE value="✨ feat: CORS 설정 방식 변경4" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: CORS 설정 방식 변경4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

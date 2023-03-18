@@ -62,8 +62,6 @@ public class SecurityConfiguration {
                 .headers().frameOptions().disable() //<= frameOptions disable
                 .and()
                 .csrf().disable()
-                .cors()
-                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .formLogin().disable()
@@ -80,7 +78,8 @@ public class SecurityConfiguration {
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(new OAuth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService,memberRepository))
-                );
+                )
+                .cors();
 
         return http.build();
     }
