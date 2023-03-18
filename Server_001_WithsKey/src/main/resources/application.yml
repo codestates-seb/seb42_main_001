@@ -26,12 +26,24 @@ spring:
       client:
         registration:
           google:
+<<<<<<< HEAD
             clientId: ${/main001/oauth2.clientId}
 #            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
             clientSecret: ${/main001/oauth2.clientsecret}
 #            "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"
             redirectUri: ${/main001/oauth2.redirecturi}
 
+=======
+            clientId: "507005838545-hvvt7qcag876mbrr6arcr6nkdo680eu9.apps.googleusercontent.com"
+#            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com" 다현님
+#            507005838545-hvvt7qcag876mbrr6arcr6nkdo680eu9.apps.googleusercontent.com 성현님
+            clientSecret: "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"
+#            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
+#            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
+            redirectUri: "http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google"
+#            EC2에 올릴 때는 http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google 로 변경해야함.
+#            http://localhost:8080/login/oauth2/code/google
+>>>>>>> b79ad86c5b5f7b4be248af179051671b211eadc6
             scope:
               - email
               - profile
@@ -51,22 +63,36 @@ mail:
     admin: han2041126@gmail.com
 jwt:
   key:
+<<<<<<< HEAD
     secret: ${/main001/jwt.key.secret}
   access-token-expiration-minutes: 60
   refresh-token-expiration-minutes: 1440
 
 #  001mainprojectwithskeyletsgoforitwecandoit
+=======
+    secret: ${/main001/serverkey/jwt.key.secret}
+  access-token-expiration-minutes: 10000
+  refresh-token-expiration-minutes: 10000
+#  001mainprojectwithskeyletsgoforitwecandoit
+# ${/main001/serverkey/jwt.key.secret}
+>>>>>>> b79ad86c5b5f7b4be248af179051671b211eadc6
 
 file:
   root:
     dir : /home/ssm-user/image/
+<<<<<<< HEAD
 
 #  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
 # dir : /home/ssm-user/image/
+=======
+#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\ #임시로 업로드 이미지 저장하는 디렉토리
+# /home/ssm-user/image/
+>>>>>>> b79ad86c5b5f7b4be248af179051671b211eadc6
 
 cloud:
   aws:
     s3:
+<<<<<<< HEAD
       bucket: ${/main001/cloud.aws.s3.bucketname} #버킷 이름
     credentials:
       access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
@@ -75,5 +101,20 @@ cloud:
       static: ${/main001/cloud.aws.region.static}
     stack:
       auto: false
+=======
+      bucket: ${/main001/s3access/cloud.aws.s3.bucket} #버킷 이름 ${BUCKET_NAME}
+      # ${/main001/s3access/cloud.aws.s3.bucket}
+    credentials:
+      access-key: ${/main001/s3access/cloud.aws.credentials.access-key} # ${S3_ACCESSKEY}
+      # ${/main001/s3access/cloud.aws.credentials.access-key}
+      secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key} # ${S3_SECRETKEY}
+      # ${/main001/s3access/cloud.aws.credentials.secret-key}
+    region:
+      static: ${/main001/s3access/cloud.aws.region.static} # ${REGION_STATIC}
+      # ${/main001/s3access/cloud.aws.region.static}
+    stack:
+      auto: false
+
+>>>>>>> b79ad86c5b5f7b4be248af179051671b211eadc6
 awsParameterStorePropertySource:
   enabled: true
