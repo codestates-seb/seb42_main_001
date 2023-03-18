@@ -45,7 +45,7 @@ public class  MemberController {
 
     @GetMapping("/login")
     public ResponseEntity login(HttpServletResponse response) throws IOException {
-        response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+        response.sendRedirect("http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
         return new ResponseEntity(HttpStatus.OK);
     }
 
