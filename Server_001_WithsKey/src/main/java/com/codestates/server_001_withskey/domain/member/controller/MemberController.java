@@ -21,8 +21,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -40,6 +42,12 @@ public class  MemberController {
     private final CommentBoardMapper commentBoardMapper;
     private final LikeBoardService likeBoardService;
 
+
+    @GetMapping("/login")
+    public ResponseEntity login(HttpServletResponse response) throws IOException {
+        response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
     @PatchMapping
     public ResponseEntity patchMember(@RequestBody @Valid MemberDto.Patch patchMember) throws Exception{
