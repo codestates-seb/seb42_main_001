@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 순서 정렬하기2">
+      <change afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/CorsFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/board/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
