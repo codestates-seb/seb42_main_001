@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: CORS 설정 방식 변경4">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: CORSFilter 구현방식2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/CorsFilter2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/CorsFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -446,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679120628934</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="✨ feat: CORSFilter 구현방식2">
+      <created>1679122938042</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1679122938042</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" fix: DI 해결" />
     <MESSAGE value="✨ feat: Member 패키지 API 명세서에 맞게 응답 요청 수정&#10;✨ feat: MemberMapper 구현체 생성 -&gt; MemberMapperImpl.java&#10;✨ feat: myPage 일부 구현&#10;✨ feat: Board Comment 기능 구현" />
     <MESSAGE value="✨ feat: CommentBoard 삭제 기능 추가" />
     <MESSAGE value="✨ feat: LikeBoard 패키지 구성" />
@@ -506,7 +511,8 @@
     <MESSAGE value="✨ feat: 순서 정렬하기2" />
     <MESSAGE value="✨ feat: CORS 설정 방식 변경3" />
     <MESSAGE value="✨ feat: CORS 설정 방식 변경4" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: CORS 설정 방식 변경4" />
+    <MESSAGE value="✨ feat: CORSFilter 구현방식2" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: CORSFilter 구현방식2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
