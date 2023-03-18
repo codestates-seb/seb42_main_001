@@ -62,7 +62,8 @@ public class SecurityConfiguration {
                 .headers().frameOptions().disable() //<= frameOptions disable
                 .and()
                 .csrf().disable()
-                .cors(withDefaults())
+                .cors()
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .formLogin().disable()
