@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: CORS 설정 방식 변경4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/CorsFilter2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
