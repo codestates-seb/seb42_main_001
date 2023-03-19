@@ -56,7 +56,7 @@ export interface IDrinksDetail {
     memberId: number;
     displayName: string;
     commentContent: string;
-    createAt: string | null;
+    createAt: string;
   }[];
   tastingNote: {
     citrus: number;
