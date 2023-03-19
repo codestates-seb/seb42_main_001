@@ -14,9 +14,29 @@ function BoardList() {
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
     const fetchData = async () => {
-      const res = await axios.get(`/boards?page=${isPage}&size=16`);
-      setItems(res.data.data);
-      setFilterItems(res.data.data);
+      const res = await axios.get(`/boards?page=${isPage}&size=16`, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+          Refresh: process.env.Refresh,
+        },
+      });
+
+      const data = res.data.data.map((el: BoardDataProps) => {
+        el.like = false;
+        return el;
+      });
+      const like = res.data.likeList;
+
+      for (let el1 of like) {
+        for (let el2 of data) {
+          if (el1.boardId === el2.boardId) {
+            el2.like = true;
+            break;
+          }
+        }
+      }
+      setItems(data);
+      setFilterItems(data);
     };
     fetchData();
   }, [isPage]);

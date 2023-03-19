@@ -18,6 +18,7 @@ interface BoardItemprops {
       tagId: number;
       tagName: string;
     }>;
+    like?: boolean;
     likeCount: number;
     commentCount: number;
     createdAt: string;
@@ -41,9 +42,11 @@ function BoardItem({ data }: BoardItemprops) {
             <BoardContents title={data.boardTitle} content={data.content} />
           </Link>
           <BoardMetaInfo
+            boardId={data.boardId}
             tags={data.tags}
             like={data.likeCount}
             comment={data.commentCount}
+            likes={data.like}
           />
         </ItemContainer>
       </Card>

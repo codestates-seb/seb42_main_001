@@ -13,6 +13,7 @@ export interface BoardDataProps {
   commentCount: number;
   createdAt: string;
   modifiedAt: string;
+  like: boolean;
 }
 
 export interface Data {
