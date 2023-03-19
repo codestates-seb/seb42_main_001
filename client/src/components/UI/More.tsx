@@ -9,7 +9,7 @@ interface CommentModalProps {
 function More({ handleModalOpen }: CommentModalProps) {
   return (
     <IconWrapper onClick={handleModalOpen}>
-      <RiMoreLine></RiMoreLine>
+      <RiMoreLine />
     </IconWrapper>
   );
 }

@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DrinksContents from "./DrinksContents";
 import DrinksInfo from "./DrinksInfo";
 
 function MainDrinks() {
+  const [search, setSearch] = useState<string>('');
+
   return (
     <MainDrinksContainer>
-      <DrinksInfo />
-      <DrinksContents />
+      <DrinksInfo search={search} setSearch={setSearch} />
+      <DrinksContents search={search} />
     </MainDrinksContainer>
   );
 }
