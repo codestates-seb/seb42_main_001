@@ -22,7 +22,7 @@ function BoardCreateInput({
   iseditData,
 }: BoardCreateInputProps) {
   const editorRef = useRef<Editor>(null);
-  const [isTitle, setTitle] = useState("");
+  const [isTitle, setTitle] = useState(iseditData?.boardTitle);
 
   const handleContentChange = () => {
     if (editorRef.current) {
@@ -33,7 +33,6 @@ function BoardCreateInput({
 
   useEffect(() => {
     if (iseditData) {
-      title(iseditData.boardTitle);
       setTitle(iseditData.boardTitle);
       editorRef.current?.getInstance().setMarkdown(iseditData.content);
     }
