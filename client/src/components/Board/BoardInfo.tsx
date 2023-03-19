@@ -9,7 +9,7 @@ import { BoardDataProps } from "../../interfaces/Boards.interface";
 
 interface BoardInfoProps {
   data?: BoardDataProps[];
-  filterItems: (data?: BoardDataProps[]) => void;
+  filterItems: (data: BoardDataProps[]) => void;
 }
 
 function BoardInfo({ data, filterItems }: BoardInfoProps) {

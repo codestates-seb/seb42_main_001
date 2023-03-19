@@ -16,12 +16,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
   const handleLikeChange = () => {
     if (isLike) {
       axios
-        .delete(`/likes/boards/${boardId}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-            Refresh: process.env.Refresh,
-          },
-        })
+        .delete(`/likes/boards/${boardId}`)
         .then((res) => {
           setIsLike((prev) => !prev);
           window.location.reload();
@@ -29,16 +24,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
         .catch((err) => console.log(Error, err));
     } else {
       axios
-        .post(
-          `/likes/boards/${boardId}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-              Refresh: process.env.Refresh,
-            },
-          }
-        )
+        .post(`/likes/boards/${boardId}`)
         .then((res) => {
           setIsLike((prev) => !prev);
           window.location.reload();
