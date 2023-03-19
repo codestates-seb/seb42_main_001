@@ -6,9 +6,10 @@ import Card from "../Card";
 
 interface CommentInputProps {
   drinkId?: number;
+  boardId?: number;
 }
 
-function CommentInput({ drinkId }: CommentInputProps) {
+function CommentInput({ drinkId, boardId }: CommentInputProps) {
   const [commentValue, setCommentValue] = useState("");
 
   const handleCommentValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,13 +21,22 @@ function CommentInput({ drinkId }: CommentInputProps) {
       drinkId,
       commentContent: commentValue,
     };
+
+    const newBoards = {
+      boardId,
+      commentContent: commentValue,
+    };
     try {
-      await axios.post(`/comments/drinks`, newDrinks, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-          Refresh: process.env.REACT_APP_REFRESH,
-        },
-      });
+      await axios.post(
+        drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
+        drinkId ? newDrinks : boardId ? newBoards : null,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+            Refresh: process.env.REACT_APP_REFRESH,
+          },
+        }
+      );
       setCommentValue("");
       window.location.reload();
     } catch (error) {
