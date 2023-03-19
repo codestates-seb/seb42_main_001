@@ -56,9 +56,9 @@ function BoardDetail() {
     const boardData = async () => {
       const res = await axios.get(`/boards/${boardId}`);
       setData(res.data);
+      setIsLoding(true);
     };
     boardData();
-    setIsLoding(true);
   }, [boardId]);
 
   return (

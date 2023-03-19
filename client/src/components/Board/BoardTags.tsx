@@ -18,7 +18,7 @@ function BoardTags({ tags }: BoardTagsProps) {
       {tags &&
         tags.map((el) => {
           return (
-            <Link to={`/tags/${el.tagId}`}>
+            <Link key={el.tagId} to={`/tags/${el.tagId}`}>
               <TagsContainer>
                 <BoardTag tag={el.tagName} />
               </TagsContainer>

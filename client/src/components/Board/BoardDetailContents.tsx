@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "@toast-ui/editor/dist/toastui-editor-viewer.css";
 import { Viewer } from "@toast-ui/react-editor";
 
 interface BoardDetailContentsProps {
@@ -6,9 +7,10 @@ interface BoardDetailContentsProps {
 }
 
 function BoardDetailContents({ content }: BoardDetailContentsProps) {
+  console.log(content);
   return (
     <ContentsContainer>
-      <Viewer initialValue={content} />
+      <Viewer initialValue={content || ""} />
     </ContentsContainer>
   );
 }
