@@ -24,7 +24,7 @@ function Comment({ comments }: CommentProps) {
       <Card>
         <SubContainer>
           <CommentAuthorInfo>
-            <CommentAuthorInfoImg></CommentAuthorInfoImg>
+            <CommentAuthorInfoImg />
             <CommentAuthorContents>
               <h4>{comments?.displayName}</h4>
               <span>{comments?.createAt}</span>
