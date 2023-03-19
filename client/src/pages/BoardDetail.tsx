@@ -66,7 +66,7 @@ function BoardDetail() {
           <BoardCommentsContainer>
             <CommentsCount>{`Comments ${data?.commentCount}`}</CommentsCount>
             <CommentInputContainer>
-              <CommentInput />
+              <CommentInput boardId={data?.boardId} />
             </CommentInputContainer>
             <ListContainer>
               {data?.comments.map((el) => {
