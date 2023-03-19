@@ -12,7 +12,6 @@ function DrinksDetail() {
     try {
       const res = await axios.get(`/drinks/${drinkId}`);
       setDrinksDetail(res.data);
-      console.log('drinks')
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +19,6 @@ function DrinksDetail() {
 
   useEffect(() => {
     handleGetDrinksDetail()
-    console.log('handle')
   }, [handleGetDrinksDetail]);
 
   return (

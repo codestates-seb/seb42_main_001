@@ -19,7 +19,6 @@ function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModalOpen = () => setIsOpen(!isOpen);
-  console.log(comments);
 
   return (
     <MainContainer>
