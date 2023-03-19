@@ -9,7 +9,7 @@ interface CommentProps {
 
 function CommentModal({ commentId }: CommentProps) {
 
-  const handleDrinksDel = async () => {
+  const handleDrinksCommentDelte = async () => {
     try {
       await axios.delete(`/comments/drinks/${commentId}`, {
         headers: {
@@ -18,18 +18,23 @@ function CommentModal({ commentId }: CommentProps) {
         },
       })
       window.location.reload();
-      console.log('삭제 완')
     }
     catch (error) {
       console.log(error)
     }
   }
 
+  const handleCommentDelete = () => {
+    if (window.confirm('댓글을 삭제하시겠습니까?')) {
+      handleDrinksCommentDelte();
+    }
+  };
+
   return (
     <ModalContainer>
       <Card>
         <EditContainer>Edit</EditContainer>
-        <DeleteContainer onClick={handleDrinksDel}>Delete</DeleteContainer>
+        <DeleteContainer onClick={handleCommentDelete}>Delete</DeleteContainer>
       </Card>
     </ModalContainer>
   );
