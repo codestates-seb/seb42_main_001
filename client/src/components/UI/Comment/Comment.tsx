@@ -11,7 +11,7 @@ interface CommentProps {
     memberId: number;
     displayName: string;
     commentContent: string;
-    createAt: string;
+    createAt: string | null;
   };
 }
 

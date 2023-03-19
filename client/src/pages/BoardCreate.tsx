@@ -69,10 +69,8 @@ function BoardCreate() {
     axios
       .post(`/boards`, newBoard, {
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJVU0VSIl0sIm1lbWJlcklkIjoiMSIsInVzZXJuYW1lIjoibW9vbiBmdWxsIiwic3ViIjoiMSIsImlhdCI6MTY3OTEwMjc5MSwiZXhwIjoxNjg1MTAyNzkxfQ.gTnLsKnJzTLzMNIDQslp9rnDhPLhf4VLdpjzhdiEVEg",
-          Refresh:
-            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb29uIGZ1bGwiLCJpYXQiOjE2NzkxMDI3OTEsImV4cCI6MTY4NTEwMjc5MX0.G7ECW1S5lN0Xx8CgNTgeWsK7CvaUGgDAHLx0t9NvCDI",
+          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+          Refresh: process.env.REACT_APP_REFRESH,
         },
       })
       .then((res) => navigate("/board/list"))

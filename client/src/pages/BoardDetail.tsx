@@ -13,6 +13,7 @@ import Comment from "../components/UI/Comment/Comment";
 import CommentInput from "../components/UI/Comment/CommentInput";
 import BoardSuggest from "../components/Board/BoardSuggest";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 interface Data {
   boardId: number;
@@ -66,11 +67,13 @@ function BoardDetail() {
         <Wrapper>
           <BoardSuggest recommandBoards={data?.recommandBoards} />
           <BoardDetailContainer>
-            <BoardAuthorInfo
-              userName={data?.memberName}
-              userImage={data?.profileImageUrl}
-              date={data?.createdAt}
-            />
+            <Link to={`/member/${data?.memberId}`}>
+              <BoardAuthorInfo
+                userName={data?.memberName}
+                userImage={data?.profileImageUrl}
+                date={data?.createdAt}
+              />
+            </Link>
             <BoardDetailHeader>
               <BoardDetailTitle title={data?.boardTitle} />
               <BoardDetailController>
