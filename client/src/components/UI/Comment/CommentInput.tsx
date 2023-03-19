@@ -1,20 +1,37 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../Button";
 import Card from "../Card";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function CommentInput() {
+function CommentInput({ drinksDetail }: DrinksDetailProps) {
   const [commentValue, setCommentValue] = useState('')
 
   const handleCommentValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCommentValue(e.target.value)
   }
 
-  // const handleDrinksPost = async() => {
-  //   try {
-  //     const res = await axios.post()
-  //   }
-  // }
+  const handleDrinksPost = async () => {
+    const newDrinks = {
+      drinkId: drinksDetail?.drinkId,
+      commentContent: commentValue
+    }
+    try {
+      await axios.post(`/comments/drinks`, newDrinks, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+          Refresh: process.env.REACT_APP_REFRESH,
+        },
+      })
+      setCommentValue('')
+      window.location.reload();
+      console.log('gg')
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <MainContainer>
@@ -25,7 +42,7 @@ function CommentInput() {
           </Card>
         </SearchContainer>
       </section>
-      <Button type="submit" width={`--5x-large`} height={`--xx-large`} bgColor={`--color-main`} borderColor={`--color-main`} color={`--color-white`}>
+      <Button type="submit" width={`--5x-large`} height={`--xx-large`} bgColor={`--color-main`} borderColor={`--color-main`} color={`--color-white`} onClick={handleDrinksPost}>
         submit
       </Button>
     </MainContainer>
