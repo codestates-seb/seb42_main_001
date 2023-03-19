@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
@@ -6,15 +6,23 @@ import axios from "axios";
 
 import Card from "../UI/Card";
 import React from "react";
+import { Data } from "../../interfaces/Boards.interface";
 
 interface BoardCreateInputProps {
   title: (title: string) => void;
   content: (content: string) => void;
   image: (url: { imageId: number; boardImageUrl: string }) => void;
+  iseditData?: Data;
 }
 
-function BoardCreateInput({ title, content, image }: BoardCreateInputProps) {
+function BoardCreateInput({
+  title,
+  content,
+  image,
+  iseditData,
+}: BoardCreateInputProps) {
   const editorRef = useRef<Editor>(null);
+  const [isTitle, setTitle] = useState("");
 
   const handleContentChange = () => {
     if (editorRef.current) {
@@ -23,19 +31,28 @@ function BoardCreateInput({ title, content, image }: BoardCreateInputProps) {
     }
   };
 
+  useEffect(() => {
+    if (iseditData) {
+      title(iseditData.boardTitle);
+      setTitle(iseditData.boardTitle);
+      editorRef.current?.getInstance().setMarkdown(iseditData.content);
+    }
+  }, [iseditData]);
   return (
     <Card>
       <InputContainer>
         <input
           type="text"
-          placeholder="제목을 입력해 주세요"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            title(e.target.value)
-          }
+          placeholder={"제목을 입력해 주세요"}
+          value={isTitle ? isTitle : ""}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            title(e.target.value);
+            setTitle(e.target.value);
+          }}
         ></input>
         <EditorContainer>
           <Editor
-            initialValue="내용을 입력해주세요"
+            initialValue={"내용을 입력해주세요"}
             previewStyle="vertical"
             height="600px"
             ref={editorRef}
