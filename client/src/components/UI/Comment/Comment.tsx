@@ -24,7 +24,7 @@ function Comment({ comments }: CommentProps) {
       <Card>
         <SubContainer>
           <CommentAuthorInfo>
-            <CommentAuthorInfoImg></CommentAuthorInfoImg>
+            <CommentAuthorInfoImg />
             <CommentAuthorContents>
               <h4>{comments?.displayName}</h4>
               <span>{comments?.createAt}</span>
@@ -32,7 +32,7 @@ function Comment({ comments }: CommentProps) {
             <div>
               <More handleModalOpen={handleModalOpen} />
             </div>
-            {isOpen ? <CommentModal /> : null}
+            {isOpen ? <CommentModal commentId={comments?.commentId} /> : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
         </SubContainer>
@@ -62,6 +62,10 @@ const CommentAuthorInfo = styled.div`
   span {
     margin-top: 4px;
     font-size: var(--text-small);
+  }
+
+  svg {
+    cursor: pointer;
   }
 `;
 

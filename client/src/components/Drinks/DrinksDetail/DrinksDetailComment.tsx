@@ -5,6 +5,11 @@ import CommentInput from "../../UI/Comment/CommentInput";
 import { DrinksDetailProps } from "../../../interfaces/Drinks.inerface";
 
 function DrinksDetailComment({ drinksDetail }: DrinksDetailProps) {
+
+  // const handleDrinksCommentPatch = (e: React.MouseEvent<HTMLElement>) => {
+
+  // }
+
   return (
     <MainContainer>
       <CommentInput drinkId={drinksDetail?.drinkId} />
