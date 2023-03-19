@@ -44,6 +44,8 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
     }
   };
 
+  // 에딧을 누르면 false엿던 상태가 true가 되며 input에 focus하는 로직 focus하며 value는 edit 누른 commentId값 받아오기 event.target?
+
   return (
     <MainContainer>
       <section>

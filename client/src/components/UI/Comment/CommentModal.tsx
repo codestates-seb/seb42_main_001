@@ -1,13 +1,40 @@
 import styled from 'styled-components';
+import axios from 'axios';
 
 import Card from '../Card';
 
-function CommentModal() {
+interface CommentProps {
+  commentId?: number;
+}
+
+function CommentModal({ commentId }: CommentProps) {
+
+  const handleDrinksCommentDelte = async () => {
+    try {
+      await axios.delete(`/comments/drinks/${commentId}`, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+          Refresh: process.env.REACT_APP_REFRESH,
+        },
+      })
+      window.location.reload();
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleCommentDelete = () => {
+    if (window.confirm('댓글을 삭제하시겠습니까?')) {
+      handleDrinksCommentDelte();
+    }
+  };
+
   return (
     <ModalContainer>
       <Card>
         <EditContainer>Edit</EditContainer>
-        <DeleteContainer>Delete</DeleteContainer>
+        <DeleteContainer onClick={handleCommentDelete}>Delete</DeleteContainer>
       </Card>
     </ModalContainer>
   );
@@ -21,6 +48,7 @@ const ModalContainer = styled.div`
   position: absolute;
   top: 20px;
   right: 10px;
+  cursor: pointer;
 `;
 
 const EditContainer = styled.div`
