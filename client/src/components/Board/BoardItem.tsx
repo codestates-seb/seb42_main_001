@@ -13,18 +13,15 @@ interface BoardItemprops {
     memberName: string;
     profileImageUrl: string;
     boardTitle: string;
-    boardContent: string;
+    content: string;
     tags: Array<{
       tagId: number;
-      tagName1: string;
+      tagName: string;
     }>;
     likeCount: number;
     commentCount: number;
     createdAt: string;
     modifiedAt: string;
-    LikeList: Array<{
-      boardId: number;
-    }>;
   };
 }
 
@@ -40,11 +37,8 @@ function BoardItem({ data }: BoardItemprops) {
               date={data.createdAt}
             />
           </Link>
-          <Link to={`/board/detail${data.boardId}`}>
-            <BoardContents
-              title={data.boardTitle}
-              content={data.boardContent}
-            />
+          <Link to={`/board/detail/${data.boardId}`}>
+            <BoardContents title={data.boardTitle} content={data.content} />
           </Link>
           <BoardMetaInfo
             tags={data.tags}

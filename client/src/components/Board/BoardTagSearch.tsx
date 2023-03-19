@@ -1,20 +1,24 @@
-import styled from 'styled-components';
-import { useState } from 'react';
+import styled from "styled-components";
+import { useState } from "react";
 
-import Card from '../UI/Card';
-import BoardCreateTag from './BoardCreateTag';
+import Card from "../UI/Card";
+import BoardCreateTag from "./BoardCreateTag";
 
 interface props {
-  tagData: Array<string>;
+  tagData: Array<{
+    tagId: number;
+    tagName: string;
+  }>;
+  onClick: (ele: { tagId: number; tagName: string }) => void;
 }
 
-function BoardTagSearch({ tagData }: props) {
-  const [inputValue, setInputValue] = useState<string>('');
+function BoardTagSearch({ tagData, onClick }: props) {
+  const [inputValue, setInputValue] = useState<string>("");
   const [options, setOptions] = useState(tagData);
 
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    setOptions(tagData.filter(ele => ele.includes(e.target.value)));
+    setOptions(tagData.filter((ele) => ele.tagName.includes(e.target.value)));
   };
 
   return (
@@ -28,8 +32,8 @@ function BoardTagSearch({ tagData }: props) {
         />
         {options.length ? (
           <DropDown>
-            {options.map((ele, idx) => (
-              <BoardCreateTag key={idx} ele={ele}></BoardCreateTag>
+            {options.map((ele) => (
+              <BoardCreateTag key={ele.tagId} ele={ele} onClick={onClick} />
             ))}
           </DropDown>
         ) : null}

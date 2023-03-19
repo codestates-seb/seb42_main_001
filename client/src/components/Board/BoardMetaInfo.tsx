@@ -6,7 +6,7 @@ import BoardTags from "./BoardTags";
 interface BoardMetaInfoProps {
   tags: Array<{
     tagId: number;
-    tagName1: string;
+    tagName: string;
   }>;
   like: number;
   comment: number;

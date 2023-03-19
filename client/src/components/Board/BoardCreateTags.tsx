@@ -2,12 +2,17 @@ import styled from "styled-components";
 
 import BoardCreateTag from "./BoardCreateTag";
 
-function BoardCreateTags() {
+interface BoardCreateTagsProps {
+  tags: Array<{ tagId: number; tagName: string }>;
+  onClick: (ele: { tagId: number; tagName: string }) => void;
+}
+
+function BoardCreateTags({ tags, onClick }: BoardCreateTagsProps) {
   return (
     <ListContainer>
-      <BoardCreateTag />
-      <BoardCreateTag />
-      <BoardCreateTag />
+      {tags.map((el) => (
+        <BoardCreateTag key={el.tagId} ele={el} onClick={onClick} />
+      ))}
     </ListContainer>
   );
 }

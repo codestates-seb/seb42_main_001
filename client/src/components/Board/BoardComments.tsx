@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 
 interface BoardCommentsProps {
-  comment: number;
+  comment: number | undefined;
 }
 
 function BoardComments({ comment }: BoardCommentsProps) {

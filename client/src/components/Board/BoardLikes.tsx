@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IoMdHeartEmpty } from "react-icons/io";
 
 interface BoardLikesProps {
-  like: number;
+  like: number | undefined;
 }
 
 function BoardLikes({ like }: BoardLikesProps) {

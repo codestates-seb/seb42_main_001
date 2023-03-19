@@ -11,11 +11,7 @@ interface BoardAuthorInfoProps {
 function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage !== "profileImageUrl" ? (
-        <img src={userImage} alt="userImage" />
-      ) : (
-        <FaUserCircle />
-      )}
+      {userImage ? <img src={userImage} alt="userImage" /> : <FaUserCircle />}
       <BoardAuthorInfoName>
         {userName}
         <p>{date}</p>
