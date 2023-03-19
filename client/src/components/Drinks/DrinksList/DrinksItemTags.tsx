@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { DrinksTagsProps } from "../../../interfaces/Drinks.inerface";
 
 function DrinksItemTags({ drinksData }: DrinksTagsProps) {
-  console.log('hello')
-  console.log(drinksData)
   return (
     <TagsContainer>
       <div></div>
