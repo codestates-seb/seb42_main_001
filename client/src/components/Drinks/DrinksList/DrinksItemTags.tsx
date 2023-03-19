@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { DrinksTagsProps } from "../../../interfaces/Drinks.inerface";
 
-function DrinksItemTags() {
+function DrinksItemTags({ drinksData }: DrinksTagsProps) {
+  console.log('hello')
+  console.log(drinksData)
   return (
     <TagsContainer>
-      <div>#효도</div>
-      <div>#데이트</div>
+      <div></div>
     </TagsContainer>
   );
 }
@@ -15,7 +17,6 @@ export default DrinksItemTags;
 const TagsContainer = styled.div`
   display: flex;
   cursor: pointer;
-
   div {
     color: var(--color-sub-dark-gray);
     font-size: var(--text-x-small);

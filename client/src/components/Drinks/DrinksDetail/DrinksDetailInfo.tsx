@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailInfo() {
+function DrinksDetailInfo({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <InfoContainer>
       <TopBorder>
-        <span>Entry-Level</span>
+        <span>{drinksDetail?.priceRank}</span>
       </TopBorder>
       <InfoContainer>
         <TopBorderMargin>
           <span>도수</span>
-          <p>40%</p>
+          <p>{`${drinksDetail?.drinkAbv}%`}</p>
         </TopBorderMargin>
         <TopBorderMargin>
           <span>용량</span>

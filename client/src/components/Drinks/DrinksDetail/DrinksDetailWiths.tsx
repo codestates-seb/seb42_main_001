@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import DrinksDetailWith from "./DrinksDetailWith";
 import DrinksDetailWithTitle from "./DrinksDetailWithTitle";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailWiths() {
+function DrinksDetailWiths({ drinksDetail }: DrinksDetailProps) {
   return (
     <div>
       <DrinksDetailWithTitle />

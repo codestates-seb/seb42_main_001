@@ -2,11 +2,20 @@ import React from "react";
 import DrinksDetailLikes from "./DrinksDetailLikes";
 import DrinksDetailTags from "./DrinksDetailTags";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailBox() {
+function DrinksDetailBox({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <BoxContainer>
-      <DrinksDetailTags />
+      {drinksDetail?.tags?.map(el => {
+        return (
+          <Link to={`/tags/${el.tagId}`}>
+            <DrinksDetailTags key={el.tagId} drinksDetail={drinksDetail} />
+          </Link>
+        )
+      })}
       <DrinksDetailLikes />
     </BoxContainer>
   );

@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Drinks } from '../../../interfaces/Drinks.inerface';
 
-function DrinksItemLevel() {
+interface DrinksContentsProps {
+  drinksData: Drinks;
+}
+
+function DrinksItemLevel({ drinksData }: DrinksContentsProps) {
   return (
     <LevelContainer>
-      Entry-Level
+      {drinksData.priceRank}
     </LevelContainer>
   )
 }
