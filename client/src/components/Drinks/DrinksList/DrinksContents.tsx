@@ -28,8 +28,7 @@ function DrinksContents({ search }: ISearchProps) {
 
   useEffect(() => {
     handleDrinksData()
-  }, [])
-
+  }, [handleDrinksData])
 
   const filtered: Drinks[] = drinksData.filter((el) => {
     return search.toLowerCase() === ""
