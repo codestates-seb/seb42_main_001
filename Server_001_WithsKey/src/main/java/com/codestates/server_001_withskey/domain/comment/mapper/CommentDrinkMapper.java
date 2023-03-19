@@ -49,5 +49,23 @@ public class CommentDrinkMapper {
                 }).collect(Collectors.toList());
     }
 
+    public CommentDrinkDto.MyPage commentToMyPage(CommentDrink commentDrink){
+        CommentDrinkDto.MyPage myPage = new CommentDrinkDto.MyPage();
+
+        myPage.setCommentContent(commentDrink.getCommentContent());
+        myPage.setDrinkName(commentDrink.getDrink().getDrinkName());
+        myPage.setDrinkId(commentDrink.getDrink().getDrinkId());
+        myPage.setCommentId(commentDrink.getCommentDrinkId());
+
+        return myPage;
+    }
+
+    public List<CommentDrinkDto.MyPage> commentsToMyPages(List<CommentDrink> commentDrinks){
+        return commentDrinks.stream()
+                .map(commentDrink -> {
+                    return commentToMyPage(commentDrink);
+                }).collect(Collectors.toList());
+    }
+
 }
 

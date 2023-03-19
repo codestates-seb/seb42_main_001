@@ -12,6 +12,7 @@ package com.codestates.server_001_withskey.domain.member.dto;
 
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
+import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,8 +52,9 @@ public class MemberDto {
         //작성한 Boards
         private List<BoardDto.Response> writeBoards;
 
-        //작성한 Comment
+        //작성한 BoardComment
         private List<CommentBoardDto.MyPage> writeComments;
+        private List<CommentDrinkDto.MyPage> writeDrinkComments;
         private String url;
     }
 
