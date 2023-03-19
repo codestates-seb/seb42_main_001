@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-function BoardDetailTitle() {
-  return <TitleContainer>잭콕 취향이신 분 계실까요??</TitleContainer>;
+interface BoardDetailTitleProps {
+  title?: string;
+}
+
+function BoardDetailTitle({ title }: BoardDetailTitleProps) {
+  return <TitleContainer>{title}</TitleContainer>;
 }
 
 export default BoardDetailTitle;

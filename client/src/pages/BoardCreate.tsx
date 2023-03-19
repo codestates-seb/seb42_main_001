@@ -1,74 +1,83 @@
-import styled from 'styled-components';
-import { useState } from 'react';
+import styled from "styled-components";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
-import { BsPlusLg } from 'react-icons/bs';
-import BoardCreateTags from '../components/Board/BoardCreateTags';
-import BoardCreateBtn from '../components/Board/BoardCreateBtn';
-import BoardCreateInput from '../components/Board/BoardCreateInput';
-import Button from '../components/UI/Button';
-import BoardTagSearch from '../components/Board/BoardTagSearch';
-
-// 테스용 더미 데이터입니다.
-const tagData = [
-  'date',
-  'love',
-  'good',
-  'test',
-  'camping',
-  'complete',
-  'school',
-  'understand',
-  'react',
-  'typescript',
-  'input',
-  'output',
-  'date',
-  'love',
-  'good',
-  'test',
-  'camping',
-  'complete',
-  'school',
-  'understand',
-  'react',
-  'typescript',
-  'input',
-  'output',
-  'date',
-  'love',
-  'good',
-  'test',
-  'camping',
-  'complete',
-  'school',
-  'understand',
-  'react',
-  'typescript',
-  'understand',
-  'react',
-  'typescript',
-  'typescript',
-  'input',
-  'output',
-  'date',
-  'love',
-  'good',
-  'test',
-  'camping',
-  'complete',
-  'school',
-  'understand',
-  'react',
-  'typescript',
-  'understand',
-  'react',
-  'typescript',
-];
+import { BsPlusLg } from "react-icons/bs";
+import BoardCreateTags from "../components/Board/BoardCreateTags";
+import BoardCreateBtn from "../components/Board/BoardCreateBtn";
+import BoardCreateInput from "../components/Board/BoardCreateInput";
+import Button from "../components/UI/Button";
+import BoardTagSearch from "../components/Board/BoardTagSearch";
+import axios from "axios";
 
 function BoardCreate() {
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
+  const [tagData, setTagData] = useState([]);
+  const [boardTitle, setBoardTitle] = useState("");
+  const [boardContent, setBoardContent] = useState("");
+  const [boardImageUrl, setBoardImageUrl] = useState<Imgs[]>([]);
+  const [tags, setTags] = useState<Tags[]>([]);
+
+  const navigate = useNavigate();
+
+  type Tags = { tagId: number; tagName: string };
+  type Imgs = {
+    imageId: number;
+    boardImageUrl: string;
+  };
+
+  useEffect(() => {
+    const tagsData = async () => {
+      const res = await axios.get(`/tags`);
+      setTagData((prevTag) => res.data);
+    };
+    tagsData();
+  }, []);
 
   const handleTagSearchOpen = () => setSearchOpen(!searchOpen);
+
+  const handleAddTag = (ele: { tagId: number; tagName: string }) => {
+    setTags((prev) => [...prev, ele]);
+  };
+
+  const handleRemoveTag = (ele: { tagId: number; tagName: string }) => {
+    setTags((prev) => prev.filter((el) => el.tagId !== ele.tagId));
+  };
+
+  const handleBoardTitle = (title: string) => {
+    setBoardTitle(title);
+  };
+
+  const handleBoardContent = (content: string) => {
+    setBoardContent(content);
+  };
+
+  const handleBoardImage = (url: {
+    imageId: number;
+    boardImageUrl: string;
+  }) => {
+    setBoardImageUrl((prev) => [...prev, url]);
+  };
+
+  const handleBoardSubmit = () => {
+    const newBoard = {
+      boardTitle,
+      boardContent,
+      boardImageUrl,
+      tags,
+    };
+    axios
+      .post(`/boards`, newBoard, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJVU0VSIl0sIm1lbWJlcklkIjoiMSIsInVzZXJuYW1lIjoibW9vbiBmdWxsIiwic3ViIjoiMSIsImlhdCI6MTY3OTEwMjc5MSwiZXhwIjoxNjg1MTAyNzkxfQ.gTnLsKnJzTLzMNIDQslp9rnDhPLhf4VLdpjzhdiEVEg",
+          Refresh:
+            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb29uIGZ1bGwiLCJpYXQiOjE2NzkxMDI3OTEsImV4cCI6MTY4NTEwMjc5MX0.G7ECW1S5lN0Xx8CgNTgeWsK7CvaUGgDAHLx0t9NvCDI",
+        },
+      })
+      .then((res) => navigate("/board/list"))
+      .catch((err) => console.log(Error, err));
+  };
 
   return (
     <Wrapper>
@@ -80,20 +89,25 @@ function BoardCreate() {
               type="button"
               width={`--x-large`}
               radius={`--large`}
-              borderColor={`--color-main`}>
+              borderColor={`--color-main`}
+            >
               <SvgSize>
                 <BsPlusLg />
               </SvgSize>
             </Button>
             {searchOpen ? (
-              <BoardTagSearch tagData={tagData} />
+              <BoardTagSearch tagData={tagData} onClick={handleAddTag} />
             ) : (
-              <BoardCreateTags />
+              <BoardCreateTags tags={tags} onClick={handleRemoveTag} />
             )}
           </BoardCreateTagController>
-          <BoardCreateBtn />
+          <BoardCreateBtn onClick={handleBoardSubmit} />
         </BoardCreateController>
-        <BoardCreateInput />
+        <BoardCreateInput
+          title={handleBoardTitle}
+          content={handleBoardContent}
+          image={handleBoardImage}
+        />
       </div>
     </Wrapper>
   );

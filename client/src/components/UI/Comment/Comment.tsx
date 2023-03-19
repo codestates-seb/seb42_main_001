@@ -1,14 +1,25 @@
-import styled from 'styled-components';
-import { useState } from 'react';
+import styled from "styled-components";
+import { useState } from "react";
 
-import Card from '../Card';
-import CommentModal from './CommentModal';
-import More from '../More';
+import Card from "../Card";
+import CommentModal from "./CommentModal";
+import More from "../More";
 
-function Comment() {
+interface CommentProps {
+  comments?: {
+    commentId: number;
+    memberId: number;
+    displayName: string;
+    commentContent: string;
+    createAt: string;
+  };
+}
+
+function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModalOpen = () => setIsOpen(!isOpen);
+  console.log(comments);
 
   return (
     <MainContainer>
@@ -17,15 +28,15 @@ function Comment() {
           <CommentAuthorInfo>
             <CommentAuthorInfoImg></CommentAuthorInfoImg>
             <CommentAuthorContents>
-              <h4>lapmu</h4>
-              <span>23.03.07</span>
+              <h4>{comments?.displayName}</h4>
+              <span>{comments?.createAt}</span>
             </CommentAuthorContents>
             <div>
               <More handleModalOpen={handleModalOpen} />
             </div>
             {isOpen ? <CommentModal /> : null}
           </CommentAuthorInfo>
-          <CommentContents>댓글 내용</CommentContents>
+          <CommentContents>{comments?.commentContent}</CommentContents>
         </SubContainer>
       </Card>
     </MainContainer>
@@ -71,8 +82,7 @@ const CommentAuthorContents = styled.div`
   padding-left: var(--x-small);
 
   span {
-  color: var(--color-sub-gray);
-
+    color: var(--color-sub-gray);
   }
 `;
 

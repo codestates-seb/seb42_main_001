@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import styled from "styled-components";
 
 import BoardAuthorInfo from "../components/Board/BoardAuthorInfo";
@@ -10,42 +12,94 @@ import BoardTags from "../components/Board/BoardTags";
 import Comment from "../components/UI/Comment/Comment";
 import CommentInput from "../components/UI/Comment/CommentInput";
 import BoardSuggest from "../components/Board/BoardSuggest";
+import axios from "axios";
+
+interface Data {
+  boardId: number;
+  boardImages: Array<{
+    imageId: number;
+    imageUrl: string;
+  }>;
+  boardTitle: string;
+  content: string;
+  memberId: number;
+  memberName: string;
+  profileImageUrl: string;
+  createdAt: string;
+  modifiedAt: string;
+  likeCount: number;
+  commentCount: number;
+  tags: Array<{
+    tagId: number;
+    tagName: string;
+  }>;
+  recommandBoards: Array<{
+    boardId: number;
+    boardTitle: string;
+  }>;
+  comments: Array<{
+    commentId: number;
+    memberId: number;
+    displayName: string;
+    commentContent: string;
+    createAt: string;
+  }>;
+}
 
 function BoardDetail() {
+  const { boardId } = useParams();
+  const [data, setData] = useState<Data>();
+  const [isLoding, setIsLoding] = useState(false);
+
+  useEffect(() => {
+    const boardData = async () => {
+      const res = await axios.get(`/boards/${boardId}`);
+      setData(res.data);
+    };
+    boardData();
+    setIsLoding(true);
+  }, [boardId]);
+
   return (
-    <Wrapper>
-      <BoardSuggest />
-      <BoardDetailContainer>
-        <BoardAuthorInfo />
-        <BoardDetailHeader>
-          <BoardDetailTitle />
-          <BoardDetailController>
-            <BoardLikes />
-            <BoardComments />
-            <More />
-          </BoardDetailController>
-        </BoardDetailHeader>
-        <BoardDetailBody>
-          <BoardDetailContents />
-          <BoardTags />
-        </BoardDetailBody>
-      </BoardDetailContainer>
-      <BoardCommentsContainer>
-        <CommentsCount>Comments 2</CommentsCount>
-        <CommentInputContainer>
-          <CommentInput />
-        </CommentInputContainer>
-        <ListContainer>
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-        </ListContainer>
-      </BoardCommentsContainer>
-    </Wrapper>
+    <>
+      {isLoding ? (
+        <Wrapper>
+          <BoardSuggest recommandBoards={data?.recommandBoards} />
+          <BoardDetailContainer>
+            <BoardAuthorInfo
+              userName={data?.memberName}
+              userImage={data?.profileImageUrl}
+              date={data?.createdAt}
+            />
+            <BoardDetailHeader>
+              <BoardDetailTitle title={data?.boardTitle} />
+              <BoardDetailController>
+                <BoardLikes like={data?.likeCount} />
+                <BoardComments comment={data?.commentCount} />
+                <More />
+              </BoardDetailController>
+            </BoardDetailHeader>
+            <BoardDetailBody>
+              <BoardDetailContents content={data?.content} />
+              <BoardTags tags={data?.tags} />
+            </BoardDetailBody>
+          </BoardDetailContainer>
+          <BoardCommentsContainer>
+            <CommentsCount>{`Comments ${data?.commentCount}`}</CommentsCount>
+            <CommentInputContainer>
+              <CommentInput />
+            </CommentInputContainer>
+            <ListContainer>
+              {data?.comments.map((el) => {
+                return <Comment key={el.commentId} comments={el} />;
+              })}
+            </ListContainer>
+          </BoardCommentsContainer>
+        </Wrapper>
+      ) : (
+        <div></div>
+      )}
+    </>
   );
 }
 

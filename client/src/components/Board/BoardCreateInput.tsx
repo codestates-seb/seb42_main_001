@@ -1,21 +1,59 @@
-import styled from 'styled-components';
-import { Editor } from '@toast-ui/react-editor';
-import '@toast-ui/editor/dist/toastui-editor.css';
+import { useRef } from "react";
+import styled from "styled-components";
+import { Editor } from "@toast-ui/react-editor";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import axios from "axios";
 
-import Card from '../UI/Card';
+import Card from "../UI/Card";
+import React from "react";
 
-function BoardCreateInput() {
+interface BoardCreateInputProps {
+  title: (title: string) => void;
+  content: (content: string) => void;
+  image: (url: { imageId: number; boardImageUrl: string }) => void;
+}
+
+function BoardCreateInput({ title, content, image }: BoardCreateInputProps) {
+  const editorRef = useRef<Editor>(null);
+
+  const handleContentChange = () => {
+    if (editorRef.current) {
+      const data = editorRef.current.getInstance().getMarkdown();
+      content(data);
+    }
+  };
+
   return (
     <Card>
       <InputContainer>
-        <input type="text" placeholder="제목을 입력해 주세요"></input>
+        <input
+          type="text"
+          placeholder="제목을 입력해 주세요"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            title(e.target.value)
+          }
+        ></input>
         <EditorContainer>
           <Editor
             initialValue="내용을 입력해주세요"
             previewStyle="vertical"
             height="600px"
+            ref={editorRef}
             initialEditType="markdown"
             useCommandShortcut={true}
+            onChange={handleContentChange}
+            hooks={{
+              addImageBlobHook: async (blob, callback) => {
+                const formData = new FormData();
+                formData.append("file", blob);
+
+                const img = await axios.post("/spring/upload", formData);
+                const url = img.data[0].boardImageUrl;
+                image(img.data[0]);
+
+                callback(url, "");
+              },
+            }}
           />
         </EditorContainer>
       </InputContainer>
