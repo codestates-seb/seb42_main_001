@@ -1,18 +1,19 @@
 import React from "react";
-import DrinksInfo from "./DrinksItemBox";
-import DrinksBody from "./DrinksItemBody";
-import DrinksLevel from "./DrinksItemLevel";
+import DrinksItemBox from "./DrinksItemBox";
+import DrinksItemBody from "./DrinksItemBody";
+import DrinksItemLevel from "./DrinksItemLevel";
 import Card from "../../UI/Card";
 import styled from "styled-components";
+import { DrinksProps } from "../../../interfaces/Drinks.inerface";
 
-function DrinksItem() {
+function DrinksItem({ drinksData, likesData }: DrinksProps) {
   return (
     <Margin>
       <Card>
         <ItemContainer>
-          <DrinksInfo />
-          <DrinksBody />
-          <DrinksLevel />
+          <DrinksItemBox drinksData={drinksData} likesData={likesData} />
+          <DrinksItemBody drinksData={drinksData} />
+          <DrinksItemLevel drinksData={drinksData} />
         </ItemContainer>
       </Card>
     </Margin>

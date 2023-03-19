@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { Drinks } from "../../../interfaces/Drinks.inerface";
+import { Likes } from "../../../interfaces/Drinks.inerface";
+
 
 function DrinksContents() {
+  const [drinksData, setDrinksData] = useState<Drinks[]>([])
+  const [likesData, setLikesData] = useState<Likes[]>([])
+
+  useEffect(() => {
+    const handleDrinksData = async () => {
+      try {
+        const response = await axios.get('/drinks');
+        const { data } = response;
+        setDrinksData(data.data)
+        setLikesData(data.likeList)
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    handleDrinksData()
+  }, [])
+
   return (
     <ContentsContainer>
-      <Link to="/drinks/detail">
-        <DrinksItem />
-      </Link>
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
-      <DrinksItem />
+      {drinksData.map(el => {
+        return (
+          <Link to={`/drinks/${el.drinkId}`}>
+            <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
+          </Link>
+        )
+      })}
+
     </ContentsContainer>
   );
 }

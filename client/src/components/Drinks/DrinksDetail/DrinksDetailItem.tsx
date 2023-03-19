@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import DrinksDetailImg from "./DrinksDetailImg";
 import DrinksDetailTxt from "./DrinksDetailTxt";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailItem() {
+function DrinksDetailItem({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <ItemContainer>
-      <DrinksDetailImg />
-      <DrinksDetailTxt />
+      <DrinksDetailImg drinksDetail={drinksDetail} />
+      <DrinksDetailTxt drinksDetail={drinksDetail} />
     </ItemContainer>
   );
 }

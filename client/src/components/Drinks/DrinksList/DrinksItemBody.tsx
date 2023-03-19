@@ -1,11 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Drinks } from '../../../interfaces/Drinks.inerface';
 
-function DrinksItemBody() {
+interface DrinksContentsProps {
+  drinksData: Drinks;
+}
+
+function DrinksItemBody({ drinksData }: DrinksContentsProps) {
   return (
     <BodyContainer>
-      <div>img</div>
-      <span>몽키 숄더</span>
+      <img src={`${drinksData.drinkImageUrl}`} alt="withskey" />
+      <span>{drinksData.drinkName}</span>
     </BodyContainer>
   )
 }
@@ -21,10 +26,10 @@ const BodyContainer = styled.div`
   flex-direction: column;
   padding: var(--large);
 
-    div {
-      background-color: #f1f1f1;
-      width: 100%;
-      height: 100%;
+    img {
+      width: auto;
+      max-width: 250px;
+      height: 250px;
     }
 
     span {
