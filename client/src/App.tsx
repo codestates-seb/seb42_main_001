@@ -22,6 +22,7 @@ function App() {
       </Route>
       <Route element={<MainLayout bgColor />}>
         <Route path="/board/create" element={<BoardCreate />} />
+        <Route path="/board/edit/:editId" element={<BoardCreate />} />
         <Route path="/drinks/list" element={<DrinksList />} />
         <Route path="/drinks/:drinkId" element={<DrinksDetail />} />
         <Route path="/signup" element={<SignUp />} />

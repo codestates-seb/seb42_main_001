@@ -1,15 +1,58 @@
 import styled from "styled-components";
+import { useState } from "react";
 
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
+import axios from "axios";
 
 interface BoardLikesProps {
+  boardId?: number;
   like: number | undefined;
+  likes?: boolean;
 }
 
-function BoardLikes({ like }: BoardLikesProps) {
+function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
+  const [isLike, setIsLike] = useState(likes);
+
+  const handleLikeChange = () => {
+    if (isLike) {
+      axios
+        .delete(`/likes/boards/${boardId}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+            Refresh: process.env.Refresh,
+          },
+        })
+        .then((res) => {
+          setIsLike((prev) => !prev);
+          window.location.reload();
+        })
+        .catch((err) => console.log(Error, err));
+    } else {
+      axios
+        .post(
+          `/likes/boards/${boardId}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+              Refresh: process.env.Refresh,
+            },
+          }
+        )
+        .then((res) => {
+          setIsLike((prev) => !prev);
+          window.location.reload();
+        })
+        .catch((err) => console.log(Error, err));
+    }
+  };
   return (
     <LikesWrapper>
-      <IoMdHeartEmpty />
+      {isLike ? (
+        <IoMdHeart onClick={handleLikeChange} />
+      ) : (
+        <IoMdHeartEmpty onClick={handleLikeChange} />
+      )}
       <LikesCount>{like}</LikesCount>
     </LikesWrapper>
   );
