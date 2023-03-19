@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import { Viewer } from "@toast-ui/react-editor";
 
 interface BoardDetailContentsProps {
   content?: string;
 }
 
 function BoardDetailContents({ content }: BoardDetailContentsProps) {
-  return <ContentsContainer>{content}</ContentsContainer>;
+  return (
+    <ContentsContainer>
+      <Viewer initialValue={content} />
+    </ContentsContainer>
+  );
 }
 
 export default BoardDetailContents;
