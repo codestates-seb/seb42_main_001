@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailTags() {
+function DrinksDetailTags({ drinksDetail }: DrinksDetailProps) {
   return (
     <TagsContainer>
-      <div>#효도</div>
-      <div>#데이트</div>
+      <div>#tag</div>
     </TagsContainer>
   );
 }

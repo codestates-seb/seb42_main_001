@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "../../UI/Card";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailImg() {
+function DrinksDetailImg({ drinksDetail }: DrinksDetailProps) {
   return (
     <Size>
       <Card>
-        <ImgContainer>img</ImgContainer>
+        <ImgContainer>
+          <img src={`${drinksDetail?.drinkImageUrl}`} alt={`${drinksDetail?.drinkName}`} />
+        </ImgContainer>
       </Card>
     </Size>
   );

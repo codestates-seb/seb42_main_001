@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
+import { Likes } from "../../../interfaces/Drinks.inerface";
 
-function DrinksItemLikes() {
+interface DrinksContentsProps {
+  likesData: Likes[];
+}
+
+function DrinksItemLikes({ likesData }: DrinksContentsProps) {
   const [likes, setlikes] = useState(false);
 
   const handleLikesChange = () => {
