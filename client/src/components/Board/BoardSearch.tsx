@@ -5,12 +5,17 @@ import Card from "../UI/Card";
 
 interface BoardSearchProps {
   data?: BoardDataProps[];
-  filterItems: (data?: BoardDataProps[]) => void;
+  filterItems: (data: BoardDataProps[]) => void;
 }
 
 function BoardSearch({ data, filterItems }: BoardSearchProps) {
   const handleDataFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    filterItems(data?.filter((el) => el.boardTitle.includes(e.target.value)));
+    if (data) {
+      filterItems(
+        data.filter((el) => el.boardTitle.includes(e.target.value.toString()))
+      );
+      console.log(e.target.value);
+    }
   };
 
   return (

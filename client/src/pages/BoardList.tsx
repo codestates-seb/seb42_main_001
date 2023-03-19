@@ -7,19 +7,14 @@ import BoardItem from "../components/Board/BoardItem";
 import { BoardDataProps } from "../interfaces/Boards.interface";
 
 function BoardList() {
-  const [items, setItems] = useState<BoardDataProps[]>(); // axios로 받아온 데이터 저장
+  const [items, setItems] = useState<BoardDataProps[]>([]); // axios로 받아온 데이터 저장
   const [isPage, setPage] = useState(1); // 현재 페이지 저장
-  const [filterItems, setFilterItems] = useState<BoardDataProps[]>();
+  const [filterItems, setFilterItems] = useState<BoardDataProps[]>([]);
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
     const fetchData = async () => {
-      const res = await axios.get(`/boards?page=${isPage}&size=16`, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-          Refresh: process.env.Refresh,
-        },
-      });
+      const res = await axios.get(`/boards?page=${isPage}&size=16`);
 
       const data = res.data.data.map((el: BoardDataProps) => {
         el.like = false;
@@ -35,8 +30,22 @@ function BoardList() {
           }
         }
       }
-      setItems(data);
-      setFilterItems(data);
+      setItems((prev) => {
+        if (prev.length === 0) return data;
+        else if (prev[0].boardId !== data[0].boardId) {
+          return [...prev, ...data];
+        } else {
+          return prev;
+        }
+      });
+      setFilterItems((prev) => {
+        if (prev.length === 0) return data;
+        else if (prev[0].boardId !== data[0].boardId) {
+          return [...prev, ...data];
+        } else {
+          return prev;
+        }
+      });
     };
     fetchData();
   }, [isPage]);
