@@ -1,15 +1,28 @@
+import axios from "axios";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../Button";
-
 import Card from "../Card";
 
 function CommentInput() {
+  const [commentValue, setCommentValue] = useState('')
+
+  const handleCommentValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentValue(e.target.value)
+  }
+
+  // const handleDrinksPost = async() => {
+  //   try {
+  //     const res = await axios.post()
+  //   }
+  // }
+
   return (
     <MainContainer>
       <section>
         <SearchContainer>
           <Card>
-            <input placeholder="댓글을 작성해 주세요" />
+            <input onChange={handleCommentValueChange} value={commentValue} placeholder="댓글을 작성해 주세요" />
           </Card>
         </SearchContainer>
       </section>

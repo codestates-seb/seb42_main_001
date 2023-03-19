@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-
 import Card from "../Card";
 import CommentModal from "./CommentModal";
 import More from "../More";

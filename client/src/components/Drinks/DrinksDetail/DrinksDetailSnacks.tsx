@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
 function DrinksDetailSnacks({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <SnackContainer>
       <DrinksDetailSnackTitle />

@@ -5,10 +5,13 @@ import CommentInput from "../../UI/Comment/CommentInput";
 import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
 function DrinksDetailComment({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <MainContainer>
       <CommentInput />
-      <Comment />
+      {drinksDetail?.commentDrinks.map(el => {
+        return <Comment key={el.commentId} comments={el} />;
+      })}
     </MainContainer>
   );
 }
