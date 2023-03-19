@@ -82,22 +82,12 @@ function BoardCreate() {
     };
     if (!editId) {
       axios
-        .post(`/boards`, newBoard, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-            Refresh: process.env.Refresh,
-          },
-        })
+        .post(`/boards`, newBoard)
         .then((res) => navigate("/board/list"))
         .catch((err) => console.log(Error, err));
     } else {
       axios
-        .patch(`/boards/${editId}`, newBoard, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-            Refresh: process.env.Refresh,
-          },
-        })
+        .patch(`/boards/${editId}`, newBoard)
         .then((res) => navigate("/board/list"))
         .catch((err) => console.log(Error, err));
     }
