@@ -30,7 +30,7 @@ public class BoardDto {
     public static class Patch {
         private long boardId;
         private String boardTitle;
-        private String content;
+        private String boardContent;
         private List<ImageDto.Patch> boardImageUrl;
         private List<TagDto.Post> tags;
     }

@@ -20,7 +20,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,7 +43,7 @@ public class BoardService {
 
         Optional.ofNullable(patchBoard.getBoardTitle())
                         .ifPresent(title -> findBoard.setBoardTitle(title));
-        Optional.ofNullable(patchBoard.getContent())
+        Optional.ofNullable(patchBoard.getBoardContent())
                         .ifPresent(content -> findBoard.setContent(content));
         Optional.ofNullable(patchBoard.getBoardImageUrl())
                 .ifPresent(image -> imageService.updateImage(findBoard, image));
