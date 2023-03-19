@@ -74,5 +74,5 @@ export interface IDrinksDetail {
 }
 
 export interface DrinksDetailProps {
-  drinksDetail?: IDrinksDetail | undefined;
+  drinksDetail?: IDrinksDetail;
 }
