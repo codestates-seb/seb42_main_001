@@ -4,16 +4,19 @@ import axios from "axios";
 
 import BoardInfo from "../components/Board/BoardInfo";
 import BoardItem from "../components/Board/BoardItem";
+import { BoardDataProps } from "../interfaces/Boards.interface";
 
 function BoardList() {
-  const [items, setItems] = useState<any[]>([]); // axios로 받아온 데이터 저장
+  const [items, setItems] = useState<BoardDataProps[]>(); // axios로 받아온 데이터 저장
   const [isPage, setPage] = useState(1); // 현재 페이지 저장
+  const [filterItems, setFilterItems] = useState<BoardDataProps[]>();
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
     const fetchData = async () => {
       const res = await axios.get(`/boards?page=${isPage}&size=16`);
-      setItems((prev) => [...prev, ...res.data.data]);
+      setItems(res.data.data);
+      setFilterItems(res.data.data);
     };
     fetchData();
   }, [isPage]);
@@ -34,12 +37,11 @@ function BoardList() {
 
   return (
     <Wrapper>
-      <BoardInfo />
+      <BoardInfo data={items} filterItems={setFilterItems} />
       <ListContainer>
-        {items &&
-          items.map((el) => {
-            return <BoardItem key={el.boardId} data={el} />;
-          })}
+        {filterItems?.map((el) => {
+          return <BoardItem key={el.boardId} data={el} />;
+        })}
       </ListContainer>
     </Wrapper>
   );
