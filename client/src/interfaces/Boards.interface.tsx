@@ -40,6 +40,8 @@ export interface Data {
     boardTitle: string;
   }>;
   comments: Array<{
+    boardCommentId?: number;
+    drinkCommentId?: number;
     commentId: number;
     memberId: number;
     displayName: string;

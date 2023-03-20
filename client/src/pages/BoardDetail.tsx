@@ -70,6 +70,7 @@ function BoardDetail() {
             </CommentInputContainer>
             <ListContainer>
               {data?.comments.map((el) => {
+                el.boardCommentId = el.commentId;
                 return <Comment key={el.commentId} comments={el} />;
               })}
             </ListContainer>

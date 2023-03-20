@@ -6,6 +6,8 @@ import More from "../More";
 
 interface CommentProps {
   comments?: {
+    drinkCommentId?: number;
+    boardCommentId?: number;
     commentId: number;
     memberId: number;
     displayName: string;
@@ -33,7 +35,10 @@ function Comment({ comments }: CommentProps) {
               <More handleModalOpen={handleModalOpen} />
             </div>
             {isOpen ? (
-              <CommentModal drinkCommentId={comments?.commentId} />
+              <CommentModal
+                drinkCommentId={comments?.drinkCommentId}
+                boardCommentId={comments?.boardCommentId}
+              />
             ) : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
