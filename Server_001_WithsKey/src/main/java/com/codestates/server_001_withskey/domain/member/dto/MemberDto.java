@@ -37,7 +37,6 @@ public class MemberDto {
         private String profilePicture;
         private String url;
     }
-
     @Getter
     @Setter
     public static class MyPage{
