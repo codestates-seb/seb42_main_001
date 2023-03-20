@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import styled from "styled-components";
 
 import BoardAuthorInfo from "../components/Board/BoardAuthorInfo";
@@ -23,6 +23,8 @@ function BoardDetail() {
   const [isLoding, setIsLoding] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const boardData = async () => {
       const res = await axios.get(`/boards/${boardId}`);
@@ -34,6 +36,10 @@ function BoardDetail() {
 
   const handleModalOpen = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const handleBoardEdit = () => {
+    navigate(`/board/edit/${boardId}`);
   };
 
   return (
@@ -55,7 +61,13 @@ function BoardDetail() {
                 <BoardLikes like={data?.likeCount} />
                 <BoardComments comment={data?.commentCount} />
                 <More handleModalOpen={handleModalOpen} />
-                {isOpen ? <CommentModal boardId={data?.boardId} /> : null}
+                {isOpen ? (
+                  <CommentModal
+                    boardId={data?.boardId}
+                    handleBoardEdit={handleBoardEdit}
+                    handleModalOpen={handleModalOpen}
+                  />
+                ) : null}
               </BoardDetailController>
             </BoardDetailHeader>
             <BoardDetailBody>
