@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 설정 프로파일 추가">
-      <change afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-13__10_30__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-03-13_오전_10_30_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 설정 프로파일 추가2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-local.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +234,7 @@
       <workItem from="1679224462162" duration="1525000" />
       <workItem from="1679273834588" duration="10803000" />
       <workItem from="1679290311385" duration="271000" />
-      <workItem from="1679290636310" duration="144000" />
+      <workItem from="1679290636310" duration="2830000" />
     </task>
     <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
       <created>1678757996568</created>
@@ -524,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679290151321</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="✨ feat: 설정 프로파일 추가2">
+      <created>1679290806466</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1679290806466</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" fix: GET all Drinks 로직 수정" />
     <MESSAGE value="✨ feat: Article 조회 기능 추가" />
     <MESSAGE value="✨ feat: 머지 후 푸쉬" />
     <MESSAGE value=" fix: TagService 중 단일 태그 조회를 통해 Borad 조회 구현" />
@@ -584,7 +589,8 @@
     <MESSAGE value="✨ feat: 로컬 설정 변경" />
     <MESSAGE value="✨ feat: 리다이렉트 토큰 전달" />
     <MESSAGE value="✨ feat: 설정 프로파일 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 설정 프로파일 추가" />
+    <MESSAGE value="✨ feat: 설정 프로파일 추가2" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 설정 프로파일 추가2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

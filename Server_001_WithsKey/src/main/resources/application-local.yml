@@ -43,7 +43,6 @@ spring:
 
 #            로그인 url
 #            http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google
-
             scope:
               - email
               - profile

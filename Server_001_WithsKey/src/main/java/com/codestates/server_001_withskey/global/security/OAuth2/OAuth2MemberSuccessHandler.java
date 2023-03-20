@@ -62,6 +62,9 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
         String url = makeRedirectUrl(accessToken, refreshToken);
 
+        response.setHeader("Authorization", "Bearer " + accessToken);
+        response.setHeader("Refresh", refreshToken);
+
         getRedirectStrategy().sendRedirect(request, response, url);
     }
 
