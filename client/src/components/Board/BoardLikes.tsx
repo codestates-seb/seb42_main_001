@@ -34,7 +34,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
   };
   return (
     <LikesWrapper>
-      {isLike ? (
+      {likes ? (
         <IoMdHeart onClick={handleLikeChange} />
       ) : (
         <IoMdHeartEmpty onClick={handleLikeChange} />
