@@ -7,6 +7,8 @@ import { DrinksDetailProps } from "../../../interfaces/Drinks.inerface";
 function DrinksDetailComment({ drinksDetail }: DrinksDetailProps) {
   const [edit, setEdit] = useState<boolean>(false)
 
+  console.log(edit)
+
   const handleCommentEditOpen = () => {
     setEdit(prev => !prev)
     console.log('prev')
