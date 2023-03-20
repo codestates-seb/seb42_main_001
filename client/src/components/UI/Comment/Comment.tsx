@@ -93,7 +93,7 @@ function Comment({ comments }: CommentProps) {
                   onClick={handleEditfalse}
                   borderColor="--color-main"
                 >
-                  {"Edit"}
+                  {"submit"}
                 </Button>
               </CommentEditButton>
             </CommentEditContainer>
