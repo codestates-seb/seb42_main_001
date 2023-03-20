@@ -1,59 +1,41 @@
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-interface MyPageInfoItemProps {
-  isEdit?: boolean;
+function MyPageInfoItem() {
+    return (
+        <MainContainer>
+            <ItemContainer>정보 수정</ItemContainer>
+            <ItemContainer>로그아웃</ItemContainer>
+            <ItemContainer>회원 탈퇴</ItemContainer>
+        </MainContainer>
+    )
 }
 
-const MyPageInfoItem = ({ isEdit }: MyPageInfoItemProps) => {
-  return (
-    <MyPageInfoItemContainer>
-      {isEdit ? <MyPageEditId /> : <MyPageInfoId>antjdgkdl</MyPageInfoId>}
-      {isEdit ? (
-        <MyPageEditOneLiner />
-      ) : (
-        <MyPageInfoOneLiner>한 줄 소개</MyPageInfoOneLiner>
-      )}
-    </MyPageInfoItemContainer>
-  );
-};
+export default MyPageInfoItem
 
-export default MyPageInfoItem;
+const MainContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+`
 
-const MyPageInfoItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: var(--x-large);
-  > input {
-    width: 120%;
-    height: 60px;
-    border: 1px solid var(--color-sub-light-gray);
-    border-radius: var(--2x-small);
-  }
-`;
+const ItemContainer = styled.button`
+    width: 100px;
+    height: 100px;
+    border: none;
+    outline: none;
+    border-radius: var(--2x-large);
+    border: 0.5px solid var(--color-sub-gray);
+    background-color: var(--color-white);
+    color: var(--color-sub-gray);
+    margin-left: var(--x-small);
+    cursor: pointer;
+    transition: .5s;
 
-const MyPageInfoId = styled.div`
-  margin-bottom: var(--x-large);
-  color: var(--color-main);
-  font-size: var(--text-large);
-  font-weight: var(--weight-medium);
-`;
-
-const MyPageInfoOneLiner = styled.div`
-  color: var(--color-main);
-  font-size: var(--text-medium);
-`;
-
-const MyPageEditId = styled.input`
-  margin-bottom: var(--x-large);
-  color: var(--color-main);
-  font-size: var(--text-large);
-  font-weight: var(--weight-medium);
-  text-align: center;
-`;
-
-const MyPageEditOneLiner = styled.input`
-  color: var(--color-main);
-  font-size: var(--text-medium);
-  text-align: center;
-`;
+    &:hover {
+        transition: .5s;
+        color: var(--color-main);
+        border: 1px solid var(--color-main);
+    }
+`

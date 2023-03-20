@@ -1,49 +1,33 @@
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
+import Card from '../UI/Card'
+import MyPageInfoContent from './MyPageInfoContent'
+import MyPageInfoItem from './MyPageInfoItem'
 
-import Card from "../UI/Card";
-import MyPageInfoButtons from "./MyPageInfoButtons";
-import MyPageInfoItem from "./MyPageInfoItem";
-import MyPageProfil from "./MyPageProfil";
-
-interface MyPageInfoProps {
-  isEdit: boolean;
-  onClick: () => void;
+function MyPageInfo() {
+    return (
+        <MarginContainer>
+            <Card>
+                <MainContainer>
+                    <MyPageInfoContent />
+                    <MyPageInfoItem />
+                </MainContainer>
+            </Card>
+        </MarginContainer>
+    )
 }
 
-function MyPageInfo({ isEdit, onClick }: MyPageInfoProps) {
-  return (
-    <SizeContainer>
-      <Card>
-        <MyPageInfoContainer>
-          <MyPageProfil />
-          <MyPageInfoItem isEdit={isEdit} />
-          <MyPageInfoButtons onClick={onClick} />
-        </MyPageInfoContainer>
-      </Card>
-    </SizeContainer>
-  );
-}
+export default MyPageInfo
 
-export default MyPageInfo;
 
-const MyPageInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const MarginContainer = styled.div`
+    margin-top: var(--5x-large);
+    margin-bottom: var(--large);
+`
 
-  @media only screen and (max-width: 768px) {
+const MainContainer = styled.div`
     width: 100%;
-    max-width: 700px;
-    min-width: 350px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: var(--x-large);
-  }
-`;
-
-const SizeContainer = styled.div`
-  width: 100%;
-  max-width: 700px;
-  min-width: 350px;
-`;
+    justify-content: space-between;
+    padding: var(--x-large);
+`
