@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { useState } from "react";
+import React, { useState } from "react";
 import Card from "../Card";
 import CommentModal from "./CommentModal";
 import More from "../More";
+import Button from "../Button";
+import axios from "axios";
 
 interface CommentProps {
   comments?: {
@@ -18,8 +20,42 @@ interface CommentProps {
 
 function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [commentContent, setCommentContent] = useState(
+    comments?.commentContent
+  );
 
   const handleModalOpen = () => setIsOpen(!isOpen);
+
+  const handleEditInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentContent(e.target.value);
+  };
+
+  const handleEditfalse = () => {
+    if (window.confirm("정말로 수정하시겠습니까")) {
+      if (comments?.drinkCommentId) {
+        const editComment = {
+          commentContent,
+        };
+        axios.patch(
+          `/comments/drinks/${comments?.drinkCommentId}`,
+          editComment
+        );
+        setEdit((prev) => !prev);
+        window.location.reload();
+      } else if (comments?.boardCommentId) {
+        const editComment = {
+          commentContent,
+        };
+        axios.patch(
+          `/comments/boards/${comments?.boardCommentId}`,
+          editComment
+        );
+        setEdit((prev) => !prev);
+        window.location.reload();
+      }
+    }
+  };
 
   return (
     <MainContainer>
@@ -38,10 +74,29 @@ function Comment({ comments }: CommentProps) {
               <CommentModal
                 drinkCommentId={comments?.drinkCommentId}
                 boardCommentId={comments?.boardCommentId}
+                onClick={setEdit}
+                handleModalOpen={handleModalOpen}
               />
             ) : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
+          {edit ? (
+            <CommentEditContainer>
+              <CommentEditInput>
+                <input value={commentContent} onChange={handleEditInput} />
+              </CommentEditInput>
+              <CommentEditButton>
+                <Button
+                  type="submit"
+                  color="--color-white"
+                  bgColor="--color-main"
+                  onClick={handleEditfalse}
+                >
+                  {"Edit"}
+                </Button>
+              </CommentEditButton>
+            </CommentEditContainer>
+          ) : null}
         </SubContainer>
       </Card>
     </MainContainer>
@@ -100,4 +155,27 @@ const CommentContents = styled.div`
   height: 100%;
   padding-top: var(--medium);
   padding-left: var(--3x-small);
+`;
+
+const CommentEditContainer = styled.div`
+  padding-left: var(--3x-small);
+`;
+
+const CommentEditInput = styled.div`
+  width: 100%;
+
+  input {
+    width: 100%;
+    height: 60px;
+    border: 1px solid var(--color-sub-light-gray);
+    outline: none;
+    border-radius: var(--2x-small);
+    padding-left: var(--medium);
+    margin: var(--medium) 0;
+  }
+`;
+
+const CommentEditButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;

@@ -55,7 +55,12 @@ function BoardDetail() {
                 <BoardLikes like={data?.likeCount} />
                 <BoardComments comment={data?.commentCount} />
                 <More handleModalOpen={handleModalOpen} />
-                {isOpen ? <CommentModal boardId={data?.boardId} /> : null}
+                {isOpen ? (
+                  <CommentModal
+                    boardId={data?.boardId}
+                    handleModalOpen={handleModalOpen}
+                  />
+                ) : null}
               </BoardDetailController>
             </BoardDetailHeader>
             <BoardDetailBody>
