@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import Card from '../Card';
+import { Link } from 'react-router-dom';
 
 interface CommentProps {
   commentId?: number;
+  onClick?: () => void;
 }
 
-function CommentModal({ commentId }: CommentProps) {
+function CommentModal({ commentId, onClick }: CommentProps) {
 
   const handleDrinksCommentDelte = async () => {
     try {
@@ -33,7 +35,9 @@ function CommentModal({ commentId }: CommentProps) {
   return (
     <ModalContainer>
       <Card>
-        <EditContainer>Edit</EditContainer>
+        <Link to={`/comment/drinks/${commentId}`}>
+          <EditContainer onClick={onClick}>Edit</EditContainer>
+        </Link>
         <DeleteContainer onClick={handleCommentDelete}>Delete</DeleteContainer>
       </Card>
     </ModalContainer>

@@ -34,5 +34,5 @@ const TopBorder = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
-  padding: var(--xx-small);
+  padding: var(--2x-small);
 `;

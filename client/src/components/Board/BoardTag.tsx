@@ -27,6 +27,6 @@ const TagWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--xx-small);
+    padding: var(--2x-small);
   }
 `;

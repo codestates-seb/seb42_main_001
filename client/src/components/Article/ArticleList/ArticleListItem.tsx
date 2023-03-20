@@ -30,7 +30,7 @@ function ArticleListItem({ onClick }: ArticleListItemProps) {
 export default ArticleListItem;
 
 const MarginContainer = styled.div`
-  margin-bottom: var(--xx-large);
+  margin-bottom: var(--2x-large);
 
   @media only screen and (max-width: 768px) {
     display: flex;

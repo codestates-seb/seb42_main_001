@@ -20,7 +20,7 @@ const SnackContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 0 var(--large) var(--xx-large) var(--large);
+  margin: 0 var(--large) var(--2x-large) var(--large);
 
   div {
     width: 210px;

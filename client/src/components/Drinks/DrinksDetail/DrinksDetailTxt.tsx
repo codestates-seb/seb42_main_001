@@ -35,6 +35,6 @@ const TxtContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 0;
-    margin-bottom: var(--xx-large);
+    margin-bottom: var(--2x-large);
   }
 `;

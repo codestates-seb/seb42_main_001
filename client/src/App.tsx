@@ -13,6 +13,7 @@ import BoardCreate from "./pages/BoardCreate";
 import SignUp from "./pages/SignUp";
 import Tags from "./pages/Tags";
 import ArticleDetail from "./pages/ArticleDetail";
+import CommentEdit from "./components/UI/Comment/CommentEdit";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/board/edit/:editId" element={<BoardCreate />} />
         <Route path="/drinks/list" element={<DrinksList />} />
         <Route path="/drinks/:drinkId" element={<DrinksDetail />} />
+        <Route path="/comment/drinks/:id" element={<CommentEdit />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/tags/:tagid" element={<Tags />} />
       </Route>

@@ -32,7 +32,7 @@ export default MyContent;
 const MyContentContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: var(--xx-large) 0 var(--xx-large) var(--xx-large);
+  padding: var(--2x-large) 0 var(--2x-large) var(--2x-large);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

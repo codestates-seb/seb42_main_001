@@ -18,7 +18,7 @@ const MyContentBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: var(--xx-large);
+  margin-right: var(--2x-large);
 
   @media only screen and (max-width: 768px) {
     margin: 0;

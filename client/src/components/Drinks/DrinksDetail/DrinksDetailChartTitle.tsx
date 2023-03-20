@@ -29,5 +29,5 @@ const TopBorder = styled.div`
   height: 100%;
   display: flex;
   border-top: 1px solid var(--color-main);
-  padding: var(--xx-small);
+  padding: var(--2x-small);
 `;
