@@ -2,30 +2,54 @@ import React, { useState } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
 import { DrinksProps } from "../../../interfaces/Drinks.inerface";
-
-// interface DrinksProps {
-//   drinksData?: Drinks;
-//   likesData?: number;
-// }
+import axios from "axios";
 
 function DrinksItemLikes({ drinksData, likesData }: DrinksProps) {
   const [likes, setlikes] = useState(false);
 
-  const handleLikesChange = () => {
-    setlikes((prev) => !prev);
+  const drinkId: number = drinksData.drinkId;
+
+  const likesValue = likesData.filter(el => {
+    return el.drinkId === drinkId
+  })
+
+  let isDrinkLiked: boolean = false;
+
+  for (let i = 0; i < likesValue.length; i++) {
+    for (let j = 0; j < drinkId; i++) {
+      if (likesData[i].drinkId === drinkId) {
+        isDrinkLiked = true;
+        break;
+      }
+    }
+  }
+
+  const handleLikesPost = async () => {
+    try {
+      await axios.post(`/likes/drinks/${drinkId}`);
+      setlikes((prev) => !prev);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  // if (drinksData.drinkId === likesData)
-
-  // console.log(likesData.drinkId)
+  const handleLikesDelete = async () => {
+    try {
+      await axios.delete(`/likes/drinks/${drinkId}`);
+      setlikes((prev) => !prev);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <LikesSize>
-      {likes ? (
-        <IoMdHeart onClick={handleLikesChange} />
-      ) : (
-        <IoMdHeartEmpty onClick={handleLikesChange} />
-      )}
+      {isDrinkLiked
+        ? <IoMdHeart onClick={handleLikesDelete} />
+        : <IoMdHeartEmpty onClick={handleLikesPost} />
+      }
     </LikesSize>
   );
 }

@@ -12,7 +12,7 @@ export interface Drinks {
 }
 
 export interface Likes {
-  drinkId?: number;
+  drinkId?: number | undefined;
   drinkName?: string;
 }
 
