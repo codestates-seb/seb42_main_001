@@ -30,22 +30,8 @@ function BoardList() {
           }
         }
       }
-      setItems((prev) => {
-        if (prev.length === 0) return data;
-        else if (prev[0].boardId !== data[0].boardId) {
-          return [...prev, ...data];
-        } else {
-          return prev;
-        }
-      });
-      setFilterItems((prev) => {
-        if (prev.length === 0) return data;
-        else if (prev[0].boardId !== data[0].boardId) {
-          return [...prev, ...data];
-        } else {
-          return prev;
-        }
-      });
+      setItems((prev) => [...prev, ...data]);
+      setFilterItems((prev) => [...prev, ...data]);
     };
     fetchData();
   }, [isPage]);
@@ -68,8 +54,8 @@ function BoardList() {
     <Wrapper>
       <BoardInfo data={items} filterItems={setFilterItems} />
       <ListContainer>
-        {filterItems?.map((el) => {
-          return <BoardItem key={el.boardId} data={el} />;
+        {filterItems?.map((el, idx) => {
+          return <BoardItem key={idx} data={el} />;
         })}
       </ListContainer>
     </Wrapper>
