@@ -32,6 +32,10 @@ const ImgContainer = styled.div`
     align-items: center;
     margin-bottom: var(--x-large);
   }
+
+  img {
+    width: 60%;
+  }
 `;
 
 const Size = styled.div`
