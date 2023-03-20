@@ -22,6 +22,7 @@ jobs:
         echo "REACT_APP_BASE_URL=$REACT_APP_BASE_URL" >> .env.production.local
       env:
         REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+      working-directory: ./client
     - name: Install dependencies
       run: npm install --force
       working-directory: ./client
