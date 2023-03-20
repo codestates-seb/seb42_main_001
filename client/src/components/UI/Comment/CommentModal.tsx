@@ -8,12 +8,18 @@ interface CommentProps {
   drinkCommentId?: number;
   boardCommentId?: number;
   boardId?: number;
+  onClick?: (state: boolean) => void;
+  handleModalOpen: (state: boolean) => void;
+  handleBoardEdit?: () => void;
 }
 
 function CommentModal({
   drinkCommentId,
   boardCommentId,
   boardId,
+  onClick,
+  handleModalOpen,
+  handleBoardEdit,
 }: CommentProps) {
   const navigate = useNavigate();
 
@@ -60,10 +66,19 @@ function CommentModal({
     }
   };
 
+  const handleCommentEdit = () => {
+    if (onClick) {
+      handleModalOpen(false);
+      onClick(true);
+    } else if (handleBoardEdit) {
+      handleBoardEdit();
+    }
+  };
+
   return (
     <ModalContainer>
       <Card>
-        <EditContainer>Edit</EditContainer>
+        <EditContainer onClick={handleCommentEdit}>Edit</EditContainer>
         <DeleteContainer onClick={handleCommentDelete}>Delete</DeleteContainer>
       </Card>
     </ModalContainer>
