@@ -12,7 +12,11 @@ import com.codestates.server_001_withskey.domain.comment.mapper.CommentBoardMapp
 import com.codestates.server_001_withskey.domain.comment.mapper.CommentDrinkMapper;
 import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.comment.service.CommentDrinkService;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
+import com.codestates.server_001_withskey.domain.drink.entity.Drink;
+import com.codestates.server_001_withskey.domain.drink.mapper.DrinkMapper;
 import com.codestates.server_001_withskey.domain.like.service.LikeBoardService;
+import com.codestates.server_001_withskey.domain.like.service.LikeDrinkService;
 import com.codestates.server_001_withskey.domain.member.dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
@@ -40,13 +44,14 @@ public class  MemberController {
     private final MemberMapperImpl memberMapper;
 
     private final MemberService memberService;
-
     private final BoardMapperImpl boardMapper;
     private final CommentBoardService commentBoardService;
     private final CommentBoardMapper commentBoardMapper;
     private final LikeBoardService likeBoardService;
     private final CommentDrinkService commentDrinkService;
     private final CommentDrinkMapper commentDrinkMapper;
+    private final LikeDrinkService likeDrinkService;
+    private final DrinkMapper drinkMapper;
 
 
     @GetMapping("/login")
@@ -82,17 +87,22 @@ public class  MemberController {
         //멤버가 작성한 게시글 CommentList -> MyPage로 바꿔서 set
         List<CommentBoard> comments = commentBoardService.findAllByMemberId(findMember.getMemberId());
         List<CommentBoardDto.MyPage> myComment = commentBoardMapper.commentsToMyPageComments(comments);
-        myPage.setWriteComments(myComment);
+        myPage.setWriteBoardComments(myComment);
 
         //멤버가 작성한 술 ComentList
         List<CommentDrink> commentDrinksList = commentDrinkService.findAllByMemberId(findMember.getMemberId());
         List<CommentDrinkDto.MyPage> myDrinkComment = commentDrinkMapper.commentsToMyPages(commentDrinksList);
         myPage.setWriteDrinkComments(myDrinkComment);
 
-        //TODO 멤버가 좋아요한 Board 리스트
+        //멤버가 좋아요한 Board 리스트
         List<Board> likeList = likeBoardService.getLikeBoardsByMemberId(findMember.getMemberId());
         List<BoardDto.Response> myLikeBoard = boardMapper.BoardsToDtos(likeList);
         myPage.setLikeBoards(myLikeBoard);
+
+        //멤버가 좋아요한 Drink 리스트
+        List<Drink> drinkList = likeDrinkService.getLikeDrinksByMemberId(findMember.getMemberId());
+        List<DrinkDto.Short> myLikeDrink = drinkMapper.drinksToShorts(drinkList);
+        myPage.setLikeDrinks(myLikeDrink);
 
         return new ResponseEntity(myPage, HttpStatus.OK);
     }

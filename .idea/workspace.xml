@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 게시글 수정기능 버그 픽스">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/dto/CommentDrinkDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/dto/CommentDrinkDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/mapper/CommentDrinkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/mapper/CommentDrinkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/dto/MemberDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/dto/MemberDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mergeDrink" />
+        <entry key="$PROJECT_DIR$" value="deployTest" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -209,6 +210,8 @@
       <workItem from="1678837124089" duration="26512000" />
       <workItem from="1678922318843" duration="36507000" />
       <workItem from="1679037398838" duration="315000" />
+      <workItem from="1679224462162" duration="1525000" />
+      <workItem from="1679273834588" duration="3347000" />
     </task>
     <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
       <created>1678757996568</created>
@@ -462,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679137053670</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
+      <created>1679223419017</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1679223419017</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: CommentBoard 삭제 기능 추가" />
     <MESSAGE value="✨ feat: LikeBoard 패키지 구성" />
     <MESSAGE value="✨ merge: be" />
     <MESSAGE value="✨ feat: LikeBoard 기능 추가" />
@@ -522,7 +531,8 @@
     <MESSAGE value="✨ feat: CORS 설정 방식 변경4" />
     <MESSAGE value="✨ feat: CORSFilter 구현방식2" />
     <MESSAGE value="✨ feat: 로그인 핸들러 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 로그인 핸들러 추가" />
+    <MESSAGE value="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -562,6 +572,8 @@
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="authorizationHeader" />
         <watch expression="response.memberName" />
+        <watch expression="((HashMap.Node)((HashMap)http.filterOrders.filterToOrder).entrySet().toArray()[1]).getKey()" custom="java.util.HashMap.Node,java.util.HashMap" />
+        <watch expression="this.$$beanFactory" custom="com.codestates.server_001_withskey.global.security.SecurityConfiguration" />
       </configuration>
     </watches-manager>
   </component>

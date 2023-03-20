@@ -13,6 +13,7 @@ package com.codestates.server_001_withskey.domain.member.dto;
 import com.codestates.server_001_withskey.domain.board.dto.BoardDto;
 import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
 import com.codestates.server_001_withskey.domain.comment.dto.CommentDrinkDto;
+import com.codestates.server_001_withskey.domain.drink.dto.DrinkDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,12 +49,13 @@ public class MemberDto {
         private String aboutMe;
         //좋아요 한 Boards
         private List<BoardDto.Response> likeBoards;
-
+        //TODO 좋아요 한 Drinks;
+        private List<DrinkDto.Short> likeDrinks;
         //작성한 Boards
         private List<BoardDto.Response> writeBoards;
 
         //작성한 BoardComment
-        private List<CommentBoardDto.MyPage> writeComments;
+        private List<CommentBoardDto.MyPage> writeBoardComments;
         private List<CommentDrinkDto.MyPage> writeDrinkComments;
         private String url;
     }

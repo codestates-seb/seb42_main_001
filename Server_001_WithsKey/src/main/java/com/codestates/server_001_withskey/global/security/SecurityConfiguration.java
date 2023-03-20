@@ -80,6 +80,7 @@ public class SecurityConfiguration {
                         .successHandler(new OAuth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService,memberRepository))
                 ).cors(withDefaults());
 
+
         return http.build();
     }
 
