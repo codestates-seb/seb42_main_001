@@ -28,6 +28,6 @@ public class Image {
         this.fileName = fileName;
         this.imgUrl = imgUrl;
 //        this.board = board;
-        //Jenkins 주석 추가
+        //Jenkins 주석
     }
 }
