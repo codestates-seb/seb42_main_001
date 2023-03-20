@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import MyPageContent from '../components/MyPages/MyPageContent'
-import MyPageInfo from '../components/MyPages/MyPageInfo'
+import MyPageContent from '../components/MyPage/MyPageContent'
+import MyPageInfo from '../components/MyPage/MyPageInfo'
 
 function MyPage() {
   return (
