@@ -41,9 +41,7 @@ function DrinksContents({ search }: ISearchProps) {
       {
         filtered.map(el => {
           return (
-            <Link to={`/drinks/${el.drinkId}`}>
-              <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
-            </Link>
+            <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
           )
         })
       }
