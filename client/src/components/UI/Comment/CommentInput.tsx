@@ -29,7 +29,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
     try {
       await axios.post(
         drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
-        drinkId ? newDrinks : boardId ? newBoards : null,
+        drinkId ? newDrinks : boardId ? newBoards : null
       );
       setCommentValue("");
       window.location.reload();
@@ -91,7 +91,7 @@ const SearchContainer = styled.div`
     height: 60px;
     border: none;
     outline: none;
-    border-radius: var(--xx-small);
+    border-radius: var(--2x-small);
     padding-left: var(--medium);
   }
 `;
