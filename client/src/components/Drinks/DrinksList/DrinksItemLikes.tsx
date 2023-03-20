@@ -5,7 +5,7 @@ import { DrinksProps } from "../../../interfaces/Drinks.inerface";
 import axios from "axios";
 
 function DrinksItemLikes({ drinksData, likesData }: DrinksProps) {
-  const [likes, setlikes] = useState(false);
+  const [likes, setlikes] = useState(true);
 
   const drinkId: number = drinksData.drinkId;
 
@@ -24,31 +24,32 @@ function DrinksItemLikes({ drinksData, likesData }: DrinksProps) {
     }
   }
 
-  const handleLikesPost = async () => {
-    try {
-      await axios.post(`/likes/drinks/${drinkId}`);
-      setlikes((prev) => !prev);
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
+  const handleLikesData = async () => {
+    if (likes) {
+      try {
+        await axios.post(`/likes/drinks/${drinkId}`);
+        setlikes((prev) => !prev);
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+      }
     }
-  };
-
-  const handleLikesDelete = async () => {
-    try {
-      await axios.delete(`/likes/drinks/${drinkId}`);
-      setlikes((prev) => !prev);
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
+    else {
+      try {
+        await axios.delete(`/likes/drinks/${drinkId}`);
+        setlikes((prev) => !prev);
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+      }
     }
-  };
+  }
 
   return (
     <LikesSize>
       {isDrinkLiked
-        ? <IoMdHeart onClick={handleLikesDelete} />
-        : <IoMdHeartEmpty onClick={handleLikesPost} />
+        ? <IoMdHeart onClick={handleLikesData} />
+        : <IoMdHeartEmpty onClick={handleLikesData} />
       }
     </LikesSize>
   );
