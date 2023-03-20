@@ -6,7 +6,7 @@ function DrinksItemTags({ drinksData }: DrinksTagsProps) {
 
   return (
     <TagsContainer>
-      <div></div>
+      <div>{drinksData?.tagName}</div>
     </TagsContainer>
   );
 }

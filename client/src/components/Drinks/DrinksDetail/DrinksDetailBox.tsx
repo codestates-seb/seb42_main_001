@@ -9,13 +9,15 @@ function DrinksDetailBox({ drinksDetail }: DrinksDetailProps) {
 
   return (
     <BoxContainer>
-      {drinksDetail?.tags?.map(el => {
-        return (
-          <Link to={`/tags/${el.tagId}`}>
-            <DrinksDetailTags key={el.tagId} drinksDetail={drinksDetail} />
-          </Link>
-        )
-      })}
+      <TagContainer>
+        {drinksDetail?.tags?.map(el => {
+          return (
+            <Link to={`/tags/${el.tagId}`}>
+              <DrinksDetailTags key={el.tagId} tagName={el.tagName} />
+            </Link>
+          )
+        })}
+      </TagContainer>
       <DrinksDetailLikes />
     </BoxContainer>
   );
@@ -30,3 +32,9 @@ const BoxContainer = styled.div`
   align-items: flex-end;
   justify-content: space-between;
 `;
+
+const TagContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`
