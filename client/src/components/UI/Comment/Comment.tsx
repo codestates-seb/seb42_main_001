@@ -91,6 +91,7 @@ function Comment({ comments }: CommentProps) {
                   color="--color-white"
                   bgColor="--color-main"
                   onClick={handleEditfalse}
+                  borderColor="--color-main"
                 >
                   {"Edit"}
                 </Button>
