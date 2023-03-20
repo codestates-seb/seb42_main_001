@@ -19,6 +19,7 @@ const TitleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  color: var(--color-main);
 
   span {
     font-size: 70px;

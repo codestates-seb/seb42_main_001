@@ -21,6 +21,7 @@ const InfoContainer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: var(--x-large);
+  color: var(--color-main);
 
   span {
     font-weight: var(--weight-large);
