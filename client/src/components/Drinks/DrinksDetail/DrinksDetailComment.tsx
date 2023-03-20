@@ -8,6 +8,7 @@ function DrinksDetailComment({ drinksDetail }: DrinksDetailProps) {
     <MainContainer>
       <CommentInput drinkId={drinksDetail?.drinkId} />
       {drinksDetail?.commentDrinks.map((el) => {
+        el.drinkCommentId = el.commentId;
         return <Comment key={el.commentId} comments={el} />;
       })}
     </MainContainer>

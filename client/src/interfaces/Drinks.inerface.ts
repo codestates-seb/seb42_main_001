@@ -52,6 +52,7 @@ export interface IDrinksDetail {
     tagName: string;
   }[];
   commentDrinks: {
+    drinkCommentId?: number;
     commentId: number;
     memberId: number;
     displayName: string;
