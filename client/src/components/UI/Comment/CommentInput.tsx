@@ -29,7 +29,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
     try {
       await axios.post(
         drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
-        drinkId ? newDrinks : boardId ? newBoards : null,
+        drinkId ? newDrinks : boardId ? newBoards : null
       );
       setCommentValue("");
       window.location.reload();
