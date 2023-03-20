@@ -32,7 +32,7 @@ spring:
             clientSecret: "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"
 #            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 성현
 #            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 다현
-            redirectUri: "http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google"
+            redirectUri: "http://localhost:8080/login/oauth2/code/google"
 #            EC2에 올릴 때는 http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google 로 변경해야함.
 #            http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google
 
@@ -71,7 +71,7 @@ jwt:
 
 file:
   root:
-    dir : /home/ssm-user/image/
+    dir : C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\
 #  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\ #임시로 업로드 이미지 저장하는 디렉토리
 # /home/ssm-user/image/
 
@@ -91,5 +91,5 @@ cloud:
     stack:
       auto: false
 
-awsParameterStorePropertySource:
-  enabled: true
+#awsParameterStorePropertySource:
+#  enabled: true

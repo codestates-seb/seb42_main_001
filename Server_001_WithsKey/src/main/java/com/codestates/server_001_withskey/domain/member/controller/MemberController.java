@@ -40,9 +40,7 @@ import java.util.List;
 @RequestMapping("/members")
 @RequiredArgsConstructor
 public class  MemberController {
-
     private final MemberMapperImpl memberMapper;
-
     private final MemberService memberService;
     private final BoardMapperImpl boardMapper;
     private final CommentBoardService commentBoardService;
@@ -115,5 +113,14 @@ public class  MemberController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/logout")
+    public ResponseEntity logout(){
+        //요청 헤더에 Access, Refresh 토큰이 있을 것임.
+        //Refresh 토큰을 블랙리스트에 등록
 
+        //A Refresh 토큰을 B가 탈취
+        //A가 로그아웃 Refresh -> Black List에 들어감
+        //B가 탈취한 토큰으로 로그인 시도
+        return ResponseEntity.ok().build();
+    }
 }
