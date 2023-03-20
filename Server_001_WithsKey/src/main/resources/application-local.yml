@@ -1,26 +1,5 @@
-spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2
-  datasource:
-    url: jdbc:h2:mem:test
-    initialization-mode: always
-  jpa:
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true  # (3) SQL pretty print
-        hbm2ddl:
-          import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
-    open-in-view: false
-  sql:
-    init:
-      data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
 
+spring:
   security:
     oauth2:
       client:
