@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: yml 설정변경">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: yml 설정변경 및 redis 적용">
+      <change afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/image/config/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/image/config/S3Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/drink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/drink.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +244,7 @@
       <workItem from="1679273834588" duration="10803000" />
       <workItem from="1679290311385" duration="271000" />
       <workItem from="1679290636310" duration="3849000" />
-      <workItem from="1679296676561" duration="323000" />
+      <workItem from="1679296676561" duration="4836000" />
     </task>
     <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
       <created>1678757996568</created>
@@ -547,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679293972219</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="✨ feat: yml 설정변경 및 redis 적용">
+      <created>1679297055631</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1679297055631</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +589,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 머지 후 푸쉬" />
     <MESSAGE value=" fix: TagService 중 단일 태그 조회를 통해 Borad 조회 구현" />
     <MESSAGE value="✨ feat: Drinks 댓글 기능 추가" />
     <MESSAGE value="✨ feat: GET all Board 조회 시 Like List 조회 되도록 하기" />
@@ -607,7 +613,8 @@
     <MESSAGE value="✨ feat: 설정 프로파일 추가" />
     <MESSAGE value="✨ feat: 설정 프로파일 추가2" />
     <MESSAGE value="✨ feat: 리다이렉트 헤더에 accessToken, refreshToken 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 리다이렉트 헤더에 accessToken, refreshToken 추가" />
+    <MESSAGE value="✨ feat: yml 설정변경 및 redis 적용" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: yml 설정변경 및 redis 적용" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
