@@ -8,6 +8,7 @@ import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityU
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -59,10 +60,9 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         String accessToken = delegateAccessToken(member, authorities);
         String refreshToken = delegateRefreshToken(username);
 
-        response.setHeader("Authorization", "Bearer "+accessToken);
-        response.setHeader("Refresh",refreshToken);
+        String url = makeRedirectUrl(accessToken, refreshToken);
 
-        response.addHeader(accessToken, refreshToken);
+        getRedirectStrategy().sendRedirect(request, response, url);
     }
 
     private void saveMember(String email) {
@@ -98,5 +98,12 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         String refreshToken = jwtTokenizer.generateRefreshToken(subject, expiration,base64EncodedSecretKey);
 
         return refreshToken;
+    }
+
+    private String makeRedirectUrl(String accessToken, String refreshToken) {
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
+                .queryParam("Bearer", accessToken)
+                .queryParam("Refresh", refreshToken)
+                .build().toUriString();
     }
 }

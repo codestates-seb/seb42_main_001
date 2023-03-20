@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: MyPage - 좋아요 한 술">
+    <list default="true" id="76ade2ca-fbe8-4fad-8f24-44b7e876cdde" name="Changes" comment="✨ feat: 로컬 설정 변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +208,7 @@
       <workItem from="1678922318843" duration="36507000" />
       <workItem from="1679037398838" duration="315000" />
       <workItem from="1679224462162" duration="1525000" />
-      <workItem from="1679273834588" duration="3502000" />
+      <workItem from="1679273834588" duration="7299000" />
     </task>
     <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
       <created>1678757996568</created>
@@ -475,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679277203666</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="✨ feat: 로컬 설정 변경">
+      <created>1679277358760</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1679277358760</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ merge: be" />
     <MESSAGE value="✨ feat: LikeBoard 기능 추가" />
     <MESSAGE value=" fix: 추천 관련 게시글 기능 수정" />
     <MESSAGE value=" fix: GET all Drinks 로직 수정" />
@@ -535,7 +542,8 @@
     <MESSAGE value="✨ feat: 로그인 핸들러 추가" />
     <MESSAGE value="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가" />
     <MESSAGE value="✨ feat: MyPage - 좋아요 한 술" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: MyPage - 좋아요 한 술" />
+    <MESSAGE value="✨ feat: 로컬 설정 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 로컬 설정 변경" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
