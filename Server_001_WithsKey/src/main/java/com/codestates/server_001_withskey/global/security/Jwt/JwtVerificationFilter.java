@@ -52,8 +52,8 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String token = authorizationHeader.replace("Bearer ", "");
 
-            if (tokenRedisRepository.isAccessTokenUsed(token)) {
-                throw new BadCredentialsException("Token has been revoked");
+            if (tokenRedisRepository.isAccessTokenUsed(token) || token.equals(tokenRedisRepository.getAccessToken(token))) {
+                throw new BadCredentialsException("Invalid access token");
             }
 
             try {
@@ -71,8 +71,8 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                     return;
                 }
 
-                if (tokenRedisRepository.isRefreshTokenUsed(refreshToken)) {
-                    sendCustomErrorResponse(response, "", "", "Refresh token has been used", HttpServletResponse.SC_UNAUTHORIZED);
+                if (tokenRedisRepository.isRefreshTokenUsed(refreshToken) || refreshToken.equals(tokenRedisRepository.getRefreshToken(refreshToken))) {
+                    sendCustomErrorResponse(response, "", "", "Invalid refresh token", HttpServletResponse.SC_UNAUTHORIZED);
                     return;
                 }
 

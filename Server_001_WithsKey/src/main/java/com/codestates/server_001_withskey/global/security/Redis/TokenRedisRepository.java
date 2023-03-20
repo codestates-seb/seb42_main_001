@@ -19,6 +19,16 @@ public class TokenRedisRepository {
     public TokenRedisRepository(StringRedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
+
+    public String getAccessToken(String accessToken) {
+        String accessKey = ACCESS_TOKEN_PREFIX + accessToken;
+        return redisTemplate.opsForValue().get(accessKey);
+    }
+    public String getRefreshToken(String refreshToken) {
+        String refreshKey = REFRESH_TOKEN_PREFIX + refreshToken;
+        return redisTemplate.opsForValue().get(refreshKey);
+    }
+
     public void saveUsedAccessToken(String token, long duration, TimeUnit timeUnit) {
         String key = USED_ACCESS_TOKEN_PREFIX + token;
         redisTemplate.opsForValue().set(key, "", duration, timeUnit);
