@@ -78,7 +78,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
 
                 String newAccessToken = jwtTokenizer.regenerateAccessToken(refreshToken);
                 Jws<Claims> refreshTokenClaims = jwtTokenizer.getClaims(refreshToken, jwtTokenizer.encodeBase64SecretKey(jwtTokenizer.getSecretKey()));
-                Date refreshTokenExpiration = jwtTokenizer.getTokenExpiration(jwtTokenizer.getRefreshTokenExpirationMinutes());
+                Date refreshTokenExpiration = jwtTokenizer.getTokenExpiration(jwtTokenizer.getRefreshTokenExpirationMinutes()); // application.yml
                 String newRefreshToken = jwtTokenizer.generateRefreshToken(refreshTokenClaims.getBody().getSubject(), refreshTokenExpiration, jwtTokenizer.encodeBase64SecretKey(jwtTokenizer.getSecretKey()));
 
                 // 각 토큰들이 Redis안에서 보관되는 기간을 JwtTokenizer 클래스의 필드만큼 지정. (결국 application.yml 설정만큼)

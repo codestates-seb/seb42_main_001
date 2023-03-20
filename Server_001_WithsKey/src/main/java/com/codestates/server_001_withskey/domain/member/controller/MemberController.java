@@ -13,17 +13,22 @@ import com.codestates.server_001_withskey.domain.member.dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
+import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
+import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Validated
@@ -40,6 +45,27 @@ public class  MemberController {
     private final CommentBoardMapper commentBoardMapper;
     private final LikeBoardService likeBoardService;
 
+    @Autowired
+    private TokenRedisRepository tokenRedisRepository;
+    @Autowired
+    private JwtTokenizer jwtTokenizer;
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        String accessTokenHeader = request.getHeader("Authorization");
+        String refreshTokenHeader = request.getHeader("Refresh");
+        if (accessTokenHeader != null && accessTokenHeader.startsWith("Bearer ")) {
+            String accessToken = accessTokenHeader.replace("Bearer ","");
+            int accessTokenDuration = jwtTokenizer.getAccessTokenExpirationMinutes();
+            tokenRedisRepository.saveInvalidatedAccessToken(accessToken, accessTokenDuration, TimeUnit.MINUTES);
+        }
+        if (refreshTokenHeader != null) {
+            String refreshToken = refreshTokenHeader;
+            int refreshTokenDuration = jwtTokenizer.getRefreshTokenExpirationMinutes();
+            tokenRedisRepository.saveInvalidatedRefreshToken(refreshToken, refreshTokenDuration, TimeUnit.MINUTES);
+        }
+        return ResponseEntity.ok("Logout successful");
+    }
 
     @PatchMapping
     public ResponseEntity patchMember(@RequestBody @Valid MemberDto.Patch patchMember) throws Exception{

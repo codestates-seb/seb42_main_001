@@ -13,6 +13,8 @@ public class TokenRedisRepository {
     private final static String USED_ACCESS_TOKEN_PREFIX = "used_access:";
     private final static String REFRESH_TOKEN_PREFIX = "refresh:";
     private final static String USED_REFRESH_TOKEN_PREFIX = "used_refresh:";
+    private final static String NO_MORE_USED_ACCESS_TOKEN_PREFIX = "logout_used_access:";
+    private final static String NO_MORE_USED_REFRESH_TOKEN_PREFIX = "logout_used_refresh:";
 
     public TokenRedisRepository(StringRedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
@@ -33,6 +35,15 @@ public class TokenRedisRepository {
         String key = USED_REFRESH_TOKEN_PREFIX + refreshToken;
         return redisTemplate.hasKey(key);
     }
+    public void saveInvalidatedAccessToken(String accessToken, long duration, TimeUnit timeUnit) {
+        String key = NO_MORE_USED_ACCESS_TOKEN_PREFIX + accessToken;
+        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
+    }
+    public void saveInvalidatedRefreshToken(String refreshToken, long duration, TimeUnit timeUnit) {
+        String key = NO_MORE_USED_REFRESH_TOKEN_PREFIX + refreshToken;
+        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
+    }
+
 
     public void saveNewAccessTokenAndRefreshToken(String accessToken,
                                                   String refreshToken,
