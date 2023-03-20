@@ -96,11 +96,11 @@ const Wrapper = styled.div`
 const BoardDetailContainer = styled.div`
   width: calc(100% / 18 * 12);
   margin-top: var(--3x-large);
-  padding: var(--xx-large);
+  padding: var(--2x-large);
   background-color: var(--color-white);
   border: 1px solid var(--color-main);
-  border-top-left-radius: var(--xx-small);
-  border-top-right-radius: var(--xx-small);
+  border-top-left-radius: var(--2x-small);
+  border-top-right-radius: var(--2x-small);
   border-bottom: none;
 
   @media only screen and (max-width: 768px) {
@@ -111,12 +111,12 @@ const BoardDetailContainer = styled.div`
 const BoardCommentsContainer = styled.div`
   width: calc(100% / 18 * 12);
   margin-bottom: var(--3x-large);
-  padding: var(--xx-large);
+  padding: var(--2x-large);
   background-color: var(--color-white);
   border: 1px solid var(--color-main);
   border-top: 1px solid var(--color-sub-light-gray);
-  border-bottom-left-radius: var(--xx-small);
-  border-bottom-right-radius: var(--xx-small);
+  border-bottom-left-radius: var(--2x-small);
+  border-bottom-right-radius: var(--2x-small);
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -127,7 +127,7 @@ const BoardDetailHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--xx-large) 0;
+  padding: var(--2x-large) 0;
 `;
 
 const BoardDetailController = styled.div`

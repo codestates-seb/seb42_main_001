@@ -25,7 +25,7 @@ const TagsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: var(--xxx-small);
-    padding: var(--xx-small);
+    margin-left: var(--3x-small);
+    padding: var(--2x-small);
   }
 `;

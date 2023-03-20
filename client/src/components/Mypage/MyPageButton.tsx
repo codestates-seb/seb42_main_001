@@ -33,7 +33,7 @@ const MyPageButtonContainer = styled.button<MyPageButtonProps>`
   color: ${(props) => `var(${props.color})` || `var(--color-main)`};
   border: none;
   border: 1px solid var(--color-sub-light-gray);
-  border-radius: var(--xx-small);
+  border-radius: var(--2x-small);
   background-color: ${(props) =>
     `var(${props.backgroundColor})` || `var(--color-white)`};
   font-size: var(--text-small);

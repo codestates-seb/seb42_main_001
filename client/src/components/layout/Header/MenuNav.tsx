@@ -44,7 +44,7 @@ const MenuItemStyled = styled.div<MenuNavProps>`
   transition: 0.5s;
 
   &:hover {
-    margin-bottom: var(--xxx-small);
+    margin-bottom: var(--3x-small);
   }
 
   @media only screen and (max-width: 768px) {

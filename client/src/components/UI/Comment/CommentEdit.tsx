@@ -1,28 +1,14 @@
 import styled from "styled-components";
-import { useState } from "react";
 import Card from "../Card";
 import CommentModal from "./CommentModal";
 import More from "../More";
 
-interface CommentProps {
-  comments?: {
-    commentId: number;
-    memberId: number;
-    displayName: string;
-    commentContent: string;
-    createAt: string | null;
-  };
-  onClick?: () => void;
-}
-
-function Comment({ comments, onClick }: CommentProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleModalOpen = () => setIsOpen(!isOpen);
+function CommentEdit() {
 
   return (
     <MainContainer>
-      <Card>
+      <div>hello</div>
+      {/* <Card>
         <SubContainer>
           <CommentAuthorInfo>
             <CommentAuthorInfoImg />
@@ -33,15 +19,15 @@ function Comment({ comments, onClick }: CommentProps) {
             <div>
               <More handleModalOpen={handleModalOpen} />
             </div>
-            {isOpen ? <CommentModal commentId={comments?.commentId} onClick={onClick} /> : null}
+            {isOpen ? <CommentModal commentId={comments?.commentId} /> : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
         </SubContainer>
-      </Card>
+      </Card> */}
     </MainContainer>
   );
 }
-export default Comment;
+export default CommentEdit;
 
 const MainContainer = styled.div`
   width: 100%;

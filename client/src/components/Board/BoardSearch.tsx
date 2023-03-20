@@ -32,7 +32,7 @@ const SearchContainer = styled.div`
     height: 60px;
     border: none;
     outline: none;
-    border-radius: var(--xx-small);
+    border-radius: var(--2x-small);
     padding-left: var(--medium);
   }
 `;

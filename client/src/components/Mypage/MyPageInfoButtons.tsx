@@ -22,7 +22,7 @@ const MyPageInfoButtonContainer = styled.div`
   width: 95%;
   max-width: 450px;
   height: 200px;
-  margin-top: var(--xx-large);
+  margin-top: var(--2x-large);
   margin-bottom: var(--x-large);
   display: flex;
   flex-direction: column;

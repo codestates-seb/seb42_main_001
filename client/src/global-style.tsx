@@ -25,14 +25,14 @@ export const GlobalStyle = createGlobalStyle`
     --weight-x-large: 900;
 
     /* size */
-    --xxx-small: 8px;
-    --xx-small: 10px;
+    --3x-small: 8px;//
+    --2x-small: 10px;//
     --x-small: 14px;
     --small: 18px;
     --medium: 23px;
     --large: 30px;
     --x-large: 40px;
-    --xx-large: 60px;
+    --2x-large: 60px;//
     --3x-large: 80px;
     --4x-large: 100px;
     --5x-large: 130px;

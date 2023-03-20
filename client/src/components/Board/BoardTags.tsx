@@ -5,11 +5,11 @@ import BoardTag from "./BoardTag";
 
 interface BoardTagsProps {
   tags:
-    | Array<{
-        tagId: number;
-        tagName: string;
-      }>
-    | undefined;
+  | Array<{
+    tagId: number;
+    tagName: string;
+  }>
+  | undefined;
 }
 
 function BoardTags({ tags }: BoardTagsProps) {
@@ -38,5 +38,5 @@ const TagsBox = styled.div`
 const TagsContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-right: var(--xxx-small);
+  margin-right: var(--3x-small);
 `;

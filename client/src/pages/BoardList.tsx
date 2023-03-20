@@ -78,7 +78,7 @@ const Wrapper = styled.div`
 `;
 
 const ListContainer = styled.div`
-  margin-bottom: var(--xx-large);
+  margin-bottom: var(--2x-large);
   width: 100%;
   height: auto;
   display: flex;

@@ -28,7 +28,7 @@ const MyPageInfoItemContainer = styled.div`
     width: 120%;
     height: 60px;
     border: 1px solid var(--color-sub-light-gray);
-    border-radius: var(--xx-small);
+    border-radius: var(--2x-small);
   }
 `;
 

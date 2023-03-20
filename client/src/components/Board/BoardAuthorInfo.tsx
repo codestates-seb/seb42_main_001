@@ -36,7 +36,7 @@ const BoardAuthorInfoContainer = styled.div`
 `;
 
 const BoardAuthorInfoName = styled.div`
-  margin-left: var(--xx-small);
+  margin-left: var(--2x-small);
   font-size: var(--x-small);
   font-weight: var(--weight-large);
   line-height: 17px;

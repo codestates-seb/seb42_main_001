@@ -30,12 +30,6 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
       await axios.post(
         drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
         drinkId ? newDrinks : boardId ? newBoards : null,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-            Refresh: process.env.REACT_APP_REFRESH,
-          },
-        }
       );
       setCommentValue("");
       window.location.reload();
@@ -62,7 +56,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
       <Button
         type="submit"
         width={`--5x-large`}
-        height={`--xx-large`}
+        height={`--2x-large`}
         bgColor={`--color-main`}
         borderColor={`--color-main`}
         color={`--color-white`}
