@@ -69,14 +69,14 @@ public class JwtTokenizer {
     }
     public String regenerateAccessToken(String refreshToken) {
 
-//     redis 적용하기 전 code.
         try {
             Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
 
+            // RefreshToken의 claims의 body에서 exp(토큰의 만료 타임스탬프)를 가져온다.
             int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
 
-            // 1000L = 1sec,
-            Date refreshTokenExpiration = new Date(epochTime * 1000L*60);
+            // RefreshToken의 만료 날짜를 계산.
+            Date refreshTokenExpiration = new Date(epochTime * 1000L);
 
             if (refreshTokenExpiration.before(new Date())) {
                 throw new RuntimeException("RefreshToken has expired");
@@ -93,6 +93,35 @@ public class JwtTokenizer {
             throw new RuntimeException(e);
         }
     }
+    // 현재는 regenerateAccessToken과 generateRefreshToken 메서드를 사용하므로 필요 X.
+//    public Map<String, String> regenerateAccessTokenAndRefreshToken(String refreshToken) {
+//        try {
+//            Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
+//            int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
+//
+//            Date refreshTokenExpiration = new Date(epochTime * 1000L * 60);
+//
+//            if (refreshTokenExpiration.before(new Date())) {
+//                throw new RuntimeException("RefreshToken has expired");
+//            }
+//
+//            String email = refreshTokenClaims.getBody().getSubject();
+//            Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
+//            Date newRefreshTokenExpiration = getTokenExpiration(refreshTokenExpirationMinutes);
+//            Map<String, Object> accessTokenClaims = new HashMap<>();
+//            accessTokenClaims.put("email", email);
+//
+//            String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
+//            String newRefreshToken = generateRefreshToken(email, newRefreshTokenExpiration, encodeBase64SecretKey(secretKey));
+//
+//            Map<String, String> tokens = new HashMap<>();
+//            tokens.put("accessToken", newAccessToken);
+//            tokens.put("refreshToken", newRefreshToken);
+//            return tokens;
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
     public Jws<Claims> getClaims(String jws, String base64EncodedSecretKey) {
         Key key = getKeyFromBase64EncodedKey(base64EncodedSecretKey);
 
@@ -102,7 +131,6 @@ public class JwtTokenizer {
                 .parseClaimsJws(jws);
         return claims;
     }
-
     public void verifySignature(String jws, String base64EncodedSecretKey) {
         Key key = getKeyFromBase64EncodedKey(base64EncodedSecretKey);
 

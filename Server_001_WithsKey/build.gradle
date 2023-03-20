@@ -43,9 +43,9 @@ dependencies {
     implementation 'com.google.code.gson:gson'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
-    implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1'
+    implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1' // S3 용
+    implementation 'com.coveo:spring-boot-parameter-store-integration:1.1.2' // Parameter Store
 
-    implementation 'com.coveo:spring-boot-parameter-store-integration:1.1.2'
 }
 
 tasks.named('test') {

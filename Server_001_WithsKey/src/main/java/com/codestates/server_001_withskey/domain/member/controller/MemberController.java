@@ -21,8 +21,11 @@ import com.codestates.server_001_withskey.domain.member.dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
+import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
+import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,18 +33,23 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Validated
 @RequestMapping("/members")
 @RequiredArgsConstructor
 public class  MemberController {
+
     private final MemberMapperImpl memberMapper;
+
     private final MemberService memberService;
+
     private final BoardMapperImpl boardMapper;
     private final CommentBoardService commentBoardService;
     private final CommentBoardMapper commentBoardMapper;
@@ -56,6 +64,27 @@ public class  MemberController {
     public ResponseEntity login(HttpServletResponse response) throws IOException {
         response.sendRedirect("http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
         return new ResponseEntity(HttpStatus.OK);
+    }
+    @Autowired
+    private TokenRedisRepository tokenRedisRepository;
+    @Autowired
+    private JwtTokenizer jwtTokenizer;
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        String accessTokenHeader = request.getHeader("Authorization");
+        String refreshTokenHeader = request.getHeader("Refresh");
+        if (accessTokenHeader != null && accessTokenHeader.startsWith("Bearer ")) {
+            String accessToken = accessTokenHeader.replace("Bearer ","");
+            int accessTokenDuration = jwtTokenizer.getAccessTokenExpirationMinutes();
+            tokenRedisRepository.saveInvalidatedAccessToken(accessToken, accessTokenDuration, TimeUnit.MINUTES);
+        }
+        if (refreshTokenHeader != null) {
+            String refreshToken = refreshTokenHeader;
+            int refreshTokenDuration = jwtTokenizer.getRefreshTokenExpirationMinutes();
+            tokenRedisRepository.saveInvalidatedRefreshToken(refreshToken, refreshTokenDuration, TimeUnit.MINUTES);
+        }
+        return ResponseEntity.ok("Logout successful");
     }
 
     @PatchMapping
@@ -113,14 +142,5 @@ public class  MemberController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/logout")
-    public ResponseEntity logout(){
-        //요청 헤더에 Access, Refresh 토큰이 있을 것임.
-        //Refresh 토큰을 블랙리스트에 등록
 
-        //A Refresh 토큰을 B가 탈취
-        //A가 로그아웃 Refresh -> Black List에 들어감
-        //B가 탈취한 토큰으로 로그인 시도
-        return ResponseEntity.ok().build();
-    }
 }

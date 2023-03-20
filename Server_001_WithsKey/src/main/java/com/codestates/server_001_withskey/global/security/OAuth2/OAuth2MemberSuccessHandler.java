@@ -60,14 +60,21 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         String accessToken = delegateAccessToken(member, authorities);
         String refreshToken = delegateRefreshToken(username);
 
-        String url = makeRedirectUrl(accessToken, refreshToken);
+        response.setHeader("Authorization", "Bearer "+accessToken);
+        response.setHeader("Refresh",refreshToken);
 
-        response.setHeader("Authorization", "Bearer " + accessToken);
-        response.setHeader("Refresh", refreshToken);
+        response.addHeader(accessToken, refreshToken);
 
-        getRedirectStrategy().sendRedirect(request, response, url);
+        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
+
     }
-
+    // 신규 코드
+    private String makeRedirectUrl (String accessToken, String refreshToken) {
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
+                .queryParam("Authorization", accessToken)
+                .queryParam("Refresh", refreshToken)
+                .build().toUriString();
+    }
     private void saveMember(String email) {
         Member member = new Member(email);
         memberService.createMember(member);
@@ -101,12 +108,5 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         String refreshToken = jwtTokenizer.generateRefreshToken(subject, expiration,base64EncodedSecretKey);
 
         return refreshToken;
-    }
-
-    private String makeRedirectUrl(String accessToken, String refreshToken) {
-        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
-                .queryParam("Bearer", accessToken)
-                .queryParam("Refresh", refreshToken)
-                .build().toUriString();
     }
 }
