@@ -1,43 +1,69 @@
-import styled from 'styled-components';
-import axios from 'axios';
+import styled from "styled-components";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
-import Card from '../Card';
-import { Link } from 'react-router-dom';
+import Card from "../Card";
 
 interface CommentProps {
-  commentId?: number;
-  onClick?: () => void;
+  drinkCommentId?: number;
+  boardCommentId?: number;
+  boardId?: number;
 }
 
-function CommentModal({ commentId, onClick }: CommentProps) {
+function CommentModal({
+  drinkCommentId,
+  boardCommentId,
+  boardId,
+}: CommentProps) {
+  const navigate = useNavigate();
 
   const handleDrinksCommentDelte = async () => {
     try {
-      await axios.delete(`/comments/drinks/${commentId}`, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
-          Refresh: process.env.REACT_APP_REFRESH,
-        },
-      })
+      await axios.delete(`/comments/drinks/${drinkCommentId}`);
       window.location.reload();
+    } catch (error) {
+      console.log(error);
     }
-    catch (error) {
-      console.log(error)
+  };
+
+  const handleBoardCommentDelte = async () => {
+    try {
+      await axios.delete(`/comments/boards/${boardCommentId}`);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
+
+  const handleBoardDelte = async () => {
+    try {
+      await axios.delete(`/boards/${boardId}`);
+      navigate("/board/list");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleCommentDelete = () => {
-    if (window.confirm('댓글을 삭제하시겠습니까?')) {
-      handleDrinksCommentDelte();
+    if (drinkCommentId || boardCommentId) {
+      if (window.confirm("댓글을 삭제하시겠습니까?")) {
+        if (drinkCommentId) {
+          handleDrinksCommentDelte();
+        } else if (boardCommentId) {
+          handleBoardCommentDelte();
+        }
+      }
+    } else if (boardId) {
+      if (window.confirm("글을 삭제하시겠습니까?")) {
+        handleBoardDelte();
+      }
     }
   };
 
   return (
     <ModalContainer>
       <Card>
-        <Link to={`/comment/drinks/${commentId}`}>
-          <EditContainer onClick={onClick}>Edit</EditContainer>
-        </Link>
+        <EditContainer>Edit</EditContainer>
         <DeleteContainer onClick={handleCommentDelete}>Delete</DeleteContainer>
       </Card>
     </ModalContainer>

@@ -12,10 +12,9 @@ interface CommentProps {
     commentContent: string;
     createAt: string | null;
   };
-  onClick?: () => void;
 }
 
-function Comment({ comments, onClick }: CommentProps) {
+function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModalOpen = () => setIsOpen(!isOpen);
@@ -33,7 +32,9 @@ function Comment({ comments, onClick }: CommentProps) {
             <div>
               <More handleModalOpen={handleModalOpen} />
             </div>
-            {isOpen ? <CommentModal commentId={comments?.commentId} onClick={onClick} /> : null}
+            {isOpen ? (
+              <CommentModal drinkCommentId={comments?.commentId} />
+            ) : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
         </SubContainer>
