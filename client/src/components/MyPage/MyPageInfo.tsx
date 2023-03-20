@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Card from '../UI/Card'
 import MyPageInfoContent from './MyPageInfoContent'
 import MyPageInfoItem from './MyPageInfoItem'
 
 function MyPageInfo() {
+    const [userInfo, setUserInfo] = useState(false)
+
     return (
         <MarginContainer>
             <Card>
                 <MainContainer>
-                    <MyPageInfoContent />
-                    <MyPageInfoItem />
+                    <MyPageInfoContent userInfo={userInfo} />
+                    <MyPageInfoItem userInfo={userInfo} setUserInfo={setUserInfo} />
                 </MainContainer>
             </Card>
         </MarginContainer>
