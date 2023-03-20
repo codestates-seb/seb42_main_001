@@ -10,6 +10,13 @@ function MyPageInfoContent({ userInfo }: InfoProps) {
     const [userName, setUserName] = useState('lapmu')
     const [userText, setUserText] = useState('자기소개를 입력해 주세요.')
 
+    const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserName(e.target.value)
+    }
+
+    const handleUserNameText = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserText(e.target.value)
+    }
     return (
         <MainContainer>
             <ImgContainer>
@@ -20,8 +27,8 @@ function MyPageInfoContent({ userInfo }: InfoProps) {
                 {userInfo
                     ?
                     <>
-                        <TextEditContainer value={userName} />
-                        <TextEditContainer value={userText} />
+                        <TextEditContainer value={userName} onChange={handleUserNameChange} />
+                        <TextEditContainer value={userText} onChange={handleUserNameText} />
                     </>
                     :
                     <>
