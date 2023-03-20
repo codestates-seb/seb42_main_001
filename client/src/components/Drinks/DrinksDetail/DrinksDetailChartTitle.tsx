@@ -18,6 +18,7 @@ const InfoContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  color: var(--color-main);
 
   span {
     font-weight: var(--weight-large);

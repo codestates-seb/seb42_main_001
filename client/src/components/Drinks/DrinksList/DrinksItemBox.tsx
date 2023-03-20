@@ -6,16 +6,19 @@ import { Link } from "react-router-dom";
 import { DrinksProps } from "../../../interfaces/Drinks.inerface";
 
 function DrinksItemBox({ drinksData, likesData }: DrinksProps) {
+
   return (
     <InfoContainer>
-      <DrinksLikes likesData={likesData} />
-      {drinksData.tags.map(el => {
-        return (
-          <Link to={`/tags/${el.tagId}`}>
-            <DrinksItemTags key={el.tagId} drinksData={el} />
-          </Link>
-        )
-      })}
+      <DrinksLikes drinksData={drinksData} likesData={likesData} />
+      <TagContainer>
+        {drinksData?.tags.map(el => {
+          return (
+            <Link to={`/tags/${el.tagId}`}>
+              <DrinksItemTags key={el.tagId} drinksData={el} />
+            </Link>
+          )
+        })}
+      </TagContainer>
     </InfoContainer>
   );
 }
@@ -30,3 +33,10 @@ const InfoContainer = styled.div`
   justify-content: space-between;
   padding: var(--large) var(--large) 0 var(--large);
 `;
+
+
+const TagContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`

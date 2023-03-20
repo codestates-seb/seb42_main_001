@@ -5,6 +5,7 @@ import DrinksItemLevel from "./DrinksItemLevel";
 import Card from "../../UI/Card";
 import styled from "styled-components";
 import { DrinksProps } from "../../../interfaces/Drinks.inerface";
+import { Link } from "react-router-dom";
 
 function DrinksItem({ drinksData, likesData }: DrinksProps) {
   return (
@@ -12,7 +13,9 @@ function DrinksItem({ drinksData, likesData }: DrinksProps) {
       <Card>
         <ItemContainer>
           <DrinksItemBox drinksData={drinksData} likesData={likesData} />
-          <DrinksItemBody drinksData={drinksData} />
+          <Link to={`/drinks/${drinksData.drinkId}`}>
+            <DrinksItemBody drinksData={drinksData} />
+          </Link>
           <DrinksItemLevel drinksData={drinksData} />
         </ItemContainer>
       </Card>

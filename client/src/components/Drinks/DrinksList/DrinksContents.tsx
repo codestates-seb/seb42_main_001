@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { Drinks } from "../../../interfaces/Drinks.inerface";
 import { Likes } from "../../../interfaces/Drinks.inerface";
@@ -41,9 +40,7 @@ function DrinksContents({ search }: ISearchProps) {
       {
         filtered.map(el => {
           return (
-            <Link to={`/drinks/${el.drinkId}`}>
-              <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
-            </Link>
+            <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
           )
         })
       }

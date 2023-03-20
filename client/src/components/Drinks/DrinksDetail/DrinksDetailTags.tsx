@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailTags({ drinksDetail }: DrinksDetailProps) {
+interface Props {
+  tagName: string;
+}
+
+function DrinksDetailTags({ tagName }: Props) {
   return (
     <TagsContainer>
-      <div>#tag</div>
+      <div>{tagName}</div>
     </TagsContainer>
   );
 }
