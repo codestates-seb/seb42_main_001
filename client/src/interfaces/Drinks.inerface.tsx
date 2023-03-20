@@ -12,8 +12,8 @@ export interface Drinks {
 }
 
 export interface Likes {
-  drinkId: number;
-  drinkName: string;
+  drinkId?: number;
+  drinkName?: string;
 }
 
 export interface DrinksProps {

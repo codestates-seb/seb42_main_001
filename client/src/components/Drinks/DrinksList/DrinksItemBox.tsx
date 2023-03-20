@@ -6,9 +6,12 @@ import { Link } from "react-router-dom";
 import { DrinksProps } from "../../../interfaces/Drinks.inerface";
 
 function DrinksItemBox({ drinksData, likesData }: DrinksProps) {
+
+
+
   return (
     <InfoContainer>
-      <DrinksLikes likesData={likesData} />
+      <DrinksLikes drinksData={drinksData} likesData={likesData} />
       {drinksData.tags.map(el => {
         return (
           <Link to={`/tags/${el.tagId}`}>

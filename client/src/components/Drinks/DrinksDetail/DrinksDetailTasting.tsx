@@ -8,7 +8,7 @@ function DrinksDetailTasting({ drinksDetail }: DrinksDetailProps) {
   return (
     <TastingContainer>
       <DrinksDetailChartTitle />
-      <DrinksDetailChart />
+      <DrinksDetailChart drinksDetail={drinksDetail} />
     </TastingContainer>
   );
 }

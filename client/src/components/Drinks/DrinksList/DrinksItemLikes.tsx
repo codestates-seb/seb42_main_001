@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
-import { Likes } from "../../../interfaces/Drinks.inerface";
+import { DrinksProps } from "../../../interfaces/Drinks.inerface";
 
-interface DrinksContentsProps {
-  likesData: Likes[];
-}
+// interface DrinksProps {
+//   drinksData?: Drinks;
+//   likesData?: number;
+// }
 
-function DrinksItemLikes({ likesData }: DrinksContentsProps) {
+function DrinksItemLikes({ drinksData, likesData }: DrinksProps) {
   const [likes, setlikes] = useState(false);
 
   const handleLikesChange = () => {
     setlikes((prev) => !prev);
   };
+
+  // if (drinksData.drinkId === likesData)
+
+  // console.log(likesData.drinkId)
 
   return (
     <LikesSize>
