@@ -10,29 +10,34 @@ import { loginSuccess } from '../redux/slice/auth/authSlice';
 function MyPage() {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const token = {
-      accessToken: `Bearer ${url.searchParams.get('Authorization')}`,
-      refreshToken: `${url.searchParams.get('Refresh')}`,
-    };
-    axios
-      .get(`/members/mypage`, {
+  const handleLoginProcess = async () => {
+    try {
+      const url = new URL(window.location.href);
+      const token = {
+        accessToken: `Bearer ${url.searchParams.get('Authorization')}`,
+        refreshToken: `${url.searchParams.get('Refresh')}`,
+      };
+      const res = await axios.get(`/members/mypage`, {
         headers: {
           Authorization: token.accessToken,
           Refresh: token.refreshToken,
         },
-      })
-      .then(res => {
-        if (res.status === 200) {
-          const userInfo = res.data;
-          dispatch(loginSuccess({ userInfo: userInfo }));
-          localStorage.clear();
-          localStorage.setItem('accessToken', token.accessToken);
-          localStorage.setItem('refreshToken', token.refreshToken);
-        }
       });
-  }, [dispatch]);
+      if (res.status === 200) {
+        const userInfo = res.data;
+        dispatch(loginSuccess({ userInfo: userInfo }));
+        localStorage.clear();
+        localStorage.setItem('accessToken', token.accessToken);
+        localStorage.setItem('refreshToken', token.refreshToken);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    handleLoginProcess();
+  });
 
   return (
     <MainContainer>
