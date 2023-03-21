@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import MyPageContent from '../components/Mypage/MyPageContent';
-import MyPageInfo from '../components/Mypage/MyPageInfo';
+import MyPageContent from '../components/MyPage/MyPageContent';
+import MyPageInfo from '../components/MyPage/MyPageInfo';
 import { useAppDispatch } from '../redux/hooks/hooks';
 import { loginSuccess } from '../redux/slice/auth/authSlice';
 
