@@ -25,9 +25,9 @@
 -- Single
 INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (121, 40, 'SMT', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/Glenfarclas_15YO_SingleMalt.jpg', 'Glenfarclas', 'High-End');
 INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (122, 40, 'SMU', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/Cardhu_12YO_SingMalt.jpg', 'Cardhu', 'Premium');
-INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (123, 40, 'SMB', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/THAMDHU_12YO_SingleMalt.jpg', 'THAMDHU', 'Premium');
+INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (123, 40, 'SMB', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/THAMDHU_12YO_SingleMalt.jpg', 'TAMDHU', 'Premium');
 INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (124, 40, 'SMA', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/SpeyBurn_10YO_SingleMalt.jpg', 'SpeyBurn', 'Entry');
-INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (125, 40, 'SME', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/Tamnavulin_SingleMalt.jpg', 'Tamnavulin', 'Entrys');
+INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (125, 40, 'SME', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/Tamnavulin_SingleMalt.jpg', 'Tamnavulin', 'Entry');
 INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (126, 46, 'SMV', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/GlenAllachie_SingleMalt.jpg', 'GlenAllachie', 'High-End');
 INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (127, 40, 'SMY', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/Glenburgie_15YO_SingleMalt.jpg', 'Glenburgie', 'High-End');
 INSERT INTO DRINK (DRINK_ID, DRINK_ABV, DRINK_CODE, DRINK_IMAGE_URL, DRINK_NAME, PRICE_RANK) VALUES (128, 40, 'SMZ', 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/Balvenie_12YO_SingleMalt.jpg', 'Balvenie', 'Premium');
