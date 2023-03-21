@@ -10,7 +10,7 @@ const SignUpButton = () => {
 
   return (
     <SignUpButtonContainer onClick={handleLogin}>
-      <FcGoogle size="50" />
+      <FcGoogle size="40" />
       Google로 시작하기
     </SignUpButtonContainer>
   );
@@ -27,7 +27,7 @@ const SignUpButtonContainer = styled.button`
   margin-bottom: 150px;
   display: flex;
   align-items: center;
-  font-size: var(--small);
+  font-size: var(--text-medium);
   font-weight: var(--weight-large);
   cursor: pointer;
   > svg {
