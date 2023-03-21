@@ -1,14 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
+import axios from "axios";
 
-function DrinksTagList() {
-  const [tagPage, setTagPage] = useState(3)
+interface Tags {
+  tagId: number;
+  tagName?: string;
+};
+
+interface TagProps {
+  setSearchTag: (state: number) => void;
+}
+
+function DrinksTagList({ setSearchTag }: TagProps) {
+  const [tagPage, setTagPage] = useState(7)
   const pageRef = useRef<HTMLDivElement>(null);
+  const [tagData, setTagData] = useState<Tags[]>([])
 
   const handleRightClick = () => {
-    setTagPage(prev => prev + 3)
+    setTagPage(prev => prev + 7)
     pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
@@ -16,10 +27,20 @@ function DrinksTagList() {
     if (tagPage < 0) {
       setTagPage(0)
     } else {
-      setTagPage(prev => prev - 3)
+      setTagPage(prev => prev - 7)
     }
     pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
+
+  const tagsData = async () => {
+    const res = await axios.get(`/tags`);
+    setTagData(res.data);
+  };
+
+  useEffect(() => {
+    tagsData()
+  }, [])
+
 
   return (
     <DisplayContainer>
@@ -31,25 +52,10 @@ function DrinksTagList() {
         borderColor={`--color-main`}
       >{`<`}</Button>
       <TagListContainer ref={pageRef}>
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
+        {tagData.map(el => {
+          return <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} setSearchTag={setSearchTag} />
+        })
+        }
       </TagListContainer>
       <Button
         type="button"
@@ -64,10 +70,21 @@ function DrinksTagList() {
 
 export default DrinksTagList;
 
+const DisplayContainer = styled.div`
+    display: flex;
+    align-items: center;
+    width: 95%;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
 const TagListContainer = styled.div`
   display: flex;
   width: 90%;
   overflow: overlay;
+  
   &::-webkit-scrollbar {
     display: none;
   }
@@ -78,12 +95,3 @@ const TagListContainer = styled.div`
     align-items: center;
   }
 `;
-
-const DisplayContainer = styled.div`
-    display: flex;
-    width: 95%;
-
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
-`

@@ -18,5 +18,5 @@ function DrinksDetailComment({ drinksDetail }: DrinksDetailProps) {
 export default DrinksDetailComment;
 
 const MainContainer = styled.div`
-  margin-bottom: var(--5x-large);
+  margin-bottom: calc(var(--4x-large) * 3);
 `;

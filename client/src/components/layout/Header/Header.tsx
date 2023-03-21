@@ -45,6 +45,7 @@ const HeaderBackground = styled.div<HeaderProps>`
   height: 65px;
   display: flex;
   justify-content: center;
+  z-index: 999;
 `;
 
 const HeaderContainer = styled.div<HeaderProps>`

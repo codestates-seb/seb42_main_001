@@ -24,6 +24,7 @@ const FooterBackground = styled.div`
   height: 270px;
   display: flex;
   justify-content: center;
+  z-index: 999;
 `;
 
 const FooterContainer = styled.div`

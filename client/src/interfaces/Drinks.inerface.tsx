@@ -59,12 +59,12 @@ export interface IDrinksDetail {
     commentContent: string;
     createAt: string;
   }[];
-  tastingNote: {
-    citrus: number;
-    sweet: number;
+  tastingNote?: {
+    fruity: number;
+    orc: number;
     smoky: number;
-    herbal: number;
-    tropical: number;
+    spicy: number;
+    sweet: number;
   }[];
   snacks?: {
     snackKcal: string;

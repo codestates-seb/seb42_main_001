@@ -5,17 +5,25 @@ import { DrinksTagsProps } from "../../../interfaces/Drinks.inerface";
 function DrinksItemTags({ drinksData }: DrinksTagsProps) {
 
   return (
-    <TagsContainer>
-      <div>{drinksData?.tagName}</div>
-    </TagsContainer>
+    <Margin>
+
+      <TagsContainer>
+        <div>{drinksData?.tagName}</div>
+      </TagsContainer>
+    </Margin>
   );
 }
 
 export default DrinksItemTags;
 
+const Margin = styled.div`
+  margin-left: 5px;
+`
+
 const TagsContainer = styled.div`
-  display: flex;
   cursor: pointer;
+  width: 100%;
+  
   div {
     color: var(--color-sub-dark-gray);
     font-size: var(--text-x-small);
@@ -25,7 +33,7 @@ const TagsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: var(--3x-small);
-    padding: var(--2x-small);
+    padding: 5px 7px;
+    white-space: nowrap;
   }
 `;
