@@ -13,7 +13,6 @@ function DrinksTagList() {
   };
 
   const handleLeftClick = () => {
-    console.log(tagPage)
     if (tagPage < 0) {
       setTagPage(0)
     } else {

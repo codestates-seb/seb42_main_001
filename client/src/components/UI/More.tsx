@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { RiMoreLine } from 'react-icons/ri';
+import { RiMoreLine } from "react-icons/ri";
 
 interface CommentModalProps {
   handleModalOpen?: () => void;
@@ -9,7 +9,7 @@ interface CommentModalProps {
 function More({ handleModalOpen }: CommentModalProps) {
   return (
     <IconWrapper onClick={handleModalOpen}>
-      <RiMoreLine></RiMoreLine>
+      <RiMoreLine />
     </IconWrapper>
   );
 }
@@ -20,6 +20,7 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   > svg {
     width: 20px;

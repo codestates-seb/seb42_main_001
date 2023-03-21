@@ -3,18 +3,19 @@ import styled from "styled-components";
 import DrinksDetailSnacks from "./DrinksDetailSnacks";
 import DrinksDetailTasting from "./DrinksDetailTasting";
 import DrinksDetailWiths from "./DrinksDetailWiths";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailContent() {
+function DrinksDetailContent({ drinksDetail }: DrinksDetailProps) {
   return (
     <ContentContainer>
       <BottomMargin>
-        <DrinksDetailTasting />
+        <DrinksDetailTasting drinksDetail={drinksDetail} />
       </BottomMargin>
       <BottomMargin>
-        <DrinksDetailSnacks />
+        <DrinksDetailSnacks drinksDetail={drinksDetail} />
       </BottomMargin>
       <BottomMargin>
-        <DrinksDetailWiths />
+        <DrinksDetailWiths drinksDetail={drinksDetail} />
       </BottomMargin>
     </ContentContainer>
   );

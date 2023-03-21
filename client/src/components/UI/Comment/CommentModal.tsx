@@ -1,13 +1,85 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
-import Card from '../Card';
+import Card from "../Card";
 
-function CommentModal() {
+interface CommentProps {
+  drinkCommentId?: number;
+  boardCommentId?: number;
+  boardId?: number;
+  onClick?: (state: boolean) => void;
+  handleModalOpen: (state: boolean) => void;
+  handleBoardEdit?: () => void;
+}
+
+function CommentModal({
+  drinkCommentId,
+  boardCommentId,
+  boardId,
+  onClick,
+  handleModalOpen,
+  handleBoardEdit,
+}: CommentProps) {
+  const navigate = useNavigate();
+
+  const handleDrinksCommentDelte = async () => {
+    try {
+      await axios.delete(`/comments/drinks/${drinkCommentId}`);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleBoardCommentDelte = async () => {
+    try {
+      await axios.delete(`/comments/boards/${boardCommentId}`);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleBoardDelte = async () => {
+    try {
+      await axios.delete(`/boards/${boardId}`);
+      navigate("/board/list");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCommentDelete = () => {
+    if (drinkCommentId || boardCommentId) {
+      if (window.confirm("댓글을 삭제하시겠습니까?")) {
+        if (drinkCommentId) {
+          handleDrinksCommentDelte();
+        } else if (boardCommentId) {
+          handleBoardCommentDelte();
+        }
+      }
+    } else if (boardId) {
+      if (window.confirm("글을 삭제하시겠습니까?")) {
+        handleBoardDelte();
+      }
+    }
+  };
+
+  const handleCommentEdit = () => {
+    if (onClick) {
+      handleModalOpen(false);
+      onClick(true);
+    } else if (handleBoardEdit) {
+      handleBoardEdit();
+    }
+  };
+
   return (
     <ModalContainer>
       <Card>
-        <EditContainer>Edit</EditContainer>
-        <DeleteContainer>Delete</DeleteContainer>
+        <EditContainer onClick={handleCommentEdit}>Edit</EditContainer>
+        <DeleteContainer onClick={handleCommentDelete}>Delete</DeleteContainer>
       </Card>
     </ModalContainer>
   );
@@ -21,6 +93,7 @@ const ModalContainer = styled.div`
   position: absolute;
   top: 20px;
   right: 10px;
+  cursor: pointer;
 `;
 
 const EditContainer = styled.div`

@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import DrinksDetailComment from './DrinksDetailComment'
 import DrinksDetailContent from './DrinksDetailContent'
 import DrinksDetailItem from './DrinksDetailItem'
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function MainDrinksDetail() {
+function MainDrinksDetail({ drinksDetail }: DrinksDetailProps) {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <MainDetailContainer>
-      <DrinksDetailItem />
-      <DrinksDetailContent />
-      <DrinksDetailComment />
+      <DrinksDetailItem drinksDetail={drinksDetail} />
+      <DrinksDetailContent drinksDetail={drinksDetail} />
+      <DrinksDetailComment drinksDetail={drinksDetail} />
     </MainDetailContainer>
   )
 }

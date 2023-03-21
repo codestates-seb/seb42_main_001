@@ -1,6 +1,10 @@
 import Button from "../UI/Button";
 
-function BoardCreateBtn() {
+interface BoardCreateBtnProps {
+  onClick: () => void;
+}
+
+function BoardCreateBtn({ onClick }: BoardCreateBtnProps) {
   return (
     <Button
       type="submit"
@@ -8,6 +12,7 @@ function BoardCreateBtn() {
       color={`--color-white`}
       borderColor={`--color-main`}
       width={`--5x-large`}
+      onClick={onClick}
     >
       submit
     </Button>

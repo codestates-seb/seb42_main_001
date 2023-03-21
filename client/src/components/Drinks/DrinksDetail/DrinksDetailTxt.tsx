@@ -3,13 +3,14 @@ import styled from "styled-components";
 import DrinksDetailBox from "./DrinksDetailBox";
 import DrinksDetailInfo from "./DrinksDetailInfo";
 import DrinksDetailTitle from "./DrinksDetailTitle";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailTxt() {
+function DrinksDetailTxt({ drinksDetail }: DrinksDetailProps) {
   return (
     <TxtContainer>
-      <DrinksDetailInfo />
-      <DrinksDetailTitle />
-      <DrinksDetailBox />
+      <DrinksDetailInfo drinksDetail={drinksDetail} />
+      <DrinksDetailTitle drinksDetail={drinksDetail} />
+      <DrinksDetailBox drinksDetail={drinksDetail} />
     </TxtContainer>
   );
 }
@@ -34,6 +35,6 @@ const TxtContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 0;
-    margin-bottom: var(--xx-large);
+    margin-bottom: var(--2x-large);
   }
 `;

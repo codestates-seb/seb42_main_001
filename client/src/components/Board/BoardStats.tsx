@@ -1,12 +1,19 @@
-import styled from 'styled-components';
-import BoardLikes from './BoardLikes';
-import BoardComments from './BoardComments';
+import styled from "styled-components";
+import BoardLikes from "./BoardLikes";
+import BoardComments from "./BoardComments";
 
-function BoardStats() {
+interface BoardStatsProps {
+  boardId: number;
+  like: number;
+  comment: number;
+  likes?: boolean;
+}
+
+function BoardStats({ like, comment, likes, boardId }: BoardStatsProps) {
   return (
     <BoardStatsContainer>
-      <BoardLikes />
-      <BoardComments />
+      <BoardLikes like={like} likes={likes} boardId={boardId} />
+      <BoardComments comment={comment} />
     </BoardStatsContainer>
   );
 }

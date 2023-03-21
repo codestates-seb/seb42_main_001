@@ -2,13 +2,19 @@ import styled from "styled-components";
 
 import { FaUserCircle } from "react-icons/fa";
 
-function BoardAuthorInfo() {
+interface BoardAuthorInfoProps {
+  userName?: string;
+  userImage?: string;
+  date?: string;
+}
+
+function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      <FaUserCircle />
+      {userImage ? <img src={userImage} alt="userImage" /> : <FaUserCircle />}
       <BoardAuthorInfoName>
-        lampu
-        <p>23.03.07</p>
+        {userName}
+        <p>{date}</p>
       </BoardAuthorInfoName>
     </BoardAuthorInfoContainer>
   );
@@ -30,7 +36,7 @@ const BoardAuthorInfoContainer = styled.div`
 `;
 
 const BoardAuthorInfoName = styled.div`
-  margin-left: var(--xx-small);
+  margin-left: var(--2x-small);
   font-size: var(--x-small);
   font-weight: var(--weight-large);
   line-height: 17px;

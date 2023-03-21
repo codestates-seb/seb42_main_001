@@ -2,23 +2,19 @@ import React from "react";
 import DrinksDetailSnack from "./DrinksDetailSnack";
 import DrinksDetailSnackTitle from "./DrinksDetailSnackTitle";
 import styled from "styled-components";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailSnacks() {
+function DrinksDetailSnacks({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <SnackContainer>
       <DrinksDetailSnackTitle />
       <SnackFlex>
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
-        <DrinksDetailSnack />
+        {drinksDetail?.snacks?.map(el => {
+          return (
+            <DrinksDetailSnack key={el.snackInfo} drinksDetail={el} />
+          )
+        })}
       </SnackFlex>
     </SnackContainer>
   );

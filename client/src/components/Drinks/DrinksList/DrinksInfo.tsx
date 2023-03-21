@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import DrinksTagList from "./DrinksTagList";
 import DrinkSearch from "./DrinksSearch";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../../UI/Button";
 
-function DrinksInfo() {
-  const [search, setSearch] = useState(false);
+interface ISearchProps {
+  search?: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+}
 
+function DrinksInfo({ search, setSearch }: ISearchProps) {
+  const [searchButton, setSearchButton] = useState(false);
+
+  // searchButton on/off
   const handleSearchChange = () => {
-    setSearch((prev) => !prev);
+    setSearchButton((prev) => !prev);
   };
 
   return (
     <InfoContainer>
-      {search ? <DrinkSearch /> : <DrinksTagList />}
+      {searchButton ? <DrinkSearch search={search} setSearch={setSearch} /> : <DrinksTagList />}
       <Button
         type="button"
         width={`--x-large`}

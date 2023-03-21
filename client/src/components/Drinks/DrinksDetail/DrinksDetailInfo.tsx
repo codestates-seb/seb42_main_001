@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailInfo() {
+function DrinksDetailInfo({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <InfoContainer>
       <TopBorder>
-        <span>Entry-Level</span>
+        <span>{drinksDetail?.priceRank}</span>
       </TopBorder>
       <InfoContainer>
         <TopBorderMargin>
           <span>도수</span>
-          <p>40%</p>
+          <p>{`${drinksDetail?.drinkAbv}%`}</p>
         </TopBorderMargin>
         <TopBorderMargin>
           <span>용량</span>
@@ -30,6 +32,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  color: var(--color-main);
 
   span {
     font-weight: var(--weight-large);
@@ -51,7 +54,7 @@ const TopBorder = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
-  padding: var(--xx-small);
+  padding: var(--2x-small);
 
   @media only screen and (max-width: 768px) {
     margin: 0;
@@ -66,7 +69,7 @@ const TopBorderMargin = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   border-top: 1px solid var(--color-main);
-  padding: var(--xx-small);
+  padding: var(--2x-small);
   margin-left: var(--large);
 
   @media only screen and (max-width: 768px) {

@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailTitle() {
+function DrinksDetailTitle({ drinksDetail }: DrinksDetailProps) {
   return (
     <TitleContainer>
-      <span>몽키 숄더</span>
+      <span>{drinksDetail?.drinkName}</span>
     </TitleContainer>
   );
 }
@@ -18,6 +19,7 @@ const TitleContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  color: var(--color-main);
 
   span {
     font-size: 70px;

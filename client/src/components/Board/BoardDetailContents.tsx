@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import "@toast-ui/editor/dist/toastui-editor-viewer.css";
+import { Viewer } from "@toast-ui/react-editor";
 
-function BoardDetailContents() {
+interface BoardDetailContentsProps {
+  content?: string;
+}
+
+function BoardDetailContents({ content }: BoardDetailContentsProps) {
+  console.log(content);
   return (
     <ContentsContainer>
-      요즘 잭콕에 맛이 들렸는데요... 아티클에 나와 있는 안주 말고도 다른 페어링
-      할 수 있는 안주는 뭐가 있을까요?? 추천 해 주시면 감사하겠습니다
+      <Viewer initialValue={content || ""} />
     </ContentsContainer>
   );
 }

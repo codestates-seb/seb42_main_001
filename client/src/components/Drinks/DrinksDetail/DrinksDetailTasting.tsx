@@ -2,12 +2,13 @@ import React from "react";
 import DrinksDetailChart from "./DrinksDetailChart";
 import DrinksDetailChartTitle from "./DrinksDetailChartTitle";
 import styled from "styled-components";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailTasting() {
+function DrinksDetailTasting({ drinksDetail }: DrinksDetailProps) {
   return (
     <TastingContainer>
       <DrinksDetailChartTitle />
-      <DrinksDetailChart />
+      <DrinksDetailChart drinksDetail={drinksDetail} />
     </TastingContainer>
   );
 }

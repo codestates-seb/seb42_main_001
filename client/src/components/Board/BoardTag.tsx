@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-function BoardTag() {
+interface BoardTagProps {
+  tag: string;
+}
+
+function BoardTag({ tag }: BoardTagProps) {
   return (
     <TagWrapper>
-      <div>#효도</div>
+      <div>{tag}</div>
     </TagWrapper>
   );
 }
@@ -23,6 +27,6 @@ const TagWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--xx-small);
+    padding: var(--2x-small);
   }
 `;

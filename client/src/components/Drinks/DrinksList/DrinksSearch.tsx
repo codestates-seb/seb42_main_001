@@ -1,12 +1,22 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import Card from "../../UI/Card";
 
-function DrinksSearch() {
+interface ISearchProps {
+  search?: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+}
+
+function DrinksSearch({ search, setSearch }: ISearchProps) {
+
+  const handleSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+  }
+
   return (
     <SearchContainer>
       <Card>
-        <input placeholder="Search" />
+        <input placeholder="Search" value={search} onChange={handleSearchValueChange} />
       </Card>
     </SearchContainer>
   );
@@ -22,7 +32,7 @@ const SearchContainer = styled.div`
     height: 60px;
     border: none;
     outline: none;
-    border-radius: var(--xx-small);
+    border-radius: var(--2x-small);
     padding-left: var(--medium);
   }
 `;

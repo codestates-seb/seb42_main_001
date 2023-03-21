@@ -18,6 +18,7 @@ const InfoContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  color: var(--color-main);
 
   span {
     font-weight: var(--weight-large);
@@ -29,5 +30,5 @@ const TopBorder = styled.div`
   height: 100%;
   display: flex;
   border-top: 1px solid var(--color-main);
-  padding: var(--xx-small);
+  padding: var(--2x-small);
 `;

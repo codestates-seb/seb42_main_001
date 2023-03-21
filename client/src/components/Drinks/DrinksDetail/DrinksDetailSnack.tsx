@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "../../UI/Card";
+import { DrinksSnacksProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailSnack() {
+
+function DrinksDetailSnack({ drinksDetail }: DrinksSnacksProps) {
   return (
     <SnackContainer>
       <Card>
@@ -20,7 +22,7 @@ const SnackContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 var(--x-large) var(--xx-large) var(--x-large);
+  margin: 0 var(--x-large) var(--2x-large) var(--x-large);
 
   div {
     width: 180px;

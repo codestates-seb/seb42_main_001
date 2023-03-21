@@ -23,7 +23,7 @@ const SignUpButtonContainer = styled.button`
   height: 90px;
   background-color: var(--color-white);
   border: 1px solid var(--color-sub-gray);
-  border-radius: var(--xx-small);
+  border-radius: var(--2x-small);
   margin-bottom: 150px;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@ const SignUpButtonContainer = styled.button`
     align-items: center;
 
     svg {
-      margin-right: var(--xx-small);
+      margin-right: var(--2x-small);
     }
   }
 `;

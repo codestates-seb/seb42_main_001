@@ -5,8 +5,14 @@ import BoardCreate from "./BoardCreate";
 import BoardSearch from "./BoardSearch";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../UI/Button";
+import { BoardDataProps } from "../../interfaces/Boards.interface";
 
-function BoardInfo() {
+interface BoardInfoProps {
+  data?: BoardDataProps[];
+  filterItems: (data: BoardDataProps[]) => void;
+}
+
+function BoardInfo({ data, filterItems }: BoardInfoProps) {
   const [search, setSearch] = useState(false);
 
   const handleSearchChange = () => {
@@ -16,7 +22,7 @@ function BoardInfo() {
   return (
     <InfoContainer>
       {search ? (
-        <BoardSearch />
+        <BoardSearch data={data} filterItems={filterItems} />
       ) : (
         <MarginDiv>
           <BoardCreate />

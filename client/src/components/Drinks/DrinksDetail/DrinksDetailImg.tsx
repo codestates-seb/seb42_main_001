@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "../../UI/Card";
+import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
 
-function DrinksDetailImg() {
+function DrinksDetailImg({ drinksDetail }: DrinksDetailProps) {
   return (
     <Size>
       <Card>
-        <ImgContainer>img</ImgContainer>
+        <ImgContainer>
+          <img src={`${drinksDetail?.drinkImageUrl}`} alt={`${drinksDetail?.drinkName}`} />
+        </ImgContainer>
       </Card>
     </Size>
   );
@@ -20,7 +23,7 @@ const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: var(--xx-small);
+  margin-right: var(--2x-small);
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -28,6 +31,10 @@ const ImgContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-bottom: var(--x-large);
+  }
+
+  img {
+    width: 60%;
   }
 `;
 

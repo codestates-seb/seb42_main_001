@@ -52,7 +52,7 @@ const ButtonStyled = styled.button<ButtonProps>`
     ${(props) =>
     props.borderColor ? `var(${props.borderColor})` : `var(--color-main)`};
   border-radius: ${(props) =>
-    props.radius ? `var(${props.radius})` : `var(--xx-small)`};
+    props.radius ? `var(${props.radius})` : `var(--2x-small)`};
   background-color: ${(props) =>
     props.bgColor ? `var(${props.bgColor})` : `var(--color-white)`};
   cursor: pointer;

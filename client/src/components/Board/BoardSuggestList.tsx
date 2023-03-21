@@ -2,14 +2,19 @@ import styled from "styled-components";
 
 import BoardSuggestItem from "./BoardSuggestItem";
 
-function BoardSuggestList() {
+interface Props {
+  recommandBoards?: Array<{
+    boardId: number;
+    boardTitle: string;
+  }>;
+}
+
+function BoardSuggestList({ recommandBoards }: Props) {
   return (
     <ListContainer>
-      <BoardSuggestItem />
-      <BoardSuggestItem />
-      <BoardSuggestItem />
-      <BoardSuggestItem />
-      <BoardSuggestItem />
+      {recommandBoards?.map((el) => (
+        <BoardSuggestItem key={el.boardId} title={el.boardTitle} />
+      ))}
     </ListContainer>
   );
 }

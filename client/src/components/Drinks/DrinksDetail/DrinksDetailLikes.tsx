@@ -11,12 +11,12 @@ function DrinksDetailLikes() {
 
   return (
     <LikesSize>
-      <span>10</span>
       {likes ? (
         <IoMdHeart onClick={handleLikesChange} />
       ) : (
         <IoMdHeartEmpty onClick={handleLikesChange} />
       )}
+      <span>10</span>
     </LikesSize>
   );
 }
@@ -36,5 +36,6 @@ const LikesSize = styled.div`
 
   span {
     font-size: var(--text-small);
+    margin-left: var(--3x-small);
   }
 `;

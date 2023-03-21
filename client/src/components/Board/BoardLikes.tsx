@@ -1,12 +1,45 @@
 import styled from "styled-components";
+import { useState } from "react";
 
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
+import axios from "axios";
 
-function BoardLikes() {
+interface BoardLikesProps {
+  boardId?: number;
+  like: number | undefined;
+  likes?: boolean;
+}
+
+function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
+  const [isLike, setIsLike] = useState(likes);
+
+  const handleLikeChange = () => {
+    if (isLike) {
+      axios
+        .delete(`/likes/boards/${boardId}`)
+        .then((res) => {
+          setIsLike((prev) => !prev);
+          window.location.reload();
+        })
+        .catch((err) => console.log(Error, err));
+    } else {
+      axios
+        .post(`/likes/boards/${boardId}`)
+        .then((res) => {
+          setIsLike((prev) => !prev);
+          window.location.reload();
+        })
+        .catch((err) => console.log(Error, err));
+    }
+  };
   return (
     <LikesWrapper>
-      <IoMdHeartEmpty />
-      <LikesCount>12</LikesCount>
+      {likes ? (
+        <IoMdHeart onClick={handleLikeChange} />
+      ) : (
+        <IoMdHeartEmpty onClick={handleLikeChange} />
+      )}
+      <LikesCount>{like}</LikesCount>
     </LikesWrapper>
   );
 }

@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-function DrinksDetailTags() {
+interface Props {
+  tagName: string;
+}
+
+function DrinksDetailTags({ tagName }: Props) {
   return (
     <TagsContainer>
-      <div>#효도</div>
-      <div>#데이트</div>
+      <div>{tagName}</div>
     </TagsContainer>
   );
 }
@@ -24,7 +27,7 @@ const TagsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: var(--xxx-small);
-    padding: var(--xx-small);
+    margin-right: var(--3x-small);
+    padding: var(--2x-small);
   }
 `;
