@@ -11,7 +11,6 @@ interface InfoProps {
 }
 
 function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
-  const token = useAppSelector(state => state.auth.token);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -24,21 +23,21 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
   };
 
   const handleLogout = async () => {
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+
     try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/members/logout`,
-        {
-          headers: {
-            Authorization: token?.accessToken,
-            Refresh: token?.refreshToken,
-          },
+      const res = await axios.get(`/members/logout`, {
+        headers: {
+          Authorization: accessToken,
+          Refresh: refreshToken,
         },
-      );
+      });
       if (res.status === 200) {
         dispatch(logoutSuccess());
+        localStorage.clear();
         alert('로그아웃 되었습니다');
         navigate('/');
-        localStorage.clear();
       }
     } catch (e) {
       console.error(e);
