@@ -8,10 +8,9 @@ import { store } from './redux/store/store';
 import { Provider } from 'react-redux';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-axios.defaults.headers.common[
-  'Authorization'
-] = `Bearer ${process.env.REACT_APP_AUTHORIZATION}`;
-axios.defaults.headers.common['Refresh'] = process.env.REACT_APP_REFRESH;
+axios.defaults.headers.common['Authorization'] =
+  localStorage.getItem('accessToken');
+axios.defaults.headers.common['Refresh'] = localStorage.getItem('refreshToken');
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
