@@ -8,6 +8,7 @@ import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityU
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -63,8 +64,17 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         response.setHeader("Refresh",refreshToken);
 
         response.addHeader(accessToken, refreshToken);
-    }
 
+        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
+
+    }
+    // 신규 코드
+    private String makeRedirectUrl (String accessToken, String refreshToken) {
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
+                .queryParam("Authorization", accessToken)
+                .queryParam("Refresh", refreshToken)
+                .build().toUriString();
+    }
     private void saveMember(String email) {
         Member member = new Member(email);
         memberService.createMember(member);

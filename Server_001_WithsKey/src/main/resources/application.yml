@@ -1,4 +1,12 @@
 spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles:
+    active: deploy
+---
+spring:
   h2:
     console:
       enabled: true
@@ -20,60 +28,3 @@ spring:
   sql:
     init:
       data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
-
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            clientId: ${/main001/oauth2.clientId}
-#            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com"
-            clientSecret: ${/main001/oauth2.clientsecret}
-#            "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"
-            redirectUri: ${/main001/oauth2.redirecturi}
-
-            scope:
-              - email
-              - profile
-  redis:
-    host: localhost
-    port: 6379
-#    password: Optional, if Redis requires a password
-
-logging:
-  level:
-    org:
-      springframework:
-        orm:
-          jpa: DEBUG
-mail:
-  address:
-    admin: han2041126@gmail.com
-jwt:
-  key:
-    secret: ${/main001/jwt.key.secret}
-  access-token-expiration-minutes: 60
-  refresh-token-expiration-minutes: 1440
-
-#  001mainprojectwithskeyletsgoforitwecandoit
-
-file:
-  root:
-    dir : /home/ssm-user/image/
-
-#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath #임시로 업로드 이미지 저장하는 디렉토리
-# dir : /home/ssm-user/image/
-
-cloud:
-  aws:
-    s3:
-      bucket: ${/main001/cloud.aws.s3.bucketname} #버킷 이름
-    credentials:
-      access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
-      secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
-    region:
-      static: ${/main001/cloud.aws.region.static}
-    stack:
-      auto: false
-awsParameterStorePropertySource:
-  enabled: true

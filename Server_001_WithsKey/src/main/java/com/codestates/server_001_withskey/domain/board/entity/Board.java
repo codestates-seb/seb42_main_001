@@ -61,7 +61,4 @@ public class Board extends Auditable {
             member.getBoards().add(this);
         }
     }
-
-
-
 }

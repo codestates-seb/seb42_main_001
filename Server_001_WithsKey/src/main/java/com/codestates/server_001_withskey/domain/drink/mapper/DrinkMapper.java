@@ -82,6 +82,20 @@ public class DrinkMapper {
                 .build();
     }
 
+    public DrinkDto.Short drinkToShort(Drink drink){
+        DrinkDto.Short drinkShort = new DrinkDto.Short();
+        drinkShort.setDrinkName(drink.getDrinkName());
+        drinkShort.setDrinkId(drink.getDrinkId());
+        return drinkShort;
+    }
+
+    public List<DrinkDto.Short> drinksToShorts(List<Drink> drinks){
+        return drinks.stream()
+                .map(drink -> {
+                    return drinkToShort(drink);
+                }).collect(Collectors.toList());
+    }
+
 
     // Todo
 //     List<TastingNote>

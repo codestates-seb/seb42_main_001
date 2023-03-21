@@ -72,7 +72,7 @@ public class BoardMapperImpl implements BoardMapper{
             Board board = Board.builder()
                 .boardId(requestBody.getBoardId())
                 .boardTitle(requestBody.getBoardTitle())
-                .content(requestBody.getContent())
+                .content(requestBody.getBoardContent())
                 .build();
 
             return board;

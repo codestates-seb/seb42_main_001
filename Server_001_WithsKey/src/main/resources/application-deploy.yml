@@ -1,0 +1,55 @@
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${/main001/oauth2.clientId}
+            clientSecret: ${/main001/oauth2.clientsecret}
+            redirectUri: ${/main001/oauth2.redirecturi}
+
+
+            scope:
+              - email
+              - profile
+  redis:
+    host: localhost
+    port: 6379
+#    password: Optional, if Redis requires a password
+
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+mail:
+  address:
+    admin: han2041126@gmail.com
+jwt:
+  key:
+    secret: ${/main001/jwt.key.secret}
+  access-token-expiration-minutes: 30
+  refresh-token-expiration-minutes: 1440
+
+file:
+  root:
+    dir : /home/ssm-user/image/
+#  dir: C:\Users\MEcmp\Desktop\Main_Proj\sampleImgPath\ #임시로 업로드 이미지 저장하는 디렉토리
+# /home/ssm-user/image/
+
+cloud:
+  aws:
+    s3:
+      bucket: ${/main001/s3access/cloud.aws.s3.bucket}
+    credentials:
+      access-key: ${/main001/s3access/cloud.aws.credentials.access-key}
+      secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key}
+    region:
+      static: ${/main001/s3access/cloud.aws.region.static}
+    stack:
+      auto: false
+
+awsParameterStorePropertySource:
+  enabled: true

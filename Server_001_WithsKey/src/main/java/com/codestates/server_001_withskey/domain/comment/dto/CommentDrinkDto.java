@@ -29,4 +29,13 @@ public class CommentDrinkDto {
         private String commentContent;
         private LocalDateTime createAt;
     }
+
+    @Getter
+    @Setter
+    public static class MyPage{
+        private long drinkId;
+        private long commentId;
+        private String commentContent;
+        private String drinkName;
+    }
 }

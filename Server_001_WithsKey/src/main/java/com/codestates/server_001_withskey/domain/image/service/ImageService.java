@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,19 +51,22 @@ public class ImageService {
         if (file.isEmpty()) {
             throw new BusinessLogicException(ExceptionCode.IMAGES_NOT_FOUND);
         }
-//        File test =  new File("temp").getAbsoluteFile();
+//        File test =  new File("mymy").getAbsoluteFile(); //C:\Users\MEcmp\Desktop\Main_Proj\main\temp
 //        test.mkdirs();
 //        log.info("check here : {}", test);
 //        test.createNewFile();
 //        log.info("after check here : {}", test);
 
+//        File: 경로를 다루는 객체, 그 경로가 존재하는지? 절대 경로 구해주기
 
         //TODO 로컬 루트 경로를 어떻게 설정할 것인가?
 
-
+        //UUID 랜덤 아이디 생성 UUID + 캡처.jpg
         String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
         //로컬 저장 로직 - 로컬에 저장을 해놓은 경로를 기준으로 파일을 찾아 업로드를 실행함.
-        String fullPathFileName = rootPath + fileName;
+        String fullPathFileName = rootPath + fileName; // 파일 경로 + UUID
+
+        //실제로 파일을 로컬에 "저장"하는 로직
         file.transferTo(new File(fullPathFileName));
 
 
@@ -70,6 +74,7 @@ public class ImageService {
         if (!ObjectUtils.isEmpty(contentType)) {
             // 버킷 이름, 버킷에 저장될 파일 이름, 파일이 존재하는 경로
             // ACL : 버킷에 대한 접근 권한을 설정하게 해줌.
+
             amazonS3.putObject(new PutObjectRequest(bucket, fileName, new File(fullPathFileName))
                     .withCannedAcl(CannedAccessControlList.PublicRead));
 
