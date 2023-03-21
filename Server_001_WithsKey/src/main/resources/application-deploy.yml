@@ -5,23 +5,10 @@ spring:
       client:
         registration:
           google:
-            clientId: "507005838545-hvvt7qcag876mbrr6arcr6nkdo680eu9.apps.googleusercontent.com"
-            #            "646609229988-u5rorv92gaj6sp4g4t161776dfh7abli.apps.googleusercontent.com" 다현님
-            #            507005838545-hvvt7qcag876mbrr6arcr6nkdo680eu9.apps.googleusercontent.com 성현님
-            clientSecret: "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"
-            #            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 성현
-            #            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 다현
-            redirectUri: "http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google"
-            #            EC2에 올릴 때는 http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google 로 변경해야함.
-            #            http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google
+            clientId: ${/main001/oauth2.clientId}
+            clientSecret: ${/main001/oauth2.clientsecret}
+            redirectUri: ${/main001/oauth2.redirecturi}
 
-            #            로그인 url
-            #            http://localhost:8080/login/oauth2/code/google
-            #            http://localhost:8080/oauth2/authorization/google
-
-
-            #            로그인 url
-            #            http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google
 
             scope:
               - email
@@ -42,11 +29,9 @@ mail:
     admin: han2041126@gmail.com
 jwt:
   key:
-    secret: 001mainprojectwithskeyletsgoforitwecandoit
-  access-token-expiration-minutes: 10000
-  refresh-token-expiration-minutes: 10000
-#  001mainprojectwithskeyletsgoforitwecandoit
-# ${/main001/serverkey/jwt.key.secret}
+    secret: ${/main001/jwt.key.secret}
+  access-token-expiration-minutes: 30
+  refresh-token-expiration-minutes: 1440
 
 file:
   root:
@@ -57,16 +42,12 @@ file:
 cloud:
   aws:
     s3:
-      bucket: ${/main001/s3access/cloud.aws.s3.bucket} #버킷 이름 ${BUCKET_NAME}
-      # ${/main001/s3access/cloud.aws.s3.bucket}
+      bucket: ${/main001/s3access/cloud.aws.s3.bucket}
     credentials:
-      access-key: ${/main001/s3access/cloud.aws.credentials.access-key} # ${S3_ACCESSKEY}
-      # ${/main001/s3access/cloud.aws.credentials.access-key}
-      secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key} # ${S3_SECRETKEY}
-      # ${/main001/s3access/cloud.aws.credentials.secret-key}
+      access-key: ${/main001/s3access/cloud.aws.credentials.access-key}
+      secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key}
     region:
-      static: ${/main001/s3access/cloud.aws.region.static} # ${REGION_STATIC}
-      # ${/main001/s3access/cloud.aws.region.static}
+      static: ${/main001/s3access/cloud.aws.region.static}
     stack:
       auto: false
 
