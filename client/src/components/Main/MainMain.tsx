@@ -1,14 +1,11 @@
 import styled from "styled-components";
-import MainArrowButton from "./MainArrowButton";
+
 import MainContent from "./MainContent";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 const MainMain = () => {
   return (
     <MainContainer>
-      <MainArrowButton arrow={<SlArrowLeft />} />
       <MainContent />
-      <MainArrowButton arrow={<SlArrowRight />} />
     </MainContainer>
   );
 };
@@ -21,6 +18,6 @@ const MainContainer = styled.div`
   display: flex;
 
   @media only screen and (max-width: 768px) {
-  width: 400px;
+    width: 400px;
   }
 `;
