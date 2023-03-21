@@ -26,12 +26,12 @@ const BoardContentsContainer = styled.div`
 
 const BoardContentsTitle = styled.div`
   margin-bottom: var(--x-small);
-  font-size: var(--medium);
+  font-size: var(--text-large);
   font-weight: var(--weight-large);
 `;
 
 const BoardContentsBody = styled.div`
   line-height: var(--medium);
-  font-size: var(--x-small);
+  font-size: var(--text-small);
   font-weight: var(--weight-x-small);
 `;

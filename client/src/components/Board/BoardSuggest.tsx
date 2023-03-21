@@ -30,7 +30,7 @@ const OuterContainer = styled.div`
   height: auto;
   max-height: 600px;
   position: absolute;
-  top: 80px;
+  top: 130px;
   left: 1000px;
 
   @media only screen and (max-width: 768px) {

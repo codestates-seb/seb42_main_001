@@ -108,7 +108,7 @@ const Wrapper = styled.div`
 
 const BoardDetailContainer = styled.div`
   width: calc(100% / 18 * 12);
-  margin-top: var(--3x-large);
+  margin-top: var(--5x-large);
   padding: var(--2x-large);
   background-color: var(--color-white);
   border: 1px solid var(--color-main);
