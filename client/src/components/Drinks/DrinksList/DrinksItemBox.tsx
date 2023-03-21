@@ -29,14 +29,23 @@ const InfoContainer = styled.div`
   width: 100%;
   height: 75px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: var(--large) var(--large) 0 var(--large);
 `;
 
-
 const TagContainer = styled.div`
-  width: 100%;
+  width: 85%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  overflow-x: scroll;
+
+  background-image:
+  linear-gradient(-45deg, #ffffff 25%);
+
+  &::-webkit-scrollbar {
+    display: none;
+
+
+  }
 `

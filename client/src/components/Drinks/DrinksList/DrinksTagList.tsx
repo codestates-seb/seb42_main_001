@@ -70,10 +70,21 @@ function DrinksTagList({ setSearchTag }: TagProps) {
 
 export default DrinksTagList;
 
+const DisplayContainer = styled.div`
+    display: flex;
+    align-items: center;
+    width: 95%;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
 const TagListContainer = styled.div`
   display: flex;
   width: 90%;
   overflow: overlay;
+  
   &::-webkit-scrollbar {
     display: none;
   }
@@ -84,13 +95,3 @@ const TagListContainer = styled.div`
     align-items: center;
   }
 `;
-
-const DisplayContainer = styled.div`
-    display: flex;
-    align-items: center;
-    width: 95%;
-
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
-`
