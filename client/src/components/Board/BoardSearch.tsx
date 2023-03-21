@@ -14,7 +14,6 @@ function BoardSearch({ data, filterItems }: BoardSearchProps) {
       filterItems(
         data.filter((el) => el.boardTitle.includes(e.target.value.toString()))
       );
-      console.log(e.target.value);
     }
   };
 

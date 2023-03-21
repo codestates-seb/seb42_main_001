@@ -7,7 +7,6 @@ interface BoardDetailContentsProps {
 }
 
 function BoardDetailContents({ content }: BoardDetailContentsProps) {
-  console.log(content);
   return (
     <ContentsContainer>
       <Viewer initialValue={content || ""} />
