@@ -69,10 +69,10 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 try {
                     verifyJws(refreshToken);
                 } catch (ExpiredJwtException e) {
-                    // Local 환경 동작용
-//                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
-                    // EC2 환경 동작용
-                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
+                     // Local 환경 동작용
+                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+//                    // EC2 환경 동작용
+//                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
                     return;
                 }
 
