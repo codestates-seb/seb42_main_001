@@ -45,7 +45,7 @@ cloud:
       access-key: ${/main001/s3access/cloud.aws.credentials.access-key}
       secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key}
     region:
-      static: ${/main001/s3access/cloud.aws.region.static}
+      static: ${/main001/cloud.aws.region.static}
     stack:
       auto: false
 
