@@ -27,12 +27,7 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
     const refreshToken = localStorage.getItem('refreshToken');
 
     try {
-      const res = await axios.get(`/members/logout`, {
-        headers: {
-          Authorization: accessToken,
-          Refresh: refreshToken,
-        },
-      });
+      const res = await axios.get(`/members/logout`);
       if (res.status === 200) {
         dispatch(logoutSuccess());
         localStorage.clear();
