@@ -3,10 +3,22 @@ import styled from "styled-components";
 import MainArrowButton from "./MainArrowButton";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
-const MainDontMove = () => {
-  const handleLeft = () => {};
+interface MainDontMoveProps {
+  handlePreClick: () => void;
+  handleNextClick: () => void;
+}
 
-  const handleRight = () => {};
+const MainDontMove = ({
+  handlePreClick,
+  handleNextClick,
+}: MainDontMoveProps) => {
+  const handleLeft = () => {
+    handlePreClick();
+  };
+
+  const handleRight = () => {
+    handleNextClick();
+  };
 
   return (
     <MainDontMoveContauner>
@@ -25,4 +37,5 @@ const MainDontMoveContauner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 `;

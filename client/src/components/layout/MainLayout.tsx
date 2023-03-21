@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
@@ -15,6 +15,23 @@ interface MainLayoutProps {
 }
 
 function MainLayout({ bgColor, img }: MainLayoutProps) {
+  const [page, setPage] = useState(0);
+
+  const handlePreClick = () => {
+    setPage((prev) => (prev - 1 + 4) % 4);
+  };
+
+  const handleNextClick = () => {
+    setPage((prev) => (prev + 1) % 4);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPage((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [page]);
+
   return (
     <DefaultSize bgColor={bgColor}>
       {bgColor ? (
@@ -26,8 +43,18 @@ function MainLayout({ bgColor, img }: MainLayoutProps) {
       ) : (
         <Header profileColor={`--color-main`} hover={`--color-white`} />
       )}
-      {img ? <MainDontMove /> : null}
-      <ContentBox img={img}>
+      {img ? (
+        <MainDontMove
+          handlePreClick={handlePreClick}
+          handleNextClick={handleNextClick}
+        />
+      ) : null}
+      <ContentBox
+        img={img}
+        style={{
+          transform: `translateX(-${page * 25}%)`,
+        }}
+      >
         <ContainerBox img={img}>
           <Container img={img}>
             <Outlet />
@@ -64,37 +91,7 @@ const ContentBox = styled.div<MainLayoutProps>`
   width: 400%;
   display: flex;
   margin-left: ${(props) => (props.img ? `300%` : `none`)};
-
-  animation-duration: ${(props) => (props.img ? `18s` : `none`)};
-  animation-name: ${(props) => (props.img ? `img` : `none`)};
-  animation-iteration-count: ${(props) => (props.img ? `infinite` : `none`)};
-
-  @keyframes img {
-    18.75% {
-      margin-left: 300%;
-    }
-    25% {
-      margin-left: 100%;
-    }
-    43.75% {
-      margin-left: 100%;
-    }
-    50% {
-      margin-left: -100%;
-    }
-    68.75% {
-      margin-left: -100%;
-    }
-    75% {
-      margin-left: -300%;
-    }
-    93.75% {
-      margin-left: -300%;
-    }
-    100% {
-      margin-left: 300%;
-    }
-  }
+  transition: 1s;
 `;
 
 const ContainerBox = styled.div<MainLayoutProps>`
