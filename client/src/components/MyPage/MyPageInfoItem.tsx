@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import { useNavigate } from 'react-router';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { useAppDispatch } from '../../redux/hooks/hooks';
 import { logoutSuccess } from '../../redux/slice/auth/authSlice';
 
 interface InfoProps {
@@ -23,9 +23,6 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
   };
 
   const handleLogout = async () => {
-    const accessToken = localStorage.getItem('accessToken');
-    const refreshToken = localStorage.getItem('refreshToken');
-
     try {
       const res = await axios.get(`/members/logout`);
       if (res.status === 200) {
