@@ -26,11 +26,15 @@ function MainLayout({ bgColor, img }: MainLayoutProps) {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPage((prev) => (prev + 1) % 4);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [page]);
+    if (img) {
+      const interval = setInterval(() => {
+        setPage((prev) => (prev + 1) % 4);
+      }, 3000);
+      return () => clearInterval(interval);
+    } else {
+      setPage(0);
+    }
+  }, [page, img]);
 
   return (
     <DefaultSize bgColor={bgColor}>
@@ -49,12 +53,7 @@ function MainLayout({ bgColor, img }: MainLayoutProps) {
           handleNextClick={handleNextClick}
         />
       ) : null}
-      <ContentBox
-        img={img}
-        style={{
-          transform: `translateX(-${page * 25}%)`,
-        }}
-      >
+      <ContentBox img={img} page={page}>
         <ContainerBox img={img}>
           <Container img={img}>
             <Outlet />
@@ -87,11 +86,13 @@ const DefaultSize = styled.div<MainLayoutProps>`
   overflow: hidden;
 `;
 
-const ContentBox = styled.div<MainLayoutProps>`
+const ContentBox = styled.div<{ img?: boolean; page: number }>`
   width: 400%;
   display: flex;
   margin-left: ${(props) => (props.img ? `300%` : `none`)};
-  transition: 1s;
+  transition: ${(props) => (props.img ? `1s` : `none`)};
+  transform: ${(props) =>
+    props.img ? `translateX(-${props.page * 25}%)` : `none`};
 `;
 
 const ContainerBox = styled.div<MainLayoutProps>`
