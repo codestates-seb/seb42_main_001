@@ -26,7 +26,7 @@ function MyPage() {
       .then(res => {
         if (res.status === 200) {
           const userInfo = res.data;
-          dispatch(loginSuccess({ userInfo }));
+          dispatch(loginSuccess({ userInfo: userInfo }));
           localStorage.clear();
           localStorage.setItem('accessToken', token.accessToken);
           localStorage.setItem('refreshToken', token.refreshToken);
