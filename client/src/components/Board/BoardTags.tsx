@@ -32,7 +32,7 @@ function BoardTags({ tags }: BoardTagsProps) {
 export default BoardTags;
 
 const TagsBox = styled.div`
-  display: flex;
+  display: flex; 
 `;
 
 const TagsContainer = styled.div`

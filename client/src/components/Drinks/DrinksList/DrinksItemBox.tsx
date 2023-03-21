@@ -40,12 +40,11 @@ const TagContainer = styled.div`
   justify-content: flex-start;
   overflow-x: scroll;
 
+  // TODO: CSS mask
   background-image:
   linear-gradient(-45deg, #ffffff 25%);
 
   &::-webkit-scrollbar {
     display: none;
-
-
   }
 `

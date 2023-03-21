@@ -69,6 +69,13 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: .4s;
+
+  &:hover {
+    transition: .4s;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #473f3f73;
+  }
 
   @media only screen and (max-width: 768px) {
     width: 100%;
