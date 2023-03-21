@@ -1,5 +1,7 @@
 
 spring:
+  profile:
+    active: deploy
   security:
     oauth2:
       client:
