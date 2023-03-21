@@ -8,9 +8,11 @@ import Button from "../../UI/Button";
 interface ISearchProps {
   search?: string;
   setSearch: Dispatch<SetStateAction<string>>;
+  searchTag?: number;
+  setSearchTag: (state: number) => void;
 }
 
-function DrinksInfo({ search, setSearch }: ISearchProps) {
+function DrinksInfo({ search, setSearch, searchTag, setSearchTag }: ISearchProps) {
   const [searchButton, setSearchButton] = useState(false);
 
   // searchButton on/off
@@ -20,7 +22,7 @@ function DrinksInfo({ search, setSearch }: ISearchProps) {
 
   return (
     <InfoContainer>
-      {searchButton ? <DrinkSearch search={search} setSearch={setSearch} /> : <DrinksTagList />}
+      {searchButton ? <DrinkSearch search={search} setSearch={setSearch} /> : <DrinksTagList setSearchTag={setSearchTag} />}
       <Button
         type="button"
         width={`--x-large`}

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-
 import ArticleListItem from "../components/Article/ArticleList/ArticleListItem";
-import ArticleModalItem from "../components/Article/ArticleModalItem";
 
 function ArticleList() {
   const [isModal, setModal] = useState({
@@ -20,7 +18,6 @@ function ArticleList() {
 
   return (
     <ArticleListContauner>
-      <ArticleModalItem modal={isModal} onClick={handleWhiskeyModal} />
       <ArticleListCardContainer>
         <ArticleListItem onClick={handleWhiskeyModal} />
       </ArticleListCardContainer>
@@ -46,7 +43,7 @@ const ArticleListCardContainer = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   @media only screen and (max-width: 768px) {
     height: auto;

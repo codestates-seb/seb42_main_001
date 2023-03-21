@@ -1,10 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-function DrinksTags() {
+interface Tags {
+  tagId: number;
+  tagName?: string;
+  onClick?: () => void;
+  setSearchTag: (state: number) => void;
+};
+
+
+function DrinksTags({ tagId, tagName, setSearchTag }: Tags) {
+
+  const handleTagSearchValueChange = () => {
+    setSearchTag(tagId)
+  }
+
   return (
     <TagsContainer>
-      <div>데이트</div>
+      <div onClick={handleTagSearchValueChange}>{tagName}</div>
     </TagsContainer>
   );
 }
@@ -17,13 +30,24 @@ const TagsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-right: var(--medium);
-
+  margin: 0 var(--small);
+  
   div {
-    width: 70px;
-    font-size: var(--text-small);
+    cursor: pointer;
+    border: 1px solid var(--color-main);
+    color: var(--color-main);
+    border-radius: 200px;
+    font-size: var(--text-x-small);
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .5s;
+
+    &:hover {
+      transition: .5s;
+      background-color: var(--color-white);
+    }
   }
 `;

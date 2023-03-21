@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import LogoText from "../../UI/LogoText";
-import Button from "../../UI/Button";
-import MenuNav from "./MenuNav";
-import UserNav from "./UserNav";
+import LogoText from '../../UI/LogoText';
+import Button from '../../UI/Button';
+import MenuNav from './MenuNav';
+import UserNav from './UserNav';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 
 interface HeaderProps {
   headerBgColor?: string;
@@ -14,11 +15,7 @@ interface HeaderProps {
 }
 
 function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
-  const [isLogin, setLogin] = useState(false);
-
-  const handleLogin = () => {
-    setLogin((prev) => !prev);
-  };
+  const isLogin = useAppSelector(state => state.auth.isLogin);
 
   return (
     <HeaderBackground headerBgColor={headerBgColor}>
@@ -28,11 +25,11 @@ function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
         {isLogin ? (
           <UserNav profileColor={profileColor} />
         ) : (
-          <LoginContainer headerColor={headerColor}>
-            <Button type="submit" onClick={handleLogin}>
-              Login
-            </Button>
-          </LoginContainer>
+          <Link to="/signup">
+            <LoginContainer headerColor={headerColor}>
+              <Button type="submit">Login</Button>
+            </LoginContainer>
+          </Link>
         )}
       </HeaderContainer>
     </HeaderBackground>
@@ -42,7 +39,7 @@ function Header({ headerBgColor, headerColor, profileColor }: HeaderProps) {
 export default Header;
 
 const HeaderBackground = styled.div<HeaderProps>`
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.headerBgColor ? `var(${props.headerBgColor})` : `var(--color-white)`};
   width: 100%;
   height: 65px;
@@ -53,7 +50,7 @@ const HeaderBackground = styled.div<HeaderProps>`
 
 const HeaderContainer = styled.div<HeaderProps>`
   color: var(--color-main);
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.headerBgColor ? `var(${props.headerBgColor})` : `var(--color-white)`};
   width: 85%;
   max-width: 1420px;

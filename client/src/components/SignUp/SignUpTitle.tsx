@@ -7,6 +7,7 @@ const SignUpTitle = () => {
 export default SignUpTitle;
 
 const SignUpTitleContent = styled.div`
+  font-family: "Bayon", sans-serif;
   margin-bottom: 120px;
   color: var(--color-main);
   font-size: var(--large);

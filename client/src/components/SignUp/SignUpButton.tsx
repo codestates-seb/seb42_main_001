@@ -1,10 +1,16 @@
-import styled from "styled-components";
-import { FcGoogle } from "react-icons/fc";
+import styled from 'styled-components';
+import { FcGoogle } from 'react-icons/fc';
 
 const SignUpButton = () => {
+  const handleLogin = () => {
+    window.location.assign(
+      `${process.env.REACT_APP_BASE_URL}/oauth2/authorization/google`,
+    );
+  };
+
   return (
-    <SignUpButtonContainer>
-      <FcGoogle size="50" />
+    <SignUpButtonContainer onClick={handleLogin}>
+      <FcGoogle size="40" />
       Google로 시작하기
     </SignUpButtonContainer>
   );
@@ -21,7 +27,7 @@ const SignUpButtonContainer = styled.button`
   margin-bottom: 150px;
   display: flex;
   align-items: center;
-  font-size: var(--small);
+  font-size: var(--text-medium);
   font-weight: var(--weight-large);
   cursor: pointer;
   > svg {

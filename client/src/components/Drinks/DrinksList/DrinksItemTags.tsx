@@ -27,5 +27,6 @@ const TagsContainer = styled.div`
     justify-content: center;
     margin-left: var(--3x-small);
     padding: var(--2x-small);
+    
   }
 `;

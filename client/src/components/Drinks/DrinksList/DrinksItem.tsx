@@ -25,6 +25,10 @@ function DrinksItem({ drinksData, likesData }: DrinksProps) {
 
 export default DrinksItem;
 
+const Margin = styled.div`
+  margin: 0 calc(var(--large) / 2) calc(var(--4x-large) / 2) calc(var(--large) / 2);
+`;
+
 const ItemContainer = styled.div`
   width: 320px;
   height: 490px;
@@ -36,8 +40,4 @@ const ItemContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
-`;
-
-const Margin = styled.div`
-  margin-bottom: var(--4x-large);
 `;
