@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
-import { useAppDispatch } from '../../hooks/hooks';
-import { logoutSuccess } from '../../slice/auth/authSlice';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { logoutSuccess } from '../../redux/slice/auth/authSlice';
 import MyPageButton from './MyPageButton';
 
 interface MyPageInfoButtonsProps {
@@ -10,12 +11,19 @@ interface MyPageInfoButtonsProps {
 }
 
 const MyPageInfoButtons = ({ onClick }: MyPageInfoButtonsProps) => {
+  const { token } = useAppSelector(state => state.auth);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logoutSuccess());
-    navigate('/');
+  const handleLogout = async () => {
+    await axios.get(`${process.env.REACT_APP_BASE_URL}/members/logout`, {
+      headers: {
+        Authorization: token?.accessToken,
+        Refresh: token?.refreshToken,
+      },
+    });
+    await dispatch(logoutSuccess());
+    await navigate('/');
   };
 
   return (
