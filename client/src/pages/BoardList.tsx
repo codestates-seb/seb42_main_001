@@ -78,7 +78,7 @@ const ListContainer = styled.div`
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   @media only screen and (max-width: 768px) {
     display: flex;
