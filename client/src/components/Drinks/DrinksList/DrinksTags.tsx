@@ -1,10 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-function DrinksTags() {
+interface Tags {
+  tagId: number;
+  tagName?: string;
+  onClick?: () => void;
+  setSearchTag: (state: number) => void;
+};
+
+
+function DrinksTags({ tagId, tagName, setSearchTag }: Tags) {
+
+  const handleTagSearchValueChange = () => {
+    setSearchTag(tagId)
+  }
+
   return (
     <TagsContainer>
-      <div>데이트</div>
+      <div onClick={handleTagSearchValueChange}>{tagName}</div>
     </TagsContainer>
   );
 }

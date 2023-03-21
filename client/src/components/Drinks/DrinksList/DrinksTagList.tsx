@@ -1,11 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
+import axios from "axios";
 
-function DrinksTagList() {
+interface Tags {
+  tagId: number;
+  tagName?: string;
+};
+
+interface TagProps {
+  setSearchTag: (state: number) => void;
+}
+
+function DrinksTagList({ setSearchTag }: TagProps) {
   const [tagPage, setTagPage] = useState(3)
   const pageRef = useRef<HTMLDivElement>(null);
+  const [tagData, setTagData] = useState<Tags[]>([])
 
   const handleRightClick = () => {
     setTagPage(prev => prev + 3)
@@ -21,6 +32,16 @@ function DrinksTagList() {
     pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
+  const tagsData = async () => {
+    const res = await axios.get(`/tags`);
+    setTagData(res.data);
+  };
+
+  useEffect(() => {
+    tagsData()
+  }, [])
+
+
   return (
     <DisplayContainer>
       <Button
@@ -31,25 +52,10 @@ function DrinksTagList() {
         borderColor={`--color-main`}
       >{`<`}</Button>
       <TagListContainer ref={pageRef}>
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
-        <DrinksTags />
+        {tagData.map(el => {
+          return <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} setSearchTag={setSearchTag} />
+        })
+        }
       </TagListContainer>
       <Button
         type="button"
@@ -65,6 +71,7 @@ function DrinksTagList() {
 export default DrinksTagList;
 
 const TagListContainer = styled.div`
+cursor: pointer;
   display: flex;
   width: 90%;
   overflow: overlay;

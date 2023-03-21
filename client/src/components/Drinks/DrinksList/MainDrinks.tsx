@@ -5,11 +5,13 @@ import DrinksInfo from "./DrinksInfo";
 
 function MainDrinks() {
   const [search, setSearch] = useState<string>('');
+  const [searchTag, setSearchTag] = useState<number>(0);
+  // console.log(searchTag)
 
   return (
     <MainDrinksContainer>
-      <DrinksInfo search={search} setSearch={setSearch} />
-      <DrinksContents search={search} />
+      <DrinksInfo search={search} setSearch={setSearch} searchTag={searchTag} setSearchTag={setSearchTag} />
+      <DrinksContents search={search} searchTag={searchTag} />
     </MainDrinksContainer>
   );
 }

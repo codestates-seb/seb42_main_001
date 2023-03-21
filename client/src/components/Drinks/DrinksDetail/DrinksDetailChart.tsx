@@ -21,7 +21,7 @@ function DrinksDetailChart({ drinksDetail }: DrinksDetailProps) {
   // const tastingValues = Object.values(drinksDetail?.tastingNote ?? {})
 
   const data: ChartData<'radar', number[], unknown> = {
-    labels: ['citrus', 'sweet', 'smoky', 'herbal', 'tropical'],
+    labels: ['sweet', 'smoky', 'orc', 'spicy', 'fruity'],
     datasets: [
       {
         label: 'Tasting Note',
