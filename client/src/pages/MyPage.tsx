@@ -1,12 +1,35 @@
-import { useState } from "react";
-import styled from "styled-components";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import MyContent from "../components/Mypage/MyContent";
-import MyPageEdit from "../components/Mypage/MyPageEdit";
-import MyPageInfo from "../components/Mypage/MyPageInfo";
+import MyContent from '../components/Mypage/MyContent';
+import MyPageEdit from '../components/Mypage/MyPageEdit';
+import MyPageInfo from '../components/Mypage/MyPageInfo';
+import { useAppDispatch } from '../redux/hooks/hooks';
+import { loginSuccess } from '../redux/slice/auth/authSlice';
 
 function Mypage() {
   const [isEdit, setEdit] = useState(false);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const token = {
+      accessToken: `Bearer ${url.searchParams.get('Authorization')}`,
+      refreshToken: `${url.searchParams.get('Refresh')}`,
+    };
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/members/mypage`, {
+        headers: {
+          Authorization: token.accessToken,
+          Refresh: token.refreshToken,
+        },
+      })
+      .then(res => {
+        const userInfo = res.data;
+        dispatch(loginSuccess({ userInfo, token }));
+      });
+  }, [dispatch]);
 
   const handleMyPageEdit = () => {
     setEdit(!isEdit);
