@@ -54,8 +54,9 @@ export default DrinksInfo;
 
 const InfoContainer = styled.div`
   width: 100%;
-  height: 200px;
   display: flex;
+  flex: 1;
+  margin: var(--3x-large) 0;
   align-items: center;
   justify-content: space-between;
 
@@ -69,6 +70,5 @@ const SvgSize = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  
+  margin: var(--2x-small) 0;
 `;

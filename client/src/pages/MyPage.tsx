@@ -29,6 +29,7 @@ function MyPage() {
         localStorage.clear();
         localStorage.setItem('accessToken', token.accessToken);
         localStorage.setItem('refreshToken', token.refreshToken);
+        window.location.replace('/mypage');
       }
     } catch (e) {
       console.error(e);
