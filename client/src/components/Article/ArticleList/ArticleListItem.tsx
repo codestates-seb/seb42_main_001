@@ -31,6 +31,8 @@ export default ArticleListItem;
 
 const MarginContainer = styled.div`
   margin-bottom: var(--2x-large);
+  margin-left: var(--small);
+  margin-right:  var(--small);
 
   @media only screen and (max-width: 768px) {
     display: flex;

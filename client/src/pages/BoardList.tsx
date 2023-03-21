@@ -73,12 +73,12 @@ const Wrapper = styled.div`
 `;
 
 const ListContainer = styled.div`
-  margin-bottom: var(--2x-large);
+  margin-bottom: calc(var(--4x-large) * 5);
   width: 100%;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   @media only screen and (max-width: 768px) {
     display: flex;

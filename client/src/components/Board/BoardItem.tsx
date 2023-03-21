@@ -58,11 +58,13 @@ export default BoardItem;
 
 const MarginContainer = styled.div`
   margin-bottom: var(--x-large);
+  margin-right: var(--x-small);
+  margin-left: var(--x-small);
 `;
 
 const ItemContainer = styled.div`
   padding: var(--x-large);
-  width: 695px;
+  width: 680px;
   height: 100%;
   display: flex;
   flex-direction: column;

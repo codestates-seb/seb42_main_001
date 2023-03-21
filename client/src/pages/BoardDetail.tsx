@@ -123,7 +123,7 @@ const BoardDetailContainer = styled.div`
 
 const BoardCommentsContainer = styled.div`
   width: calc(100% / 18 * 12);
-  margin-bottom: var(--3x-large);
+  margin-bottom: calc(var(--4x-large) * 5);
   padding: var(--2x-large);
   background-color: var(--color-white);
   border: 1px solid var(--color-main);

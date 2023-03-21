@@ -85,6 +85,7 @@ const ContentsContainer = styled.div`
   height: 100%;
   flex-wrap: wrap;
   display: flex;
+  margin-bottom: calc(var(--4x-large) * 5);
   justify-content: center;
 
   @media only screen and (max-width: 768px) {

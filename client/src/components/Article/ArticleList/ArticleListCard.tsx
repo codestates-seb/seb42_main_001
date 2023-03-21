@@ -20,6 +20,14 @@ export default ArticleListCard;
 
 const MainContainer = styled.div`
   width: 100%;
+  opacity: 0.7;
+  transition: .5s;
+  background-color: transparent;
+  
+  &:hover {
+    transition: .5s;
+    opacity: 1;
+  }
 `
 
 const CardChildContainer = styled.div`
@@ -30,6 +38,12 @@ const CardChildContainer = styled.div`
   align-items: center;
   color: var(--color-main);
   font-size: var(--text-medium);
+  transition: .5s;
+
+  &:hover {
+    transition: .5s;
+    font-weight: var(--weight-medium);
+  }
 
   @media only screen and (max-width: 768px) {
     width: 100%;
