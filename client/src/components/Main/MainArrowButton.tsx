@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 interface MainArrowButtonProps {
   arrow: any;
+  onClick: () => void;
 }
 
-const MainArrowButton = ({ arrow }: MainArrowButtonProps) => {
+const MainArrowButton = ({ arrow, onClick }: MainArrowButtonProps) => {
   return (
-    <MainArrowButtonContainer>
+    <MainArrowButtonContainer onClick={onClick}>
       <div>{arrow}</div>
     </MainArrowButtonContainer>
   );
@@ -23,9 +24,12 @@ const MainArrowButtonContainer = styled.div`
     font-size: var(--4x-large);
     color: var(--color-white);
     cursor: pointer;
+    > svg {
+      opacity: 0.5;
+    }
   }
 
-    @media only screen and (max-width: 768px) {
-  width: 400px;
+  @media only screen and (max-width: 768px) {
+    width: 400px;
   }
 `;
