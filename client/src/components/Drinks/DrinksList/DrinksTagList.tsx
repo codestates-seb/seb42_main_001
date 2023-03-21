@@ -14,12 +14,12 @@ interface TagProps {
 }
 
 function DrinksTagList({ setSearchTag }: TagProps) {
-  const [tagPage, setTagPage] = useState(3)
+  const [tagPage, setTagPage] = useState(7)
   const pageRef = useRef<HTMLDivElement>(null);
   const [tagData, setTagData] = useState<Tags[]>([])
 
   const handleRightClick = () => {
-    setTagPage(prev => prev + 3)
+    setTagPage(prev => prev + 7)
     pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
 
@@ -27,7 +27,7 @@ function DrinksTagList({ setSearchTag }: TagProps) {
     if (tagPage < 0) {
       setTagPage(0)
     } else {
-      setTagPage(prev => prev - 3)
+      setTagPage(prev => prev - 7)
     }
     pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
@@ -71,7 +71,6 @@ function DrinksTagList({ setSearchTag }: TagProps) {
 export default DrinksTagList;
 
 const TagListContainer = styled.div`
-cursor: pointer;
   display: flex;
   width: 90%;
   overflow: overlay;
@@ -88,6 +87,7 @@ cursor: pointer;
 
 const DisplayContainer = styled.div`
     display: flex;
+    align-items: center;
     width: 95%;
 
   @media only screen and (max-width: 768px) {
