@@ -5,7 +5,7 @@ import LogoText from '../../UI/LogoText';
 import Button from '../../UI/Button';
 import MenuNav from './MenuNav';
 import UserNav from './UserNav';
-import { useAppSelector } from '../../../hooks/hooks';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 
 interface HeaderProps {
   headerBgColor?: string;
