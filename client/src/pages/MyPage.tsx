@@ -24,8 +24,13 @@ function MyPage() {
         },
       })
       .then(res => {
-        const userInfo = res.data;
-        dispatch(loginSuccess({ userInfo, token }));
+        if (res.status === 200) {
+          const userInfo = res.data;
+          dispatch(loginSuccess({ userInfo, token }));
+          localStorage.clear();
+          localStorage.setItem('accessToken', token.accessToken);
+          localStorage.setItem('refreshToken', token.refreshToken);
+        }
       });
   }, [dispatch]);
 
