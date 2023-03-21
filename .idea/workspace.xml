@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Snack, SnackDrink 등록">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 상황 태그 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
     </list>
@@ -253,13 +253,6 @@
       <workItem from="1679320645538" duration="1736000" />
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
-    </task>
-    <task id="LOCAL-00012" summary="✨ feat: Member 패키지 API 명세서에 맞게 응답 요청 수정&#10;✨ feat: MemberMapper 구현체 생성 -&gt; MemberMapperImpl.java&#10;✨ feat: myPage 일부 구현&#10;✨ feat: Board Comment 기능 구현">
-      <created>1678859859770</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1678859859770</updated>
     </task>
     <task id="LOCAL-00013" summary="✨ feat: CommentBoard 삭제 기능 추가">
       <created>1678860319754</created>
@@ -597,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679378474469</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="✨ feat: 상황 태그 추가">
+      <created>1679384930448</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1679384930448</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: CORSFilter 구현방식2" />
     <MESSAGE value="✨ feat: 로그인 핸들러 추가" />
     <MESSAGE value="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가" />
     <MESSAGE value="✨ feat: MyPage - 좋아요 한 술" />
@@ -657,7 +656,8 @@
     <MESSAGE value="✨ feat: Drink 가격 태깅" />
     <MESSAGE value="✨ feat: Snack 등록" />
     <MESSAGE value="✨ feat: Snack, SnackDrink 등록" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Snack, SnackDrink 등록" />
+    <MESSAGE value="✨ feat: 상황 태그 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 상황 태그 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
