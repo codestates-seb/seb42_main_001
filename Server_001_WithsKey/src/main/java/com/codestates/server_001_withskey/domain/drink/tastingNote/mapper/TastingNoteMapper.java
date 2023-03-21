@@ -10,11 +10,11 @@ public class TastingNoteMapper {
     public TastingNoteDto.Response tastingNoteToResponse(TastingNote tastingNote){
         TastingNoteDto.Response response = new TastingNoteDto.Response();
 
-        response.setCitrus(tastingNote.getOrc());
+        response.setOrc(tastingNote.getOrc());
         response.setSweet(tastingNote.getSweet());
         response.setSmoky(tastingNote.getSmoky());
-        response.setHerbal(tastingNote.getSpicy());
-        response.setTropical(tastingNote.getFruity());
+        response.setSpicy(tastingNote.getSpicy());
+        response.setFruity(tastingNote.getFruity());
 
         return response;
     }
