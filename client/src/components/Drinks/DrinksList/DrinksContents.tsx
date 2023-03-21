@@ -4,15 +4,20 @@ import styled from "styled-components";
 import axios from "axios";
 import { Drinks } from "../../../interfaces/Drinks.inerface";
 import { Likes } from "../../../interfaces/Drinks.inerface";
+import Pagination from "../../UI/Pagination";
 
 interface ISearchProps {
   search: string;
   searchTag: number;
+  page: number;
+  setPage: (state: number) => void;
 }
 
-function DrinksContents({ search, searchTag }: ISearchProps): any {
+function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any {
   const [drinksData, setDrinksData] = useState<Drinks[]>([])
   const [likesData, setLikesData] = useState<Likes[]>([])
+  const [limit, setLimit] = useState<number>(16);
+  const offset = (page - 1) * limit;
 
   const handleDrinksData = useCallback(async () => {
     try {
@@ -59,22 +64,32 @@ function DrinksContents({ search, searchTag }: ISearchProps): any {
   });
 
   return (
-    <ContentsContainer>
+    <>
+      <ContentsContainer>
 
-      {searchTag === drinkTagValue && drinkTagValue !== 0
-        ? drinkTagData.map(el => {
-          return (
-            <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
-          )
-        })
-        : filtered.map(el => {
-          return (
-            <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
-          )
-        })
-      }
+        {searchTag === drinkTagValue && drinkTagValue !== 0
+          ? drinkTagData.slice(offset, offset + limit).map(el => {
+            return (
+              <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
+            );
+          })
+          : filtered.slice(offset, offset + limit).map(el => {
+            return (
+              <DrinksItem key={el.drinkId} drinksData={el} likesData={likesData} />
+            );
+          })}
 
-    </ContentsContainer>
+      </ContentsContainer>
+      <Pagination
+        total={drinkTagData.length !== 0
+          ? drinkTagData.length
+          : filtered.length
+        }
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
+    </>
   );
 }
 
@@ -85,7 +100,7 @@ const ContentsContainer = styled.div`
   height: 100%;
   flex-wrap: wrap;
   display: flex;
-  margin-bottom: calc(var(--4x-large) * 5);
+  margin-bottom: var(--4x-large);
   justify-content: center;
 
   @media only screen and (max-width: 768px) {
@@ -95,3 +110,4 @@ const ContentsContainer = styled.div`
     align-items: center;
   }
 `;
+
