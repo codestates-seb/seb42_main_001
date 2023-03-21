@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Drink 가격 태깅">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Snack 등록">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snack.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snack.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snackdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snackdrink.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,13 +255,6 @@
       <workItem from="1679320645538" duration="1736000" />
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
-    </task>
-    <task id="LOCAL-00010" summary="🎨 merge: 코드 머지">
-      <created>1678842975622</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1678842975622</updated>
     </task>
     <task id="LOCAL-00011" summary="🔨 fix: DI 해결">
       <created>1678844020575</created>
@@ -597,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679375892786</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="✨ feat: Snack 등록">
+      <created>1679377445375</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1679377445375</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: CORS 설정 방식 변경3" />
     <MESSAGE value="✨ feat: CORS 설정 방식 변경4" />
     <MESSAGE value="✨ feat: CORSFilter 구현방식2" />
     <MESSAGE value="✨ feat: 로그인 핸들러 추가" />
@@ -657,7 +658,8 @@
     <MESSAGE value="✨ feat: 몽키 숄더 이전까지 테이스팅 노트 적용" />
     <MESSAGE value="✨ feat: 테이스팅 노트 작성 완료" />
     <MESSAGE value="✨ feat: Drink 가격 태깅" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Drink 가격 태깅" />
+    <MESSAGE value="✨ feat: Snack 등록" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Snack 등록" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
