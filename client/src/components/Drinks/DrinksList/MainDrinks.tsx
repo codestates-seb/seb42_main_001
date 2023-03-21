@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DrinksContents from "./DrinksContents";
 import DrinksInfo from "./DrinksInfo";
