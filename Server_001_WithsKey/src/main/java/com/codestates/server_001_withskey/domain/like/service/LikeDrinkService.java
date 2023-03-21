@@ -46,13 +46,13 @@ public class LikeDrinkService {
 
     public void deleteLike (long memberId, long drinkId) {
         Drink findDrink = drinkService.findDrink(drinkId);
-        LikeDrink likeDrink = findExistingLikeOnDrink (drinkId, findDrink);
+        LikeDrink likeDrink = findExistingLikeOnDrink (memberId, findDrink);
         likeDrinkRepository.delete(likeDrink);
     }
 
-    public LikeDrink findExistingLikeOnDrink (long drinkId, Drink drink) {
+    public LikeDrink findExistingLikeOnDrink (long memberId, Drink drink) {
         Optional<LikeDrink> findLikeDrink =
-                likeDrinkRepository.findLikeDrinkByMemberIdAndDrink(drinkId, drink);
+                likeDrinkRepository.findLikeDrinkByMemberIdAndDrink(memberId, drink);
         return findLikeDrink.orElseThrow(()->
                 new BusinessLogicException(ExceptionCode.LIKE_NOT_EXIST));
     }

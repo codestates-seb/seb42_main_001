@@ -1,5 +1,10 @@
-INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (100, 'snack1.jpg', 'Spicy Fried Chicken', 350, 'Chicken Wings');
-INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (101, 'snack2.jpg', 'Cheesy Nachos', 500, 'Nachos');
-INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (102, 'snack3.jpg', 'Classic Potato Chips', 150, 'Potato Chips');
-INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (103, 'snack4.jpg', 'Mixed Nuts', 200, 'Assorted Nuts');
-INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (104, 'snack5.jpg', 'Garlic Fries', 400, 'French Fries');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (1, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EC%B9%98%EC%A6%88.JPG', '고소한 치즈가 강렬한 위스키 맛을 더 돋궈줘요', 400, 'Cheese');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (2, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EC%9C%A1%ED%8F%AC.JPG', '말렸지만 고기는 언제나 옳으니까', 400, 'Beef Jerky');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (3, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EC%82%B4%EB%9D%BC%EB%AF%B8.JPG', '쫄깃탱글한 식감과 후각을 지배하는 향신료의 하모니', 330, 'Salami');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (4, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EA%B3%BC%EC%9D%BC.JPG', '달달구리한 제철 과일과 함께 수분까지 보충하기', 50, 'Fruit');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (5, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EC%B4%88%EC%BD%9C%EB%A6%BF.JPG', '달콤 쌉사름한 초콜릿과 위스키는 찰떡궁합!', 500, 'Chocolate');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (6, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EA%B2%AC%EA%B3%BC%EB%A5%98.JPG', '한알한알 먹다보면 빈 그릇만 남아요!', 575, 'Nuts');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (7, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EC%B1%84%EC%86%8C.JPG', '풍부한 섬유질과 함께 수분도 놓치고 싶지 않다면?', 20, 'Vegetable');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (8, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%ED%95%B4%EC%82%B0%EB%AC%BC.JPG', '내 입에 보리와 춤추는 바다를..', 100, 'Seafood');
+INSERT INTO SNACK (SNACK_ID, SNACK_IMAGE_URL, SNACK_INFO, SNACK_KCAL, SNACK_NAME) VALUES (9, 'https://main-001-image.s3.ap-northeast-2.amazonaws.com/snack/%EC%96%B4%EB%9E%80.JPG', '자연이 낳은 붉은 진주의 향연', 200, 'Roe');
+
