@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: tastingNote.sql 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: tastingNote 칼럼 변경 전 저장">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/tastingNote/TastingNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/tastingNote/TastingNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/tastingNote/mapper/TastingNoteMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/tastingNote/mapper/TastingNoteMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tastingNote.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tastingNote.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +62,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="NoRedis" />
+        <entry key="$PROJECT_DIR$" value="WithRedis" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -221,8 +223,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
         <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
+        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
         <item itemvalue="Gradle.Server_001_WithsKey [build]" />
         <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
         <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
@@ -252,14 +254,7 @@
       <workItem from="1679316607877" duration="12000" />
       <workItem from="1679320645538" duration="1736000" />
       <workItem from="1679355981122" duration="469000" />
-      <workItem from="1679360586070" duration="4716000" />
-    </task>
-    <task id="LOCAL-00004" summary="🔨 fix: cke">
-      <created>1678768089493</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1678768089493</updated>
+      <workItem from="1679360586070" duration="5271000" />
     </task>
     <task id="LOCAL-00005" summary="🔨 fix: cke restore">
       <created>1678768549666</created>
@@ -597,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679363690078</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="✨ feat: tastingNote 칼럼 변경 전 저장">
+      <created>1679365309207</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1679365309207</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +616,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="WithRedis" />
+                        <option value="TastingNotes" />
                       </list>
                     </value>
                   </entry>
@@ -632,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: Tag, image 처리 제외한 모든 부분 구현 완료." />
     <MESSAGE value="✨ feat: S3 연동 준비" />
     <MESSAGE value="✨ feat: 페이지네이션 처리 완료" />
     <MESSAGE value="✨ feat: 배포시도 4" />
@@ -657,7 +658,8 @@
     <MESSAGE value="✨ feat: delete LikeDrink 수정" />
     <MESSAGE value="✨ feat: sql Drink Url S3 것으로 반영" />
     <MESSAGE value="✨ feat: tastingNote.sql 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: tastingNote.sql 수정" />
+    <MESSAGE value="✨ feat: tastingNote 칼럼 변경 전 저장" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: tastingNote 칼럼 변경 전 저장" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
