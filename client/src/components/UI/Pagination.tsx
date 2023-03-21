@@ -6,6 +6,7 @@ type PaginationProps = {
     limit: number;
     page: number;
     setPage: (state: number) => void;
+    setLimit: (state: number) => void;
 };
 
 const Pagination = ({ total, limit, page, setPage }: PaginationProps) => {

@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import DrinksTagList from "./DrinksTagList";
 import DrinkSearch from "./DrinksSearch";
 import styled from "styled-components";

@@ -35,13 +35,6 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
     handleDrinksData()
   }, [handleDrinksData])
 
-  // let drinksTagLength: Drinks[] = []
-  // for (let i = 0; i < drinksData.length; i++) {
-  //   if (drinksData[i].tags.length !== 0) {
-  //     drinksTagLength = [...drinksTagLength, drinksData[i]]
-  //   }
-  // }
-
   let drinkTagData: Drinks[] = []
   let drinkTagValue: number | any = 0
   for (let i = 0; i < drinksData.length; i++) {
@@ -88,6 +81,7 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
         limit={limit}
         page={page}
         setPage={setPage}
+        setLimit={setLimit}
       />
     </>
   );
