@@ -55,8 +55,6 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         if (member != null) {
             username = member.getDisplayName();
         }
-
-
         String accessToken = delegateAccessToken(member, authorities);
         String refreshToken = delegateRefreshToken(username);
 

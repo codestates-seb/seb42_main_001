@@ -93,35 +93,6 @@ public class JwtTokenizer {
             throw new RuntimeException(e);
         }
     }
-    // 현재는 regenerateAccessToken과 generateRefreshToken 메서드를 사용하므로 필요 X.
-//    public Map<String, String> regenerateAccessTokenAndRefreshToken(String refreshToken) {
-//        try {
-//            Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
-//            int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
-//
-//            Date refreshTokenExpiration = new Date(epochTime * 1000L * 60);
-//
-//            if (refreshTokenExpiration.before(new Date())) {
-//                throw new RuntimeException("RefreshToken has expired");
-//            }
-//
-//            String email = refreshTokenClaims.getBody().getSubject();
-//            Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
-//            Date newRefreshTokenExpiration = getTokenExpiration(refreshTokenExpirationMinutes);
-//            Map<String, Object> accessTokenClaims = new HashMap<>();
-//            accessTokenClaims.put("email", email);
-//
-//            String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
-//            String newRefreshToken = generateRefreshToken(email, newRefreshTokenExpiration, encodeBase64SecretKey(secretKey));
-//
-//            Map<String, String> tokens = new HashMap<>();
-//            tokens.put("accessToken", newAccessToken);
-//            tokens.put("refreshToken", newRefreshToken);
-//            return tokens;
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
     public Jws<Claims> getClaims(String jws, String base64EncodedSecretKey) {
         Key key = getKeyFromBase64EncodedKey(base64EncodedSecretKey);
 
@@ -151,4 +122,33 @@ public class JwtTokenizer {
         Key key = Keys.hmacShaKeyFor(keyBytes);
         return key;
     }
+    // 현재는 regenerateAccessToken과 generateRefreshToken 메서드를 사용하므로 필요 X.
+//    public Map<String, String> regenerateAccessTokenAndRefreshToken(String refreshToken) {
+//        try {
+//            Jws<Claims> refreshTokenClaims = getClaims(refreshToken, encodeBase64SecretKey(secretKey));
+//            int epochTime = (Integer) refreshTokenClaims.getBody().get("exp");
+//
+//            Date refreshTokenExpiration = new Date(epochTime * 1000L * 60);
+//
+//            if (refreshTokenExpiration.before(new Date())) {
+//                throw new RuntimeException("RefreshToken has expired");
+//            }
+//
+//            String email = refreshTokenClaims.getBody().getSubject();
+//            Date accessTokenExpiration = getTokenExpiration(accessTokenExpirationMinutes);
+//            Date newRefreshTokenExpiration = getTokenExpiration(refreshTokenExpirationMinutes);
+//            Map<String, Object> accessTokenClaims = new HashMap<>();
+//            accessTokenClaims.put("email", email);
+//
+//            String newAccessToken = generateAccessToken(accessTokenClaims, email, accessTokenExpiration, encodeBase64SecretKey(secretKey));
+//            String newRefreshToken = generateRefreshToken(email, newRefreshTokenExpiration, encodeBase64SecretKey(secretKey));
+//
+//            Map<String, String> tokens = new HashMap<>();
+//            tokens.put("accessToken", newAccessToken);
+//            tokens.put("refreshToken", newRefreshToken);
+//            return tokens;
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

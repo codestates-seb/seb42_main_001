@@ -1,5 +1,7 @@
 
 spring:
+  profile:
+    active: local
   security:
     oauth2:
       client:
