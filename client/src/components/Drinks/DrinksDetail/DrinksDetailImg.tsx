@@ -23,7 +23,6 @@ const ImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: var(--2x-small);
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -34,7 +33,8 @@ const ImgContainer = styled.div`
   }
 
   img {
-    width: 60%;
+    max-width: 695px;
+    height: 50%;
   }
 `;
 

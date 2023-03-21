@@ -57,7 +57,7 @@ function BoardItem({ data }: BoardItemprops) {
 export default BoardItem;
 
 const MarginContainer = styled.div`
-  margin-bottom: var(--x-large);
+  margin-bottom: calc(var(--4x-large)/2);
   margin-right: var(--x-small);
   margin-left: var(--x-small);
 `;

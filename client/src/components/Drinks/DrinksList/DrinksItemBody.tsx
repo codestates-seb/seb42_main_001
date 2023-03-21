@@ -10,7 +10,7 @@ function DrinksItemBody({ drinksData }: DrinksContentsProps) {
   return (
     <BodyContainer>
       <img src={`${drinksData.drinkImageUrl}`} alt="withskey" />
-      <span>{drinksData.drinkName}</span>
+      <div>{drinksData.drinkName}</div>
     </BodyContainer>
   )
 }
@@ -28,11 +28,12 @@ const BodyContainer = styled.div`
 
     img {
       width: auto;
-      max-width: 250px;
-      height: 250px;
+      max-width: 240px;
+      height: 220px;
+      margin-bottom: var(--large);
     }
 
-    span {
+    div {
       margin-top: var(--large);
       font-size: var(--text-medium);
       font-weight: var(--weight-large);
