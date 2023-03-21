@@ -17,7 +17,7 @@ function MyPage() {
       refreshToken: `${url.searchParams.get('Refresh')}`,
     };
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/members/mypage`, {
+      .get(`/members/mypage`, {
         headers: {
           Authorization: token.accessToken,
           Refresh: token.refreshToken,
@@ -26,7 +26,7 @@ function MyPage() {
       .then(res => {
         if (res.status === 200) {
           const userInfo = res.data;
-          dispatch(loginSuccess({ userInfo, token }));
+          dispatch(loginSuccess({ userInfo }));
           localStorage.clear();
           localStorage.setItem('accessToken', token.accessToken);
           localStorage.setItem('refreshToken', token.refreshToken);
