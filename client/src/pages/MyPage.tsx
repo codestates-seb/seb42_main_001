@@ -8,7 +8,6 @@ import { useAppDispatch } from '../redux/hooks/hooks';
 import { loginSuccess } from '../redux/slice/auth/authSlice';
 
 function MyPage() {
-  // const [isEdit, setEdit] = useState(false);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -29,10 +28,6 @@ function MyPage() {
         dispatch(loginSuccess({ userInfo, token }));
       });
   }, [dispatch]);
-
-  // const handleMyPageEdit = () => {
-  //   setEdit(!isEdit);
-  // };
 
   return (
     <MainContainer>
