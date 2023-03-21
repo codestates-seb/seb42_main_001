@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="test2">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: delete LikeDrink 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/baord.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/drink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/drink.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snackdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snackdrink.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,14 +253,9 @@
       <workItem from="1679312939323" duration="1498000" />
       <workItem from="1679314514903" duration="52000" />
       <workItem from="1679316607877" duration="12000" />
-      <workItem from="1679320645538" duration="477000" />
-    </task>
-    <task id="LOCAL-00001" summary="✨ feat: Board 패키지 기능 추가">
-      <created>1678757996568</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1678757996568</updated>
+      <workItem from="1679320645538" duration="1736000" />
+      <workItem from="1679355981122" duration="469000" />
+      <workItem from="1679360586070" duration="2934000" />
     </task>
     <task id="LOCAL-00002" summary="✨ fix: yml dir 수정">
       <created>1678766609783</created>
@@ -595,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679313830690</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="✨ feat: delete LikeDrink 수정">
+      <created>1679321294791</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1679321294791</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +617,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="WithRedis" />
+                        <option value="origin/test/local/redis" />
                       </list>
                     </value>
                   </entry>
@@ -630,7 +635,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="merge : for merge" />
     <MESSAGE value="merge : merge 해결 초기데이터 완성" />
     <MESSAGE value="Tag 제외한 모든 부분 구현 완료" />
     <MESSAGE value="✨ feat: Tag, image 처리 제외한 모든 부분 구현 완료." />
@@ -655,7 +659,8 @@
     <MESSAGE value="✨ feat: snack_drink 임시 추가" />
     <MESSAGE value="test" />
     <MESSAGE value="test2" />
-    <option name="LAST_COMMIT_MESSAGE" value="test2" />
+    <MESSAGE value="✨ feat: delete LikeDrink 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: delete LikeDrink 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -678,41 +683,6 @@
           <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/mapper/ArticleMapper.java</url>
           <line>39</line>
           <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeDrinkService.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="98" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
