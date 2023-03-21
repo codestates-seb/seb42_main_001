@@ -8,31 +8,36 @@ import { useAppDispatch } from '../redux/hooks/hooks';
 import { loginSuccess } from '../redux/slice/auth/authSlice';
 
 function MyPage() {
-  // const [isEdit, setEdit] = useState(false);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const token = {
-      accessToken: `Bearer ${url.searchParams.get('Authorization')}`,
-      refreshToken: `${url.searchParams.get('Refresh')}`,
-    };
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/members/mypage`, {
+  const handleLoginProcess = async () => {
+    try {
+      const url = new URL(window.location.href);
+      const token = {
+        accessToken: `Bearer ${url.searchParams.get('Authorization')}`,
+        refreshToken: `${url.searchParams.get('Refresh')}`,
+      };
+      const res = await axios.get(`/members/mypage`, {
         headers: {
           Authorization: token.accessToken,
           Refresh: token.refreshToken,
         },
-      })
-      .then(res => {
-        const userInfo = res.data;
-        dispatch(loginSuccess({ userInfo, token }));
       });
-  }, [dispatch]);
+      if (res.status === 200) {
+        const userInfo = res.data;
+        dispatch(loginSuccess({ userInfo: userInfo }));
+        localStorage.clear();
+        localStorage.setItem('accessToken', token.accessToken);
+        localStorage.setItem('refreshToken', token.refreshToken);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-  // const handleMyPageEdit = () => {
-  //   setEdit(!isEdit);
-  // };
+  useEffect(() => {
+    handleLoginProcess();
+  });
 
   return (
     <MainContainer>
