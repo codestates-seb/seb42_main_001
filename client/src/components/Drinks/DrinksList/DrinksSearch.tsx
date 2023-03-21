@@ -26,6 +26,7 @@ export default DrinksSearch;
 
 const SearchContainer = styled.div`
   width: 92%;
+  margin: var(--2x-small) 0;
 
   input {
     width: 100%;
