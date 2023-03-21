@@ -8,24 +8,24 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
   LineElement,
+  PointElement,
   RadarController,
   RadialLinearScale
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, RadarController, RadialLinearScale);
+ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, RadarController, RadialLinearScale);
 
 function DrinksDetailChart({ drinksDetail }: DrinksDetailProps) {
-  // {citrus: 4, sweet: 5, smoky: 4, herbal: 4, tropical: 1}
-  // const tastingValues = Object.values(drinksDetail?.tastingNote ?? {})
+  // {fruity:1, orc:4, smoky:1, spicy:2, sweet:1}
+  const tastingValues: any = Object.values(drinksDetail?.tastingNote ?? {})
 
-  const data: ChartData<'radar', number[], unknown> = {
+  const data: ChartData<'radar', number[]> = {
     labels: ['sweet', 'smoky', 'orc', 'spicy', 'fruity'],
     datasets: [
       {
         label: 'Tasting Note',
-        data: [4, 5, 4, 4, 1],
+        data: tastingValues,
         backgroundColor: 'white',
       },
     ],
@@ -35,14 +35,14 @@ function DrinksDetailChart({ drinksDetail }: DrinksDetailProps) {
     elements: {
       //데이터 속성.
       line: {
-        borderWidth: 1,
-        borderColor: '#ca612893',
+        borderWidth: 3,
+        borderColor: '#db9927c0',
       },
       //데이터 꼭짓점.
       point: {
-        pointRadius: 4,
-        pointHoverRadius: 7,
-        pointBackgroundColor: '#a9430c',
+        pointRadius: 5,
+        pointHoverRadius: 8,
+        pointBackgroundColor: '#823308',
       },
     },
     scales: {
@@ -52,7 +52,8 @@ function DrinksDetailChart({ drinksDetail }: DrinksDetailProps) {
           display: false,
         },
         grid: {
-          color: '#473F3F',
+          color: '#8F8F8F',
+
         },
         //라벨 속성 지정.
         pointLabels: {
@@ -63,8 +64,9 @@ function DrinksDetailChart({ drinksDetail }: DrinksDetailProps) {
           },
           color: '#473F3F',
         },
+        backgroundColor: '#ffffff',
         angleLines: {
-          display: false,
+          display: true,
         },
         suggestedMin: 0,
         suggestedMax: 5,
