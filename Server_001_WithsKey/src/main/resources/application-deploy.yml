@@ -8,8 +8,6 @@ spring:
             clientId: ${/main001/oauth2.clientId}
             clientSecret: ${/main001/oauth2.clientsecret}
             redirectUri: ${/main001/oauth2.redirecturi}
-
-
             scope:
               - email
               - profile
