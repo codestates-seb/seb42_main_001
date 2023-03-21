@@ -87,7 +87,7 @@ const DefaultSize = styled.div<MainLayoutProps>`
 `;
 
 const ContentBox = styled.div<{ img?: boolean; page: number }>`
-  width: 400%;
+  width: ${(props) => (props.img ? `400%` : `100%`)};
   display: flex;
   margin-left: ${(props) => (props.img ? `300%` : `none`)};
   transition: ${(props) => (props.img ? `1s` : `none`)};
