@@ -21,6 +21,12 @@ function App() {
   const dispatch = useAppDispatch();
 
   const initializeUserInfo = async () => {
+    axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+    axios.defaults.headers.common['Authorization'] =
+      localStorage.getItem('accessToken');
+    axios.defaults.headers.common['Refresh'] =
+      localStorage.getItem('refreshToken');
+
     try {
       const res = await axios.get(`/members/mypage`);
       if (res.status === 200) {
