@@ -1,16 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { useNavigate } from 'react-router';
 
-import MyPageButton from "./MyPageButton";
+import { useAppDispatch } from '../../hooks/hooks';
+import { logoutSuccess } from '../../slice/auth/authSlice';
+import MyPageButton from './MyPageButton';
 
 interface MyPageInfoButtonsProps {
   onClick?: () => void;
 }
 
 const MyPageInfoButtons = ({ onClick }: MyPageInfoButtonsProps) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logoutSuccess());
+    navigate('/');
+  };
+
   return (
     <MyPageInfoButtonContainer>
       <MyPageButton onClick={onClick}>회원 정보 수정</MyPageButton>
-      <MyPageButton>로그아웃</MyPageButton>
+      <MyPageButton onClick={handleLogout}>로그아웃</MyPageButton>
       <MyPageButton>회원 탈퇴</MyPageButton>
     </MyPageInfoButtonContainer>
   );
