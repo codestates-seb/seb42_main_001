@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import BoardSuggestItem from "./BoardSuggestItem";
@@ -13,7 +14,9 @@ function BoardSuggestList({ recommandBoards }: Props) {
   return (
     <ListContainer>
       {recommandBoards?.map((el) => (
-        <BoardSuggestItem key={el.boardId} title={el.boardTitle} />
+        <Link to={`/board/detail/${el.boardId}`} key={el.boardId}>
+          <BoardSuggestItem title={el.boardTitle} />
+        </Link>
       ))}
     </ListContainer>
   );
