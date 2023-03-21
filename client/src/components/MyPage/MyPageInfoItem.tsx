@@ -1,5 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
+import axios from 'axios';
+
+import { useNavigate } from 'react-router';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { logoutSuccess } from '../../redux/slice/auth/authSlice';
 
 interface InfoProps {
   userInfo: boolean;
@@ -7,12 +11,37 @@ interface InfoProps {
 }
 
 function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
+  const token = useAppSelector(state => state.auth.token);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const handleUserTrueChange = () => {
     setUserInfo(true);
   };
 
   const handleUserFalseChange = () => {
     setUserInfo(false);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/members/logout`,
+        {
+          headers: {
+            Authorization: token?.accessToken,
+            Refresh: token?.refreshToken,
+          },
+        },
+      );
+      if (res.status === 200) {
+        dispatch(logoutSuccess());
+        alert('로그아웃 되었습니다');
+        navigate('/');
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -26,7 +55,7 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
           <ItemContainer onClick={handleUserTrueChange}>
             정보 수정
           </ItemContainer>
-          <ItemContainer>로그아웃</ItemContainer>
+          <ItemContainer onClick={handleLogout}>로그아웃</ItemContainer>
           <ItemContainer>회원 탈퇴</ItemContainer>
         </>
       )}
