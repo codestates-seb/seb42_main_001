@@ -40,10 +40,10 @@ file:
 cloud:
   aws:
     s3:
-      bucket: ${/main001/s3access/cloud.aws.s3.bucket}
+      bucket: ${/main001/cloud.aws.s3.bucketname}
     credentials:
-      access-key: ${/main001/s3access/cloud.aws.credentials.access-key}
-      secret-key: ${/main001/s3access/cloud.aws.credentials.secret-key}
+      access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
+      secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
     region:
       static: ${/main001/cloud.aws.region.static}
     stack:
