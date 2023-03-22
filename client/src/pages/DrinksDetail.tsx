@@ -13,13 +13,14 @@ function DrinksDetail() {
       const res = await axios.get(`/drinks/${drinkId}`);
       setDrinksDetail(res.data);
       window.scrollTo(0, 0);
+      console.log(res.data);
     } catch (error) {
       console.error(error);
     }
   }, [drinkId]);
 
   useEffect(() => {
-    handleGetDrinksDetail()
+    handleGetDrinksDetail();
   });
 
   return <MainDrinksDetail drinksDetail={drinksDetail} />;
