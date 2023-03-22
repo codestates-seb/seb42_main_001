@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BsPlusCircle } from 'react-icons/bs';
+import { useAppSelector } from '../../redux/hooks/hooks';
 
 interface InfoProps {
   userInfo: boolean;
 }
 
 function MyPageInfoContent({ userInfo }: InfoProps) {
+  const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
   const [userName, setUserName] = useState('lapmu');
   const [userText, setUserText] = useState('자기소개를 입력해 주세요.');
 
@@ -33,8 +35,8 @@ function MyPageInfoContent({ userInfo }: InfoProps) {
           </>
         ) : (
           <>
-            <Name>{userName}</Name>
-            <Text>{userText}</Text>
+            <Name>{displayName}</Name>
+            <Text>{aboutMe}</Text>
           </>
         )}
       </TextContainer>
