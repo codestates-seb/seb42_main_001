@@ -29,6 +29,7 @@ const MainContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--large);
+  margin-bottom: var(--x-small);
 
   span {
     color: var(--color-sub-gray);

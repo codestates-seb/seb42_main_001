@@ -62,6 +62,8 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: var(--large);
+  margin-bottom: var(--x-small);
+
   > span {
     color: var(--color-sub-gray);
     margin-bottom: var(--x-small);
