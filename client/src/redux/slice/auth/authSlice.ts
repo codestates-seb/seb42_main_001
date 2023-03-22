@@ -1,26 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
-interface userInfo {
-  memberId: number;
-  displayName: string;
-  profilePicture: string | null;
-  aboutMe: string | null;
-  likeBoards: Array<Object>;
-  likeDrinks: Array<Object>;
-  url: string | null;
-  writeBoardComments: Array<Object>;
-  writeBoards: Array<Object>;
-  writeDrinkComments: Array<Object>;
-}
 
+import { userInfo } from '../../../interfaces/userInfo.interface';
 interface authState {
   isLogin: boolean;
-  userInfo: userInfo | null;
+  userInfo: userInfo | Record<string, never>;
 }
 
 const initialState: authState = {
   isLogin: false,
-  userInfo: null,
+  userInfo: {},
 };
 
 export const authSlice = createSlice({
@@ -36,7 +25,7 @@ export const authSlice = createSlice({
     },
     logoutSuccess: state => {
       state.isLogin = false;
-      state.userInfo = null;
+      state.userInfo = {};
     },
   },
 });
