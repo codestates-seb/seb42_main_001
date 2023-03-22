@@ -1,5 +1,6 @@
 package com.codestates.server_001_withskey.domain.tag.repository;
 
+import com.codestates.server_001_withskey.domain.tag.entity.Tag;
 import com.codestates.server_001_withskey.domain.tag.entity.TagBoard;
 import com.codestates.server_001_withskey.domain.tag.entity.TagDrink;
 import java.util.List;
@@ -13,5 +14,7 @@ public interface TagDrinkRepository extends JpaRepository<TagBoard, Long> {
         + " from TagDrink b left join Tag t on b.tag = t"
         + " where t.tagId = :tagId")
     List<TagDrink> findDrinkByTagDrink(@Param("tagId") long tagId);
+
+    List<TagDrink> findTagBoardsByTag(Tag tag);
 
 }

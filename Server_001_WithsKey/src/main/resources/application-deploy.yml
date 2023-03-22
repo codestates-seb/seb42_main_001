@@ -16,6 +16,8 @@ spring:
     host: localhost
     port: 6379
 #    password: Optional, if Redis requires a password
+#http://ec2-13-125-79-78.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google
+# http://ec2-13-125-79-78.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google
 
 logging:
   level:

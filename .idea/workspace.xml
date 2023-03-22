@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 초기데이터 수정" />
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 초기데이터 수정2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/controller/DrinksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/controller/DrinksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/dto/DrinkDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/dto/DrinkDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/repository/TagDrinkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/repository/TagDrinkRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,13 +259,6 @@
       <workItem from="1679320645538" duration="1736000" />
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
-    </task>
-    <task id="LOCAL-00016" summary="✨ feat: LikeBoard 기능 추가">
-      <created>1678868083519</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1678868083519</updated>
     </task>
     <task id="LOCAL-00017" summary="🔨 fix: 추천 관련 게시글 기능 수정">
       <created>1678872361534</created>
@@ -595,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679476838554</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="✨ feat: 초기데이터 수정2">
+      <created>1679477957388</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1679477957388</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +620,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="tetete" />
+                        <option value="origin/tetete" />
                       </list>
                     </value>
                   </entry>
@@ -630,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 로컬 설정 변경" />
     <MESSAGE value="✨ feat: 리다이렉트 토큰 전달" />
     <MESSAGE value="✨ feat: 설정 프로파일 추가" />
     <MESSAGE value="✨ feat: 설정 프로파일 추가2" />
@@ -655,7 +662,8 @@
     <MESSAGE value="✨ feat: 실행 조건 수정" />
     <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
     <MESSAGE value="✨ feat: 초기데이터 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 초기데이터 수정" />
+    <MESSAGE value="✨ feat: 초기데이터 수정2" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 초기데이터 수정2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

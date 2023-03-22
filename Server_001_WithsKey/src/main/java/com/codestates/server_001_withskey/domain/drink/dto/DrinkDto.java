@@ -43,6 +43,8 @@ public class DrinkDto {
         private TastingNoteDto.Response tastingNote;
 
         private List<SnackDto.Response> snacks;
+
+        private List<DrinkDto.Recommand> recommandDrinks;
     }
 
     @Getter
@@ -52,6 +54,14 @@ public class DrinkDto {
     public static class Short{
         private long drinkId;
         private String drinkName;
+    }
+
+    @Getter
+    @Setter
+    public static class Recommand{
+        private long drinkId;
+        private String drinkName;
+        private String imageUrl;
     }
 }
 
