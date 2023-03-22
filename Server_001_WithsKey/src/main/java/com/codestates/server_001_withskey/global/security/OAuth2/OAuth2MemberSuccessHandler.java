@@ -64,35 +64,35 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         response.addHeader(accessToken, refreshToken);
 
 //         v1
-        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
+//        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
 
 //        // v2
-//        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken, request));
+        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken, request));
     }
     // v2
-//    private String makeRedirectUrl (String accessToken,
-//                                    String refreshToken,
-//                                    HttpServletRequest request) {
-//        String scheme = request.getScheme(); // http or https
-//        String serverName = request.getServerName(); // hostname or ip address
-//        int serverPort = request.getServerPort(); // port number
-//
-//        return UriComponentsBuilder.newInstance()
-//                .scheme(scheme)
-//                .host(serverName)
-//                .port(serverPort)
-//                .path("/mypage?")
-//                .queryParam("Authorization", accessToken)
-//                .queryParam("Refresh", refreshToken)
-//                .build().toUriString();
-//    }
-    // v1
-    private String makeRedirectUrl (String accessToken, String refreshToken) {
-        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
+    private String makeRedirectUrl (String accessToken,
+                                    String refreshToken,
+                                    HttpServletRequest request) {
+        String scheme = request.getScheme(); // http or https
+        String serverName = request.getServerName(); // hostname or ip address
+        int serverPort = request.getServerPort(); // port number
+
+        return UriComponentsBuilder.newInstance()
+                .scheme(scheme)
+                .host(serverName)
+                .port(serverPort)
+                .path("/mypage?")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
     }
+    // v1
+//    private String makeRedirectUrl (String accessToken, String refreshToken) {
+//        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
+//                .queryParam("Authorization", accessToken)
+//                .queryParam("Refresh", refreshToken)
+//                .build().toUriString();
+//    }
 
     private void saveMember(String email) {
         Member member = new Member(email);
