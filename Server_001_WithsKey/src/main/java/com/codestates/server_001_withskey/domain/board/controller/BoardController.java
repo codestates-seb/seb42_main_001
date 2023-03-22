@@ -11,6 +11,9 @@ import com.codestates.server_001_withskey.domain.comment.entity.CommentBoard;
 import com.codestates.server_001_withskey.domain.comment.service.CommentBoardService;
 import com.codestates.server_001_withskey.domain.image.service.ImageService;
 import com.codestates.server_001_withskey.domain.like.service.LikeBoardService;
+import com.codestates.server_001_withskey.domain.member.entity.Member;
+import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
+import com.codestates.server_001_withskey.global.advice.ExceptionCode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -22,6 +25,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
@@ -61,9 +66,27 @@ public class BoardController {
     public ResponseEntity updateBoard(@PathVariable("board-id") long boardId,
                                       @RequestBody BoardDto.Patch patch){
         patch.setBoardId(boardId);
-        Board result = boardService.updateBoard(patch);
-        return new ResponseEntity<>(result.getBoardTitle(), HttpStatus.OK);
+        // 수정하고자하는 게시글 조회.
+        Board findBoard = boardService.findVerifiedBoard(boardId);
+        // 수정하고자하는 게시글의 작성자 및 회원 아이디 확보.
+        Member writer = findBoard.getMember();
+        long writerMemberId = writer.getMemberId();
+
+        // Log the Authentication object
+        System.out.println("Authentication object: " + SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        // JwtToken에 포함된 memberId 확보.
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+
+        // request header의 토큰을 조회하여 memberId를 비교, 같으면 진행 다르면 거절.
+        if (writerMemberId != memberId) {
+//            throw new BusinessLogicException(ExceptionCode.NO_AUTHORIZATION);
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("권한이 없습니다!");
+        } else {
+            Board result = boardService.updateBoard(patch);
+            return new ResponseEntity<>(result.getBoardTitle(), HttpStatus.OK);
+        }
     }
+
 
     // 삭제
     @DeleteMapping("/{board-id}")

@@ -93,7 +93,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
                 subject,
                 expiration,
                 base64EncodedSecretKey);
-
+        System.out.println("accessToken's memberId: "+subject);
         return accessToken;
     }
 
