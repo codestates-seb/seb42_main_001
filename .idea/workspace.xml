@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 상황 태그 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
-    </list>
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 상황 태그 추가" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +57,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="WithRedis" />
+        <entry key="$PROJECT_DIR$" value="b426d46c394b92ccd359e11cd97089a08b885cfb" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -114,10 +111,11 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.localExecute">
-    <configuration name="localexe" type="Application" factoryName="Application">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="zulu-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
-      <module name="Server_001_WithsKey.main" />
-      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=local" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,7 +186,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Server001WithsKeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="Server_001_WithsKey.main" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -196,7 +194,7 @@
     </configuration>
     <configuration name="deployExecute" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" value="deploy" />
-      <module name="Server_001_WithsKey.main" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,14 +202,14 @@
     </configuration>
     <configuration name="localExecute" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" value="local" />
-      <module name="Server_001_WithsKey.main" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.localexe" />
+      <item itemvalue="Application.Unnamed" />
       <item itemvalue="Gradle.Server_001_WithsKey [build]" />
       <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
       <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
@@ -614,7 +612,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="TastingNotes" />
+                        <option value="tetete" />
                       </list>
                     </value>
                   </entry>
@@ -632,7 +630,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 로그인 핸들러 추가" />
     <MESSAGE value="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가" />
     <MESSAGE value="✨ feat: MyPage - 좋아요 한 술" />
     <MESSAGE value="✨ feat: 로컬 설정 변경" />
@@ -657,7 +654,8 @@
     <MESSAGE value="✨ feat: Snack 등록" />
     <MESSAGE value="✨ feat: Snack, SnackDrink 등록" />
     <MESSAGE value="✨ feat: 상황 태그 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 상황 태그 추가" />
+    <MESSAGE value="✨ feat: 실행 조건 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 실행 조건 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
