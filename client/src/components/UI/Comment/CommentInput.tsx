@@ -17,24 +17,28 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
   };
 
   const handleDrinksPost = async () => {
-    const newDrinks = {
-      drinkId,
-      commentContent: commentValue,
-    };
+    if (commentValue === "") {
+      alert("댓글을 작성해주세요");
+    } else {
+      const newDrinks = {
+        drinkId,
+        commentContent: commentValue,
+      };
 
-    const newBoards = {
-      boardId,
-      commentContent: commentValue,
-    };
-    try {
-      await axios.post(
-        drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
-        drinkId ? newDrinks : boardId ? newBoards : null
-      );
-      setCommentValue("");
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
+      const newBoards = {
+        boardId,
+        commentContent: commentValue,
+      };
+      try {
+        await axios.post(
+          drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
+          drinkId ? newDrinks : boardId ? newBoards : null
+        );
+        setCommentValue("");
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
