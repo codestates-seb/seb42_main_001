@@ -8,9 +8,13 @@ function MyPageDrinkCommentList() {
 
   return (
     <>
-      {drinkCommentsList.map(ele => (
-        <MyPageDrinkComment key={ele.commentId} ele={ele}></MyPageDrinkComment>
-      ))}
+      {drinkCommentsList
+        ? drinkCommentsList.map(ele => (
+            <MyPageDrinkComment
+              key={ele.commentId}
+              ele={ele}></MyPageDrinkComment>
+          ))
+        : null}
     </>
   );
 }

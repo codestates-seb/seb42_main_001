@@ -8,9 +8,11 @@ function MyPageDrinkLikeList() {
 
   return (
     <>
-      {likeDrinksList.map(ele => (
-        <MyPageDrinkLike key={ele.drinkId} ele={ele}></MyPageDrinkLike>
-      ))}
+      {likeDrinksList
+        ? likeDrinksList.map(ele => (
+            <MyPageDrinkLike key={ele.drinkId} ele={ele}></MyPageDrinkLike>
+          ))
+        : null}
     </>
   );
 }
