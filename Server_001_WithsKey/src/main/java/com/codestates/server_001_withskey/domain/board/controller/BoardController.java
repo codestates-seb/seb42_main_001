@@ -80,7 +80,7 @@ public class BoardController {
         // request header의 토큰을 조회하여 memberId를 비교, 같으면 진행 다르면 거절.
         if (writerMemberId != memberId) {
 //            throw new BusinessLogicException(ExceptionCode.NO_AUTHORIZATION);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("권한이 없습니다!");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다!");
         } else {
             Board result = boardService.updateBoard(patch);
             return new ResponseEntity<>(result.getBoardTitle(), HttpStatus.OK);
@@ -92,8 +92,18 @@ public class BoardController {
     @DeleteMapping("/{board-id}")
     @Transactional
     public ResponseEntity deleteBoard(@PathVariable("board-id") @Positive long boardId){
-        this.boardService.deleteBoard(boardId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Board findBoard = boardService.findVerifiedBoard(boardId);
+        Member writer = findBoard.getMember();
+        long writerMemberId = writer.getMemberId();
+
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+        if (writerMemberId != memberId) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다.");
+        }
+        else {
+            this.boardService.deleteBoard(boardId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
     }
 
     // 조회

@@ -9,6 +9,7 @@ import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
@@ -42,14 +43,34 @@ public class CommentBoardController {
     public ResponseEntity patchComment(@PathVariable long commentBoardId,
                                        @RequestBody CommentBoardDto.Patch patch){
         patch.setCommentBoardId(commentBoardId);
-        commentBoardService.updateComment(patch);
-        return ResponseEntity.ok().build();
+
+        CommentBoard foundCB = commentBoardService.findVerifiedCommentById(commentBoardId);
+        Member writer = memberService.findMemberById(foundCB.getMemberId());
+        Long writerMemberId = writer.getMemberId();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+
+        if (writerMemberId != memberId) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다.");
+        } else {
+            commentBoardService.updateComment(patch);
+            return ResponseEntity.ok().build();
+        }
     }
 
     @DeleteMapping("/{commentBoardId}")
     @Transactional
     public ResponseEntity deleteComment(@PathVariable long commentBoardId){
-        commentBoardService.deleteComment(commentBoardId);
-        return ResponseEntity.noContent().build();
+
+        CommentBoard foundCB = commentBoardService.findVerifiedCommentById(commentBoardId);
+        Member writer = memberService.findMemberById(foundCB.getMemberId());
+        Long writerMemberId = writer.getMemberId();
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+
+        if (writerMemberId != memberId) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다");
+        } else {
+            commentBoardService.deleteComment(commentBoardId);
+            return ResponseEntity.noContent().build();
+        }
     }
 }
