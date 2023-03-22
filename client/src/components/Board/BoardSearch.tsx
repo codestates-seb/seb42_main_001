@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BoardDataProps } from "../../interfaces/boardss.interface";
+import { BoardDataProps } from "../../interfaces/boards.interface";
 import Card from "../UI/Card";
 
 interface BoardSearchProps {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import styled from 'styled-components';
-import { DrinksDetailProps } from '../../../interfaces/drinkss.inerface'
+import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
 
 function DrinksDetailCount({ drinksDetail }: DrinksDetailProps) {
