@@ -68,9 +68,6 @@ public class SecurityConfiguration {
         this.memberRepository = memberRepository;
         this.stringRedisTemplate = stringRedisTemplate;
     }
-    
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -99,7 +96,6 @@ public class SecurityConfiguration {
                 ).cors(withDefaults());
         return http.build();
     }
-
     //CORS 설정 하는 메서드
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
@@ -116,12 +112,10 @@ public class SecurityConfiguration {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
     @Bean
     public TokenRedisRepository tokenRedisRepository(StringRedisTemplate stringRedisTemplate) {
         return new TokenRedisRepository(stringRedisTemplate);
     }
-
         public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
 
             private final JwtTokenizer jwtTokenizer;
