@@ -45,7 +45,6 @@ public class LikeBoardService {
             throw new BusinessLogicException(ExceptionCode.LIKE_ALREADY_EXISTS);
         }
     }
-
     public void deleteLike(long memberId, long boardId){
         Board findBoard = boardService.findVerifiedBoard(boardId);
         LikeBoard likeBoard = findVerifyCanLike(memberId, findBoard);
@@ -53,8 +52,8 @@ public class LikeBoardService {
     }
 
     public LikeBoard findVerifyCanLike(long memberId, Board board){
-        Optional<LikeBoard> findLikeBoard =
-                likeBoardRepository.findLikeBoardByMemberIdAndBoard(memberId, board);
-        return findLikeBoard.orElseThrow(()-> new BusinessLogicException(ExceptionCode.LIKE_ALREADY_EXISTS));
+        Optional<LikeBoard> findLikeBoard = likeBoardRepository.findLikeBoardByMemberIdAndBoard(memberId, board);
+        return findLikeBoard.orElseThrow(()-> new BusinessLogicException(ExceptionCode.LIKE_NOT_EXIST));
     }
+
 }

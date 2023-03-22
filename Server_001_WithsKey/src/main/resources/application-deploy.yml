@@ -1,4 +1,3 @@
-
 spring:
   profile:
     active: deploy
@@ -30,8 +29,8 @@ mail:
 jwt:
   key:
     secret: ${/main001/jwt.key.secret}
-  access-token-expiration-minutes: 1
-  refresh-token-expiration-minutes: 1440
+  access-token-expiration-minutes: 10
+  refresh-token-expiration-minutes: 30
 
 file:
   root:

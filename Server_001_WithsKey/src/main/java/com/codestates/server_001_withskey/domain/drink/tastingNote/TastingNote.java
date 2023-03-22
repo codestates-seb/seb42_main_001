@@ -16,15 +16,15 @@ public class TastingNote {
     @Id
     long tastingNoteId;
     @Column
-    long Sweet;
+    long sweet;
     @Column
-    long Smoky;
+    long smoky;
     @Column
-    long Citrus;
+    long orc;
     @Column
-    long Herbal;
+    long spicy;
     @Column
-    long Tropical;
+    long fruity;
 
     // Drink 랑 1:1,
     @OneToOne

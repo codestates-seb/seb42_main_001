@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface LikeBoardRepository extends JpaRepository<LikeBoard, Long> {
     List<LikeBoard> findAllByMemberId(long memberId);
     Optional<LikeBoard> findLikeBoardByMemberIdAndBoard(long memberId, Board board);
-
 }

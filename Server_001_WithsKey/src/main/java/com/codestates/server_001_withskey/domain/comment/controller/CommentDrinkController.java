@@ -9,6 +9,7 @@ import com.codestates.server_001_withskey.domain.comment.service.CommentDrinkSer
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -41,16 +42,35 @@ public class CommentDrinkController {
     public ResponseEntity patchComment(@PathVariable long commentDrinkId,
                                        @RequestBody CommentDrinkDto.Patch patch){
 
-        patch.setCommentDrinkId(commentDrinkId);
-        commentDrinkService.updateComment(patch);
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
 
-        return ResponseEntity.ok().build();
+        patch.setCommentDrinkId(commentDrinkId);
+
+        CommentDrink findCommentDrink = commentDrinkService.findVerifiedCommentById(commentDrinkId);
+        long writeId = findCommentDrink.getMemberId();
+
+        if (memberId != writeId) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다.");
+        }else {
+            commentDrinkService.updateComment(patch);
+            return ResponseEntity.ok().build();
+        }
     }
 
     @DeleteMapping("/{commentBoardId}")
     @Transactional
-    public ResponseEntity deleteComment(@PathVariable long commentBoardId){
-        commentDrinkService.deleteComment(commentBoardId);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity deleteComment(@PathVariable long commentDrinkId){
+
+        Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+
+        CommentDrink findCommentDrink = commentDrinkService.findVerifiedCommentById(commentDrinkId);
+        long writeId = findCommentDrink.getMemberId();
+
+        if(memberId != writeId) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다.");
+        }else {
+            commentDrinkService.deleteComment(commentDrinkId);
+            return ResponseEntity.noContent().build();
+        }
     }
 }

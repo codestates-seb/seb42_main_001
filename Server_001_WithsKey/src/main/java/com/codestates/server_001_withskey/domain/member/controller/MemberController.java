@@ -141,6 +141,4 @@ public class  MemberController {
         memberService.deletedMember(memberId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-
-
 }

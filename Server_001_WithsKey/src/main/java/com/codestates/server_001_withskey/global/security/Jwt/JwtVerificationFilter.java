@@ -48,7 +48,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-
+        System.out.println("JwtVerificationFilter is being executed");
         //만약에 들어온 Refresh토큰이 블랙리스트에 있다면 인증 실패 처리
         String authorizationHeader = request.getHeader("Authorization");
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
@@ -60,6 +60,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
 
             try {
                 Map<String, Object> claims = verifyJws(token);
+                System.out.println("Parsed claims from token: "+claims);
                 setAuthenticationToContext(claims);
             } catch (SignatureException se) {
                 request.setAttribute("exception", se);
@@ -69,13 +70,12 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 try {
                     verifyJws(refreshToken);
                 } catch (ExpiredJwtException e) {
-                    // Local 환경 동작용
-//                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
-                    // EC2 환경 동작용
-                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
+                     // Local 환경 동작용
+                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+//                    // EC2 환경 동작용
+//                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
                     return;
                 }
-
                 if (tokenRedisRepository.isRefreshTokenUsed(refreshToken) || refreshToken.equals(tokenRedisRepository.getRefreshToken(refreshToken))) {
                     sendCustomErrorResponse(response, "", "", "Invalid refresh token", HttpServletResponse.SC_UNAUTHORIZED);
                     return;
@@ -91,7 +91,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 long refreshTokenDuration = jwtTokenizer.getRefreshTokenExpirationMinutes();
 
                 saveNewAccessTokenAndRefreshToken(newAccessToken, newRefreshToken, refreshToken, accessTokenDuration, refreshTokenDuration, TimeUnit.MINUTES);
-                sendCustomErrorResponse(response, newAccessToken, newRefreshToken, "New access token and refresh token generated", HttpServletResponse.SC_OK);
+                sendCustomErrorResponse(response, newAccessToken, newRefreshToken, "New access token and refresh token generated", HttpServletResponse.SC_UNAUTHORIZED);
 
                 return;
 
@@ -155,8 +155,10 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
 // Controller를 통해 들어오는 요청에서 같은 USER 권한이더라도 요청에 담긴 member 객체의 memberId로
 // 요청자를 구분하여 resource에 접근하려는 주체를 구분할 수 있다. + Request URL 의 간단함.
         String memberId = (String) claims.get("memberId");
+        System.out.println("Extracted memberId from claims: "+memberId);
         List<GrantedAuthority> authorities = authorityUtils.createAuthorities((List)claims.get("roles"));
         Authentication authentication = new UsernamePasswordAuthenticationToken(memberId,null,authorities);
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        System.out.println("Authentication set to SecurityContextHolder: " + authentication);
     }
 }
