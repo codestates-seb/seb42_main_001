@@ -17,17 +17,16 @@ import ArticleDetail from './pages/ArticleDetail';
 import { useAppDispatch } from './redux/hooks/hooks';
 import { loginSuccess } from './redux/slice/auth/authSlice';
 
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.headers.common['Authorization'] =
+  localStorage.getItem('accessToken');
+axios.defaults.headers.common['Refresh'] = localStorage.getItem('refreshToken');
+
 function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const initializeUserInfo = async () => {
-      axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-      axios.defaults.headers.common['Authorization'] =
-        localStorage.getItem('accessToken');
-      axios.defaults.headers.common['Refresh'] =
-        localStorage.getItem('refreshToken');
-
       try {
         const res = await axios.get(`/members/mypage`);
         if (res.status === 200) {
