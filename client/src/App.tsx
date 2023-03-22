@@ -1,32 +1,31 @@
-import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import axios from 'axios';
-import Main from './pages/Main';
-import MainLayout from './components/layout/MainLayout';
-import BaseLayout from './components/layout/BaseLayout';
-import DrinksList from './pages/DrinksList';
-import DrinksDetail from './pages/DrinksDetail';
-import ArticleList from './pages/ArticleList';
-import MyPage from './pages/MyPage';
-import BoardList from './pages/BoardList';
-import BoardDetail from './pages/BoardDetail';
-import BoardCreate from './pages/BoardCreate';
-import SignUp from './pages/SignUp';
-import Tags from './pages/Tags';
-import ArticleDetail from './pages/ArticleDetail';
-import { useAppDispatch } from './redux/hooks/hooks';
-import { loginSuccess } from './redux/slice/auth/authSlice';
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Main from "./pages/Main";
+import MainLayout from "./components/layout/MainLayout";
+import BaseLayout from "./components/layout/BaseLayout";
+import DrinksList from "./pages/DrinksList";
+import DrinksDetail from "./pages/DrinksDetail";
+import ArticleList from "./pages/ArticleList";
+import MyPage from "./pages/MyPage";
+import BoardList from "./pages/BoardList";
+import BoardDetail from "./pages/BoardDetail";
+import BoardCreate from "./pages/BoardCreate";
+import SignUp from "./pages/SignUp";
+import Tags from "./pages/Tags";
+import ArticleDetail from "./pages/ArticleDetail";
+import { useAppDispatch } from "./redux/hooks/hooks";
+import { loginSuccess } from "./redux/slice/auth/authSlice";
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.headers.common["Authorization"] =
+  localStorage.getItem("accessToken");
+axios.defaults.headers.common["Refresh"] = localStorage.getItem("refreshToken");
 
 function App() {
   const dispatch = useAppDispatch();
 
   const initializeUserInfo = async () => {
-    axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-    axios.defaults.headers.common['Authorization'] =
-      localStorage.getItem('accessToken');
-    axios.defaults.headers.common['Refresh'] =
-      localStorage.getItem('refreshToken');
-
     try {
       const res = await axios.get(`/members/mypage`);
       if (res.status === 200) {
