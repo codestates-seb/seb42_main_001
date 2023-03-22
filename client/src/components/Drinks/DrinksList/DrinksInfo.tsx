@@ -14,7 +14,7 @@ interface ISearchProps {
 }
 
 function DrinksInfo({ search, setSearch, searchTag, setSearchTag, setPage }: ISearchProps) {
-  const [searchButton, setSearchButton] = useState(false);
+  const [searchButton, setSearchButton] = useState<boolean>(false);
 
   // searchButton on/off
   const handleSearchChange = () => {
