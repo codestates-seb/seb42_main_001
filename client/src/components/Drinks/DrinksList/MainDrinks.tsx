@@ -23,7 +23,7 @@ function MainDrinks() {
   const [likesData, setLikesData] = useState<Likes[]>([])
 
   // tags
-  const tagsData = async () => {
+  const handleDrinksTagData = async () => {
     const res = await axios.get(`/tags`);
     setTagData(res.data);
   };
@@ -43,9 +43,10 @@ function MainDrinks() {
   }, [])
 
   useEffect(() => {
-    tagsData()
+    handleDrinksTagData()
     handleDrinksData()
-  }, [])
+    console.log('ggg')
+  }, [handleDrinksData])
 
   return (
     <>
