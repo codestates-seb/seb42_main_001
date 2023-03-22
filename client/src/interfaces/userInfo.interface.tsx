@@ -5,7 +5,19 @@ export interface userInfo {
   displayName: string;
   profilePicture: string;
   aboutMe: string;
-  likeBoards: Data;
+  likeBoards: Array<{
+    boardId: number;
+    boardTitle: string;
+    content: string;
+    memberId: number;
+    memberName: string;
+    profileImageUrl: string;
+    createdAt: string;
+    modifiedAt: string;
+    likeCount: number;
+    commentCount: number;
+    tags?: [];
+  }>;
   likeDrinks: Array<{ drinkId: number; drinkName: string }>;
   writeBoardComments: Array<{
     commentId: number;

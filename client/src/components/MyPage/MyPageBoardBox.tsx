@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import MyPageBoardComment from "./MyPageBoardComment";
-import MyPageBoardLike from "./MyPageBoardLike";
+import React from 'react';
+import styled from 'styled-components';
+import MyPageBoardComment from './MyPageBoardComment';
+import MyPageBoardLikeList from './MyPageBoardLikeList';
 
 interface BarProps {
   selectedBar?: boolean;
@@ -12,9 +12,9 @@ function MyPageBoardBox({ selectedBar, selectedBarBorad }: BarProps) {
   return (
     <MainContainer>
       {selectedBarBorad ? (
-        selectedBarBorad === "Likes" ? (
-          <MyPageBoardLike />
-        ) : selectedBarBorad === "Comments" ? (
+        selectedBarBorad === 'Likes' ? (
+          <MyPageBoardLikeList />
+        ) : selectedBarBorad === 'Comments' ? (
           <MyPageBoardComment />
         ) : (
           <MyPageBoardComment board="board" />
@@ -22,7 +22,7 @@ function MyPageBoardBox({ selectedBar, selectedBarBorad }: BarProps) {
       ) : selectedBar ? (
         <MyPageBoardComment />
       ) : (
-        <MyPageBoardLike />
+        <MyPageBoardLikeList />
       )}
     </MainContainer>
   );
