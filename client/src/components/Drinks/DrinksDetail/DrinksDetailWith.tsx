@@ -7,7 +7,7 @@ function DrinksDetailWith({ drinksDetail }: any) {
     <SnackContainer>
       <Card>
         <ItemContainer>
-          <img src={`${drinksDetail.imageUrl}`} />
+          <img src={`${drinksDetail.imageUrl}`} alt={drinksDetail.drinkName} />
         </ItemContainer>
         <TextContainer>{drinksDetail.drinkName}</TextContainer>
       </Card>

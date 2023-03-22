@@ -42,6 +42,12 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
     }
   };
 
+  const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleDrinksPost();
+    }
+  };
+
   return (
     <MainContainer>
       <section>
@@ -49,6 +55,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
           <Card>
             <input
               onChange={handleCommentValueChange}
+              onKeyDown={handleInputKey}
               value={commentValue}
               placeholder="댓글을 작성해 주세요"
             />
