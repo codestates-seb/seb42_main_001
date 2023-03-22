@@ -5,12 +5,17 @@ import { DrinksSnacksProps } from '../../../interfaces/Drinks.inerface'
 
 
 function DrinksDetailSnack({ drinksDetail }: DrinksSnacksProps) {
+  console.log(drinksDetail)
   return (
     <SnackContainer>
       <Card>
-        <div>img</div>
+        <ImgContainer>
+          <img src={`${drinksDetail.snackImageUrl}`} alt={drinksDetail.snackName} />
+        </ImgContainer>
       </Card>
-      <span>치즈</span>
+      <Name>{drinksDetail.snackName}</Name>
+      <Kcal>{drinksDetail.snackKcal} Kcal</Kcal>
+      <Info>{drinksDetail.snackInfo}</Info>
     </SnackContainer>
   );
 }
@@ -23,19 +28,40 @@ const SnackContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 0 var(--x-large) var(--2x-large) var(--x-large);
-
+  
   div {
+    border-radius: var(--4x-large);
+  }
+
+  img {
+    width: 80%;
+    height: auto;
+    border-radius: var(--4x-large);
+  }
+`;
+
+const ImgContainer = styled.div`
     width: 180px;
     height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--color-white);
-    border-radius: var(--4x-large);
-  }
+`
 
-  span {
-    margin-top: var(--small);
-    font-size: var(--x-small);
-  }
-`;
+const Name = styled.p`
+    margin: var(--medium) 0 var(--3x-small) 0;
+    font-size: var(--small);
+    font-weight: var(--weight-medium);
+`
+
+const Kcal = styled.p`
+  font-size: var(--x-small);
+  color: var(--color-sub-dark-gray);
+`
+
+const Info = styled.div`
+  margin-top: var(--medium);
+  line-height: 22px;
+  width: 50%;
+`
