@@ -19,6 +19,7 @@ public class LikeBoard {
     private Long likeBoardId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BOARD_ID")
     private Board board;
 
     @Column

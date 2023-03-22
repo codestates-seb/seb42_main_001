@@ -51,14 +51,9 @@ public class LikeBoardService {
         likeBoardRepository.delete(likeBoard);
     }
 
-    public LikeBoard findLikeBoard (long boardId) {
-        return likeBoardRepository.findLikeBoardByBoardId(boardId);
-    }
-
     public LikeBoard findVerifyCanLike(long memberId, Board board){
-        Optional<LikeBoard> findLikeBoard =
-                likeBoardRepository.findLikeBoardByMemberIdAndBoard(memberId, board);
-        return findLikeBoard.orElseThrow(()-> new BusinessLogicException(ExceptionCode.LIKE_ALREADY_EXISTS));
+        Optional<LikeBoard> findLikeBoard = likeBoardRepository.findLikeBoardByMemberIdAndBoard(memberId, board);
+        return findLikeBoard.orElseThrow(()-> new BusinessLogicException(ExceptionCode.LIKE_NOT_EXIST));
     }
 
 }
