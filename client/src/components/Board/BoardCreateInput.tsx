@@ -6,7 +6,7 @@ import axios from "axios";
 
 import Card from "../UI/Card";
 import React from "react";
-import { Data } from "../../interfaces/Boards.interface";
+import { Data } from "../../interfaces/boards.interface";
 
 interface BoardCreateInputProps {
   title: (title: string) => void;
