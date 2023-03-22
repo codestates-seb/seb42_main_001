@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface TagDrinkRepository extends JpaRepository<TagBoard, Long> {
+public interface TagDrinkRepository extends JpaRepository<TagDrink, Long> {
     // tagId로 drink 불러오기
     @Query("select b, t"
         + " from TagDrink b left join Tag t on b.tag = t"

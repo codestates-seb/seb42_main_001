@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 초기데이터 수정2">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: recommandDrinks 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/controller/DrinksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/controller/DrinksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/dto/DrinkDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/dto/DrinkDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/mapper/DrinkMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/repository/TagDrinkRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/tag/repository/TagDrinkRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,13 +254,6 @@
       <workItem from="1679320645538" duration="1736000" />
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
-    </task>
-    <task id="LOCAL-00017" summary="🔨 fix: 추천 관련 게시글 기능 수정">
-      <created>1678872361534</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1678872361534</updated>
     </task>
     <task id="LOCAL-00018" summary="🔨 fix: GET all Drinks 로직 수정">
       <created>1678886950422</created>
@@ -603,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679477957388</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="✨ feat: recommandDrinks 기능 추가">
+      <created>1679479924977</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1679479924977</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 리다이렉트 토큰 전달" />
     <MESSAGE value="✨ feat: 설정 프로파일 추가" />
     <MESSAGE value="✨ feat: 설정 프로파일 추가2" />
     <MESSAGE value="✨ feat: 리다이렉트 헤더에 accessToken, refreshToken 추가" />
@@ -663,7 +657,8 @@
     <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
     <MESSAGE value="✨ feat: 초기데이터 수정" />
     <MESSAGE value="✨ feat: 초기데이터 수정2" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 초기데이터 수정2" />
+    <MESSAGE value="✨ feat: recommandDrinks 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: recommandDrinks 기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
