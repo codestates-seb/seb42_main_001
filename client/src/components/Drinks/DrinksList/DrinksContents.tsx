@@ -13,6 +13,11 @@ interface ISearchProps {
   setPage: (state: number) => void;
 }
 
+interface Tags {
+  tags: { tagId: number }[];
+  // ... other properties of the Drink interface
+}
+
 function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any {
   const [drinksData, setDrinksData] = useState<Drinks[]>([])
   const [likesData, setLikesData] = useState<Likes[]>([])
@@ -35,22 +40,25 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
     handleDrinksData()
   })
 
-  let drinkTagData: Drinks[] = []
-  let drinkTagValue: number | any = 0
-  for (let i = 0; i < drinksData.length; i++) {
-    if (drinksData[i].tags.length !== 0) {
-      const drinkTag = drinksData[i].tags // 태그 잇는 drink들
-      for (let j = 0; j < drinkTag.length; j++) { // 태그 잇는 drink 순회
-        if (drinkTag[j].tagId === searchTag) { // 요소의 tagid가 searchtag랑 동일하다면
-          drinkTagData = [...drinkTagData, drinksData[i]]
-          drinkTagValue = drinkTag[j].tagId
-          break;
-        }
-      }
-    }
-  }
+  // let drinkTagData: Drinks[] = []
+  // let drinkTagValue: number | any = 0
+  // for (let i = 0; i < drinksData.length; i++) {
+  //   if (drinksData[i].tags.length !== 0) {
+  //     const drinkTag = drinksData[i].tags // 태그 잇는 drink들
+  //     for (let j = 0; j < drinkTag.length; j++) { // 태그 잇는 drink 순회
+  //       if (drinkTag[j].tagId === searchTag) { // 요소의 tagid가 searchtag랑 동일하다면
+  //         drinkTagData = [...drinkTagData, drinksData[i]]
+  //         drinkTagValue = drinkTag[j].tagId
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }
 
-  const filtered: Drinks[] = drinksData.filter((el) => {
+  const drinkTagData: Drinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
+  const drinkTagValue: number | null = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId ?? null : null;
+
+  const filtered: Drinks[] = drinksData.filter((el: Drinks) => {
     return search.toLowerCase() === ""
       ? el
       : el.drinkName.toLowerCase().includes(search);
@@ -104,4 +112,3 @@ const ContentsContainer = styled.div`
     align-items: center;
   }
 `;
-

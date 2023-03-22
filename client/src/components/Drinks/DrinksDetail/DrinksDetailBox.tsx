@@ -12,8 +12,8 @@ function DrinksDetailBox({ drinksDetail }: DrinksDetailProps) {
       <TagContainer>
         {drinksDetail?.tags?.map(el => {
           return (
-            <Link to={`/tags/${el.tagId}`}>
-              <DrinksDetailTags key={el.tagId} tagName={el.tagName} />
+            <Link to={`/tags/${el.tagId}`} key={el.tagId}>
+              <DrinksDetailTags tagName={el.tagName} />
             </Link>
           )
         })}
