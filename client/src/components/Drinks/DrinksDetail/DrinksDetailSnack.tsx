@@ -5,7 +5,6 @@ import { DrinksSnacksProps } from '../../../interfaces/Drinks.inerface'
 
 
 function DrinksDetailSnack({ drinksDetail }: DrinksSnacksProps) {
-  console.log(drinksDetail)
   return (
     <SnackContainer>
       <Card>
