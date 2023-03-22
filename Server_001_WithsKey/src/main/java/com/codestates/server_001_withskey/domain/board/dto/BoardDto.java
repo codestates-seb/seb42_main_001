@@ -3,6 +3,7 @@ package com.codestates.server_001_withskey.domain.board.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.codestates.server_001_withskey.domain.board.entity.Board;
 import com.codestates.server_001_withskey.domain.comment.dto.CommentBoardDto;
 import com.codestates.server_001_withskey.domain.image.dto.ImageDto;
 import com.codestates.server_001_withskey.domain.tag.dto.TagDto;
