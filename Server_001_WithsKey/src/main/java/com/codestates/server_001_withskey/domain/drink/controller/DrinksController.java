@@ -64,7 +64,7 @@ public class DrinksController {
         TastingNoteDto.Response tastingNote = tastingNoteMapper.tastingNoteToResponse(drink.getTastingNote());
         response.setTastingNote(tastingNote);
 
-        //Set RecommandDrink
+        //Set RecommandDrink2
         List<Drink> drinks = drinkService.findRecommandDrinksByTag(drink);
         response.setRecommandDrinks(mapper.drinksToRecomands(drinks));
 
