@@ -22,6 +22,7 @@ function DrinksDetailSnack({ drinksDetail }: DrinksSnacksProps) {
 export default DrinksDetailSnack;
 
 const SnackContainer = styled.div`
+  width: 350px;
   display: flex;
   align-items: center;
   justify-content: center;

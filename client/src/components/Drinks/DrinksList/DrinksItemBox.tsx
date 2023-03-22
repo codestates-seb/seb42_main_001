@@ -13,8 +13,8 @@ function DrinksItemBox({ drinksData, likesData }: DrinksProps) {
       <TagContainer>
         {drinksData?.tags.map(el => {
           return (
-            <Link to={`/tags/${el.tagId}`}>
-              <DrinksItemTags key={el.tagId} drinksData={el} />
+            <Link key={el.tagId} to={`/tags/${el.tagId}`}>
+              <DrinksItemTags drinksData={el} />
             </Link>
           )
         })}
@@ -37,12 +37,8 @@ const InfoContainer = styled.div`
 const TagContainer = styled.div`
   width: 85%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   overflow-x: scroll;
-
-  // TODO: CSS mask
-  background-image:
-  linear-gradient(-45deg, #ffffff 25%);
 
   &::-webkit-scrollbar {
     display: none;
