@@ -8,12 +8,14 @@ function MyPageBoardList() {
 
   return (
     <>
-      {writeBoardsList.map(ele => (
-        <MyPageBoardComment
-          key={ele.boardId}
-          ele={ele}
-          board="board"></MyPageBoardComment>
-      ))}
+      {writeBoardsList
+        ? writeBoardsList.map(ele => (
+            <MyPageBoardComment
+              key={ele.boardId}
+              ele={ele}
+              board="board"></MyPageBoardComment>
+          ))
+        : null}
     </>
   );
 }

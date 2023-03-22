@@ -8,9 +8,13 @@ function MyPageBoardCommentList() {
 
   return (
     <>
-      {writeBoardCommentsList.map(ele => (
-        <MyPageBoardComment key={ele.commentId} ele={ele}></MyPageBoardComment>
-      ))}
+      {writeBoardCommentsList
+        ? writeBoardCommentsList.map(ele => (
+            <MyPageBoardComment
+              key={ele.commentId}
+              ele={ele}></MyPageBoardComment>
+          ))
+        : null}
     </>
   );
 }
