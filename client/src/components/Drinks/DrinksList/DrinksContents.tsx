@@ -33,7 +33,7 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
 
   useEffect(() => {
     handleDrinksData()
-  }, [handleDrinksData])
+  })
 
   let drinkTagData: Drinks[] = []
   let drinkTagValue: number | any = 0

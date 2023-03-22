@@ -19,7 +19,7 @@ function DrinksDetail() {
 
   useEffect(() => {
     handleGetDrinksDetail()
-  }, [handleGetDrinksDetail]);
+  });
 
   return (
     <MainDrinksDetail drinksDetail={drinksDetail} />
