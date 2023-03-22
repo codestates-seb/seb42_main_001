@@ -70,10 +70,10 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 try {
                     verifyJws(refreshToken);
                 } catch (ExpiredJwtException e) {
-                     // Local 환경 동작용
-                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
-//                    // EC2 환경 동작용
-//                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
+//                     // Local 환경 동작용
+//                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
+                    // EC2 환경 동작용
+                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
                     return;
                 }
                 if (tokenRedisRepository.isRefreshTokenUsed(refreshToken) || refreshToken.equals(tokenRedisRepository.getRefreshToken(refreshToken))) {
@@ -101,7 +101,6 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
-
     private void sendCustomErrorResponse(HttpServletResponse response,
                                          String newAccessToken,
                                          String newRefreshToken,
@@ -121,7 +120,6 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
         response.getWriter().flush();
         response.getWriter().close();
     }
-
     private void saveNewAccessTokenAndRefreshToken(String newAccessToken,
                                                    String newRefreshToken,
                                                    String usedRefreshToken,
@@ -130,11 +128,9 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                                                    TimeUnit timeUnit) {
         // Redis 에 새로 생성된 AccessToken과 RefreshToken을 설정해둔 유효 기간동안 보관.
         tokenRedisRepository.saveNewAccessTokenAndRefreshToken(newAccessToken, newRefreshToken, accessTokenDuration, refreshTokenDuration, timeUnit);
-
         // Redis 에서 usedRefreshToken를 최초 생성될 떄 지정받은 유효 기간 동안 보관.
         tokenRedisRepository.saveUsedRefreshToken(usedRefreshToken, jwtTokenizer.getRefreshTokenExpirationMinutes(), TimeUnit.MINUTES);
     }
-
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String authorization = request.getHeader("Authorization");
