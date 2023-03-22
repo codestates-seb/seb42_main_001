@@ -1,18 +1,18 @@
 import React from 'react'
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import styled from 'styled-components';
-import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
+import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
 
 function DrinksDetailCount({ drinksDetail }: DrinksDetailProps) {
-    return (
-        <LikesSize>
-            <HiOutlineChatBubbleOvalLeft />
-            <span>
-                {drinksDetail?.commentDrinks.length}
-            </span>
-        </LikesSize>
-    )
+  return (
+    <LikesSize>
+      <HiOutlineChatBubbleOvalLeft />
+      <span>
+        {drinksDetail?.commentDrinks.length}
+      </span>
+    </LikesSize>
+  )
 }
 
 export default DrinksDetailCount

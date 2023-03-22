@@ -1,23 +1,29 @@
-import React from 'react'
-import styled from 'styled-components'
-import Card from '../UI/Card'
+import React from 'react';
+import styled from 'styled-components';
+import Card from '../UI/Card';
 
-function MyPageDrinkLike() {
-    return (
-        <Card>
-            <MainContainer>
-                jim beam
-            </MainContainer>
-        </Card>
-    )
+interface props {
+  ele: {
+    drinkId: number;
+    drinkName: string;
+  };
 }
 
-export default MyPageDrinkLike
+function MyPageDrinkLike({ ele }: props) {
+  return (
+    <Card>
+      <MainContainer>{ele.drinkName}</MainContainer>
+    </Card>
+  );
+}
+
+export default MyPageDrinkLike;
 
 const MainContainer = styled.div`
-    width: 100%;
-    height: var(--3x-large);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
+  width: 100%;
+  height: var(--3x-large);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--x-small);
+`;

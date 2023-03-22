@@ -20,8 +20,8 @@ function DrinksDetail() {
   }, [drinkId]);
 
   useEffect(() => {
-    handleGetDrinksDetail();
-  }, [handleGetDrinksDetail]);
+    handleGetDrinksDetail()
+  });
 
   return <MainDrinksDetail drinksDetail={drinksDetail} />;
 }

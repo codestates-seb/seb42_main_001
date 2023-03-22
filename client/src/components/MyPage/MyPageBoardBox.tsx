@@ -1,28 +1,23 @@
-import React from "react";
-import styled from "styled-components";
-import MyPageBoardComment from "./MyPageBoardComment";
-import MyPageBoardLike from "./MyPageBoardLike";
+import React from 'react';
+import styled from 'styled-components';
+
+import MyPageBoardCommentList from './MyPageBoardCommentList';
+import MyPageBoardLikeList from './MyPageBoardLikeList';
+import MyPageBoardList from './MyPageBoardList';
 
 interface BarProps {
-  selectedBar?: boolean;
   selectedBarBorad?: string;
 }
 
-function MyPageBoardBox({ selectedBar, selectedBarBorad }: BarProps) {
+function MyPageBoardBox({ selectedBarBorad }: BarProps) {
   return (
     <MainContainer>
-      {selectedBarBorad ? (
-        selectedBarBorad === "Likes" ? (
-          <MyPageBoardLike />
-        ) : selectedBarBorad === "Comments" ? (
-          <MyPageBoardComment />
-        ) : (
-          <MyPageBoardComment board="board" />
-        )
-      ) : selectedBar ? (
-        <MyPageBoardComment />
+      {selectedBarBorad === 'Likes' ? (
+        <MyPageBoardLikeList />
+      ) : selectedBarBorad === 'Comments' ? (
+        <MyPageBoardCommentList />
       ) : (
-        <MyPageBoardLike />
+        <MyPageBoardList />
       )}
     </MainContainer>
   );

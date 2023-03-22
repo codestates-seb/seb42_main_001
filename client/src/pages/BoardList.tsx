@@ -4,7 +4,7 @@ import axios from "axios";
 
 import BoardInfo from "../components/Board/BoardInfo";
 import BoardItem from "../components/Board/BoardItem";
-import { BoardDataProps } from "../interfaces/Boards.interface";
+import { BoardDataProps } from "../interfaces/boards.interface";
 
 function BoardList() {
   const [items, setItems] = useState<BoardDataProps[]>([]); // axios로 받아온 데이터 저장

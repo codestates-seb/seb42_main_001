@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
-import johnnie from "../../img/johnnie_walker.svg";
-import bellucci from "../../img/bellucci.jpg";
+import irish from "../../img/irish.jpg";
+import jackblack from "../../img/jack-black.jpg";
 import bowmore from "../../img/bowmore.jpg";
-import jager from "../../img/Jägermeiſter.jpg";
+import drink1887 from "../../img/1887.jpg";
 import MainDontMove from "../Main/MainDontMove";
 
 interface MainLayoutProps {
@@ -29,7 +29,7 @@ function MainLayout({ bgColor, img }: MainLayoutProps) {
     if (img) {
       const interval = setInterval(() => {
         setPage((prev) => (prev + 1) % 4);
-      }, 3000);
+      }, 4000);
       return () => clearInterval(interval);
     } else {
       setPage(0);
@@ -111,14 +111,14 @@ const ContainerBox = styled.div<MainLayoutProps>`
   }
 `;
 
-const ContainerBox1 = styled(ContainerBox)<MainLayoutProps>`
-  background-image: ${(props) => (props.img ? `url(${bellucci})` : `none`)};
+const ContainerBox1 = styled(ContainerBox) <MainLayoutProps>`
+  background-image: ${(props) => (props.img ? `url(${irish})` : `none`)};
 `;
-const ContainerBox2 = styled(ContainerBox)<MainLayoutProps>`
-  background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
+const ContainerBox2 = styled(ContainerBox) <MainLayoutProps>`
+  background-image: ${(props) => (props.img ? `url(${jackblack})` : `none`)};
 `;
-const ContainerBox3 = styled(ContainerBox)<MainLayoutProps>`
-  background-image: ${(props) => (props.img ? `url(${jager})` : `none`)};
+const ContainerBox3 = styled(ContainerBox) <MainLayoutProps>`
+  background-image: ${(props) => (props.img ? `url(${drink1887})` : `none`)};
 `;
 
 const Container = styled.div<MainLayoutProps>`
