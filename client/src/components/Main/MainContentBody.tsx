@@ -3,9 +3,11 @@ import styled from "styled-components";
 const MainContentBody = () => {
   return (
     <MainContentBodyContainer>
-      <MainContentDrink>Johnnie Walker</MainContentDrink>
-      <MainContentDrinkName>BLUE LABEL</MainContentDrinkName>
-      <MainContentDrinktype>Blended Scotch Whisky</MainContentDrinktype>
+      <MainContentDrink>TWELVE YEARS OLD</MainContentDrink>
+      <MainContentDrinkName>BOWMORE</MainContentDrinkName>
+      <MainContentDrinktype>
+        ISLAY SINGLE MALT SCOTCH WHISKY
+      </MainContentDrinktype>
     </MainContentBodyContainer>
   );
 };
@@ -13,12 +15,12 @@ const MainContentBody = () => {
 export default MainContentBody;
 
 const MainContentBodyContainer = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 
   @media only screen and (max-width: 768px) {
-  width: 100%;
+    width: 100%;
   }
 `;
 
@@ -27,7 +29,7 @@ const MainContentDrink = styled.div`
   color: var(--color-white);
 
   @media only screen and (max-width: 768px) {
-  width: 100%;
+    width: 100%;
   }
 `;
 
@@ -37,7 +39,7 @@ const MainContentDrinkName = styled.div`
   color: var(--color-white);
 
   @media only screen and (max-width: 768px) {
-  width: 100%;
+    width: 100%;
   }
 `;
 
@@ -46,6 +48,6 @@ const MainContentDrinktype = styled.div`
   color: var(--color-white);
 
   @media only screen and (max-width: 768px) {
-  width: 100%;
+    width: 100%;
   }
 `;
