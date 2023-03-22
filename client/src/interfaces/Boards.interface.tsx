@@ -49,3 +49,20 @@ export interface Data {
     createAt: string;
   }>;
 }
+
+export interface Tags {
+  tagId: number;
+  tagName: string;
+}
+
+export interface Imgs {
+  imageId: number;
+  boardImageUrl: string;
+}
+
+export interface SetData {
+  boardTitle: string;
+  boardContent: string;
+  boardImageUrl: Imgs[];
+  tags: Tags[];
+}

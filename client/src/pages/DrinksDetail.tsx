@@ -1,8 +1,8 @@
-import React, { useCallback, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import MainDrinksDetail from "../components/Drinks/DrinksDetail/MainDrinksDetail";
-import { IDrinksDetail } from "../interfaces/Drinks.inerface";
+import React, { useCallback, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import MainDrinksDetail from '../components/Drinks/DrinksDetail/MainDrinksDetail';
+import { IDrinksDetail } from '../interfaces/Drinks.inerface';
 
 function DrinksDetail() {
   const { drinkId } = useParams<{ drinkId: string }>();
@@ -13,6 +13,7 @@ function DrinksDetail() {
       const res = await axios.get(`/drinks/${drinkId}`);
       setDrinksDetail(res.data);
       window.scrollTo(0, 0);
+      console.log(res.data);
     } catch (error) {
       console.error(error);
     }

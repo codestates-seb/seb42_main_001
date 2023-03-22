@@ -1,18 +1,19 @@
-import { useRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { Editor } from "@toast-ui/react-editor";
-import "@toast-ui/editor/dist/toastui-editor.css";
-import axios from "axios";
+import { useRef, useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { Editor } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import axios from 'axios';
 
-import Card from "../UI/Card";
-import React from "react";
-import { Data } from "../../interfaces/Boards.interface";
+import Card from '../UI/Card';
+import React from 'react';
+import { Data, SetData } from '../../interfaces/Boards.interface';
 
 interface BoardCreateInputProps {
   title: (title: string) => void;
   content: (content: string) => void;
   image: (url: { imageId: number; boardImageUrl: string }) => void;
   iseditData?: Data;
+  preData?: SetData;
 }
 
 function BoardCreateInput({
@@ -20,6 +21,7 @@ function BoardCreateInput({
   content,
   image,
   iseditData,
+  preData,
 }: BoardCreateInputProps) {
   const editorRef = useRef<Editor>(null);
   const [isTitle, setTitle] = useState(iseditData?.boardTitle);
@@ -36,16 +38,20 @@ function BoardCreateInput({
       setTitle(iseditData!.boardTitle);
       title(iseditData!.boardTitle);
       editorRef.current?.getInstance().setMarkdown(iseditData.content);
+    } else if (preData) {
+      setTitle(preData!.boardTitle);
+      title(preData!.boardTitle);
+      editorRef.current?.getInstance().setMarkdown(preData.boardContent);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [iseditData]);
+  }, [iseditData, preData]);
   return (
     <Card>
       <InputContainer>
         <input
-          type="text"
-          placeholder={"제목을 입력해 주세요"}
-          value={isTitle ? isTitle : ""}
+          type='text'
+          placeholder={'제목을 입력해 주세요'}
+          value={isTitle ? isTitle : ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             title(e.target.value);
             setTitle(e.target.value);
@@ -53,23 +59,23 @@ function BoardCreateInput({
         ></input>
         <EditorContainer>
           <Editor
-            initialValue={"내용을 입력해주세요"}
-            previewStyle="vertical"
-            height="600px"
+            initialValue={'내용을 입력해주세요'}
+            previewStyle='vertical'
+            height='600px'
             ref={editorRef}
-            initialEditType="markdown"
+            initialEditType='markdown'
             useCommandShortcut={true}
             onChange={handleContentChange}
             hooks={{
               addImageBlobHook: async (blob, callback) => {
                 const formData = new FormData();
-                formData.append("file", blob);
+                formData.append('file', blob);
 
-                const img = await axios.post("/spring/upload", formData);
+                const img = await axios.post('/spring/upload', formData);
                 const url = img.data[0].boardImageUrl;
                 image(img.data[0]);
 
-                callback(url, "");
+                callback(url, '');
               },
             }}
           />
