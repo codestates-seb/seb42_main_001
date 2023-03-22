@@ -1,11 +1,21 @@
-import { Data } from './Boards.interface';
-
 export interface userInfo {
   memberId: number;
   displayName: string;
   profilePicture: string;
   aboutMe: string;
-  likeBoards: Data;
+  likeBoards: Array<{
+    boardId: number;
+    boardTitle: string;
+    content: string;
+    memberId: number;
+    memberName: string;
+    profileImageUrl: string;
+    createdAt: string;
+    modifiedAt: string;
+    likeCount: number;
+    commentCount: number;
+    tags?: [];
+  }>;
   likeDrinks: Array<{ drinkId: number; drinkName: string }>;
   writeBoardComments: Array<{
     commentId: number;
@@ -13,7 +23,19 @@ export interface userInfo {
     boardId: number;
     boardTitle: string;
   }>;
-  writeBoards: Data;
+  writeBoards: Array<{
+    boardId: number;
+    boardTitle: string;
+    content: string;
+    memberId: number;
+    memberName: string;
+    profileImageUrl: string;
+    createdAt: string;
+    modifiedAt: string;
+    likeCount: number;
+    commentCount: number;
+    tags?: [];
+  }>;
   writeDrinkComments: Array<{
     drinkId: number;
     commentId: number;

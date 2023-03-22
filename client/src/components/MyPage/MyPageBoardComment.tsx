@@ -1,41 +1,51 @@
-import React from "react";
-import styled from "styled-components";
-import Card from "../UI/Card";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
+import React from 'react';
+import styled from 'styled-components';
+import Card from '../UI/Card';
+import { IoMdHeartEmpty } from 'react-icons/io';
+import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
 
 interface MyPageBoardCommentProps {
   board?: string;
+  ele: {
+    boardId?: number;
+    boardTitle?: string;
+    createdAt?: string;
+    content?: string;
+    likeCount?: number;
+    commentCount?: number;
+    commentId?: number;
+    commentContent?: string;
+  };
 }
 
-function MyPageBoardComment({ board }: MyPageBoardCommentProps) {
+function MyPageBoardComment({ board, ele }: MyPageBoardCommentProps) {
   return (
     <Card>
       <MainContainer>
         {board ? (
           <>
             <div>
-              <div>작성한 보드 제목</div>
-              <div>2023-03-20</div>
+              <div>{ele.boardTitle}</div>
+              <div>{ele.createdAt}</div>
             </div>
             <div>
-              <span>작성한 보드 내용</span>
+              <span>{ele.content}</span>
               <div>
                 <LikesWrapper>
                   <IoMdHeartEmpty />
-                  <LikesCount>0</LikesCount>
+                  <LikesCount>{ele.likeCount}</LikesCount>
                 </LikesWrapper>
                 <CommentsWrapper>
                   <HiOutlineChatBubbleOvalLeft />
-                  <CommentsCount>0</CommentsCount>
+                  <CommentsCount>{ele.commentCount}</CommentsCount>
                 </CommentsWrapper>
               </div>
             </div>
           </>
         ) : (
           <>
-            <span>보드 게시글 제목</span>
-            <div>작성한 댓글 내용</div>
+            <span>{ele.boardTitle}</span>
+            <div>{ele.commentContent}</div>
           </>
         )}
       </MainContainer>
@@ -52,6 +62,8 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: var(--large);
+  margin-bottom: var(--x-small);
+
   > span {
     color: var(--color-sub-gray);
     margin-bottom: var(--x-small);
