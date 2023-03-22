@@ -27,6 +27,8 @@ const SnackContainer = styled.div`
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
 `;
 
 const SnackFlex = styled.div`
@@ -34,5 +36,6 @@ const SnackFlex = styled.div`
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   align-content: flex-start;
 `;

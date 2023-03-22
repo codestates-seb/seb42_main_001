@@ -33,9 +33,11 @@ function BoardCreateInput({
 
   useEffect(() => {
     if (iseditData) {
-      setTitle(iseditData.boardTitle);
+      setTitle(iseditData!.boardTitle);
+      title(iseditData!.boardTitle);
       editorRef.current?.getInstance().setMarkdown(iseditData.content);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [iseditData]);
   return (
     <Card>

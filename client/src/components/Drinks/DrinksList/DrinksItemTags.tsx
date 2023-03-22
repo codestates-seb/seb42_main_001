@@ -35,5 +35,13 @@ const TagsContainer = styled.div`
     justify-content: center;
     padding: 5px 7px;
     white-space: nowrap;
+    transition: .5s;
+
+    &:hover {
+      transition: .5s;
+      background-color: var(--color-main);
+      color: var(--color-white);
+      border: 1px solid var(--color-main);
+    }
   }
 `;

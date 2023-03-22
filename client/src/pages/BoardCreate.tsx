@@ -74,22 +74,28 @@ function BoardCreate() {
   };
 
   const handleBoardSubmit = () => {
-    const newBoard = {
-      boardTitle,
-      boardContent,
-      boardImageUrl,
-      tags,
-    };
-    if (!editId) {
-      axios
-        .post(`/boards`, newBoard)
-        .then((res) => navigate("/board/list"))
-        .catch((err) => console.log(Error, err));
+    if (boardTitle === "") {
+      alert("제목을 작성해 주세요");
+    } else if (boardContent === "") {
+      alert("본문을 작성해 주세요");
     } else {
-      axios
-        .patch(`/boards/${editId}`, newBoard)
-        .then((res) => navigate("/board/list"))
-        .catch((err) => console.log(Error, err));
+      const newBoard = {
+        boardTitle,
+        boardContent,
+        boardImageUrl,
+        tags,
+      };
+      if (!editId) {
+        axios
+          .post(`/boards`, newBoard)
+          .then((res) => navigate("/board/list"))
+          .catch((err) => console.log(Error, err));
+      } else {
+        axios
+          .patch(`/boards/${editId}`, newBoard)
+          .then((res) => navigate("/board/list"))
+          .catch((err) => console.log(Error, err));
+      }
     }
   };
 

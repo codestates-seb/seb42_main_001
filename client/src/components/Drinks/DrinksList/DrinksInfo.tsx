@@ -18,14 +18,11 @@ function DrinksInfo({ search, setSearch, searchTag, setSearchTag, setPage }: ISe
 
   // searchButton on/off
   const handleSearchChange = () => {
-    setSearchButton((prev) => !prev);
     setSearch('')
-  };
-
-  const handleTagClear = () => {
-    setSearchTag(0)
     setPage(1)
-  }
+    setSearchTag(0)
+    setSearchButton((prev) => !prev);
+  };
 
   return (
     <InfoContainer>
@@ -43,7 +40,7 @@ function DrinksInfo({ search, setSearch, searchTag, setSearchTag, setPage }: ISe
         onClick={handleSearchChange}
       >
         <SvgSize>
-          <AiOutlineSearch onClick={handleTagClear} />
+          <AiOutlineSearch />
         </SvgSize>
       </Button>
     </InfoContainer>
