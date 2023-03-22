@@ -38,7 +38,7 @@ function MyPage() {
     };
 
     handleLoginProcess();
-  }, [dispatch]);
+  });
 
   return (
     <MainContainer>
