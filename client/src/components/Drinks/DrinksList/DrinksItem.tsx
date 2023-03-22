@@ -13,10 +13,12 @@ function DrinksItem({ drinksData, likesData }: DrinksProps) {
       <Card>
         <ItemContainer>
           <DrinksItemBox drinksData={drinksData} likesData={likesData} />
-          <Link to={`/drinks/${drinksData.drinkId}`}>
-            <DrinksItemBody drinksData={drinksData} />
-          </Link>
-          <DrinksItemLevel drinksData={drinksData} />
+          <SubContainer>
+            <Link to={`/drinks/${drinksData.drinkId}`}>
+              <DrinksItemBody drinksData={drinksData} />
+              <DrinksItemLevel drinksData={drinksData} />
+            </Link>
+          </SubContainer>
         </ItemContainer>
       </Card>
     </Margin>
@@ -34,6 +36,13 @@ const ItemContainer = styled.div`
   height: 490px;
   display: flex;
   flex-direction: column;
+  transition: .4s;
+
+  &:hover {
+    transition: .4s;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #473f3f73;
+  }
 
   @media only screen and (max-width: 768px) {
     display: flex;
@@ -41,3 +50,7 @@ const ItemContainer = styled.div`
     align-items: center;
   }
 `;
+
+const SubContainer = styled.div`
+  height: 100%;
+`

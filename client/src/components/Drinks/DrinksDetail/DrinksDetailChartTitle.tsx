@@ -16,7 +16,7 @@ export default DrinksDetailChartTitle;
 const InfoContainer = styled.div`
   font-size: var(--text-large);
   width: 100%;
-  height: 100%;
+  height: calc(var(--2x-small) * 5);
   display: flex;
   color: var(--color-main);
 

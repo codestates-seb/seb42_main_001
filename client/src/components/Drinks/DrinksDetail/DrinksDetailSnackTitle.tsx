@@ -16,7 +16,7 @@ export default DrinksDetailSnackTitle;
 const InfoContainer = styled.div`
   font-size: var(--text-large);
   width: 100%;
-  height: 100%;
+  height: calc(var(--2x-small) * 5);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;

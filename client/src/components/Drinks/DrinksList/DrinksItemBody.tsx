@@ -19,10 +19,8 @@ export default DrinksItemBody
 
 const BodyContainer = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-direction: column;
   padding: var(--large);
 
@@ -30,7 +28,8 @@ const BodyContainer = styled.div`
       width: auto;
       max-width: 240px;
       height: 220px;
-      margin-bottom: var(--large);
+      margin-top: var(--small);
+      margin-bottom: var(--medium);
     }
 
     div {
