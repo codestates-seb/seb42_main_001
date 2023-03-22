@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { DrinksDetailProps } from '../../../interfaces/drinkss.inerface'
 
 import { Radar } from 'react-chartjs-2';
 import { ChartData, ChartOptions } from 'chart.js';

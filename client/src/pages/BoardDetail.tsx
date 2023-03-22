@@ -15,7 +15,7 @@ import BoardSuggest from "../components/Board/BoardSuggest";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import CommentModal from "../components/UI/Comment/CommentModal";
-import { Data } from "../interfaces/boards.interface";
+import { Data } from "../interfaces/boardss.interface";
 
 function BoardDetail() {
   const { boardId } = useParams();

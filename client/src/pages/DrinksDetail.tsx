@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import MainDrinksDetail from '../components/Drinks/DrinksDetail/MainDrinksDetail'
-import { IDrinksDetail } from '../interfaces/drinks.inerface'
+import { IDrinksDetail } from '../interfaces/drinkss.inerface'
 
 function DrinksDetail() {
   const { drinkId } = useParams<{ drinkId: string }>();

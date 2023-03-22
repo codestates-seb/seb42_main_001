@@ -5,7 +5,7 @@ import BoardCreate from "./BoardCreate";
 import BoardSearch from "./BoardSearch";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../UI/Button";
-import { BoardDataProps } from "../../interfaces/boards.interface";
+import { BoardDataProps } from "../../interfaces/boardss.interface";
 
 interface BoardInfoProps {
   data?: BoardDataProps[];

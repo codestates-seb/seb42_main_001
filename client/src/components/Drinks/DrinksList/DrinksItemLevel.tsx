@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Drinks } from '../../../interfaces/drinks.inerface';
+import { Drinks } from '../../../interfaces/drinkss.inerface';
 
 interface DrinksContentsProps {
   drinksData: Drinks;

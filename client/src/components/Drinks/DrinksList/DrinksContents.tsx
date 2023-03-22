@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
 import axios from "axios";
-import { Drinks } from "../../../interfaces/drinks.inerface";
-import { Likes } from "../../../interfaces/drinks.inerface";
+import { Drinks } from "../../../interfaces/drinkss.inerface";
+import { Likes } from "../../../interfaces/drinkss.inerface";
 import Pagination from "../../UI/Pagination";
 
 interface ISearchProps {

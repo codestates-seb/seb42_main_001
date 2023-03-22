@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "../../UI/Card";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { DrinksDetailProps } from '../../../interfaces/drinkss.inerface'
 
 function DrinksDetailImg({ drinksDetail }: DrinksDetailProps) {
   return (

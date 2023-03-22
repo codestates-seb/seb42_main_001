@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import DrinksDetailComment from './DrinksDetailComment'
 import DrinksDetailContent from './DrinksDetailContent'
 import DrinksDetailItem from './DrinksDetailItem'
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { DrinksDetailProps } from '../../../interfaces/drinkss.inerface'
 
 function MainDrinksDetail({ drinksDetail }: DrinksDetailProps) {
 
