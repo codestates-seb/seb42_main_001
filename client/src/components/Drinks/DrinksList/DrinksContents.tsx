@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
-import axios from "axios";
+// import axios from "axios";
 import { Drinks } from "../../../interfaces/drinks.inerface";
 import { Likes } from "../../../interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";
@@ -11,34 +11,35 @@ interface ISearchProps {
   searchTag: number;
   page: number;
   setPage: (state: number) => void;
+  drinksData: Drinks[];
+  likesData: Likes[];
 }
 
 interface Tags {
   tags: { tagId: number }[];
-  // ... other properties of the Drink interface
 }
 
-function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any {
-  const [drinksData, setDrinksData] = useState<Drinks[]>([])
-  const [likesData, setLikesData] = useState<Likes[]>([])
+function DrinksContents({ search, searchTag, page, setPage, drinksData, likesData }: ISearchProps): any {
+  // const [drinksData, setDrinksData] = useState<Drinks[]>([])
+  // const [likesData, setLikesData] = useState<Likes[]>([])
   const [limit, setLimit] = useState<number>(16);
   const offset = (page - 1) * limit;
 
-  const handleDrinksData = useCallback(async () => {
-    try {
-      const response = await axios.get('/drinks');
-      const { data } = response;
-      setDrinksData(data.data)
-      setLikesData(data.likeList)
-    }
-    catch (error) {
-      console.log(error)
-    }
-  }, [])
+  // const handleDrinksData = useCallback(async () => {
+  //   try {
+  //     const response = await axios.get('/drinks');
+  //     const { data } = response;
+  //     setDrinksData(data.data)
+  //     setLikesData(data.likeList)
+  //   }
+  //   catch (error) {
+  //     console.log(error)
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    handleDrinksData()
-  })
+  // useEffect(() => {
+  //   handleDrinksData()
+  // })
 
   // let drinkTagData: Drinks[] = []
   // let drinkTagValue: number | any = 0
