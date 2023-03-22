@@ -48,7 +48,6 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-
         System.out.println("JwtVerificationFilter is being executed");
         //만약에 들어온 Refresh토큰이 블랙리스트에 있다면 인증 실패 처리
         String authorizationHeader = request.getHeader("Authorization");
@@ -77,7 +76,6 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
 //                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
                     return;
                 }
-
                 if (tokenRedisRepository.isRefreshTokenUsed(refreshToken) || refreshToken.equals(tokenRedisRepository.getRefreshToken(refreshToken))) {
                     sendCustomErrorResponse(response, "", "", "Invalid refresh token", HttpServletResponse.SC_UNAUTHORIZED);
                     return;
@@ -93,7 +91,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 long refreshTokenDuration = jwtTokenizer.getRefreshTokenExpirationMinutes();
 
                 saveNewAccessTokenAndRefreshToken(newAccessToken, newRefreshToken, refreshToken, accessTokenDuration, refreshTokenDuration, TimeUnit.MINUTES);
-                sendCustomErrorResponse(response, newAccessToken, newRefreshToken, "New access token and refresh token generated", HttpServletResponse.SC_OK);
+                sendCustomErrorResponse(response, newAccessToken, newRefreshToken, "New access token and refresh token generated", HttpServletResponse.SC_UNAUTHORIZED);
 
                 return;
 

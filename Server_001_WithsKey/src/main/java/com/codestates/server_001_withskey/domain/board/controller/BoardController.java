@@ -59,7 +59,6 @@ public class BoardController {
 
         return new ResponseEntity(result.getBoardTitle(), HttpStatus.CREATED);
     }
-
     // 수정
     @PatchMapping("/{board-id}")
     @Transactional
@@ -80,13 +79,12 @@ public class BoardController {
         // request header의 토큰을 조회하여 memberId를 비교, 같으면 진행 다르면 거절.
         if (writerMemberId != memberId) {
 //            throw new BusinessLogicException(ExceptionCode.NO_AUTHORIZATION);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다!");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다.");
         } else {
             Board result = boardService.updateBoard(patch);
             return new ResponseEntity<>(result.getBoardTitle(), HttpStatus.OK);
         }
     }
-
 
     // 삭제
     @DeleteMapping("/{board-id}")
@@ -152,8 +150,6 @@ public class BoardController {
                             return like;
                         }).collect(Collectors.toList());
         } catch (Exception e){}
-
-
 
         return new ResponseEntity<>(new MultiResponseDto<>(responses, likeList, pageInfo), HttpStatus.OK);
     }
