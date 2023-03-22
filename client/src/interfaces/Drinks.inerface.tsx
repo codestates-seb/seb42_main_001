@@ -51,6 +51,7 @@ export interface IDrinksDetail {
     tagId: number;
     tagName: string;
   }[];
+  recommandDrinks: Drinks[];
   commentDrinks: {
     drinkCommentId?: number;
     commentId: number;

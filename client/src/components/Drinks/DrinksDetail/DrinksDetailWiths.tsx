@@ -3,18 +3,21 @@ import styled from "styled-components";
 import DrinksDetailWith from "./DrinksDetailWith";
 import DrinksDetailWithTitle from "./DrinksDetailWithTitle";
 import { DrinksDetailProps } from '../../../interfaces/Drinks.inerface'
+import { Link } from "react-router-dom";
 
 function DrinksDetailWiths({ drinksDetail }: DrinksDetailProps) {
+
   return (
     <div>
       <DrinksDetailWithTitle />
       <WithContainer>
-        <DrinksDetailWith />
-        <DrinksDetailWith />
-        <DrinksDetailWith />
-        <DrinksDetailWith />
-        <DrinksDetailWith />
-        <DrinksDetailWith />
+        {drinksDetail?.recommandDrinks.map(el => {
+          return (
+            <Link key={el.drinkId} to={`/drinks/${el.drinkId}`}>
+              <DrinksDetailWith drinksDetail={el} />
+            </Link>
+          )
+        })}
       </WithContainer>
     </div>
   );

@@ -28,5 +28,13 @@ const TagWrapper = styled.div`
     align-items: center;
     justify-content: center;
     padding: var(--2x-small);
+    transition: .5s;
+
+    &:hover {
+      transition: .5s;
+      background-color: var(--color-main);
+      color: var(--color-white);
+      border: 1px solid var(--color-main);
+    }
   }
 `;
