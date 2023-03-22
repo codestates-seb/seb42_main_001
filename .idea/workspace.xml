@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 실행 조건 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: S3config 배포 환경에 맞게 수정2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/image/config/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/image/config/S3Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,13 +254,6 @@
       <workItem from="1679320645538" duration="1736000" />
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
-    </task>
-    <task id="LOCAL-00014" summary="✨ feat: LikeBoard 패키지 구성">
-      <created>1678861628496</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1678861628496</updated>
     </task>
     <task id="LOCAL-00015" summary="✨ merge: be">
       <created>1678862439623</created>
@@ -598,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679476102759</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="✨ feat: S3config 배포 환경에 맞게 수정2">
+      <created>1679476561668</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1679476561668</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가" />
     <MESSAGE value="✨ feat: MyPage - 좋아요 한 술" />
     <MESSAGE value="✨ feat: 로컬 설정 변경" />
     <MESSAGE value="✨ feat: 리다이렉트 토큰 전달" />
@@ -658,7 +657,8 @@
     <MESSAGE value="✨ feat: Snack, SnackDrink 등록" />
     <MESSAGE value="✨ feat: 상황 태그 추가" />
     <MESSAGE value="✨ feat: 실행 조건 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 실행 조건 수정" />
+    <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: S3config 배포 환경에 맞게 수정2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
