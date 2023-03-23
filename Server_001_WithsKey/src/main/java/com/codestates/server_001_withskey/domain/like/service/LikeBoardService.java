@@ -45,6 +45,8 @@ public class LikeBoardService {
             throw new BusinessLogicException(ExceptionCode.LIKE_ALREADY_EXISTS);
         }
     }
+
+
     public void deleteLike(long memberId, long boardId){
         Board findBoard = boardService.findVerifiedBoard(boardId);
         LikeBoard likeBoard = findVerifyCanLike(memberId, findBoard);

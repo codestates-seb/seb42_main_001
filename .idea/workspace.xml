@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 주소지 변경 로직2">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 주소지 변경 로직3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/controller/LikeBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/controller/LikeBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/like/service/LikeBoardService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,14 +256,7 @@
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
       <workItem from="1679483539070" duration="2211000" />
-      <workItem from="1679533351467" duration="3933000" />
-    </task>
-    <task id="LOCAL-00025" summary=" fix: Get all Tag Result 수정">
-      <created>1678941139030</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1678941139030</updated>
+      <workItem from="1679533351467" duration="5628000" />
     </task>
     <task id="LOCAL-00026" summary="merge : for merge">
       <created>1678941999524</created>
@@ -600,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679537912522</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="✨ feat: 주소지 변경 로직3">
+      <created>1679538866518</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1679538866519</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,8 +636,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test2" />
-    <MESSAGE value="✨ feat: delete LikeDrink 수정" />
     <MESSAGE value="✨ feat: sql Drink Url S3 것으로 반영" />
     <MESSAGE value="✨ feat: tastingNote.sql 수정" />
     <MESSAGE value="✨ feat: tastingNote 칼럼 변경 전 저장" />
@@ -660,7 +659,9 @@
     <MESSAGE value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
     <MESSAGE value="✨ feat: 주소지 변경 로직" />
     <MESSAGE value="✨ feat: 주소지 변경 로직2" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 주소지 변경 로직2" />
+    <MESSAGE value="✨ feat: 주소지 변경 로직23" />
+    <MESSAGE value="✨ feat: 주소지 변경 로직3" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 주소지 변경 로직3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -42,6 +42,7 @@ public class LikeBoardController {
 
         Board board = boardService.findVerifiedBoard(boardId);
         likeBoardService.findVerifyCanLike(memberId,board);
+        likeBoardService.deleteLike(memberId, boardId);
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
