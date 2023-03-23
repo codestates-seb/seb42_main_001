@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 import CommentModal from '../components/UI/Comment/CommentModal';
 import Loading from '../components/UI/Loading';
 import { getBoardDetailData } from '../redux/slice/board/boardDetail';
-import { IComments } from '../interfaces/boards.interface';
+import { IComments } from '../util/interfaces/boards.interface';
 
 function BoardDetail() {
   const { boardId } = useParams();
