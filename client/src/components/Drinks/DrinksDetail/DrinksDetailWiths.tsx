@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DrinksDetailWith from "./DrinksDetailWith";
 import DrinksDetailWithTitle from "./DrinksDetailWithTitle";
-import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
 import { Link } from "react-router-dom";
 
 function DrinksDetailWiths({ drinksDetail }: IDrinksDetailProps) {

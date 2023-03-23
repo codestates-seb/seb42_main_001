@@ -1,7 +1,7 @@
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
 import axios from "axios";
-import { IDrinksProps } from "../../../interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
 import { setLikes } from '../../../redux/slice/drinks/drinksListSlice'
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks/hooks'
 

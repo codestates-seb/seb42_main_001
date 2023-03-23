@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../store/store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../../store/store";
 
-import { tag } from '../../../interfaces/tag.interface';
+import { tag } from "../../../utils/interfaces/tag.interface";
 
 interface tagState {
   tagData: tag | Record<string, never>;
@@ -12,7 +12,7 @@ const initialState: tagState = {
 };
 
 export const tagSlice = createSlice({
-  name: 'tag',
+  name: "tag",
   initialState,
   reducers: {
     getTagData: (state, { payload: data }: PayloadAction<tag>) => {

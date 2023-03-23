@@ -9,7 +9,7 @@ import BoardCreateInput from '../components/Board/BoardCreateInput';
 import Button from '../components/UI/Button';
 import BoardTagSearch from '../components/Board/BoardTagSearch';
 import axios from 'axios';
-import { Data, SetData } from '../interfaces/boards.interface';
+import { Data, SetData } from '../util/interfaces/boards.interface';
 
 function BoardCreate() {
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
