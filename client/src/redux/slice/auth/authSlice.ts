@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
 
 import { userInfo } from '../../../interfaces/userInfo.interface';
+
 interface authState {
   isLogin: boolean;
   userInfo: userInfo | Record<string, never>;
@@ -27,10 +28,17 @@ export const authSlice = createSlice({
       state.isLogin = false;
       state.userInfo = {};
     },
+    modifyDisplayName: (state, { payload: data }: PayloadAction<string>) => {
+      state.userInfo.displayName = data;
+    },
+    modifyAboutMe: (state, { payload: data }: PayloadAction<string>) => {
+      state.userInfo.aboutMe = data;
+    },
   },
 });
 
-export const { loginSuccess, logoutSuccess } = authSlice.actions;
+export const { loginSuccess, logoutSuccess, modifyDisplayName, modifyAboutMe } =
+  authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth.isLogin;
 

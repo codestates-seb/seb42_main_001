@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import { useNavigate } from 'react-router';
-import { useAppDispatch } from '../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { logoutSuccess } from '../../redux/slice/auth/authSlice';
 
 interface InfoProps {
@@ -13,13 +13,21 @@ interface InfoProps {
 function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
 
   const handleUserTrueChange = () => {
     setUserInfo(true);
   };
 
-  const handleUserFalseChange = () => {
-    setUserInfo(false);
+  const handleUserFalseChange = async () => {
+    try {
+      const res = await axios.patch('/members', { displayName, aboutMe });
+      if (res.status === 200) {
+        setUserInfo(false);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleLogout = async () => {

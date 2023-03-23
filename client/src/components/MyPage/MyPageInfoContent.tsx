@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BsPlusCircle } from 'react-icons/bs';
-import { useAppSelector } from '../../redux/hooks/hooks';
-
 interface InfoProps {
   userInfo: boolean;
+  displayName: string;
+  aboutMe: string;
+  handleDisplayNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleAboutMeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function MyPageInfoContent({ userInfo }: InfoProps) {
-  const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
-  const [userName, setUserName] = useState('lapmu');
-  const [userText, setUserText] = useState('자기소개를 입력해 주세요.');
-
-  const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(e.target.value);
-  };
-
-  const handleUserNameText = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserText(e.target.value);
-  };
+function MyPageInfoContent({
+  userInfo,
+  displayName,
+  aboutMe,
+  handleDisplayNameChange,
+  handleAboutMeChange,
+}: InfoProps) {
   return (
     <MainContainer>
       <ImgContainer>
@@ -28,15 +24,15 @@ function MyPageInfoContent({ userInfo }: InfoProps) {
         {userInfo ? (
           <>
             <TextEditContainer
-              value={userName}
-              onChange={handleUserNameChange}
+              value={displayName}
+              onChange={handleDisplayNameChange}
             />
-            <TextEditContainer value={userText} onChange={handleUserNameText} />
+            <TextEditContainer value={aboutMe} onChange={handleAboutMeChange} />
           </>
         ) : (
           <>
             <Name>{displayName}</Name>
-            <Text>{aboutMe}</Text>
+            <Text>{aboutMe || '자기를 소개해주세요'}</Text>
           </>
         )}
       </TextContainer>
