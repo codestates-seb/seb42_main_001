@@ -1,35 +1,31 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import BoardCreate from "./BoardCreate";
-import BoardSearch from "./BoardSearch";
-import { AiOutlineSearch } from "react-icons/ai";
-import Button from "../UI/Button";
-import { BoardDataProps } from "../../interfaces/boards.interface";
+import BoardCreate from './BoardCreate';
+import BoardSearch from './BoardSearch';
+import { AiOutlineSearch } from 'react-icons/ai';
+import Button from '../UI/Button';
 
-interface BoardInfoProps {
-  data?: BoardDataProps[];
-  filterItems: (data: BoardDataProps[]) => void;
-}
-
-function BoardInfo({ data, filterItems }: BoardInfoProps) {
+function BoardInfo() {
   const [search, setSearch] = useState(false);
+  const [isInput, setIsInput] = useState('');
 
   const handleSearchChange = () => {
+    setIsInput('');
     setSearch((prev) => !prev);
   };
 
   return (
     <InfoContainer>
       {search ? (
-        <BoardSearch data={data} filterItems={filterItems} />
+        <BoardSearch isInput={isInput} setIsInput={setIsInput} />
       ) : (
         <MarginDiv>
           <BoardCreate />
         </MarginDiv>
       )}
       <Button
-        type="button"
+        type='button'
         width={`--x-large`}
         radius={`--large`}
         color={`--color-white`}

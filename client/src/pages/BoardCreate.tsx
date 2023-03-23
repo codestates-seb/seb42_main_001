@@ -144,12 +144,16 @@ function BoardCreate() {
           .then((res) => {
             localStorage.removeItem('data');
             navigate('/board/list');
+            window.location.reload();
           })
           .catch((err) => console.log(Error, err));
       } else {
         axios
           .patch(`/boards/${editId}`, newBoard)
-          .then((res) => navigate('/board/list'))
+          .then((res) => {
+            navigate('/board/list');
+            window.location.reload();
+          })
           .catch((err) => console.log(Error, err));
       }
     }

@@ -1,46 +1,36 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 
 import BoardInfo from '../components/Board/BoardInfo';
 import BoardItem from '../components/Board/BoardItem';
-import { BoardDataProps } from '../interfaces/boards.interface';
+
+import { boardListItemAdd } from '../redux/slice/board/boardListSlice';
 import Loading from '../components/UI/Loading';
 
 function BoardList() {
-  const [items, setItems] = useState<BoardDataProps[]>([]); // axios로 받아온 데이터 저장
   const [isPage, setPage] = useState(1); // 현재 페이지 저장
-  const [filterItems, setFilterItems] = useState<BoardDataProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const isData = useAppSelector((state) => state.boardList.listData);
+  const filteredData = useAppSelector((state) => state.boardList.filteredData);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
     const fetchData = async () => {
       const res = await axios.get(`/boards?page=${isPage}&size=16`);
 
-      const data = res.data.data.map((el: BoardDataProps) => {
-        el.like = false;
-        return el;
-      });
-      const like = res.data.likeList;
+      const { data, likeList } = res.data;
 
-      for (let el1 of like) {
-        for (let el2 of data) {
-          if (el1.boardId === el2.boardId) {
-            el2.like = true;
-            break;
-          }
-        }
-      }
-      setItems((prev) => [...prev, ...data]);
-      setFilterItems((prev) => [...prev, ...data]);
+      dispatch(boardListItemAdd({ data, likeList }));
       setIsLoading(false);
     };
     fetchData();
-  }, [isPage]);
+  }, [isPage, dispatch]);
 
   const handleScroll = () => {
-    // 스크롤 위치 감지 콜백 함수 (- 100인거 봐서는  마지막 100px 전에)
+    // 스크롤 위치 감지 콜백 함수
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     // 마지막 페이지 조건 추가
     if (scrollTop + clientHeight >= scrollHeight - 500) {
@@ -59,10 +49,10 @@ function BoardList() {
         <Loading />
       ) : (
         <Wrapper>
-          <BoardInfo data={items} filterItems={setFilterItems} />
+          <BoardInfo />
           <ListContainer>
-            {filterItems?.map((el, idx) => {
-              return <BoardItem key={idx} data={el} />;
+            {(filteredData.length === 0 ? isData : filteredData)?.map((el) => {
+              return <BoardItem key={el.boardId} data={el} />;
             })}
           </ListContainer>
         </Wrapper>
