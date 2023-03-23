@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
 // import axios from "axios";
-import { Drinks } from "../../../interfaces/drinks.inerface";
-import { Likes } from "../../../interfaces/drinks.inerface";
+import { IDrinks, ILikes } from "../../../interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";
+
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks'
 
 interface ISearchProps {
   search: string;
   searchTag: number;
   page: number;
   setPage: (state: number) => void;
-  drinksData: Drinks[];
-  likesData: Likes[];
+  drinksData: IDrinks[];
+  likesData: ILikes[];
 }
 
 interface Tags {
@@ -25,10 +26,10 @@ function DrinksContents({ search, searchTag, page, setPage, drinksData, likesDat
   const [limit, setLimit] = useState<number>(16);
   const offset = (page - 1) * limit;
 
-  const drinkTagData: Drinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
+  const drinkTagData: IDrinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
   const drinkTagValue: number | null = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId ?? null : null;
 
-  const filtered: Drinks[] = drinksData.filter((el: Drinks) => {
+  const filtered: IDrinks[] = drinksData.filter((el: IDrinks) => {
     return search.toLowerCase() === ""
       ? el
       : el.drinkName.toLowerCase().includes(search);

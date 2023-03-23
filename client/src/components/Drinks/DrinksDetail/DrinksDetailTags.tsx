@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-interface Props {
+interface ITagProps {
   tagName: string;
 }
 
-function DrinksDetailTags({ tagName }: Props) {
+function DrinksDetailTags({ tagName }: ITagProps) {
   return (
     <TagsContainer>
       <div>{tagName}</div>

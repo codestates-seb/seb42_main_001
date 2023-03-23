@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Comment from "../../UI/Comment/Comment";
 import CommentInput from "../../UI/Comment/CommentInput";
-import { DrinksDetailProps } from "../../../interfaces/drinks.inerface";
+import { IDrinksDetailProps } from "../../../interfaces/drinks.inerface";
 
-function DrinksDetailComment({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailComment({ drinksDetail }: IDrinksDetailProps) {
   return (
     <MainContainer>
       <CommentInput drinkId={drinksDetail?.drinkId} />

@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from 'react-redux';
+import { setSearchTag } from '../../../redux/slice/drinks/drinksListSlice'
 
 interface Tags {
   tagId: number;
   tagName?: string;
   onClick?: () => void;
-  setSearchTag: (state: number) => void;
 };
 
 
-function DrinksTags({ tagId, tagName, setSearchTag }: Tags) {
+function DrinksTags({ tagId, tagName }: Tags) {
+  const dispatch = useDispatch()
 
   const handleTagSearchValueChange = () => {
-    setSearchTag(tagId)
+    dispatch(setSearchTag(tagId))
   }
 
   return (

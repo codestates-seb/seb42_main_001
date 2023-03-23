@@ -1,4 +1,5 @@
-export interface Drinks {
+// List
+export interface IDrinks {
   drinkId: number;
   drinkName: string;
   priceRank: string;
@@ -11,27 +12,30 @@ export interface Drinks {
   }[];
 }
 
-export interface Likes {
+export interface ILikes {
   drinkId?: number | undefined;
   drinkName?: string;
 }
 
-export interface DrinksProps {
-  drinksData: Drinks;
-  likesData: Likes[];
+export interface IDrinksProps {
+  drinksData: IDrinks;
+  likesData: ILikes[];
 }
 
-export interface DrinksTagsProps {
+export interface IDrinksTagsProps {
   drinksData: {
     tagId: number;
     tagName: string;
   };
 }
 
-// Detail
-// Detail
+export interface ITags {
+  tagId: number;
+  tagName?: string;
+}
 
-export interface DrinksSnacksProps {
+// Detail
+export interface IDrinksSnacksProps {
   drinksDetail: {
     snackKcal: string;
     snackInfo: string;
@@ -51,7 +55,7 @@ export interface IDrinksDetail {
     tagId: number;
     tagName: string;
   }[];
-  recommandDrinks: Drinks[];
+  recommandDrinks: IDrinks[];
   commentDrinks: {
     drinkCommentId?: number;
     commentId: number;
@@ -75,6 +79,6 @@ export interface IDrinksDetail {
   }[];
 }
 
-export interface DrinksDetailProps {
+export interface IDrinksDetailProps {
   drinksDetail?: IDrinksDetail;
 }
