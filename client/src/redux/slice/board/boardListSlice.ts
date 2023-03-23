@@ -4,7 +4,7 @@ import type { RootState } from "../../store/store";
 import {
   BoardDataProps,
   ILikeList,
-} from "../../../utils/interfaces/boards.interface";
+} from "../../../util/interfaces/boards.interface";
 
 interface boardListState {
   listData: BoardDataProps[];

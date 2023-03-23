@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store/store";
 
-import { userInfo } from "../../../utils/interfaces/userInfo.interface";
+import { userInfo } from "../../../util/interfaces/userInfo.interface";
 
 interface authState {
   isLogin: boolean;
