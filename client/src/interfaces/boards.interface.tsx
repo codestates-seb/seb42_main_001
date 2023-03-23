@@ -16,6 +16,11 @@ export interface BoardDataProps {
   like: boolean;
 }
 
+export interface ILikeList {
+  boardId: number;
+  boardTitle: string;
+}
+
 export interface Data {
   boardId: number;
   boardImages: Array<{
