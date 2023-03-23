@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🐛 fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함.">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 주소지 변경 로직">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,14 +255,7 @@
       <workItem from="1679355981122" duration="469000" />
       <workItem from="1679360586070" duration="5818000" />
       <workItem from="1679483539070" duration="2211000" />
-      <workItem from="1679533351467" duration="2221000" />
-    </task>
-    <task id="LOCAL-00023" summary="✨ feat: Drinks 댓글 기능 추가">
-      <created>1678938810536</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1678938810536</updated>
+      <workItem from="1679533351467" duration="2964000" />
     </task>
     <task id="LOCAL-00024" summary="✨ feat: GET all Board 조회 시 Like List 조회 되도록 하기">
       <created>1678940228339</created>
@@ -601,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679534641282</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="✨ feat: 주소지 변경 로직">
+      <created>1679537174525</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1679537174525</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +635,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: snack_drink 임시 추가" />
     <MESSAGE value="test" />
     <MESSAGE value="test2" />
     <MESSAGE value="✨ feat: delete LikeDrink 수정" />
@@ -661,7 +659,8 @@
     <MESSAGE value="✨ feat: yml 변경사항 반영" />
     <MESSAGE value="✨ feat: 리디렉션 URI 작성 수정" />
     <MESSAGE value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
-    <option name="LAST_COMMIT_MESSAGE" value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
+    <MESSAGE value="✨ feat: 주소지 변경 로직" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 주소지 변경 로직" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
