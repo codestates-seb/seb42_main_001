@@ -26,5 +26,4 @@ const DrinksContentContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-top: var(--large);
-  padding-left: var(--large);
 `;

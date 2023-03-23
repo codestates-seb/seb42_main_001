@@ -22,5 +22,5 @@ export default TagsBoardContent;
 const BoardContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: var(--large) var(--large) 0 var(--large);
+  padding-top: var(--large);
 `;

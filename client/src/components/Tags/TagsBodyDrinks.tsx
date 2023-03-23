@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import TagsBodyTitle from "./TagsBodyTitle";
-import TagsDrinksContent from "./TagsDrinksContent";
+import styled from 'styled-components';
+import TagsBodyTitle from './TagsBodyTitle';
+import TagsDrinksContent from './TagsDrinksContent';
 
 const TagsBodyDrinks = () => {
   return (
     <BodyDrinksContainer>
-      <TagsBodyTitle text={"Drinks"} />
+      <TagsBodyTitle text={'Drinks'} />
       <TagsDrinksContent />
     </BodyDrinksContainer>
   );
