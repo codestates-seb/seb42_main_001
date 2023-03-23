@@ -1,10 +1,10 @@
 import { BoardDataProps } from './boards.interface';
-import { Drinks } from './drinks.inerface';
+import { IDrinks } from './drinks.inerface';
 
 export interface tag {
   tagId: number;
   tagName: string;
   tagInfo: string;
   board: Array<BoardDataProps>;
-  drink: Array<Drinks>;
+  drink: Array<IDrinks>;
 }
