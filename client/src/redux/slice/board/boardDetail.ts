@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../store/store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../../store/store";
 
-import { Data, ILikeList } from '../../../interfaces/boards.interface';
+import { Data, ILikeList } from "../../../util/interfaces/boards.interface";
 
 interface boardDetailState {
   detailData: {
@@ -15,7 +15,7 @@ const initialState: boardDetailState = {
 };
 
 export const boardDetailSlice = createSlice({
-  name: 'boardList',
+  name: "boardList",
   initialState,
   reducers: {
     getBoardDetailData: (
