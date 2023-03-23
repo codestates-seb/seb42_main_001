@@ -1,7 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { useAppSelector } from '../../redux/hooks/hooks';
 
 const TagsTitle = () => {
-  return <TitleContainer>#단맛</TitleContainer>;
+  const { tagName } = useAppSelector(state => state.tag.tagData);
+
+  return <TitleContainer>{`#${tagName}`}</TitleContainer>;
 };
 
 export default TagsTitle;
