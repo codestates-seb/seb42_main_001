@@ -13,9 +13,9 @@ import { RootState } from '../../../redux/store/store'
 function MainDrinks() {
   const [search, setSearch] = useState<string>('');
   const [page, setPage] = useState<number>(1);
-
   const dispatch = useDispatch()
-  const { isLoading, drinksData, likesData, searchTag } = useSelector(
+
+  const { isLoading, searchTag } = useSelector(
     (state: RootState) => state.drinkslist
   );
   const { tagData } = useSelector(
@@ -29,8 +29,8 @@ function MainDrinks() {
     };
     const handleDrinksData = async () => {
       try {
-        const response = await axios.get('/drinks');
-        const { data } = response;
+        const res = await axios.get('/drinks');
+        const { data } = res;
         dispatch(setDrinksData(data.data));
         dispatch(setLikesData(data.likeList));
         dispatch(setIsLoading());
