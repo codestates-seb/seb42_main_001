@@ -6,15 +6,15 @@ import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../../UI/Button";
 
 interface ISearchProps {
+  tagData: { tagId: number; tagName?: string; }[]
   search?: string;
   setSearch: Dispatch<SetStateAction<string>>;
-  searchTag?: number;
   setSearchTag: (state: number) => void;
   setPage: (state: number) => void;
 }
 
-function DrinksInfo({ search, setSearch, searchTag, setSearchTag, setPage }: ISearchProps) {
-  const [searchButton, setSearchButton] = useState(false);
+function DrinksInfo({ tagData, search, setSearch, setSearchTag, setPage }: ISearchProps) {
+  const [searchButton, setSearchButton] = useState<boolean>(false);
 
   // searchButton on/off
   const handleSearchChange = () => {
@@ -28,7 +28,7 @@ function DrinksInfo({ search, setSearch, searchTag, setSearchTag, setPage }: ISe
     <InfoContainer>
       {searchButton
         ? <DrinkSearch search={search} setSearch={setSearch} />
-        : <DrinksTagList setSearchTag={setSearchTag} />
+        : <DrinksTagList tagData={tagData} setSearchTag={setSearchTag} />
       }
       <Button
         type="button"

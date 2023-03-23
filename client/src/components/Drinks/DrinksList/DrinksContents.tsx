@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import DrinksItem from "./DrinksItem";
 import styled from "styled-components";
-import axios from "axios";
-import { Drinks } from "../../../interfaces/Drinks.inerface";
-import { Likes } from "../../../interfaces/Drinks.inerface";
+// import axios from "axios";
+import { Drinks } from "../../../interfaces/drinks.inerface";
+import { Likes } from "../../../interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";
 
 interface ISearchProps {
@@ -11,46 +11,55 @@ interface ISearchProps {
   searchTag: number;
   page: number;
   setPage: (state: number) => void;
+  drinksData: Drinks[];
+  likesData: Likes[];
 }
 
-function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any {
-  const [drinksData, setDrinksData] = useState<Drinks[]>([])
-  const [likesData, setLikesData] = useState<Likes[]>([])
+interface Tags {
+  tags: { tagId: number }[];
+}
+
+function DrinksContents({ search, searchTag, page, setPage, drinksData, likesData }: ISearchProps): any {
+  // const [drinksData, setDrinksData] = useState<Drinks[]>([])
+  // const [likesData, setLikesData] = useState<Likes[]>([])
   const [limit, setLimit] = useState<number>(16);
   const offset = (page - 1) * limit;
 
-  const handleDrinksData = useCallback(async () => {
-    try {
-      const response = await axios.get('/drinks');
-      const { data } = response;
-      setDrinksData(data.data)
-      setLikesData(data.likeList)
-    }
-    catch (error) {
-      console.log(error)
-    }
-  }, [])
+  // const handleDrinksData = useCallback(async () => {
+  //   try {
+  //     const response = await axios.get('/drinks');
+  //     const { data } = response;
+  //     setDrinksData(data.data)
+  //     setLikesData(data.likeList)
+  //   }
+  //   catch (error) {
+  //     console.log(error)
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    handleDrinksData()
-  }, [handleDrinksData])
+  // useEffect(() => {
+  //   handleDrinksData()
+  // })
 
-  let drinkTagData: Drinks[] = []
-  let drinkTagValue: number | any = 0
-  for (let i = 0; i < drinksData.length; i++) {
-    if (drinksData[i].tags.length !== 0) {
-      const drinkTag = drinksData[i].tags // 태그 잇는 drink들
-      for (let j = 0; j < drinkTag.length; j++) { // 태그 잇는 drink 순회
-        if (drinkTag[j].tagId === searchTag) { // 요소의 tagid가 searchtag랑 동일하다면
-          drinkTagData = [...drinkTagData, drinksData[i]]
-          drinkTagValue = drinkTag[j].tagId
-          break;
-        }
-      }
-    }
-  }
+  // let drinkTagData: Drinks[] = []
+  // let drinkTagValue: number | any = 0
+  // for (let i = 0; i < drinksData.length; i++) {
+  //   if (drinksData[i].tags.length !== 0) {
+  //     const drinkTag = drinksData[i].tags // 태그 잇는 drink들
+  //     for (let j = 0; j < drinkTag.length; j++) { // 태그 잇는 drink 순회
+  //       if (drinkTag[j].tagId === searchTag) { // 요소의 tagid가 searchtag랑 동일하다면
+  //         drinkTagData = [...drinkTagData, drinksData[i]]
+  //         drinkTagValue = drinkTag[j].tagId
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }
 
-  const filtered: Drinks[] = drinksData.filter((el) => {
+  const drinkTagData: Drinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
+  const drinkTagValue: number | null = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId ?? null : null;
+
+  const filtered: Drinks[] = drinksData.filter((el: Drinks) => {
     return search.toLowerCase() === ""
       ? el
       : el.drinkName.toLowerCase().includes(search);
@@ -104,4 +113,3 @@ const ContentsContainer = styled.div`
     align-items: center;
   }
 `;
-

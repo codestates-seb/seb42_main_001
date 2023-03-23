@@ -1,22 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Button";
 import DrinksTags from "./DrinksTags";
-import axios from "axios";
-
-interface Tags {
-  tagId: number;
-  tagName?: string;
-};
 
 interface TagProps {
+  tagData: { tagId: number; tagName?: string; }[]
   setSearchTag: (state: number) => void;
 }
 
-function DrinksTagList({ setSearchTag }: TagProps) {
+function DrinksTagList({ tagData, setSearchTag }: TagProps) {
   const [tagPage, setTagPage] = useState(7)
   const pageRef = useRef<HTMLDivElement>(null);
-  const [tagData, setTagData] = useState<Tags[]>([])
+  // const [tagData, setTagData] = useState<Tags[]>([])
 
   const handleRightClick = () => {
     setTagPage(prev => prev + 7)
@@ -31,16 +26,6 @@ function DrinksTagList({ setSearchTag }: TagProps) {
     }
     pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
   };
-
-  const tagsData = async () => {
-    const res = await axios.get(`/tags`);
-    setTagData(res.data);
-  };
-
-  useEffect(() => {
-    tagsData()
-  }, [])
-
 
   return (
     <DisplayContainer>

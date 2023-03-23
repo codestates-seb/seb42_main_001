@@ -1,24 +1,26 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router';
 
-import { BsPlusLg } from "react-icons/bs";
-import BoardCreateTags from "../components/Board/BoardCreateTags";
-import BoardCreateBtn from "../components/Board/BoardCreateBtn";
-import BoardCreateInput from "../components/Board/BoardCreateInput";
-import Button from "../components/UI/Button";
-import BoardTagSearch from "../components/Board/BoardTagSearch";
-import axios from "axios";
-import { Data } from "../interfaces/Boards.interface";
+import { BsPlusLg } from 'react-icons/bs';
+import BoardCreateTags from '../components/Board/BoardCreateTags';
+import BoardCreateBtn from '../components/Board/BoardCreateBtn';
+import BoardCreateInput from '../components/Board/BoardCreateInput';
+import Button from '../components/UI/Button';
+import BoardTagSearch from '../components/Board/BoardTagSearch';
+import axios from 'axios';
+import { Data, SetData } from '../interfaces/boards.interface';
 
 function BoardCreate() {
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
   const [tagData, setTagData] = useState([]);
-  const [boardTitle, setBoardTitle] = useState("");
-  const [boardContent, setBoardContent] = useState("");
+  const [boardTitle, setBoardTitle] = useState('');
+  const [boardContent, setBoardContent] = useState('');
   const [boardImageUrl, setBoardImageUrl] = useState<Imgs[]>([]);
   const [tags, setTags] = useState<Tags[]>([]);
   const [iseditData, setIsEditData] = useState<Data>();
+  const [preData, setPreData] = useState<SetData>();
+  const [isTime, setTime] = useState(0);
 
   const navigate = useNavigate();
   const { editId } = useParams();
@@ -41,12 +43,63 @@ function BoardCreate() {
       setTags((prev) => res.data.tags);
       setBoardImageUrl((prev) => res.data.boardImageUrl);
     };
+    const getItem = localStorage.getItem('data');
+    const getEditItem = localStorage.getItem('editData');
 
     tagsData();
     if (editId) {
-      editData();
+      localStorage.removeItem('data');
+      if (getEditItem) {
+        if (
+          window.confirm(
+            '전에 작성하던 게시글이 남아 있습니다. 불러오시겠습니까?'
+          )
+        ) {
+          const item = JSON.parse(getEditItem);
+          setPreData(item);
+          setTags(item.tags);
+          setBoardImageUrl(item.boardImageUrl);
+        }
+      } else {
+        editData();
+      }
+    } else if (getItem) {
+      if (
+        window.confirm(
+          '전에 작성하던 게시글이 남아 있습니다. 불러오시겠습니까?'
+        )
+      ) {
+        const item = JSON.parse(getItem);
+        setPreData(item);
+        setTags(item.tags);
+        setBoardImageUrl(item.boardImageUrl);
+      } else {
+        localStorage.removeItem('data');
+      }
     }
   }, [editId]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const setData = {
+        boardTitle,
+        boardContent,
+        boardImageUrl,
+        tags,
+        editId,
+      };
+      const jsonData = JSON.stringify(setData);
+      if (editId) {
+        localStorage.setItem('editData', jsonData);
+      } else {
+        localStorage.setItem('data', jsonData);
+      }
+      setTime((prev) => prev + 1);
+    }, 30000);
+    return () => clearInterval(interval);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTime]);
 
   const handleTagSearchOpen = () => setSearchOpen(!searchOpen);
 
@@ -74,10 +127,10 @@ function BoardCreate() {
   };
 
   const handleBoardSubmit = () => {
-    if (boardTitle === "") {
-      alert("제목을 작성해 주세요");
-    } else if (boardContent === "") {
-      alert("본문을 작성해 주세요");
+    if (boardTitle === '') {
+      alert('제목을 작성해 주세요');
+    } else if (boardContent === '') {
+      alert('본문을 작성해 주세요');
     } else {
       const newBoard = {
         boardTitle,
@@ -88,12 +141,15 @@ function BoardCreate() {
       if (!editId) {
         axios
           .post(`/boards`, newBoard)
-          .then((res) => navigate("/board/list"))
+          .then((res) => {
+            localStorage.removeItem('data');
+            navigate('/board/list');
+          })
           .catch((err) => console.log(Error, err));
       } else {
         axios
           .patch(`/boards/${editId}`, newBoard)
-          .then((res) => navigate("/board/list"))
+          .then((res) => navigate('/board/list'))
           .catch((err) => console.log(Error, err));
       }
     }
@@ -106,7 +162,7 @@ function BoardCreate() {
           <BoardCreateTagController>
             <Button
               onClick={handleTagSearchOpen}
-              type="button"
+              type='button'
               width={`--x-large`}
               radius={`--large`}
               borderColor={`--color-main`}
@@ -128,6 +184,7 @@ function BoardCreate() {
           content={handleBoardContent}
           image={handleBoardImage}
           iseditData={iseditData}
+          preData={preData}
         />
       </div>
     </Wrapper>
