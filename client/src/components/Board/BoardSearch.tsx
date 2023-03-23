@@ -1,26 +1,36 @@
-import React from "react";
-import styled from "styled-components";
-import { BoardDataProps } from "../../interfaces/boards.interface";
-import Card from "../UI/Card";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks';
+import { boardListFiltered } from '../../redux/slice/board/boardListSlice';
+import Card from '../UI/Card';
 
-interface BoardSearchProps {
-  data?: BoardDataProps[];
-  filterItems: (data: BoardDataProps[]) => void;
+interface IBoardSearchProps {
+  isInput: string;
+  setIsInput: (state: string) => void;
 }
 
-function BoardSearch({ data, filterItems }: BoardSearchProps) {
+function BoardSearch({ isInput, setIsInput }: IBoardSearchProps) {
+  const data = useAppSelector((state) => state.boardList.listData);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(boardListFiltered(isInput));
+  }, [isInput, dispatch]);
+
   const handleDataFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (data) {
-      filterItems(
-        data.filter((el) => el.boardTitle.includes(e.target.value.toString()))
-      );
+      setIsInput(e.target.value.toString());
     }
   };
 
   return (
     <SearchContainer>
       <Card>
-        <input placeholder="Search" onChange={handleDataFilter} />
+        <input
+          placeholder='Search'
+          value={isInput}
+          onChange={handleDataFilter}
+        />
       </Card>
     </SearchContainer>
   );
