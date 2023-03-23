@@ -5,6 +5,8 @@ import com.codestates.server_001_withskey.domain.member.repository.MemberReposit
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
 import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -21,21 +23,14 @@ import java.util.List;
 import java.util.Map;
 
 // OAuth2 인증에 성공하면 JWT를 생성하여 response header를 통해 FE 쪽으로  전달하는 역할
+@Slf4j
+@RequiredArgsConstructor
 public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JwtTokenizer jwtTokenizer;
     private final withsKeyAuthorityUtils authorityUtils;
     private final MemberService memberService;
     private final MemberRepository memberRepository;
 
-    public OAuth2MemberSuccessHandler(JwtTokenizer jwtTokenizer,
-                                      withsKeyAuthorityUtils authorityUtils,
-                                      MemberService memberService,
-                                      MemberRepository memberRepository) {
-        this.jwtTokenizer = jwtTokenizer;
-        this.authorityUtils = authorityUtils;
-        this.memberService = memberService;
-        this.memberRepository = memberRepository;
-    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
@@ -63,11 +58,21 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
         response.addHeader(accessToken, refreshToken);
 
-        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
+
+
+        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken, request));
     }
     // 신규 코드
-    private String makeRedirectUrl (String accessToken, String refreshToken) {
+    private String makeRedirectUrl (String accessToken, String refreshToken, HttpServletRequest request) {
+        String scheme = request.getScheme();
+        String serverName = request.getServerName();
+        int serverPort = request.getServerPort();
+        log.info("serverName = {}", serverName);
+
         return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
+                .scheme(scheme)
+                .host(serverName)
+                .port(serverPort)
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
