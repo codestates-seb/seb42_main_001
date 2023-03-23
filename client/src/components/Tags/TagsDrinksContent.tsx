@@ -5,7 +5,6 @@ import DrinksItem from '../Drinks/DrinksList/DrinksItem';
 
 import { IDrinks } from "../../util/interfaces/drinks.inerface";
 
-
 const TagsDrinksContent = () => {
   const drinksList = useAppSelector(state => state.tag.tagData.drink);
 
