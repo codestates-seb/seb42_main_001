@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import styled from "styled-components";
-import johnnie from "../../img/johnnie_walker.svg";
+import bowmore from "../../assets/img/bowmore.jpg";
 
 interface MainLayoutProps {
   bgColor?: boolean;
@@ -46,7 +46,7 @@ const DefaultSize = styled.div<MainLayoutProps>`
 const ContainerBox = styled.div<MainLayoutProps>`
 width: 100%;
 height: auto;
-background-image: ${(props) => (props.img ? `url(${johnnie})` : `none`)};
+background-image: ${(props) => (props.img ? `url(${bowmore})` : `none`)};
 background-repeat: no - repeat;
 background-size: cover;
 display: flex;

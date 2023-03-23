@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import styled from "styled-components";
-import irish from "../../img/irish.jpg";
-import jackblack from "../../img/jack-black.jpg";
-import bowmore from "../../img/bowmore.jpg";
-import drink1887 from "../../img/1887.jpg";
+import irish from "../../assets/img/irish.jpg";
+import jackblack from "../../assets/img/jack-black.jpg";
+import bowmore from "../../assets/img/bowmore.jpg";
+import drink1887 from "../../assets/img/1887.jpg";
 import MainDontMove from "../Main/MainDontMove";
 
 interface MainLayoutProps {

@@ -15,7 +15,7 @@ import BoardSuggest from '../components/Board/BoardSuggest';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CommentModal from '../components/UI/Comment/CommentModal';
-import { Data } from '../interfaces/boards.interface';
+import { Data } from '../util/interfaces/boards.interface';
 import Loading from '../components/UI/Loading';
 
 function BoardDetail() {

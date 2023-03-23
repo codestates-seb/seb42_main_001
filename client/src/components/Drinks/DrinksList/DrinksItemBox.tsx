@@ -3,7 +3,7 @@ import DrinksLikes from "./DrinksItemLikes";
 import DrinksItemTags from "./DrinksItemTags";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { IDrinksProps } from "../../../interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
 
 function DrinksItemBox({ drinksData }: IDrinksProps) {
 
