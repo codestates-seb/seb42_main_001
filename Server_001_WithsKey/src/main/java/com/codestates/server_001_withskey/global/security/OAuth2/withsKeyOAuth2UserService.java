@@ -39,8 +39,8 @@ public class withsKeyOAuth2UserService extends DefaultOAuth2UserService {
             memberService.createMember(member);
 
         } else {
-            member.setDisplayName(displayName);
-            member.setOauthType(oauth2Type);
+//            member.setDisplayName(displayName);
+//            member.setOauthType(oauth2Type);
             try {
                 memberService.updateMember(member);
             } catch (Exception e) {
