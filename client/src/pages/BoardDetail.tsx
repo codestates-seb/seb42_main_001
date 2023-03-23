@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router";
-import styled from "styled-components";
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router';
+import styled from 'styled-components';
 
-import BoardAuthorInfo from "../components/Board/BoardAuthorInfo";
-import BoardDetailTitle from "../components/Board/BoardDetailTitle";
-import BoardLikes from "../components/Board/BoardLikes";
-import BoardComments from "../components/Board/BoardComments";
-import More from "../components/UI/More";
-import BoardDetailContents from "../components/Board/BoardDetailContents";
-import BoardTags from "../components/Board/BoardTags";
-import Comment from "../components/UI/Comment/Comment";
-import CommentInput from "../components/UI/Comment/CommentInput";
-import BoardSuggest from "../components/Board/BoardSuggest";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import CommentModal from "../components/UI/Comment/CommentModal";
-import { Data } from "../interfaces/boards.interface";
+import BoardAuthorInfo from '../components/Board/BoardAuthorInfo';
+import BoardDetailTitle from '../components/Board/BoardDetailTitle';
+import BoardLikes from '../components/Board/BoardLikes';
+import BoardComments from '../components/Board/BoardComments';
+import More from '../components/UI/More';
+import BoardDetailContents from '../components/Board/BoardDetailContents';
+import BoardTags from '../components/Board/BoardTags';
+import Comment from '../components/UI/Comment/Comment';
+import CommentInput from '../components/UI/Comment/CommentInput';
+import BoardSuggest from '../components/Board/BoardSuggest';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import CommentModal from '../components/UI/Comment/CommentModal';
+import { Data } from '../interfaces/boards.interface';
+import Loading from '../components/UI/Loading';
 
 function BoardDetail() {
   const { boardId } = useParams();
@@ -89,7 +90,7 @@ function BoardDetail() {
           </BoardCommentsContainer>
         </Wrapper>
       ) : (
-        <div></div>
+        <Loading />
       )}
     </>
   );
