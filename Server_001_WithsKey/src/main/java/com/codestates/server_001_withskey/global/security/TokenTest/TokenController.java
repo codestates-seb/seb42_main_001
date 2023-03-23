@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.swing.text.html.Option;
 import java.util.Optional;
 
+// 이 클래스는 Redis 테스트용이라 따로 학습하실 필요는 없습니다 !
 @RestController
 @RequestMapping("/api")
 public class TokenController {

@@ -55,7 +55,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
         // "Bearer "을 제외한 나머지 부분을 token 객체로 생성.
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String token = authorizationHeader.replace("Bearer ", "");
-            // RedisRepository 를 통해 해당 토큰이 사용됬거나, 한번 발급된 AccessToken과 같은 값이라면
+            // RedisRepository 를 통해 해당 토큰이 사용됬거나, 발급된 token과 Redis에서 조회한 보관중인 AccessToken과 같은 값이라면
             if (tokenRedisRepository.isAccessTokenUsed(token) || token.equals(tokenRedisRepository.getAccessToken(token))) {
                 // BadCredentialsException 예외 처리
                 throw new BadCredentialsException("Invalid access token");

@@ -50,7 +50,6 @@ public class SecurityConfiguration {
     @Value("${spring.security.oauth2.client.registration.google.redirectUri}")
     private String redirectUri;
 
-
     private final JwtTokenizer jwtTokenizer;
     private final withsKeyAuthorityUtils authorityUtils;
     private final MemberService memberService;
