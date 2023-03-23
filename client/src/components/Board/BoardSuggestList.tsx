@@ -1,19 +1,18 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { IRecommandBoards } from '../../interfaces/boards.interface';
+import { useAppSelector } from '../../redux/hooks/hooks';
 
-import BoardSuggestItem from "./BoardSuggestItem";
+import BoardSuggestItem from './BoardSuggestItem';
 
-interface Props {
-  recommandBoards?: Array<{
-    boardId: number;
-    boardTitle: string;
-  }>;
-}
+function BoardSuggestList() {
+  const { recommandBoards } = useAppSelector(
+    (state) => state.boardDetail.detailData
+  );
 
-function BoardSuggestList({ recommandBoards }: Props) {
   return (
     <ListContainer>
-      {recommandBoards?.map((el) => (
+      {recommandBoards?.map((el: IRecommandBoards) => (
         <Link to={`/board/detail/${el.boardId}`} key={el.boardId}>
           <BoardSuggestItem title={el.boardTitle} />
         </Link>

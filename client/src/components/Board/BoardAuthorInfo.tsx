@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle } from 'react-icons/fa';
 
 interface BoardAuthorInfoProps {
   userName?: string;
@@ -11,7 +11,7 @@ interface BoardAuthorInfoProps {
 function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage ? <img src={userImage} alt="userImage" /> : <FaUserCircle />}
+      {userImage ? <img src={userImage} alt='userImage' /> : <FaUserCircle />}
       <BoardAuthorInfoName>
         {userName}
         <p>{date}</p>

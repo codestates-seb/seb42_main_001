@@ -18,6 +18,7 @@ function BoardList() {
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
+    setIsLoading(true);
     const fetchData = async () => {
       const res = await axios.get(`/boards?page=${isPage}&size=16`);
 

@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { useAppSelector } from '../../redux/hooks/hooks';
 
-interface BoardDetailTitleProps {
-  title?: string;
-}
-
-function BoardDetailTitle({ title }: BoardDetailTitleProps) {
-  return <TitleContainer>{title}</TitleContainer>;
+function BoardDetailTitle() {
+  const { boardTitle } = useAppSelector(
+    (state) => state.boardDetail.detailData
+  );
+  return <TitleContainer>{boardTitle}</TitleContainer>;
 }
 
 export default BoardDetailTitle;

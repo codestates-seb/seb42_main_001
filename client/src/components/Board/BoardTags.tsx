@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import BoardTag from "./BoardTag";
+import BoardTag from './BoardTag';
 
 interface BoardTagsProps {
   tags:
-  | Array<{
-    tagId: number;
-    tagName: string;
-  }>
-  | undefined;
+    | Array<{
+        tagId: number;
+        tagName: string;
+      }>
+    | undefined;
 }
 
 function BoardTags({ tags }: BoardTagsProps) {
@@ -32,7 +32,7 @@ function BoardTags({ tags }: BoardTagsProps) {
 export default BoardTags;
 
 const TagsBox = styled.div`
-  display: flex; 
+  display: flex;
 `;
 
 const TagsContainer = styled.div`

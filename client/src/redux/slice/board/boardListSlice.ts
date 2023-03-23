@@ -9,11 +9,13 @@ import {
 interface boardListState {
   listData: BoardDataProps[];
   filteredData: BoardDataProps[];
+  likeList: ILikeList[];
 }
 
 const initialState: boardListState = {
   listData: [],
   filteredData: [],
+  likeList: [],
 };
 
 export const boardListSlice = createSlice({
@@ -35,6 +37,7 @@ export const boardListSlice = createSlice({
           ),
         };
       });
+      state.likeList = likeList;
       state.listData = [...state.listData, ...result];
     },
     boardListFiltered: (state, { payload: data }: PayloadAction<string>) => {
@@ -42,11 +45,37 @@ export const boardListSlice = createSlice({
         el.boardTitle.includes(data)
       );
     },
+    boardLikeCheck: (
+      state,
+      {
+        payload: { data, boardId },
+      }: PayloadAction<{ data: boolean; boardId: number }>
+    ) => {
+      const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
+      filtered.likeCount = filtered.likeCount + 1;
+      filtered.like = data;
+    },
+
+    boardLikeUncheck: (
+      state,
+      {
+        payload: { data, boardId },
+      }: PayloadAction<{ data: boolean; boardId: number }>
+    ) => {
+      const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
+      filtered.likeCount = filtered.likeCount - 1;
+      filtered.like = data;
+    },
   },
 });
 
-export const { boardListItemAdd, boardListFiltered } = boardListSlice.actions;
+export const {
+  boardListItemAdd,
+  boardListFiltered,
+  boardLikeCheck,
+  boardLikeUncheck,
+} = boardListSlice.actions;
 
-export const selectBoardList = (state: RootState) => state.boardList.listData;
+export const selectBoardList = (state: RootState) => state.boardList;
 
 export default boardListSlice.reducer;
