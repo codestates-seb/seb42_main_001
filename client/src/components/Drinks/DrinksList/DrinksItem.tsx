@@ -5,7 +5,7 @@ import DrinksItemLevel from "./DrinksItemLevel";
 import Card from "../../UI/Card";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { IDrinksProps } from "../../../interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
 
 function DrinksItem({ drinksData, likesData }: IDrinksProps) {
   return (
