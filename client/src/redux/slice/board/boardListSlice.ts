@@ -38,7 +38,15 @@ export const boardListSlice = createSlice({
         };
       });
       state.likeList = likeList;
-      state.listData = [...state.listData, ...result];
+      if (
+        state.listData.length !== 0 &&
+        state.listData.filter((el) => el.boardId === data[0].boardId).length ===
+          0
+      ) {
+        state.listData = [...state.listData, ...result];
+      } else if (state.listData.length === 0) {
+        state.listData = result;
+      }
     },
     boardListFiltered: (state, { payload: data }: PayloadAction<string>) => {
       state.filteredData = state.listData.filter((el) =>
