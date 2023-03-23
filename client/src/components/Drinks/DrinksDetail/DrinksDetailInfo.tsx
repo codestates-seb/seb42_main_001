@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
-function DrinksDetailInfo({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailInfo({ drinksDetail }: IDrinksDetailProps) {
 
   return (
     <InfoContainer>

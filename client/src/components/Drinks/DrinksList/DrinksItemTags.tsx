@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { DrinksTagsProps } from "../../../interfaces/drinks.inerface";
+import { IDrinksTagsProps } from "../../../interfaces/drinks.inerface";
 
-function DrinksItemTags({ drinksData }: DrinksTagsProps) {
+function DrinksItemTags({ drinksData }: IDrinksTagsProps) {
 
   return (
     <Margin>

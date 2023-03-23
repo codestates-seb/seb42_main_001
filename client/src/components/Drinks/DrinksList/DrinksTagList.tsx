@@ -5,10 +5,9 @@ import DrinksTags from "./DrinksTags";
 
 interface TagProps {
   tagData: { tagId: number; tagName?: string; }[]
-  setSearchTag: (state: number) => void;
 }
 
-function DrinksTagList({ tagData, setSearchTag }: TagProps) {
+function DrinksTagList({ tagData }: TagProps) {
   const [tagPage, setTagPage] = useState(7)
   const pageRef = useRef<HTMLDivElement>(null);
   // const [tagData, setTagData] = useState<Tags[]>([])
@@ -38,7 +37,7 @@ function DrinksTagList({ tagData, setSearchTag }: TagProps) {
       >{`<`}</Button>
       <TagListContainer ref={pageRef}>
         {tagData.map(el => {
-          return <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} setSearchTag={setSearchTag} />
+          return <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} />
         })
         }
       </TagListContainer>

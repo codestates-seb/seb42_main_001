@@ -2,9 +2,9 @@ import React from "react";
 import DrinksDetailSnack from "./DrinksDetailSnack";
 import DrinksDetailSnackTitle from "./DrinksDetailSnackTitle";
 import styled from "styled-components";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
-function DrinksDetailSnacks({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailSnacks({ drinksDetail }: IDrinksDetailProps) {
 
   return (
     <SnackContainer>

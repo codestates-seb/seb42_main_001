@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
 import { Radar } from 'react-chartjs-2';
 import { ChartData, ChartOptions } from 'chart.js';
@@ -16,7 +16,7 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, RadarController, RadialLinearScale);
 
-function DrinksDetailChart({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailChart({ drinksDetail }: IDrinksDetailProps) {
   // {fruity:1, orc:4, smoky:1, spicy:2, sweet:1}
   const tastingValues: any = Object.values(drinksDetail?.tastingNote ?? {})
 

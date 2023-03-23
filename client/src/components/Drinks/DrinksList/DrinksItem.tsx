@@ -4,10 +4,10 @@ import DrinksItemBody from "./DrinksItemBody";
 import DrinksItemLevel from "./DrinksItemLevel";
 import Card from "../../UI/Card";
 import styled from "styled-components";
-import { DrinksProps } from "../../../interfaces/drinks.inerface";
 import { Link } from "react-router-dom";
+import { IDrinksProps } from "../../../interfaces/drinks.inerface";
 
-function DrinksItem({ drinksData, likesData }: DrinksProps) {
+function DrinksItem({ drinksData, likesData }: IDrinksProps) {
   return (
     <Margin>
       <Card>
