@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
-function DrinksDetailTitle({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailTitle({ drinksDetail }: IDrinksDetailProps) {
   return (
     <TitleContainer>
       <span>{drinksDetail?.drinkName}</span>

@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Drinks } from '../../../interfaces/drinks.inerface';
+import { IDrinks } from '../../../interfaces/drinks.inerface';
 
-interface DrinksContentsProps {
-  drinksData: Drinks;
+interface IDrinksContentsProps {
+  drinksData: IDrinks;
 }
 
-function DrinksItemBody({ drinksData }: DrinksContentsProps) {
+function DrinksItemBody({ drinksData }: IDrinksContentsProps) {
   return (
     <BodyContainer>
       <img src={`${drinksData.drinkImageUrl}`} alt="withskey" />

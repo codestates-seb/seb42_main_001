@@ -2,8 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../slice/auth/authSlice';
 import tagReducer from '../slice/tag/tagSlice';
 
+import drinkslistReducer from '../slice/drinks/drinksListSlice';
+import drinksTagsReducer from '../slice/drinks/drinksTagsSlice';
+
 export const store = configureStore({
-  reducer: { auth: authReducer, tag: tagReducer },
+  reducer: {
+    auth: authReducer,
+    tag: tagReducer,
+    drinkslist: drinkslistReducer,
+    drinksTags: drinksTagsReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

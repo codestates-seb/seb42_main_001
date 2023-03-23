@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
 
-import BoardInfo from "../components/Board/BoardInfo";
-import BoardItem from "../components/Board/BoardItem";
-import { BoardDataProps } from "../interfaces/boards.interface";
+import BoardInfo from '../components/Board/BoardInfo';
+import BoardItem from '../components/Board/BoardItem';
+import { BoardDataProps } from '../interfaces/boards.interface';
+import Loading from '../components/UI/Loading';
 
 function BoardList() {
   const [items, setItems] = useState<BoardDataProps[]>([]); // axios로 받아온 데이터 저장
   const [isPage, setPage] = useState(1); // 현재 페이지 저장
   const [filterItems, setFilterItems] = useState<BoardDataProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
@@ -32,6 +34,7 @@ function BoardList() {
       }
       setItems((prev) => [...prev, ...data]);
       setFilterItems((prev) => [...prev, ...data]);
+      setIsLoading(false);
     };
     fetchData();
   }, [isPage]);
@@ -46,19 +49,25 @@ function BoardList() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <Wrapper>
-      <BoardInfo data={items} filterItems={setFilterItems} />
-      <ListContainer>
-        {filterItems?.map((el, idx) => {
-          return <BoardItem key={idx} data={el} />;
-        })}
-      </ListContainer>
-    </Wrapper>
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Wrapper>
+          <BoardInfo data={items} filterItems={setFilterItems} />
+          <ListContainer>
+            {filterItems?.map((el, idx) => {
+              return <BoardItem key={idx} data={el} />;
+            })}
+          </ListContainer>
+        </Wrapper>
+      )}
+    </>
   );
 }
 
