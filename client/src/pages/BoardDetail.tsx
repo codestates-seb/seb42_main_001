@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import styled from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 
 import BoardAuthorInfo from '../components/Board/BoardAuthorInfo';
 import BoardDetailTitle from '../components/Board/BoardDetailTitle';
@@ -15,25 +16,29 @@ import BoardSuggest from '../components/Board/BoardSuggest';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CommentModal from '../components/UI/Comment/CommentModal';
-import { Data } from '../util/interfaces/boards.interface';
 import Loading from '../components/UI/Loading';
+import { getBoardDetailData } from '../redux/slice/board/boardDetail';
+import { IComments } from '../util/interfaces/boards.interface';
 
 function BoardDetail() {
   const { boardId } = useParams();
-  const [data, setData] = useState<Data>();
   const [isLoding, setIsLoding] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const data = useAppSelector((state) => state.boardDetail.detailData);
 
   useEffect(() => {
     const boardData = async () => {
       const res = await axios.get(`/boards/${boardId}`);
-      setData(res.data);
+      const listData = await axios.get(`/boards?page=1&size=16`);
+      const likeList = listData.data.likeList;
+      dispatch(getBoardDetailData({ data: res.data, likeList }));
       setIsLoding(true);
     };
     boardData();
-  }, [boardId]);
+  }, [boardId, dispatch]);
 
   const handleModalOpen = () => {
     setIsOpen((prev) => !prev);
@@ -47,7 +52,7 @@ function BoardDetail() {
     <>
       {isLoding ? (
         <Wrapper>
-          <BoardSuggest recommandBoards={data?.recommandBoards} />
+          <BoardSuggest />
           <BoardDetailContainer>
             <Link to={`/member/${data?.memberId}`}>
               <BoardAuthorInfo
@@ -57,9 +62,13 @@ function BoardDetail() {
               />
             </Link>
             <BoardDetailHeader>
-              <BoardDetailTitle title={data?.boardTitle} />
+              <BoardDetailTitle />
               <BoardDetailController>
-                <BoardLikes like={data?.likeCount} />
+                <BoardLikes
+                  like={data?.likeCount}
+                  boardId={data.boardId}
+                  likes={data.like}
+                />
                 <BoardComments comment={data?.commentCount} />
                 <More handleModalOpen={handleModalOpen} />
                 {isOpen ? (
@@ -72,8 +81,8 @@ function BoardDetail() {
               </BoardDetailController>
             </BoardDetailHeader>
             <BoardDetailBody>
-              <BoardDetailContents content={data?.content} />
-              <BoardTags tags={data?.tags} />
+              <BoardDetailContents />
+              <BoardTags tags={data.tags} />
             </BoardDetailBody>
           </BoardDetailContainer>
           <BoardCommentsContainer>
@@ -82,8 +91,7 @@ function BoardDetail() {
               <CommentInput boardId={data?.boardId} />
             </CommentInputContainer>
             <ListContainer>
-              {data?.comments.map((el) => {
-                el.boardCommentId = el.commentId;
+              {data?.comments.map((el: IComments) => {
                 return <Comment key={el.commentId} comments={el} />;
               })}
             </ListContainer>

@@ -1,15 +1,14 @@
-import styled from "styled-components";
-import "@toast-ui/editor/dist/toastui-editor-viewer.css";
-import { Viewer } from "@toast-ui/react-editor";
+import styled from 'styled-components';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import { Viewer } from '@toast-ui/react-editor';
+import { useAppSelector } from '../../redux/hooks/hooks';
 
-interface BoardDetailContentsProps {
-  content?: string;
-}
+function BoardDetailContents() {
+  const { content } = useAppSelector((state) => state.boardDetail.detailData);
 
-function BoardDetailContents({ content }: BoardDetailContentsProps) {
   return (
     <ContentsContainer>
-      <Viewer initialValue={content || ""} />
+      <Viewer initialValue={content || ''} />
     </ContentsContainer>
   );
 }

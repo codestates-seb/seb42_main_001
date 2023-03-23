@@ -1,22 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Card from "../UI/Card";
-import BoardSuggestList from "./BoardSuggestList";
+import Card from '../UI/Card';
+import BoardSuggestList from './BoardSuggestList';
 
-export interface RecommandBoards {
-  recommandBoards?: Array<{
-    boardId: number;
-    boardTitle: string;
-  }>;
-}
-
-function BoardSuggest({ recommandBoards }: RecommandBoards) {
+function BoardSuggest() {
   return (
     <OuterContainer>
       <Card>
         <InnerContainer>
           <div>추천 보드</div>
-          <BoardSuggestList recommandBoards={recommandBoards} />
+          <BoardSuggestList />
         </InnerContainer>
       </Card>
     </OuterContainer>

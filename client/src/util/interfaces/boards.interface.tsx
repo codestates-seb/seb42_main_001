@@ -40,19 +40,23 @@ export interface Data {
     tagId: number;
     tagName: string;
   }>;
-  recommandBoards: Array<{
-    boardId: number;
-    boardTitle: string;
-  }>;
-  comments: Array<{
-    boardCommentId?: number;
-    drinkCommentId?: number;
-    commentId: number;
-    memberId: number;
-    displayName: string;
-    commentContent: string;
-    createAt: string;
-  }>;
+  recommandBoards: IRecommandBoards[];
+  comments: IComments[];
+}
+
+export interface IRecommandBoards {
+  boardId: number;
+  boardTitle: string;
+}
+
+export interface IComments {
+  boardCommentId?: number;
+  drinkCommentId?: number;
+  commentId: number;
+  memberId: number;
+  displayName: string;
+  commentContent: string;
+  createAt: string;
 }
 
 export interface Tags {
