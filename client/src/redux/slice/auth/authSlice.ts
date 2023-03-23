@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../store/store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../../store/store";
 
-import { userInfo } from '../../../interfaces/userInfo.interface';
+import { userInfo } from "../../../utils/interfaces/userInfo.interface";
 
 interface authState {
   isLogin: boolean;
@@ -14,17 +14,17 @@ const initialState: authState = {
 };
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     loginSuccess: (
       state,
-      { payload: { userInfo } }: PayloadAction<{ userInfo: userInfo }>,
+      { payload: { userInfo } }: PayloadAction<{ userInfo: userInfo }>
     ) => {
       state.isLogin = true;
       state.userInfo = userInfo;
     },
-    logoutSuccess: state => {
+    logoutSuccess: (state) => {
       state.isLogin = false;
       state.userInfo = {};
     },

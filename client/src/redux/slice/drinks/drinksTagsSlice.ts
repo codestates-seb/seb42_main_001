@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ITags } from "../../../interfaces/drinks.inerface";
+import { ITags } from "../../../utils/interfaces/drinks.inerface";
 
 interface IDrinksTagsState {
   tagData: ITags[];

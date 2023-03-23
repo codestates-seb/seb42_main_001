@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IDrinks, ILikes } from "../../../interfaces/drinks.inerface";
+import { IDrinks, ILikes } from "../../../utils/interfaces/drinks.inerface";
 
 interface IDrinksListState {
   isLoading: boolean;

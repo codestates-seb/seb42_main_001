@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../store/store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../../store/store";
 
 import {
   BoardDataProps,
   ILikeList,
-} from '../../../interfaces/boards.interface';
+} from "../../../utils/interfaces/boards.interface";
 
 interface boardListState {
   listData: BoardDataProps[];
@@ -17,7 +17,7 @@ const initialState: boardListState = {
 };
 
 export const boardListSlice = createSlice({
-  name: 'boardList',
+  name: "boardList",
   initialState,
   reducers: {
     boardListItemAdd: (
