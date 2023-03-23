@@ -6,8 +6,11 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.security.SignatureException;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,12 +19,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -34,8 +37,23 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     private final JwtTokenizer jwtTokenizer;
     // 권한 설정을 위한 DI
     private final withsKeyAuthorityUtils authorityUtils;
-    // 토큰을 Redis에서 관리하기 위한 DI
+    // 토큰을 Redis 에서 관리하기 위한 DI
     private final TokenRedisRepository tokenRedisRepository;
+
+//    @Getter
+//    @Value("${redirect.oauth2login}")
+//    String oauth2LoginUrl;
+
+    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
+
+//    @Autowired
+//    private Environment env;
+
+//    @PostConstruct
+//    public void init() {
+//        oauth2LoginUrl = env.getProperty("redirect.oauth2login");
+//        System.out.println("oauth2LoginUrl = " + oauth2LoginUrl);
+//    }
 
     public JwtVerificationFilter(JwtTokenizer jwtTokenizer,
                                  withsKeyAuthorityUtils authorityUtils,
@@ -60,7 +78,6 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 // BadCredentialsException 예외 처리
                 throw new BadCredentialsException("Invalid access token");
             }
-
             try {
                 // header에서 "Bearer "을 제외한 값 token을 검증하여 claims 객체에 할당.
                 Map<String, Object> claims = verifyJws(token);
@@ -77,10 +94,9 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                     verifyJws(refreshToken);
                     // 검증 결과, refreshToken도 만료되었다면, 로그인 URL을 반환한다.
                 } catch (ExpiredJwtException e) {
-                     // Local 환경 동작용
-                    response.sendRedirect("http://localhost:8080/oauth2/authorization/google");
-//                    // EC2 환경 동작용
-//                    response.sendRedirect("http://ec2-3-36-117-214.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
+                    System.out.println("before redirect: " + oauth2Login);
+                    response.sendRedirect(oauth2Login);
+                    System.out.println("after redirect: " + oauth2Login);
                     // catch문 종료를 위한 return;
                     return;
                 }
