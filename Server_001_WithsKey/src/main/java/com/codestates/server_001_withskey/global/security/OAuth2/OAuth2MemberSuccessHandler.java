@@ -67,7 +67,10 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         String scheme = request.getScheme();
         String serverName = request.getServerName();
         int serverPort = request.getServerPort();
-        log.info("serverName = {}", serverName);
+
+        if(!serverName.equals("localhost")){
+            serverName = "http://seb42main001.s3-website.ap-northeast-2.amazonaws.com";
+        }
 
         return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
                 .scheme(scheme)
