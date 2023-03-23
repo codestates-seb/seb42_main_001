@@ -5,11 +5,11 @@ import TagsBoardContent from './TagsBoardContent';
 import TagsBodyTitle from './TagsBodyTitle';
 
 const TagsBodyBoard = () => {
-  const listExistence = useAppSelector(state => state.tag.tagData.board.length);
+  const listExistence = useAppSelector(state => state.tag.tagData.board);
 
   return (
     <>
-      {listExistence ? (
+      {listExistence?.length ? (
         <BodyBoardContainer>
           <TagsBodyTitle text={'Board'} />
           <TagsBoardContent />
