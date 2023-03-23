@@ -32,7 +32,6 @@ public class CommentDrinkService {
 
     public CommentDrink updateComment(CommentDrinkDto.Patch patchComment){
         CommentDrink findDrink = findVerifiedCommentById(patchComment.getCommentDrinkId());
-
         Optional.ofNullable(patchComment.getCommentContent())
                 .ifPresent(content -> findDrink.setCommentContent(content));
 
@@ -41,7 +40,6 @@ public class CommentDrinkService {
 
     public CommentDrink findVerifiedCommentById(long commentId){
         Optional<CommentDrink> findComment = repository.findById(commentId);
-
         CommentDrink result = findComment.orElseThrow(()-> new BusinessLogicException(ExceptionCode.COMMENT_NOT_FOUND));
 
         return result;
@@ -49,7 +47,6 @@ public class CommentDrinkService {
 
     public void deleteComment(long commentId){
         findVerifiedCommentById(commentId);
-
         repository.deleteById(commentId);
     }
 
