@@ -45,8 +45,11 @@ function MainDrinks() {
   useEffect(() => {
     handleDrinksTagData()
     handleDrinksData()
-    console.log('ggg')
   }, [handleDrinksData])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page])
 
   return (
     <>
