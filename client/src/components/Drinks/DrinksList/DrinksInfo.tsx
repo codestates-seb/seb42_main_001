@@ -4,23 +4,25 @@ import DrinkSearch from "./DrinksSearch";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../../UI/Button";
+import { useDispatch } from 'react-redux';
+import { setSearchTag } from '../../../redux/slice/drinks/drinksListSlice'
 
 interface ISearchProps {
   tagData: { tagId: number; tagName?: string; }[]
   search?: string;
   setSearch: Dispatch<SetStateAction<string>>;
-  setSearchTag: (state: number) => void;
   setPage: (state: number) => void;
 }
 
-function DrinksInfo({ tagData, search, setSearch, setSearchTag, setPage }: ISearchProps) {
+function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
   const [searchButton, setSearchButton] = useState<boolean>(false);
+  const dispatch = useDispatch()
 
   // searchButton on/off
   const handleSearchChange = () => {
     setSearch('')
     setPage(1)
-    setSearchTag(0)
+    dispatch(setSearchTag(0))
     setSearchButton((prev) => !prev);
   };
 
@@ -28,7 +30,7 @@ function DrinksInfo({ tagData, search, setSearch, setSearchTag, setPage }: ISear
     <InfoContainer>
       {searchButton
         ? <DrinkSearch search={search} setSearch={setSearch} />
-        : <DrinksTagList tagData={tagData} setSearchTag={setSearchTag} />
+        : <DrinksTagList tagData={tagData} />
       }
       <Button
         type="button"

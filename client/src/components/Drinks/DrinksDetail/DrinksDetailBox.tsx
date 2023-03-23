@@ -3,10 +3,10 @@ import DrinksDetailLikes from "./DrinksDetailLikes";
 import DrinksDetailTags from "./DrinksDetailTags";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
 import DrinksDetailCount from "./DrinksDetailCount";
 
-function DrinksDetailBox({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailBox({ drinksDetail }: IDrinksDetailProps) {
   return (
     <BoxContainer>
       <TagContainer>

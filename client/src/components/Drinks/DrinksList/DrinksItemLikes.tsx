@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
-import { DrinksProps } from "../../../interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../interfaces/drinks.inerface";
 import axios from "axios";
 
-function DrinksItemLikes({ drinksData, likesData }: DrinksProps) {
+function DrinksItemLikes({ drinksData, likesData }: IDrinksProps) {
   const [likes, setlikes] = useState(true);
 
   const drinkId: number = drinksData.drinkId;

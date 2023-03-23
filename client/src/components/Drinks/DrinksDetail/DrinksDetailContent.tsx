@@ -3,9 +3,9 @@ import styled from "styled-components";
 import DrinksDetailSnacks from "./DrinksDetailSnacks";
 import DrinksDetailTasting from "./DrinksDetailTasting";
 import DrinksDetailWiths from "./DrinksDetailWiths";
-import { DrinksDetailProps } from '../../../interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../interfaces/drinks.inerface'
 
-function DrinksDetailContent({ drinksDetail }: DrinksDetailProps) {
+function DrinksDetailContent({ drinksDetail }: IDrinksDetailProps) {
   return (
     <ContentContainer>
       <BottomMargin>
