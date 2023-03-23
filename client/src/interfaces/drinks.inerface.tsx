@@ -19,7 +19,7 @@ export interface ILikes {
 
 export interface IDrinksProps {
   drinksData: IDrinks;
-  likesData: ILikes[];
+  likesData?: ILikes[];
 }
 
 export interface IDrinksTagsProps {

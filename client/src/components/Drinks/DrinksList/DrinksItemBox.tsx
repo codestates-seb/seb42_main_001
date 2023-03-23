@@ -5,11 +5,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IDrinksProps } from "../../../interfaces/drinks.inerface";
 
-function DrinksItemBox({ drinksData, likesData }: IDrinksProps) {
+function DrinksItemBox({ drinksData }: IDrinksProps) {
 
   return (
     <InfoContainer>
-      <DrinksLikes drinksData={drinksData} likesData={likesData} />
+      <DrinksLikes drinksData={drinksData} />
       <TagContainer>
         {drinksData?.tags.map(el => {
           return (
