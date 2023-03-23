@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import MainDrinksDetail from "../components/Drinks/DrinksDetail/MainDrinksDetail";
@@ -8,20 +8,18 @@ function DrinksDetail() {
   const { drinkId } = useParams<{ drinkId: string }>();
   const [drinksDetail, setDrinksDetail] = useState<IDrinksDetail>();
 
-  const handleGetDrinksDetail = useCallback(async () => {
-    try {
-      const res = await axios.get(`/drinks/${drinkId}`);
-      setDrinksDetail(res.data);
-      window.scrollTo(0, 0);
-      console.log(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }, [drinkId]);
-
   useEffect(() => {
+    const handleGetDrinksDetail = async () => {
+      try {
+        const res = await axios.get(`/drinks/${drinkId}`);
+        setDrinksDetail(res.data);
+        window.scrollTo(0, 0);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     handleGetDrinksDetail();
-  });
+  }, [drinkId]);
 
   return <MainDrinksDetail drinksDetail={drinksDetail} />;
 }
