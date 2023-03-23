@@ -64,20 +64,18 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
     }
     // 신규 코드
     private String makeRedirectUrl (String accessToken, String refreshToken, HttpServletRequest request) {
-        String scheme = request.getScheme();
-        String serverName = request.getServerName();
-        String serverPort = String.valueOf(request.getServerPort());
+//        String scheme = request.getScheme();
+//        String serverName = request.getServerName();
+//        String serverPort = String.valueOf(request.getServerPort());
 
-        String direction = scheme + "://" + serverName + ":" + serverPort;
-        log.info("direction : {}", direction);
+//        String direction = scheme + "://" + serverName + ":" + serverPort;
+//        log.info("direction : {}", direction);
 
+//        if(!serverName.equals("localhost")){
+//            direction = "http://seb42main001.s3-website.ap-northeast-2.amazonaws.com";
+//        }
 
-
-        if(!serverName.equals("localhost")){
-            direction = "http://seb42main001.s3-website.ap-northeast-2.amazonaws.com";
-        }
-
-        return UriComponentsBuilder.fromUriString(direction +"/mypage?")
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
