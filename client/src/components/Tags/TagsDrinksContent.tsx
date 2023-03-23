@@ -1,18 +1,21 @@
-import styled from "styled-components";
-import TagsDrinksItem from "./TagsDrinksItem";
+import styled from 'styled-components';
+import { useAppSelector } from '../../redux/hooks/hooks';
+
+import DrinksItem from '../Drinks/DrinksList/DrinksItem';
 
 const TagsDrinksContent = () => {
+  const drinksList = useAppSelector(state => state.tag.tagData.drink);
+
   return (
     <DrinksContentContainer>
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
-      <TagsDrinksItem />
+      {drinksList
+        ? drinksList.map(ele => (
+            <DrinksItem
+              key={ele.drinkId}
+              drinksData={ele}
+              likesData={[]}></DrinksItem>
+          ))
+        : null}
     </DrinksContentContainer>
   );
 };
