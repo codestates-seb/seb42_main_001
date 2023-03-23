@@ -1,8 +1,32 @@
-import styled from "styled-components";
-import TagsBody from "./TagsBody";
-import TagsTitle from "./TagsTitle";
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
+import styled from 'styled-components';
+
+import { useAppDispatch } from '../../redux/hooks/hooks';
+import { getTagData } from '../../redux/slice/tag/tagSlice';
+import TagsBody from './TagsBody';
+import TagsTitle from './TagsTitle';
 
 const MainTags = () => {
+  const { tagid } = useParams();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/tags/${tagid}`);
+        if (res.status === 200) {
+          dispatch(getTagData(res.data));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchData();
+  }, [tagid, dispatch]);
+
   return (
     <MainTagsContainer>
       <TagsTitle />
