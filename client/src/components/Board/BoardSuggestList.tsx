@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { IRecommandBoards } from '../../interfaces/boards.interface';
+import { IRecommandBoards } from '../../util/interfaces/boards.interface';
 import { useAppSelector } from '../../redux/hooks/hooks';
 
 import BoardSuggestItem from './BoardSuggestItem';
