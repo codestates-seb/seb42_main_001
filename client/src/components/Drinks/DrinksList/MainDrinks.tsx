@@ -54,7 +54,7 @@ function MainDrinks() {
           :
           <MainDrinksContainer>
             <DrinksInfo tagData={tagData} search={search} setSearch={setSearch} setPage={setPage} />
-            <DrinksContents search={search} searchTag={searchTag} page={page} setPage={setPage} drinksData={drinksData} likesData={likesData} />
+            <DrinksContents search={search} searchTag={searchTag} page={page} setPage={setPage} />
           </MainDrinksContainer>
       }
     </>

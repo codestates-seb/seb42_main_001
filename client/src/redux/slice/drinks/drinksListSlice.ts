@@ -6,6 +6,7 @@ interface IDrinksListState {
   drinksData: IDrinks[];
   likesData: ILikes[];
   searchTag: number;
+  likes: boolean;
 }
 
 const initialState: IDrinksListState = {
@@ -13,6 +14,7 @@ const initialState: IDrinksListState = {
   drinksData: [],
   likesData: [],
   searchTag: 0,
+  likes: false,
 };
 
 const drinksListSlice = createSlice({
@@ -31,9 +33,17 @@ const drinksListSlice = createSlice({
     setSearchTag: (state, action: PayloadAction<number>) => {
       state.searchTag = action.payload;
     },
+    setLikes: (state) => {
+      state.isLoading = true;
+    },
   },
 });
 
-export const { setDrinksData, setLikesData, setIsLoading, setSearchTag } =
-  drinksListSlice.actions;
+export const {
+  setDrinksData,
+  setLikesData,
+  setIsLoading,
+  setSearchTag,
+  setLikes,
+} = drinksListSlice.actions;
 export default drinksListSlice.reducer;
