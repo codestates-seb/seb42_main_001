@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { IDrinks, ILikes } from "../../../interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";
 
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks'
-
 interface ISearchProps {
   search: string;
   searchTag: number;

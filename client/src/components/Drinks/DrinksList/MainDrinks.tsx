@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import DrinksContents from "./DrinksContents";
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,27 +22,25 @@ function MainDrinks() {
     (state: RootState) => state.drinksTags
   );
 
-  const handleDrinksTagData = async () => {
-    const res = await axios.get(`/tags`);
-    dispatch(setTagData(res.data));
-  };
-
-  const handleDrinksData = useCallback(async () => {
-    try {
-      const response = await axios.get('/drinks');
-      const { data } = response;
-      dispatch(setDrinksData(data.data));
-      dispatch(setLikesData(data.likeList));
-      dispatch(setIsLoading());
-    } catch (error) {
-      console.log(error);
-    }
-  }, [dispatch]);
-
   useEffect(() => {
+    const handleDrinksTagData = async () => {
+      const res = await axios.get(`/tags`);
+      dispatch(setTagData(res.data));
+    };
+    const handleDrinksData = async () => {
+      try {
+        const response = await axios.get('/drinks');
+        const { data } = response;
+        dispatch(setDrinksData(data.data));
+        dispatch(setLikesData(data.likeList));
+        dispatch(setIsLoading());
+      } catch (error) {
+        console.log(error);
+      }
+    }
     handleDrinksTagData()
     handleDrinksData()
-  }, [handleDrinksData])
+  }, [dispatch])
 
   useEffect(() => {
     window.scrollTo(0, 0);
