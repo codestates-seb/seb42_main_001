@@ -1,13 +1,21 @@
 import styled from 'styled-components';
+import { useAppSelector } from '../../redux/hooks/hooks';
+
 import TagsBoardContent from './TagsBoardContent';
 import TagsBodyTitle from './TagsBodyTitle';
 
 const TagsBodyBoard = () => {
+  const listExistence = useAppSelector(state => state.tag.tagData.board.length);
+
   return (
-    <BodyBoardContainer>
-      <TagsBodyTitle text={'Board'} />
-      <TagsBoardContent />
-    </BodyBoardContainer>
+    <>
+      {listExistence ? (
+        <BodyBoardContainer>
+          <TagsBodyTitle text={'Board'} />
+          <TagsBoardContent />
+        </BodyBoardContainer>
+      ) : null}
+    </>
   );
 };
 
