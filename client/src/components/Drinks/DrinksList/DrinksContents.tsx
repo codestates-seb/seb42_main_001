@@ -25,37 +25,6 @@ function DrinksContents({ search, searchTag, page, setPage, drinksData, likesDat
   const [limit, setLimit] = useState<number>(16);
   const offset = (page - 1) * limit;
 
-  // const handleDrinksData = useCallback(async () => {
-  //   try {
-  //     const response = await axios.get('/drinks');
-  //     const { data } = response;
-  //     setDrinksData(data.data)
-  //     setLikesData(data.likeList)
-  //   }
-  //   catch (error) {
-  //     console.log(error)
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   handleDrinksData()
-  // })
-
-  // let drinkTagData: Drinks[] = []
-  // let drinkTagValue: number | any = 0
-  // for (let i = 0; i < drinksData.length; i++) {
-  //   if (drinksData[i].tags.length !== 0) {
-  //     const drinkTag = drinksData[i].tags // 태그 잇는 drink들
-  //     for (let j = 0; j < drinkTag.length; j++) { // 태그 잇는 drink 순회
-  //       if (drinkTag[j].tagId === searchTag) { // 요소의 tagid가 searchtag랑 동일하다면
-  //         drinkTagData = [...drinkTagData, drinksData[i]]
-  //         drinkTagValue = drinkTag[j].tagId
-  //         break;
-  //       }
-  //     }
-  //   }
-  // }
-
   const drinkTagData: Drinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
   const drinkTagValue: number | null = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId ?? null : null;
 
