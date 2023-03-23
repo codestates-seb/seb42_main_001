@@ -1,25 +1,8 @@
-import { useEffect } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
 import ArticleListItem from '../components/Article/ArticleList/ArticleListItem';
 
 function ArticleList() {
-  useEffect(() => {
-    const getArticleList = async () => {
-      try {
-        const res = await axios.get('/articles');
-        if (res.status === 200) {
-          console.log(res.data);
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    getArticleList();
-  });
-
   return (
     <ArticleListContainer>
       <ArticleListCardContainer>

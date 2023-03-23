@@ -1,25 +1,44 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import styled from 'styled-components';
 
 import ArticleListCard from './ArticleListCard';
 
+interface articleListItemType {
+  articleId: number;
+  aricleTitle: string;
+}
+
 function ArticleListItem() {
+  const [articleList, setArticleList] = useState([]);
+
+  useEffect(() => {
+    const getArticleList = async () => {
+      try {
+        const res = await axios.get('/articles');
+        if (res.status === 200) {
+          setArticleList(res.data);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    getArticleList();
+  }, []);
+
   return (
     <>
-      <MarginContainer>
-        <Link to={`/article/detail/articleId`}>
-          <ArticleListCard text={'Whiskey'} />
-        </Link>
-      </MarginContainer>
-      <MarginContainer>
-        <ArticleListCard text={'Blended'} />
-      </MarginContainer>
-      <MarginContainer>
-        <ArticleListCard text={'Bourbon'} />
-      </MarginContainer>
-      <MarginContainer>
-        <ArticleListCard text={'Single Malt'} />
-      </MarginContainer>
+      {articleList.length
+        ? articleList.map((ele: articleListItemType) => (
+            <MarginContainer key={ele.articleId}>
+              <Link to={`/article/detail/${ele.articleId}`}>
+                <ArticleListCard text={ele.aricleTitle}></ArticleListCard>
+              </Link>
+            </MarginContainer>
+          ))
+        : null}
     </>
   );
 }
