@@ -49,20 +49,23 @@ public class TokenRedisRepository {
     // 사용된 AccessToken을 Redis에 저장하는 메서드.
     public void saveUsedAccessToken(String token, long duration, TimeUnit timeUnit) {
         String key = USED_ACCESS_TOKEN_PREFIX + token;
+
+        // Redis에 redisTemplate.opsForValue().set() 을 이용해 파라미터들을 저장하는 메서드.
+        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
         // value를 "" 으로 하면 Redis CLI에서 조회할 경우
         // used_access:token값 : "" 으로 나오고 value를 "used"로 하면
         // used_access:token값 : "used" 라고 나오는데 중요치 않으므로 ""으로 작성함.
-        // redisTemplate.opsForValue() 메서드로 Redis에 .set() 을 이용해 저장함.
-        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
     }
 
     // 사용된 RefreshToken을 Redis에 저장하는 메서드
     public void saveUsedRefreshToken(String refreshToken, long duration, TimeUnit timeUnit) {
         String key = USED_REFRESH_TOKEN_PREFIX + refreshToken;
+
+        // Redis에 redisTemplate.opsForValue().set() 을 이용해 파라미터들을 저장하는 메서드.
+        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
         // value를 "" 으로 하면 Redis CLI에서 조회할 경우
         // used_refresh:token값 : "" 으로 나오고 value를 "used"로 하면
         // used_refresh:token값 : "used" 라고 나오는데 중요치 않으므로 ""으로 작성함.
-        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
     }
 
     // 파라미터로 주어진 token 이 used 라고 표시되어 있는지 확인하는 메서드.
@@ -87,21 +90,25 @@ public class TokenRedisRepository {
     public void saveInvalidatedAccessToken(String accessToken, long duration, TimeUnit timeUnit) {
         // key = logout_used_access:+accessToken 으로 생성.
         String key = NO_MORE_USED_ACCESS_TOKEN_PREFIX + accessToken;
+
+        // Redis에 redisTemplate.opsForValue().set() 을 이용해 파라미터들을 저장하는 메서드.
+        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
         // value 를 "" 으로 하면 Redis CLI 에서 조회할 경우
         // logout_used_access: accessToken : "" 으로 나오고 value 를 "used"로 하면
         // logout_used_access: accessToken : "used" 라고 나오는데 중요치 않으므로 ""으로 작성함.
         // Redis 에 redisTemplate.opsForValue().set() 을 이용해 파라미터들을 저장하는 메서드.
-        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
     }
 
     // 로그아웃 유저의 RefreshToken 을 Redis에 보관하는 메서드
     public void saveInvalidatedRefreshToken(String refreshToken, long duration, TimeUnit timeUnit) {
         // key = logout_used_refresh:+refreshToken 으로 생성.
         String key = NO_MORE_USED_REFRESH_TOKEN_PREFIX + refreshToken;
+
+        // Redis에 redisTemplate.opsForValue().set() 을 이용해 파라미터들을 저장하는 메서드.
+        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
         // value 를 "" 으로 하면 Redis CLI 에서 조회할 경우
         // logout_used_refresh: refreshToken : "" 으로 나오고 value를 "used"로 하면
         // logout_used_refresh: refreshToken : "used" 라고 나오는데 중요치 않으므로 ""으로 작성함.
-        redisTemplate.opsForValue().set(key, "", duration, timeUnit);
     }
 
     // 새로 생성된 AccessToken 과 RefreshToken 을 Redis 에 저장하는 메서드
