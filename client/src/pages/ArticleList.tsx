@@ -1,33 +1,37 @@
-import { useState } from "react";
-import styled from "styled-components";
-import ArticleListItem from "../components/Article/ArticleList/ArticleListItem";
+import { useEffect } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+
+import ArticleListItem from '../components/Article/ArticleList/ArticleListItem';
 
 function ArticleList() {
-  const [isModal, setModal] = useState({
-    whiskey: false,
-    blended: false,
-    bourbon: false,
-    singleMalt: false,
+  useEffect(() => {
+    const getArticleList = async () => {
+      try {
+        const res = await axios.get('/articles');
+        if (res.status === 200) {
+          console.log(res.data);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    getArticleList();
   });
 
-  const handleWhiskeyModal = () => {
-    const copy = { ...isModal };
-    copy.whiskey = !copy.whiskey;
-    setModal(copy);
-  };
-
   return (
-    <ArticleListContauner>
+    <ArticleListContainer>
       <ArticleListCardContainer>
-        <ArticleListItem onClick={handleWhiskeyModal} />
+        <ArticleListItem />
       </ArticleListCardContainer>
-    </ArticleListContauner>
+    </ArticleListContainer>
   );
 }
 
 export default ArticleList;
 
-const ArticleListContauner = styled.div`
+const ArticleListContainer = styled.div`
   width: 100%;
   height: 100vh;
   padding: 150px 0;

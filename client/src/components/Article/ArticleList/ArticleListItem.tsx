@@ -1,27 +1,24 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import ArticleListCard from "./ArticleListCard";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-interface ArticleListItemProps {
-  onClick?: () => void;
-}
+import ArticleListCard from './ArticleListCard';
 
-function ArticleListItem({ onClick }: ArticleListItemProps) {
+function ArticleListItem() {
   return (
     <>
       <MarginContainer>
         <Link to={`/article/detail/articleId`}>
-          <ArticleListCard onClick={onClick} text={"Whiskey"} />
+          <ArticleListCard text={'Whiskey'} />
         </Link>
       </MarginContainer>
       <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Blended"} />
+        <ArticleListCard text={'Blended'} />
       </MarginContainer>
       <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Bourbon"} />
+        <ArticleListCard text={'Bourbon'} />
       </MarginContainer>
       <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Single Malt"} />
+        <ArticleListCard text={'Single Malt'} />
       </MarginContainer>
     </>
   );
@@ -32,7 +29,7 @@ export default ArticleListItem;
 const MarginContainer = styled.div`
   margin-bottom: var(--2x-large);
   margin-left: var(--small);
-  margin-right:  var(--small);
+  margin-right: var(--small);
 
   @media only screen and (max-width: 768px) {
     display: flex;
