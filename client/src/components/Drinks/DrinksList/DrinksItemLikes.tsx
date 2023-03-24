@@ -16,7 +16,6 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
   useEffect(() => {
     const isDrinkLiked: boolean = likesData.some(el => el.drinkId === drinksData.drinkId);
     setLike(isDrinkLiked)
-    console.log('zz')
   }, [drinksData.drinkId, likesData])
 
   const handleLikesData = async () => {
