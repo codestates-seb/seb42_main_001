@@ -44,7 +44,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     @Value("${redirect.oauth2login}")
     String oauth2LoginUrl;
 
-    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
+//    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
 
 //    @Autowired
 //    private Environment env;
