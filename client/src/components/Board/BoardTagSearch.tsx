@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { useState } from "react";
+import styled from 'styled-components';
+import { useState } from 'react';
 
-import Card from "../UI/Card";
-import BoardCreateTag from "./BoardCreateTag";
+import Card from '../UI/Card';
+import BoardCreateTag from './BoardCreateTag';
 
 interface props {
   tagData: Array<{
@@ -13,7 +13,7 @@ interface props {
 }
 
 function BoardTagSearch({ tagData, onClick }: props) {
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>('');
   const [options, setOptions] = useState(tagData);
 
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,14 +21,19 @@ function BoardTagSearch({ tagData, onClick }: props) {
     setOptions(tagData.filter((ele) => ele.tagName.includes(e.target.value)));
   };
 
+  const handlePropagation = (e: React.MouseEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <Container>
       <Card>
         <input
-          type="text"
+          type='text'
           value={inputValue}
-          placeholder="Search"
+          placeholder='Search'
           onChange={handleInputValue}
+          onClick={handlePropagation}
         />
         {options.length ? (
           <DropDown>

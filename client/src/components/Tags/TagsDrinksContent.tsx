@@ -3,20 +3,18 @@ import { useAppSelector } from '../../redux/hooks/hooks';
 
 import DrinksItem from '../Drinks/DrinksList/DrinksItem';
 
-import { IDrinks } from "../../util/interfaces/drinks.inerface";
-
 const TagsDrinksContent = () => {
   const drinksList = useAppSelector(state => state.tag.tagData.drink);
 
   return (
     <DrinksContentContainer>
       {drinksList
-        ? drinksList.map((ele: IDrinks) => (
-          <DrinksItem
-            key={ele.drinkId}
-            drinksData={ele}
-            likesData={[]}></DrinksItem>
-        ))
+        ? drinksList.map(ele => (
+            <DrinksItem
+              key={ele.drinkId}
+              drinksData={ele}
+              likesData={[]}></DrinksItem>
+          ))
         : null}
     </DrinksContentContainer>
   );

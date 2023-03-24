@@ -1,28 +1,44 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import ArticleListCard from "./ArticleListCard";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import styled from 'styled-components';
 
-interface ArticleListItemProps {
-  onClick?: () => void;
+import ArticleListCard from './ArticleListCard';
+
+interface articleListItemType {
+  articleId: number;
+  aricleTitle: string;
 }
 
-function ArticleListItem({ onClick }: ArticleListItemProps) {
+function ArticleListItem() {
+  const [articleList, setArticleList] = useState([]);
+
+  useEffect(() => {
+    const getArticleList = async () => {
+      try {
+        const res = await axios.get('/articles');
+        if (res.status === 200) {
+          setArticleList(res.data);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    getArticleList();
+  }, []);
+
   return (
     <>
-      <MarginContainer>
-        <Link to={`/article/detail/articleId`}>
-          <ArticleListCard onClick={onClick} text={"Whiskey"} />
-        </Link>
-      </MarginContainer>
-      <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Blended"} />
-      </MarginContainer>
-      <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Bourbon"} />
-      </MarginContainer>
-      <MarginContainer>
-        <ArticleListCard onClick={onClick} text={"Single Malt"} />
-      </MarginContainer>
+      {articleList.length
+        ? articleList.map((ele: articleListItemType) => (
+            <MarginContainer key={ele.articleId}>
+              <Link to={`/article/detail/${ele.articleId}`}>
+                <ArticleListCard text={ele.aricleTitle}></ArticleListCard>
+              </Link>
+            </MarginContainer>
+          ))
+        : null}
     </>
   );
 }
@@ -32,7 +48,7 @@ export default ArticleListItem;
 const MarginContainer = styled.div`
   margin-bottom: var(--2x-large);
   margin-left: var(--small);
-  margin-right:  var(--small);
+  margin-right: var(--small);
 
   @media only screen and (max-width: 768px) {
     display: flex;

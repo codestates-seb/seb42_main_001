@@ -5,6 +5,7 @@ import CommentModal from './CommentModal';
 import More from '../More';
 import Button from '../Button';
 import axios from 'axios';
+import convertTime from '../../../util/convertTime';
 
 interface CommentProps {
   comments?: {
@@ -67,7 +68,7 @@ function Comment({ comments }: CommentProps) {
             <CommentAuthorInfoImg />
             <CommentAuthorContents>
               <h4>{comments?.displayName}</h4>
-              <span>{comments?.createAt}</span>
+              <span>{convertTime(comments?.createAt)}</span>
             </CommentAuthorContents>
             <div>
               <More handleModalOpen={handleModalOpen} />

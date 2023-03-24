@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { FaUserCircle } from 'react-icons/fa';
+import convertTime from '../../util/convertTime';
 
 interface BoardAuthorInfoProps {
   userName?: string;
@@ -11,10 +12,10 @@ interface BoardAuthorInfoProps {
 function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage ? <img src={userImage} alt='userImage' /> : <FaUserCircle />}
+      {userImage ? <img src={userImage} alt="userImage" /> : <FaUserCircle />}
       <BoardAuthorInfoName>
         {userName}
-        <p>{date}</p>
+        <p>{convertTime(date)}</p>
       </BoardAuthorInfoName>
     </BoardAuthorInfoContainer>
   );

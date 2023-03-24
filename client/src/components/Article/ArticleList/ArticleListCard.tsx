@@ -1,16 +1,16 @@
-import styled from "styled-components";
-import Card from "../../UI/Card";
+import styled from 'styled-components';
+
+import Card from '../../UI/Card';
 
 interface ArticleListCardProps {
-  onClick?: () => void;
-  text?: string;
+  text: string;
 }
 
-function ArticleListCard({ onClick, text }: ArticleListCardProps) {
+function ArticleListCard({ text }: ArticleListCardProps) {
   return (
     <MainContainer>
       <Card>
-        <CardChildContainer onClick={onClick}>{text}</CardChildContainer>
+        <CardChildContainer>{text}</CardChildContainer>
       </Card>
     </MainContainer>
   );
@@ -21,14 +21,14 @@ export default ArticleListCard;
 const MainContainer = styled.div`
   width: 100%;
   opacity: 0.7;
-  transition: .5s;
+  transition: 0.5s;
   background-color: transparent;
-  
+
   &:hover {
-    transition: .5s;
+    transition: 0.5s;
     opacity: 1;
   }
-`
+`;
 
 const CardChildContainer = styled.div`
   width: 600px;
@@ -38,10 +38,10 @@ const CardChildContainer = styled.div`
   align-items: center;
   color: var(--color-main);
   font-size: var(--text-medium);
-  transition: .5s;
+  transition: 0.5s;
 
   &:hover {
-    transition: .5s;
+    transition: 0.5s;
     font-weight: var(--weight-medium);
   }
 
@@ -50,4 +50,3 @@ const CardChildContainer = styled.div`
     height: 200px;
   }
 `;
-

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import { BsPlusLg } from 'react-icons/bs';
@@ -101,10 +101,20 @@ function BoardCreate() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTime]);
 
-  const handleTagSearchOpen = () => setSearchOpen(!searchOpen);
+  const handleTagSearchOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setSearchOpen(true);
+  };
+  const handleTagSearchClose = () => {
+    setSearchOpen(false);
+  };
 
   const handleAddTag = (ele: { tagId: number; tagName: string }) => {
-    setTags((prev) => [...prev, ele]);
+    if (tags.length === 0) {
+      setTags([ele]);
+    } else if (tags.filter((el) => el.tagId === ele.tagId).length === 0) {
+      setTags((prev) => [...prev, ele]);
+    }
   };
 
   const handleRemoveTag = (ele: { tagId: number; tagName: string }) => {
@@ -162,7 +172,7 @@ function BoardCreate() {
   };
 
   return (
-    <Wrapper>
+    <Wrapper onClick={handleTagSearchClose}>
       <div>
         <BoardCreateController>
           <BoardCreateTagController>
