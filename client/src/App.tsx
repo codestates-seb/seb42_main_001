@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import { useAppDispatch } from './redux/hooks/hooks';
+
 import Main from './pages/Main';
 import MainLayout from './components/layout/MainLayout';
 import BaseLayout from './components/layout/BaseLayout';
@@ -14,7 +16,6 @@ import BoardCreate from './pages/BoardCreate';
 import SignUp from './pages/SignUp';
 import Tags from './pages/Tags';
 import ArticleDetail from './pages/ArticleDetail';
-import { useAppDispatch } from './redux/hooks/hooks';
 import { loginSuccess } from './redux/slice/auth/authSlice';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
@@ -32,12 +33,12 @@ function App() {
         if (res.status === 200) {
           const userInfo = res.data;
           dispatch(loginSuccess({ userInfo: userInfo }));
+          console.log('confirm app rerender');
         }
       } catch (e) {
         console.error(e);
       }
     };
-
     initializeUserInfo();
   });
 

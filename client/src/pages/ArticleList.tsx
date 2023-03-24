@@ -1,33 +1,20 @@
-import { useState } from "react";
-import styled from "styled-components";
-import ArticleListItem from "../components/Article/ArticleList/ArticleListItem";
+import styled from 'styled-components';
+
+import ArticleListItem from '../components/Article/ArticleList/ArticleListItem';
 
 function ArticleList() {
-  const [isModal, setModal] = useState({
-    whiskey: false,
-    blended: false,
-    bourbon: false,
-    singleMalt: false,
-  });
-
-  const handleWhiskeyModal = () => {
-    const copy = { ...isModal };
-    copy.whiskey = !copy.whiskey;
-    setModal(copy);
-  };
-
   return (
-    <ArticleListContauner>
+    <ArticleListContainer>
       <ArticleListCardContainer>
-        <ArticleListItem onClick={handleWhiskeyModal} />
+        <ArticleListItem />
       </ArticleListCardContainer>
-    </ArticleListContauner>
+    </ArticleListContainer>
   );
 }
 
 export default ArticleList;
 
-const ArticleListContauner = styled.div`
+const ArticleListContainer = styled.div`
   width: 100%;
   height: 100vh;
   padding: 150px 0;
