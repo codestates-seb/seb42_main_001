@@ -62,6 +62,8 @@ public class SecurityConfiguration {
     private final CustomFilterConfigurer customFilterConfigurer;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
+        CustomFilterConfigurer customFilterConfigurer = new CustomFilterConfigurer(jwtTokenizer, authorityUtils, tokenRedisRepository(stringRedisTemplate));
         http
                 .headers().frameOptions().disable() //<= frameOptions disable
                 .and()
@@ -86,7 +88,6 @@ public class SecurityConfiguration {
                 ).cors(withDefaults());
         return http.build();
     }
-
     //CORS 설정 하는 메서드
     @Bean
     CorsConfigurationSource corsConfigurationSource() {

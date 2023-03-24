@@ -8,7 +8,9 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.security.SignatureException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +34,6 @@ import java.util.concurrent.TimeUnit;
 // OAuth2 인증에 성공하면 FE 앱 쪽에서 request를 전송할 때 마다
 // request header에 실어 보내는 Access Token에 대한 검증을 수행하는 역
 @Component
-@RequiredArgsConstructor
 @Slf4j
 public class JwtVerificationFilter extends OncePerRequestFilter {
     // 토큰 인코딩, 디코딩, 검증을 위한 DI
@@ -44,6 +46,22 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     @Value("${mail.address.admin}")
     private String oauth2Login;
 
+//    @Autowired
+//    private Environment env;
+
+//    @PostConstruct
+//    public void init() {
+//        oauth2LoginUrl = env.getProperty("redirect.oauth2login");
+//        System.out.println("oauth2LoginUrl = " + oauth2LoginUrl);
+//    }
+
+    public JwtVerificationFilter(JwtTokenizer jwtTokenizer,
+                                 withsKeyAuthorityUtils authorityUtils,
+                                 TokenRedisRepository tokenRedisRepository) {
+        this.jwtTokenizer = jwtTokenizer;
+        this.authorityUtils = authorityUtils;
+        this.tokenRedisRepository = tokenRedisRepository;
+    }
     // JWT 토큰 검증 과정을 위한 메서드
     @Override
     protected void doFilterInternal(HttpServletRequest request,
