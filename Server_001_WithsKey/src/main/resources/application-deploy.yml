@@ -54,4 +54,4 @@ awsParameterStorePropertySource:
   enabled: true
 
 redirect:
-  OAuth2LoginUrl: ${/main001/redirect/oauth2loginurl}
+  oauth2login: ${/main001/redirect/oauth2loginurl}
