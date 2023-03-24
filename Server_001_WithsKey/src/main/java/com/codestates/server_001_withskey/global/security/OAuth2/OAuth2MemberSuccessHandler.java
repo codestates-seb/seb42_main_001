@@ -68,26 +68,16 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 //        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
 //        // v2
         // 사용자에게 makeRedirectUrl 메서드를 활용하여 endpoint + accessToken + RefreshToken을 보냄.
-        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken, request));
+        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
     }
     // v2
     private String makeRedirectUrl (String accessToken,
-                                    String refreshToken,
-                                    HttpServletRequest request) {
-        // request의 요청의 체계 (http or https)를 확인하여 scheme 변수에 저장.
-        String scheme = request.getScheme(); // http or https
-        // request의 서버 이름(호스트 이름, IP 주소)을 확인하여 serverName 변수에 저장.
-        String serverName = request.getServerName(); // hostname or ip address
-        // request의 서버 포트 번호를 확인하여 serverPort 변수에 저장.
-        int serverPort = request.getServerPort(); // port number
+                                    String refreshToken) {
 
         // UriComponentsBuilder를 사용하여 scheme+host+port+path 형식으로 구성한다.
         // ex: http://localhost:8080/mypage
-        return UriComponentsBuilder.newInstance()
-                .scheme(scheme)
-                .host(serverName)
-                .port(serverPort)
-                .path("/mypage")
+        return UriComponentsBuilder
+                .fromUriString("http;//localhost:3000/mypage")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
