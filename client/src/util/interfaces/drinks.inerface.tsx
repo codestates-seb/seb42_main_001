@@ -64,6 +64,7 @@ export interface IDrinksDetail {
     commentContent: string;
     createAt: string;
   }[];
+  likeCount: number;
   tastingNote?: {
     fruity: number;
     orc: number;
