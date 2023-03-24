@@ -18,7 +18,7 @@ public class Article {
     private String title;
 
     @Column
-    private String type;
+    private String types;
 
     @OneToMany(mappedBy = "article")
     private List<Section> sections;

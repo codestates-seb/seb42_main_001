@@ -37,10 +37,10 @@ public class ArticleController {
 
     @GetMapping
     @Transactional
-    public ResponseEntity getArticles(@RequestParam String type){
+    public ResponseEntity getArticles(@RequestParam(name = "type") String types){
 
 
-        List<Article> articles = articleService.findAllByType(type);
+        List<Article> articles = articleService.findAllByTypes(types);
         List<ArticleDto.Response> responses = articleMapper.articlesToResponses(articles);
 
         return new ResponseEntity(responses, HttpStatus.OK);

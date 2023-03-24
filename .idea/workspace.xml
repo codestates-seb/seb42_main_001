@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Security 의존성 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Article 엔드포인트 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/controller/ArticleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/entity/Article.java" afterDir="false" />
@@ -263,14 +263,7 @@
       <workItem from="1679360586070" duration="5818000" />
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
-      <workItem from="1679619686781" duration="3845000" />
-    </task>
-    <task id="LOCAL-00027" summary="merge : merge 해결 초기데이터 완성">
-      <created>1678942327964</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1678942327964</updated>
+      <workItem from="1679619686781" duration="6366000" />
     </task>
     <task id="LOCAL-00028" summary="✨ feat: Tag, image 처리 제외한 모든 부분 구현 완료.">
       <created>1678950138242</created>
@@ -608,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679623202862</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="✨ feat: Article 엔드포인트 수정">
+      <created>1679623561463</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1679623561463</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +643,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: tastingNote.sql 수정" />
     <MESSAGE value="✨ feat: tastingNote 칼럼 변경 전 저장" />
     <MESSAGE value="✨ feat: tastingNote 칼럼 및 엔티티 필드 수정" />
     <MESSAGE value="✨ feat:Drink에 동일한 태그 추가" />
@@ -668,7 +667,8 @@
     <MESSAGE value="✨ feat: 주소지 변경 로직23" />
     <MESSAGE value="✨ feat: 주소지 변경 로직3" />
     <MESSAGE value="✨ feat: Security 의존성 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Security 의존성 수정" />
+    <MESSAGE value="✨ feat: Article 엔드포인트 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Article 엔드포인트 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
