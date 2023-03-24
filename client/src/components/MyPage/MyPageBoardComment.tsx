@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Card from '../UI/Card';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
+import convertTime from '../../util/convertTime';
 
 interface MyPageBoardCommentProps {
   board?: string;
@@ -26,7 +27,7 @@ function MyPageBoardComment({ board, ele }: MyPageBoardCommentProps) {
           <>
             <div>
               <div>{ele.boardTitle}</div>
-              <div>{ele.createdAt}</div>
+              <div>{convertTime(ele.createdAt)}</div>
             </div>
             <div>
               <span>{ele.content}</span>
