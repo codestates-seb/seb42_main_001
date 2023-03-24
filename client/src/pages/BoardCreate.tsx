@@ -137,9 +137,9 @@ function BoardCreate() {
   };
 
   const handleBoardSubmit = () => {
-    if (boardTitle === '') {
+    if (boardTitle.trim() === '') {
       alert('제목을 작성해 주세요');
-    } else if (boardContent === '') {
+    } else if (boardContent.trim() === '') {
       alert('본문을 작성해 주세요');
     } else {
       const newBoard = {
