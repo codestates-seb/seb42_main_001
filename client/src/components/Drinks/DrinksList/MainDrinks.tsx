@@ -6,9 +6,6 @@ import DrinksInfo from "./DrinksInfo";
 import Loading from "../../UI/Loading";
 import axios from "axios";
 
-// import { GetDrinks } from "../../../util/axios/drinks";
-// import { GetTag } from "../../../util/axios/tags";
-
 import { setDrinksData, setLikesData, setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
 import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice'
 import { RootState } from '../../../redux/store/store'
