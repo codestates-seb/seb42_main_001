@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: yml 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,13 +260,6 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00035" summary="✨ feat: CORSFilter 구현방식2">
-      <created>1679122938042</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1679122938042</updated>
     </task>
     <task id="LOCAL-00036" summary="✨ feat: 로그인 핸들러 추가">
       <created>1679137053670</created>
@@ -604,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679646039545</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="✨ feat: yml 추가">
+      <created>1679646443453</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1679646443453</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: Snack, SnackDrink 등록" />
     <MESSAGE value="✨ feat: 상황 태그 추가" />
     <MESSAGE value="✨ feat: 실행 조건 수정" />
     <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
@@ -664,7 +663,8 @@
     <MESSAGE value="✨ feat: Blended.sql 작성" />
     <MESSAGE value="✨ feat: 로그인 성공 시 리다이렉트 url 수정" />
     <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
+    <MESSAGE value="✨ feat: yml 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: yml 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

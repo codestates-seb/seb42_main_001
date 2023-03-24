@@ -76,8 +76,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
         // UriComponentsBuilder를 사용하여 scheme+host+port+path 형식으로 구성한다.
         // ex: http://localhost:8080/mypage
-        return UriComponentsBuilder
-                .fromUriString("http;//localhost:3000/mypage")
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
