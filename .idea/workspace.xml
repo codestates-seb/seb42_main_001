@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: deploy yml 수정3">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: deploy yml 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/blended.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/blended.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,13 +260,6 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00031" summary="✨ feat: 배포시도 4">
-      <created>1679025320062</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1679025320062</updated>
     </task>
     <task id="LOCAL-00032" summary="✨ feat: 배포시도 5">
       <created>1679025446543</created>
@@ -604,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679637180538</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="✨ feat: deploy yml 수정">
+      <created>1679643007672</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1679643007673</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 몽키 숄더 이전까지 테이스팅 노트 적용" />
     <MESSAGE value="✨ feat: 테이스팅 노트 작성 완료" />
     <MESSAGE value="✨ feat: Drink 가격 태깅" />
     <MESSAGE value="✨ feat: Snack 등록" />
@@ -664,7 +663,8 @@
     <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
     <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
     <MESSAGE value="✨ feat: Comment Drink 로직 수정2" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Comment Drink 로직 수정2" />
+    <MESSAGE value="✨ feat: deploy yml 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: deploy yml 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
