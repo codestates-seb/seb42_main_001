@@ -1,8 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
-import styled from "styled-components";
-import Button from "../Button";
-import Card from "../Card";
+import axios from 'axios';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Button from '../Button';
+import Card from '../Card';
 
 interface CommentInputProps {
   drinkId?: number;
@@ -10,15 +10,15 @@ interface CommentInputProps {
 }
 
 function CommentInput({ drinkId, boardId }: CommentInputProps) {
-  const [commentValue, setCommentValue] = useState("");
+  const [commentValue, setCommentValue] = useState('');
 
   const handleCommentValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCommentValue(e.target.value);
   };
 
   const handleDrinksPost = async () => {
-    if (commentValue === "") {
-      alert("댓글을 작성해주세요");
+    if (commentValue === '') {
+      alert('댓글을 작성해주세요');
     } else {
       const newDrinks = {
         drinkId,
@@ -31,10 +31,11 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
       };
       try {
         await axios.post(
-          drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : "",
+          drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : '',
           drinkId ? newDrinks : boardId ? newBoards : null
         );
-        setCommentValue("");
+        setCommentValue('');
+        alert('성공적으로 작성되었습니다.');
         window.location.reload();
       } catch (error) {
         console.log(error);
@@ -43,7 +44,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
   };
 
   const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       handleDrinksPost();
     }
   };
@@ -57,13 +58,13 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
               onChange={handleCommentValueChange}
               onKeyDown={handleInputKey}
               value={commentValue}
-              placeholder="댓글을 작성해 주세요"
+              placeholder='댓글을 작성해 주세요'
             />
           </Card>
         </SearchContainer>
       </section>
       <Button
-        type="submit"
+        type='submit'
         width={`--5x-large`}
         height={`--2x-large`}
         bgColor={`--color-main`}

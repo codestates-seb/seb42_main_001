@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import React, { useState } from "react";
-import Card from "../Card";
-import CommentModal from "./CommentModal";
-import More from "../More";
-import Button from "../Button";
-import axios from "axios";
+import styled from 'styled-components';
+import React, { useState } from 'react';
+import Card from '../Card';
+import CommentModal from './CommentModal';
+import More from '../More';
+import Button from '../Button';
+import axios from 'axios';
 
 interface CommentProps {
   comments?: {
@@ -32,7 +32,7 @@ function Comment({ comments }: CommentProps) {
   };
 
   const handleEditfalse = () => {
-    if (window.confirm("정말로 수정하시겠습니까")) {
+    if (window.confirm('정말로 수정하시겠습니까')) {
       if (comments?.drinkCommentId) {
         const editComment = {
           commentContent,
@@ -42,6 +42,7 @@ function Comment({ comments }: CommentProps) {
           editComment
         );
         setEdit((prev) => !prev);
+        alert('성공적으로 수정했습니다.');
         window.location.reload();
       } else if (comments?.boardCommentId) {
         const editComment = {
@@ -52,6 +53,7 @@ function Comment({ comments }: CommentProps) {
           editComment
         );
         setEdit((prev) => !prev);
+        alert('성공적으로 수정했습니다.');
         window.location.reload();
       }
     }
@@ -87,13 +89,13 @@ function Comment({ comments }: CommentProps) {
               </CommentEditInput>
               <CommentEditButton>
                 <Button
-                  type="submit"
-                  color="--color-white"
-                  bgColor="--color-main"
+                  type='submit'
+                  color='--color-white'
+                  bgColor='--color-main'
                   onClick={handleEditfalse}
-                  borderColor="--color-main"
+                  borderColor='--color-main'
                 >
-                  {"submit"}
+                  {'submit'}
                 </Button>
               </CommentEditButton>
             </CommentEditContainer>

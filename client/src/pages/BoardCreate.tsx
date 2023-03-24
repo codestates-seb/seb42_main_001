@@ -144,6 +144,7 @@ function BoardCreate() {
           .then((res) => {
             localStorage.removeItem('data');
             navigate('/board/list');
+            alert('성공적으로 작성되었습니다.');
             window.location.reload();
           })
           .catch((err) => console.log(Error, err));
@@ -152,6 +153,7 @@ function BoardCreate() {
           .patch(`/boards/${editId}`, newBoard)
           .then((res) => {
             navigate('/board/list');
+            alert('성공적으로 수정되었습니다.');
             window.location.reload();
           })
           .catch((err) => console.log(Error, err));
