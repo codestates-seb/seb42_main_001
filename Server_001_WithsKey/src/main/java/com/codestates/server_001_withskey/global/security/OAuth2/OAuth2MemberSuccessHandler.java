@@ -87,7 +87,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
                 .scheme(scheme)
                 .host(serverName)
                 .port(serverPort)
-                .path("/mypage?")
+                .path("/mypage")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();

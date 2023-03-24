@@ -97,9 +97,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 } catch (ExpiredJwtException e) {
                     System.out.println("before redirect: " + oauth2Login);
                     response.sendRedirect(oauth2Login);
-
                     //RestTemplate
-
                     System.out.println("after redirect: " + oauth2Login);
                     // catch문 종료를 위한 return;
                     return;

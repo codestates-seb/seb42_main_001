@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Article 엔드포인트 수정2">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Tutorial Article 추가 내용 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/Jwt/JwtVerificationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/Jwt/JwtVerificationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,14 +261,7 @@
       <workItem from="1679360586070" duration="5818000" />
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
-      <workItem from="1679619686781" duration="8545000" />
-    </task>
-    <task id="LOCAL-00029" summary="✨ feat: S3 연동 준비">
-      <created>1678950257264</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1678950257264</updated>
+      <workItem from="1679619686781" duration="10559000" />
     </task>
     <task id="LOCAL-00030" summary="✨ feat: 페이지네이션 처리 완료">
       <created>1678957867071</created>
@@ -604,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679626438909</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="✨ feat: Tutorial Article 추가 내용 작성">
+      <created>1679630382155</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1679630382155</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +641,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: tastingNote 칼럼 및 엔티티 필드 수정" />
     <MESSAGE value="✨ feat:Drink에 동일한 태그 추가" />
     <MESSAGE value="✨ feat: 몽키 숄더 이전까지 테이스팅 노트 적용" />
     <MESSAGE value="✨ feat: 테이스팅 노트 작성 완료" />
@@ -664,7 +665,8 @@
     <MESSAGE value="✨ feat: Security 의존성 수정" />
     <MESSAGE value="✨ feat: Article 엔드포인트 수정" />
     <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Article 엔드포인트 수정2" />
+    <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Tutorial Article 추가 내용 작성" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -707,6 +709,11 @@
           <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
           <line>66</line>
           <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/controller/CommentDrinkController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
