@@ -14,7 +14,6 @@ import Comment from '../components/UI/Comment/Comment';
 import CommentInput from '../components/UI/Comment/CommentInput';
 import BoardSuggest from '../components/Board/BoardSuggest';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import CommentModal from '../components/UI/Comment/CommentModal';
 import Loading from '../components/UI/Loading';
 import { getBoardDetailData } from '../redux/slice/board/boardDetail';
@@ -54,13 +53,11 @@ function BoardDetail() {
         <Wrapper>
           <BoardSuggest />
           <BoardDetailContainer>
-            <Link to={`/member/${data?.memberId}`}>
-              <BoardAuthorInfo
-                userName={data?.memberName}
-                userImage={data?.profileImageUrl}
-                date={data?.createdAt}
-              />
-            </Link>
+            <BoardAuthorInfo
+              userName={data?.memberName}
+              userImage={data?.profileImageUrl}
+              date={data?.createdAt}
+            />
             <BoardDetailHeader>
               <BoardDetailTitle />
               <BoardDetailController>

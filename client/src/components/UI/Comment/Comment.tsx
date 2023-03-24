@@ -23,7 +23,7 @@ function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [commentContent, setCommentContent] = useState(
-    comments?.commentContent,
+    comments?.commentContent
   );
 
   const handleModalOpen = () => setIsOpen(!isOpen);
@@ -40,9 +40,10 @@ function Comment({ comments }: CommentProps) {
         };
         axios.patch(
           `/comments/drinks/${comments?.drinkCommentId}`,
-          editComment,
+          editComment
         );
-        setEdit(prev => !prev);
+        setEdit((prev) => !prev);
+        alert('성공적으로 수정했습니다.');
         window.location.reload();
       } else if (comments?.boardCommentId) {
         const editComment = {
@@ -50,9 +51,10 @@ function Comment({ comments }: CommentProps) {
         };
         axios.patch(
           `/comments/boards/${comments?.boardCommentId}`,
-          editComment,
+          editComment
         );
-        setEdit(prev => !prev);
+        setEdit((prev) => !prev);
+        alert('성공적으로 수정했습니다.');
         window.location.reload();
       }
     }
@@ -88,11 +90,12 @@ function Comment({ comments }: CommentProps) {
               </CommentEditInput>
               <CommentEditButton>
                 <Button
-                  type="submit"
-                  color="--color-white"
-                  bgColor="--color-main"
+                  type='submit'
+                  color='--color-white'
+                  bgColor='--color-main'
                   onClick={handleEditfalse}
-                  borderColor="--color-main">
+                  borderColor='--color-main'
+                >
                   {'submit'}
                 </Button>
               </CommentEditButton>
