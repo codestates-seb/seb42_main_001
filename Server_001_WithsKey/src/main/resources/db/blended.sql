@@ -53,31 +53,29 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : �
 
 
 INSERT INTO ARTICLE(ARTICLE_ID, TITLE,TYPES) VALUES (103, '조니워커 그린','blended');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('','4. 조니워커 그린',103);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('','제품 정보',103);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('','특징',103);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('','맛과 향',103);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('https://main-001-image.s3.ap-northeast-2.amazonaws.com/blended/%EB%B8%94%EB%A0%8C%EB%94%94%EB%93%9C-%EC%A1%B0%EB%8B%88%EC%9B%8C%EC%BB%A4%EA%B7%B8%EB%A6%B0.JPG','4. 조니워커 그린',103);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES(' * 생산 지역 : 스코틀랜드
+ * 도수 : 40%
+ * 용량 : 700ml
+ * 가격대 : 10만원대
+','제품 정보',103);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('기존 조니워커와 다른 몰트 위스키만을 섞어 만든, 블렌디드 몰트 위스키입니다. 따라서 더 진하고 섬세한 맛을 느낄 수 있다는 특징이 있습니다. "조니워커 그린 15년"은 최소 15년 동안 숙성된 스코틀랜드 4개 지역의 몰트를 블렌딩한 위스키로, 각 지역의 독특한 풍미를 완벽한 균형으로 맞춘 위스키라 할 수 있습니다.','특징',103);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : 꽃, 과일, 흙내음
+맛 : 오크, 우드','맛과 향',103);
 
 
 
 
 
 INSERT INTO ARTICLE(ARTICLE_ID, TITLE,TYPES) VALUES (104, '발렌타인 12','blended');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('
-![img] https://file.mk.co.kr/mkde/N0/2018/01/20180112_3576283_1515740587.jpg
-제품 정보
- * 생산 지역 : 스코틀랜드
- - 도수 : 40%
- - 용량 : 700ml
- - 가격대 : 10만원대
-
-특징
-전통과 모던함을 동시에 지녔으며, 고글스러움과 세련미가 완벽하게 균형을 이루고 있습니다.
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('https://main-001-image.s3.ap-northeast-2.amazonaws.com/blended/%EB%B8%94%EB%A0%8C%EB%94%94%EB%93%9C-%EB%B0%9C%EB%A0%8C%ED%83%80%EC%9D%B812.JPG','5. 발렌타인 12',104);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES(' * 생산 지역 : 스코틀랜드
+ * 도수 : 40%
+ * 용량 : 700ml
+ * 가격대 : 10만원대  ','제품 정보',104);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('전통과 모던함을 동시에 지녔으며, 고글스러움과 세련미가 완벽하게 균형을 이루고 있습니다.
 벌굴과 플로럴한 느낌이 향신료의 감칠맛과 함께 완벽한 조화를 이루고 있어 산뜻한 끝맛을 느낄 수 있습니다.
-국제 위스키 대회 "Scotch Whisky Masters" 12년 이하 블렌디드 위스키 부문에서 수차례 금상을 수상한 영예를 가지고 있습니다.
-
-맛과 향
-향 : 벌꿀, 오크, 바닐라
-맛 : 벌꿀, 꽃, 오크
-','발렌타인 12',104);
+국제 위스키 대회 "Scotch Whisky Masters" 12년 이하 블렌디드 위스키 부문에서 수차례 금상을 수상한 영예를 가지고 있습니다','특징',104);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : 벌꿀, 오크, 바닐라
+맛 : 벌꿀, 꽃, 오크','맛과 향',104);
 
