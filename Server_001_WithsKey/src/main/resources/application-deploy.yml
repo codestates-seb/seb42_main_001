@@ -33,8 +33,8 @@ mail:
 jwt:
   key:
     secret: ${/main001/jwt.key.secret}
-  access-token-expiration-minutes: 1
-  refresh-token-expiration-minutes: 1
+  access-token-expiration-minutes: 10000
+  refresh-token-expiration-minutes: 10000
 
 file:
   root:
