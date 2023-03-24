@@ -17,6 +17,9 @@ spring:
     port: 6379
 #    password: Optional, if Redis requires a password
 
+redirect:
+  oauth2login: ${/main001/redirect/oauth2loginurl}
+
 logging:
   level:
     org:
@@ -29,8 +32,8 @@ mail:
 jwt:
   key:
     secret: ${JWT_SECRET_KEY}
-  access-token-expiration-minutes: 10000
-  refresh-token-expiration-minutes: 10000
+  access-token-expiration-minutes: 1
+  refresh-token-expiration-minutes: 1
 
 file:
   root:

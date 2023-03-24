@@ -11,11 +11,13 @@ import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAccessD
 import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAuthenticationEntryPoint;
 import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
 import org.apache.catalina.filters.CorsFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.env.Environment;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -50,7 +52,6 @@ public class SecurityConfiguration {
     @Value("${spring.security.oauth2.client.registration.google.redirectUri}")
     private String redirectUri;
 
-
     private final JwtTokenizer jwtTokenizer;
     private final withsKeyAuthorityUtils authorityUtils;
     private final MemberService memberService;
@@ -68,9 +69,6 @@ public class SecurityConfiguration {
         this.memberRepository = memberRepository;
         this.stringRedisTemplate = stringRedisTemplate;
     }
-    
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -99,7 +97,6 @@ public class SecurityConfiguration {
                 ).cors(withDefaults());
         return http.build();
     }
-
     //CORS 설정 하는 메서드
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
@@ -116,12 +113,10 @@ public class SecurityConfiguration {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
     @Bean
     public TokenRedisRepository tokenRedisRepository(StringRedisTemplate stringRedisTemplate) {
         return new TokenRedisRepository(stringRedisTemplate);
     }
-
         public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
 
             private final JwtTokenizer jwtTokenizer;
@@ -141,5 +136,6 @@ public class SecurityConfiguration {
                 builder.addFilterAfter(jwtVerificationFilter, OAuth2LoginAuthenticationFilter.class);
 //                builder.addFilterBefore(jwtVerificationFilter, UsernamePasswordAuthenticationFilter.class);
             }
+
     }
 }

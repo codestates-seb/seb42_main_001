@@ -1,12 +1,4 @@
 spring:
-  profiles:
-    active: local
----
-spring:
-  profiles:
-    active: deploy
----
-spring:
   h2:
     console:
       enabled: true

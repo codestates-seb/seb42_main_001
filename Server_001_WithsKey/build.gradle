@@ -18,11 +18,9 @@ configurations {
 repositories {
     mavenCentral()
 }
-
 ext {
     set('snippetsDir', file("build/generated-snippets"))
 }
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
@@ -41,7 +39,6 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
     runtimeOnly'io.jsonwebtoken:jjwt-jackson:0.11.5'
     implementation 'com.google.code.gson:gson'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1' // S3 용
     implementation 'com.coveo:spring-boot-parameter-store-integration:1.1.2' // Parameter Store
