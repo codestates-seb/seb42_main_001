@@ -1,23 +1,31 @@
+import React, { useState, useEffect } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
 import axios from "axios";
 import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
 import { setLikes } from '../../../redux/slice/drinks/drinksListSlice'
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks/hooks'
+import { setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
 
 
 function DrinksItemLikes({ drinksData }: IDrinksProps) {
   const { likesData } = useAppSelector((state) => state.drinkslist);
   const dispatch = useAppDispatch();
+  const [like, setLike] = useState(false)
 
-  const isDrinkLiked: boolean = likesData.some(el => el.drinkId === drinksData.drinkId);
+  useEffect(() => {
+    const isDrinkLiked: boolean = likesData.some(el => el.drinkId === drinksData.drinkId);
+    setLike(isDrinkLiked)
+    console.log('zz')
+  }, [drinksData.drinkId, likesData])
 
   const handleLikesData = async () => {
-    if (isDrinkLiked) {
+    if (like) {
       try {
         await axios.delete(`/likes/drinks/${drinksData.drinkId}`);
         dispatch(setLikes());
-        window.location.reload();
+        setLike(false);
+        dispatch(setIsLoading());
       } catch (error) {
         console.log(error);
       }
@@ -26,7 +34,8 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
       try {
         await axios.post(`/likes/drinks/${drinksData.drinkId}`);
         dispatch(setLikes());
-        window.location.reload();
+        setLike(true);
+        dispatch(setIsLoading());
       } catch (error) {
         console.log(error);
       }
@@ -35,7 +44,7 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
 
   return (
     <LikesSize>
-      {isDrinkLiked
+      {like
         ? <IoMdHeart onClick={handleLikesData} />
         : <IoMdHeartEmpty onClick={handleLikesData} />
       }
