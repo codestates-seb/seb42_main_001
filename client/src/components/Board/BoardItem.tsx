@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Card from "../UI/Card";
-import BoardContents from "./BoardContents";
-import BoardMetaInfo from "./BoardMetaInfo";
-import BoardAuthorInfo from "./BoardAuthorInfo";
-import { Link } from "react-router-dom";
+import Card from '../UI/Card';
+import BoardContents from './BoardContents';
+import BoardMetaInfo from './BoardMetaInfo';
+import BoardAuthorInfo from './BoardAuthorInfo';
+import { Link } from 'react-router-dom';
 
 interface BoardItemprops {
   data: {
@@ -31,13 +31,11 @@ function BoardItem({ data }: BoardItemprops) {
     <MarginContainer>
       <Card>
         <ItemContainer>
-          <Link to={`/member/${data.memberId}`}>
-            <BoardAuthorInfo
-              userName={data.memberName}
-              userImage={data.profileImageUrl}
-              date={data.createdAt}
-            />
-          </Link>
+          <BoardAuthorInfo
+            userName={data.memberName}
+            userImage={data.profileImageUrl}
+            date={data.createdAt}
+          />
           <Link to={`/board/detail/${data.boardId}`}>
             <BoardContents title={data.boardTitle} content={data.content} />
           </Link>
@@ -57,7 +55,7 @@ function BoardItem({ data }: BoardItemprops) {
 export default BoardItem;
 
 const MarginContainer = styled.div`
-  margin-bottom: calc(var(--4x-large)/2);
+  margin-bottom: calc(var(--4x-large) / 2);
   margin-right: var(--x-small);
   margin-left: var(--x-small);
 `;
@@ -69,10 +67,10 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: .4s;
+  transition: 0.4s;
 
   &:hover {
-    transition: .4s;
+    transition: 0.4s;
     border-radius: 10px;
     box-shadow: 0px 0px 20px #473f3f73;
   }

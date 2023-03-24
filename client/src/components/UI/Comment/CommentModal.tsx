@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import axios from "axios";
-import { useNavigate } from "react-router";
+import styled from 'styled-components';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
-import Card from "../Card";
+import Card from '../Card';
 
 interface CommentProps {
   drinkCommentId?: number;
@@ -26,6 +26,7 @@ function CommentModal({
   const handleDrinksCommentDelte = async () => {
     try {
       await axios.delete(`/comments/drinks/${drinkCommentId}`);
+      alert('성공적으로 삭제했습니다.');
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -35,6 +36,7 @@ function CommentModal({
   const handleBoardCommentDelte = async () => {
     try {
       await axios.delete(`/comments/boards/${boardCommentId}`);
+      alert('성공적으로 삭제했습니다.');
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -44,7 +46,7 @@ function CommentModal({
   const handleBoardDelte = async () => {
     try {
       await axios.delete(`/boards/${boardId}`);
-      navigate("/board/list");
+      navigate('/board/list');
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +54,7 @@ function CommentModal({
 
   const handleCommentDelete = () => {
     if (drinkCommentId || boardCommentId) {
-      if (window.confirm("댓글을 삭제하시겠습니까?")) {
+      if (window.confirm('댓글을 삭제하시겠습니까?')) {
         if (drinkCommentId) {
           handleDrinksCommentDelte();
         } else if (boardCommentId) {
@@ -60,7 +62,7 @@ function CommentModal({
         }
       }
     } else if (boardId) {
-      if (window.confirm("글을 삭제하시겠습니까?")) {
+      if (window.confirm('글을 삭제하시겠습니까?')) {
         handleBoardDelte();
       }
     }
