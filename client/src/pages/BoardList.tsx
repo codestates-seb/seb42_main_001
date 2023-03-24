@@ -11,6 +11,7 @@ import Loading from '../components/UI/Loading';
 
 function BoardList() {
   const [isPage, setPage] = useState(1); // 현재 페이지 저장
+  const [search, setSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const isData = useAppSelector((state) => state.boardList.listData);
   const filteredData = useAppSelector((state) => state.boardList.filteredData);
@@ -44,13 +45,17 @@ function BoardList() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSearchClose = () => {
+    setSearch(false);
+  };
+
   return (
     <>
       {isLoading ? (
         <Loading />
       ) : (
-        <Wrapper>
-          <BoardInfo />
+        <Wrapper onClick={handleSearchClose}>
+          <BoardInfo search={search} setSearch={setSearch} />
           <ListContainer>
             {(filteredData.length === 0 ? isData : filteredData)?.map((el) => {
               return <BoardItem key={el.boardId} data={el} />;
