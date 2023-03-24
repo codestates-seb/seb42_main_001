@@ -40,14 +40,20 @@ public class CommentDrinkService {
 
     public CommentDrink findVerifiedCommentById(long commentId){
         Optional<CommentDrink> findComment = repository.findById(commentId);
+
         CommentDrink result = findComment.orElseThrow(()-> new BusinessLogicException(ExceptionCode.COMMENT_NOT_FOUND));
 
         return result;
     }
+    public CommentDrink findCommentDrinkById(long commentDrinkId) {
+        Optional<CommentDrink> cd = repository.findById(commentDrinkId);
+        CommentDrink result = cd.orElseThrow(()-> new BusinessLogicException(ExceptionCode.DATA_IS_EMPTY));
+        return result;
+    }
 
-    public void deleteComment(long commentId){
-        findVerifiedCommentById(commentId);
-        repository.deleteById(commentId);
+    public void deleteComment(long commentDrinkId){
+        findVerifiedCommentById(commentDrinkId);
+        repository.deleteById(commentDrinkId);
     }
 
     public List<CommentDrink> findAllByMemberId(long memberId){

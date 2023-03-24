@@ -40,11 +40,11 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     // 토큰을 Redis 에서 관리하기 위한 DI
     private final TokenRedisRepository tokenRedisRepository;
 
-    @Getter
-    @Value("${redirect.oauth2login}")
-    String oauth2LoginUrl;
+//    @Getter
+//    @Value("${redirect.oauth2login}")
+//    String oauth2LoginUrl;
 
-//    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
+    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
 
 //    @Autowired
 //    private Environment env;
@@ -94,13 +94,13 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                     verifyJws(refreshToken);
                     // 검증 결과, refreshToken도 만료되었다면, 로그인 URL을 반환한다.
                 } catch (ExpiredJwtException e) {
-//                    System.out.println("before redirect: " + oauth2Login);
-//                    response.sendRedirect(oauth2Login);
-//                    System.out.println("after redirect: " + oauth2Login);
-//                    System.out.println();
-                    System.out.println("before redirect: " + oauth2LoginUrl);
-                    response.sendRedirect(oauth2LoginUrl);
-                    System.out.println("after redirect: " + oauth2LoginUrl);
+                    System.out.println("before oauth2Login: " + oauth2Login);
+                    response.sendRedirect(oauth2Login);
+                    System.out.println("after oauth2Login: " + oauth2Login);
+                    System.out.println();
+//                    System.out.println("before redirect / oauth2LoginUrl: " + oauth2LoginUrl);
+//                    response.sendRedirect(oauth2LoginUrl);
+//                    System.out.println("after redirect / oauth2LoginUrl: " + oauth2LoginUrl);
                     // catch문 종료를 위한 return;
                     return;
                 }

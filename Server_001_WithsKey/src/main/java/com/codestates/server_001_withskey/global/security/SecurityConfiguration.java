@@ -117,6 +117,7 @@ public class SecurityConfiguration {
     public TokenRedisRepository tokenRedisRepository(StringRedisTemplate stringRedisTemplate) {
         return new TokenRedisRepository(stringRedisTemplate);
     }
+
         public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
 
             private final JwtTokenizer jwtTokenizer;
