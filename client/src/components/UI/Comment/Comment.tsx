@@ -1,10 +1,11 @@
-import styled from "styled-components";
-import React, { useState } from "react";
-import Card from "../Card";
-import CommentModal from "./CommentModal";
-import More from "../More";
-import Button from "../Button";
-import axios from "axios";
+import styled from 'styled-components';
+import React, { useState } from 'react';
+import Card from '../Card';
+import CommentModal from './CommentModal';
+import More from '../More';
+import Button from '../Button';
+import axios from 'axios';
+import convertTime from '../../../util/convertTime';
 
 interface CommentProps {
   comments?: {
@@ -22,7 +23,7 @@ function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [commentContent, setCommentContent] = useState(
-    comments?.commentContent
+    comments?.commentContent,
   );
 
   const handleModalOpen = () => setIsOpen(!isOpen);
@@ -32,16 +33,16 @@ function Comment({ comments }: CommentProps) {
   };
 
   const handleEditfalse = () => {
-    if (window.confirm("정말로 수정하시겠습니까")) {
+    if (window.confirm('정말로 수정하시겠습니까')) {
       if (comments?.drinkCommentId) {
         const editComment = {
           commentContent,
         };
         axios.patch(
           `/comments/drinks/${comments?.drinkCommentId}`,
-          editComment
+          editComment,
         );
-        setEdit((prev) => !prev);
+        setEdit(prev => !prev);
         window.location.reload();
       } else if (comments?.boardCommentId) {
         const editComment = {
@@ -49,9 +50,9 @@ function Comment({ comments }: CommentProps) {
         };
         axios.patch(
           `/comments/boards/${comments?.boardCommentId}`,
-          editComment
+          editComment,
         );
-        setEdit((prev) => !prev);
+        setEdit(prev => !prev);
         window.location.reload();
       }
     }
@@ -65,7 +66,7 @@ function Comment({ comments }: CommentProps) {
             <CommentAuthorInfoImg />
             <CommentAuthorContents>
               <h4>{comments?.displayName}</h4>
-              <span>{comments?.createAt}</span>
+              <span>{convertTime(comments?.createAt)}</span>
             </CommentAuthorContents>
             <div>
               <More handleModalOpen={handleModalOpen} />
@@ -91,9 +92,8 @@ function Comment({ comments }: CommentProps) {
                   color="--color-white"
                   bgColor="--color-main"
                   onClick={handleEditfalse}
-                  borderColor="--color-main"
-                >
-                  {"submit"}
+                  borderColor="--color-main">
+                  {'submit'}
                 </Button>
               </CommentEditButton>
             </CommentEditContainer>
