@@ -6,11 +6,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.security.SignatureException;
-import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,18 +17,21 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 // OAuth2 인증에 성공하면 FE 앱 쪽에서 request를 전송할 때 마다
 // request header에 실어 보내는 Access Token에 대한 검증을 수행하는 역
 @Component
+@RequiredArgsConstructor
 @Slf4j
 public class JwtVerificationFilter extends OncePerRequestFilter {
     // 토큰 인코딩, 디코딩, 검증을 위한 DI
@@ -40,28 +41,9 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     // 토큰을 Redis 에서 관리하기 위한 DI
     private final TokenRedisRepository tokenRedisRepository;
 
-//    @Getter
-//    @Value("${redirect.oauth2login}")
-//    String oauth2LoginUrl;
+    @Value("${mail.address.admin}")
+    private String oauth2Login;
 
-    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
-
-//    @Autowired
-//    private Environment env;
-
-//    @PostConstruct
-//    public void init() {
-//        oauth2LoginUrl = env.getProperty("redirect.oauth2login");
-//        System.out.println("oauth2LoginUrl = " + oauth2LoginUrl);
-//    }
-
-    public JwtVerificationFilter(JwtTokenizer jwtTokenizer,
-                                 withsKeyAuthorityUtils authorityUtils,
-                                 TokenRedisRepository tokenRedisRepository) {
-        this.jwtTokenizer = jwtTokenizer;
-        this.authorityUtils = authorityUtils;
-        this.tokenRedisRepository = tokenRedisRepository;
-    }
     // JWT 토큰 검증 과정을 위한 메서드
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -69,6 +51,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
         // request header 로부터 "Authorization"이라는 내용을 담는 객체 생성.
         String authorizationHeader = request.getHeader("Authorization");
+        log.info(oauth2Login);
         // 만약 해당 객체가 null이 아니고, "Bearer "으로 시작한다면,
         // "Bearer "을 제외한 나머지 부분을 token 객체로 생성.
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
@@ -96,6 +79,9 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                 } catch (ExpiredJwtException e) {
                     System.out.println("before redirect: " + oauth2Login);
                     response.sendRedirect(oauth2Login);
+
+                    //RestTemplate
+
                     System.out.println("after redirect: " + oauth2Login);
                     // catch문 종료를 위한 return;
                     return;

@@ -11,7 +11,7 @@ public class ArticleDto {
     @Setter
     public static class Response{
         private long articleId;
-        private String aricleTitle;
+        private String articleTitle;
     }
 
     @Getter

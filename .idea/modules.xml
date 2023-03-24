@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Server_001_WithsKey.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Server_001_WithsKey.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.codestates.Server_001_WithsKey.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.codestates.Server_001_WithsKey.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/main.iml" filepath="$PROJECT_DIR$/.idea/main.iml" />
     </modules>
   </component>

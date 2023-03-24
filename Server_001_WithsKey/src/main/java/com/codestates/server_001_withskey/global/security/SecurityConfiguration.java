@@ -3,6 +3,7 @@ package com.codestates.server_001_withskey.global.security;
 
 import com.codestates.server_001_withskey.domain.member.repository.MemberRepository;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
+import com.codestates.server_001_withskey.global.security.Jwt.CustomFilterConfigurer;
 import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
 import com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter;
 import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
@@ -10,6 +11,7 @@ import com.codestates.server_001_withskey.global.security.OAuth2.OAuth2MemberSuc
 import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAccessDeniedHandler;
 import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAuthenticationEntryPoint;
 import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
+import lombok.RequiredArgsConstructor;
 import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,6 +46,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfiguration {
     @Value("${spring.security.oauth2.client.registration.google.clientId}")
     private String clientId;
@@ -56,23 +59,9 @@ public class SecurityConfiguration {
     private final withsKeyAuthorityUtils authorityUtils;
     private final MemberService memberService;
     private final MemberRepository memberRepository;
-    private final StringRedisTemplate stringRedisTemplate;
-
-    public SecurityConfiguration(JwtTokenizer jwtTokenizer,
-                                 withsKeyAuthorityUtils authorityUtils,
-                                 MemberService memberService,
-                                 MemberRepository memberRepository,
-                                 StringRedisTemplate stringRedisTemplate) {
-        this.jwtTokenizer = jwtTokenizer;
-        this.authorityUtils = authorityUtils;
-        this.memberService = memberService;
-        this.memberRepository = memberRepository;
-        this.stringRedisTemplate = stringRedisTemplate;
-    }
+    private final CustomFilterConfigurer customFilterConfigurer;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-        CustomFilterConfigurer customFilterConfigurer = new CustomFilterConfigurer(jwtTokenizer, authorityUtils, tokenRedisRepository(stringRedisTemplate));
         http
                 .headers().frameOptions().disable() //<= frameOptions disable
                 .and()
@@ -97,6 +86,7 @@ public class SecurityConfiguration {
                 ).cors(withDefaults());
         return http.build();
     }
+
     //CORS 설정 하는 메서드
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
@@ -112,30 +102,5 @@ public class SecurityConfiguration {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
-    @Bean
-    public TokenRedisRepository tokenRedisRepository(StringRedisTemplate stringRedisTemplate) {
-        return new TokenRedisRepository(stringRedisTemplate);
-    }
-        public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
-
-            private final JwtTokenizer jwtTokenizer;
-            private final withsKeyAuthorityUtils authorityUtils;
-            private final TokenRedisRepository tokenRedisRepository;
-
-            public CustomFilterConfigurer(JwtTokenizer jwtTokenizer,
-                                          withsKeyAuthorityUtils authorityUtils,
-                                          TokenRedisRepository tokenRedisRepository) {
-                this.jwtTokenizer = jwtTokenizer;
-                this.authorityUtils = authorityUtils;
-                this.tokenRedisRepository = tokenRedisRepository;
-            }
-            @Override
-            public void configure(HttpSecurity builder) throws Exception {
-                JwtVerificationFilter jwtVerificationFilter = new JwtVerificationFilter(jwtTokenizer, authorityUtils, tokenRedisRepository);
-                builder.addFilterAfter(jwtVerificationFilter, OAuth2LoginAuthenticationFilter.class);
-//                builder.addFilterBefore(jwtVerificationFilter, UsernamePasswordAuthenticationFilter.class);
-            }
-
     }
 }
