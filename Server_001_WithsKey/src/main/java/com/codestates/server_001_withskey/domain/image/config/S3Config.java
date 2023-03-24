@@ -11,14 +11,22 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class S3Config {
-
+//    // EC2 실행용
     @Value("${cloud.aws.credentials.access-key}")
+//     로컬 실행용
+//    @Value("${AWS.ACCESS-KEY}")
     private String accessKey;
 
+//    // EC2 실행용
     @Value("${cloud.aws.credentials.secret-key}")
+    // 로컬 실행용
+//    @Value("${AWS.SECRET-KEY}")
     private String secretKey;
 
-    @Value("{cloud.aws.region.static}")
+//    // EC2 실행용
+    @Value("${cloud.aws.region.static}")
+    // 로컬 실행용
+//    @Value("${AWS-REGION}")
     private String region;
 
     @Bean

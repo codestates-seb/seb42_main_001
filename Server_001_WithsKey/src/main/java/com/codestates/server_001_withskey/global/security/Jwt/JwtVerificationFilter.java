@@ -6,7 +6,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.security.SignatureException;
-import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +25,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 // OAuth2 인증에 성공하면 FE 앱 쪽에서 request를 전송할 때 마다
@@ -40,11 +43,8 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
     // 토큰을 Redis 에서 관리하기 위한 DI
     private final TokenRedisRepository tokenRedisRepository;
 
-//    @Getter
-//    @Value("${redirect.oauth2login}")
-//    String oauth2LoginUrl;
-
-    String oauth2Login = System.getenv("/main001/redirect/oauth2loginurl");
+    @Value("${mail.address.admin}")
+    private String oauth2Login;
 
 //    @Autowired
 //    private Environment env;
@@ -69,6 +69,7 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
         // request header 로부터 "Authorization"이라는 내용을 담는 객체 생성.
         String authorizationHeader = request.getHeader("Authorization");
+        log.info(oauth2Login);
         // 만약 해당 객체가 null이 아니고, "Bearer "으로 시작한다면,
         // "Bearer "을 제외한 나머지 부분을 token 객체로 생성.
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
@@ -94,13 +95,10 @@ public class JwtVerificationFilter extends OncePerRequestFilter {
                     verifyJws(refreshToken);
                     // 검증 결과, refreshToken도 만료되었다면, 로그인 URL을 반환한다.
                 } catch (ExpiredJwtException e) {
-                    System.out.println("before oauth2Login: " + oauth2Login);
+                    System.out.println("before redirect: " + oauth2Login);
                     response.sendRedirect(oauth2Login);
-                    System.out.println("after oauth2Login: " + oauth2Login);
-                    System.out.println();
-//                    System.out.println("before redirect / oauth2LoginUrl: " + oauth2LoginUrl);
-//                    response.sendRedirect(oauth2LoginUrl);
-//                    System.out.println("after redirect / oauth2LoginUrl: " + oauth2LoginUrl);
+                    //RestTemplate
+                    System.out.println("after redirect: " + oauth2Login);
                     // catch문 종료를 위한 return;
                     return;
                 }

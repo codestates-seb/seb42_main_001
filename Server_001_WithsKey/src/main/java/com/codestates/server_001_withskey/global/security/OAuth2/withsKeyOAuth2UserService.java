@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-// OAuth2 인증에 성공한 유저의 정보를 관리하는 역할
+
 @Service
 public class withsKeyOAuth2UserService extends DefaultOAuth2UserService {
 
@@ -26,6 +26,7 @@ public class withsKeyOAuth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         // OAuth2 인증에 성공한 유저의 이메일, 이름과 같은 사용자 속성등을 OAuth2User 객체 oAuth2User에 담음.
         OAuth2User oAuth2User = super.loadUser(userRequest);
+
         String email = oAuth2User.getAttribute("email");
         String displayName = oAuth2User.getAttribute("name");
         String oauth2Type = userRequest.getClientRegistration().getRegistrationId();
@@ -45,8 +46,8 @@ public class withsKeyOAuth2UserService extends DefaultOAuth2UserService {
             // 이메일을 기준으로 DB에서 회원 객체가 조회된다면,
             // 해당 조회된 회원 객체에 DisplayName과 OauthType을 할당함.
         } else {
-            member.setDisplayName(displayName);
-            member.setOauthType(oauth2Type);
+//            member.setDisplayName(displayName);
+//            member.setOauthType(oauth2Type);
             // 정보를 추가한 회원 객체를 DB에 업데이트함. (예외가 발생할 수 있으므로 try 문작성)
             try {
                 memberService.updateMember(member);
