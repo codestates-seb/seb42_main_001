@@ -519,8 +519,12 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스�
 
 
 INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키 종류 알아보기', 'tutorial');
+-- TODO: 위스키 종류 알아보기 추가해야됨 --
+-- ID : 7--
 
-INSERT INTO ARTICLE(TITLE) VALUES ('이야깃 거리');
+
+-- 용준님 작성 Article --
+INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('이야깃 거리', 'tutorial');
 INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
  1) 프루프(proof)
  - 술의 도수를 의미하는 프루프
@@ -532,9 +536,9 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
  2) 샷(Shoot)
   술이나 커피등을 따르는데 쓰는 단위로 위스키, 브랜디 등을 팔 때의 최소 단위
 
- \'원 샷\' 이란 말은 어떻게 생기게 된 것일까?
-미국 서부의 총잡이들은 술을 마실 때 돈이 없다면 돈 대신 \'총알(Shot)\'을 내곤 했답니다. 
-당시 총알 한 발의 가치는 술 한 잔 정도의 가치였고 술 한 잔과 한 발의 총알이 합쳐져 \'원 샷(One shot)\'이 된 것으로 돈이 없어 총알을 술값으로 대신 지불한 것에서 기인했다고 합니다.
+ "원 샷" 이란 말은 어떻게 생기게 된 것일까?
+미국 서부의 총잡이들은 술을 마실 때 돈이 없다면 돈 대신 "총알(Shot)"을 내곤 했답니다. 
+당시 총알 한 발의 가치는 술 한 잔 정도의 가치였고 술 한 잔과 한 발의 총알이 합쳐져 "원 샷(One shot)"이 된 것으로 돈이 없어 총알을 술값으로 대신 지불한 것에서 기인했다고 합니다.
 
 
  3) 생빈(생년빈티지)
@@ -575,7 +579,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
 
 단, 실제 점유할 수 있는 땅이 아닌 "이 땅은 소유자 땅이지만 우리가 잠시 사용할게. 대신 증류소에 오면 임대료로 술 한잔 줄 수 있어"의 개념이랍니다
 
-','이야깃거리', 1);
+','이야깃거리', 8);
 
 INSERT INTO ARTICLE(TITLE) VALUES ('위스키 용어 사전');
 INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
@@ -678,7 +682,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
 
  피트
 
-	''이탄'', ''토탄''이라 함.
+	"이탄", "토탄"이라 함.
 	풀, 이끼, 나무 등이 두껍게 퇴적해 분해 변질된 것으로 맥아를 건조시키는 과정에서 사용되며
 	이때 피트 특유의 향이 입혀집
 
@@ -686,7 +690,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
 
  미즈와리
 
-	일본어 ''물을 타다''의 명사형 표현으로 술에 물을 타서 양을 늘리거나 묽게 희석시키는 것
+	일본어 "물을 타다"의 명사형 표현으로 술에 물을 타서 양을 늘리거나 묽게 희석시키는 것
 	대부분의 일본인들은 일본인이 서양인에 비해 알콜 분해능력이 낮아 술을 오래 즐길 수 없는 데서 비롯되었다는 내용으로 알고 있으나, 일본 주류 업계에서는 제조사들의 프로모션을 통해 널리 퍼진 것으로 볼 수 있음
 
-','위스키 용어사전',22);
+','위스키 용어사전',9);
