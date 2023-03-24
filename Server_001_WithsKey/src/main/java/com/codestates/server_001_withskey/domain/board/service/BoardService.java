@@ -128,8 +128,9 @@ public class BoardService {
     public void verifyBoardExist(Board board){
         Optional<Board> findBoard = boardRepository.findById(board.getBoardId());
 
-        if(!findBoard.isPresent()){
-            throw new BusinessLogicException(ExceptionCode.BOARD_NOT_FOUND);
-        }
+//        if(!findBoard.isPresent()){
+//            throw new BusinessLogicException(ExceptionCode.BOARD_NOT_FOUND);
+//        }
+        findBoard.orElseThrow(()->new BusinessLogicException(ExceptionCode.BOARD_NOT_FOUND));
     }
 }

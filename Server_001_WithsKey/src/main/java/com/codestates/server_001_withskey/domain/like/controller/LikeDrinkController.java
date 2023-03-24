@@ -1,5 +1,7 @@
 package com.codestates.server_001_withskey.domain.like.controller;
 
+import com.codestates.server_001_withskey.domain.drink.entity.Drink;
+import com.codestates.server_001_withskey.domain.drink.service.DrinkService;
 import com.codestates.server_001_withskey.domain.like.service.LikeDrinkService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class LikeDrinkController {
 
     private final LikeDrinkService likeDrinkService;
+    private final DrinkService drinkService;
 
     @PostMapping("/{drink-id}")
     public ResponseEntity postLikeDrinks (@PathVariable(name = "drink-id") long drinkId) {
@@ -25,6 +28,8 @@ public class LikeDrinkController {
     @DeleteMapping("/{drink-id}")
     public ResponseEntity deleteLikeDrinks (@PathVariable(name = "drink-id") long drinkId) {
         long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
+        Drink drink = drinkService.findDrink(drinkId);
+        likeDrinkService.findExistingLikeOnDrink(memberId, drink);
         likeDrinkService.deleteLike(memberId, drinkId);
         return ResponseEntity.noContent().build();
     }

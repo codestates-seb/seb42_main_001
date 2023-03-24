@@ -37,12 +37,10 @@ public class LikeBoardController {
 
     @DeleteMapping("/{board-id}")
     public ResponseEntity deleteLike(@PathVariable(name = "board-id") long boardId){
-        // 토큰에 담긴 memberId
         long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
-
         Board board = boardService.findVerifiedBoard(boardId);
         likeBoardService.findVerifyCanLike(memberId,board);
-
+        likeBoardService.deleteLike(memberId,boardId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

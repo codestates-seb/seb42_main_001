@@ -11,11 +11,13 @@ import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAccessD
 import com.codestates.server_001_withskey.global.security.OAuth2.withsKeyAuthenticationEntryPoint;
 import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
 import org.apache.catalina.filters.CorsFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.env.Environment;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -49,7 +51,6 @@ public class SecurityConfiguration {
     private String clientSecret;
     @Value("${spring.security.oauth2.client.registration.google.redirectUri}")
     private String redirectUri;
-
 
     private final JwtTokenizer jwtTokenizer;
     private final withsKeyAuthorityUtils authorityUtils;
@@ -135,5 +136,6 @@ public class SecurityConfiguration {
                 builder.addFilterAfter(jwtVerificationFilter, OAuth2LoginAuthenticationFilter.class);
 //                builder.addFilterBefore(jwtVerificationFilter, UsernamePasswordAuthenticationFilter.class);
             }
+
     }
 }

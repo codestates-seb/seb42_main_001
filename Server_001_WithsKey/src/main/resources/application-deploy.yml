@@ -1,4 +1,3 @@
-
 spring:
   profile:
     active: deploy
@@ -30,8 +29,8 @@ mail:
 jwt:
   key:
     secret: ${/main001/jwt.key.secret}
-  access-token-expiration-minutes: 10
-  refresh-token-expiration-minutes: 30
+  access-token-expiration-minutes: 1
+  refresh-token-expiration-minutes: 1
 
 file:
   root:
@@ -42,10 +41,10 @@ file:
 cloud:
   aws:
     s3:
-      bucket: ${/main001/cloud.aws.s3.bucketname}
+      bucket: ${/main001/cloud.aws.s3.bucket}
     credentials:
-      access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
-      secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
+      access-key: ${/main001/cloud.aws.s3.credentials.access-key}
+      secret-key: ${/main001/cloud.aws.s3.credentials.secret-key}
     region:
       static: ${/main001/cloud.aws.region.static}
     stack:
@@ -53,3 +52,6 @@ cloud:
 
 awsParameterStorePropertySource:
   enabled: true
+
+redirect:
+  OAuth2LoginUrl: ${/main001/redirect/oauth2loginurl}
