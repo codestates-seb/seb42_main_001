@@ -23,5 +23,9 @@ public class ArticleService {
         return repository.findById(articleId).orElseThrow(()-> new BusinessLogicException(ExceptionCode.ARTICLE_NOT_EXISTS));
     }
 
+    public List<Article> findAllByType(String type){
+        return repository.findAllByType(type);
+    }
+
 
 }

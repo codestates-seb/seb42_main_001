@@ -1,5 +1,5 @@
 
-INSERT INTO ARTICLE(TITLE) VALUES ('위스키를 아시나요?');
+INSERT INTO ARTICLE(TITLE, TYPE) VALUES ('위스키를 아시나요?','tutorial');
 INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('여러분은 바에 가보신 적 있어요? :wine_glass:
 어땠어요?
 
@@ -22,8 +22,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('여러�
 시작은 위스키여도 결과적으로는 위스키를 기준으로 다른 양주들에 대한 이해도가 높아지는거죠.
 
 서론이 길었네요. 그럼 같이 여정을 떠나볼까요?','양주 좋아하세요?', 1);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스키에 대해 알아가기 전에, 간단하게 양조주와 증류주의 개념을 알아야해요.','여정을 떠나기 위한 준비',1);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('' ||
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID, TYPE) VALUES ('위스키에 대해 알아가기 전에, 간단하게 양조주와 증류주의 개념을 알아야해요.','여정을 떠나기 위한 준비',1);
+INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID, TYPE) VALUES ('' ||
                                                                         '양조주는 당분을 발효시켜 만든 알콜성 음료를 말해요.
 세가지만 예시를 들어볼까요?
 
