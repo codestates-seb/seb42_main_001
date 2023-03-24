@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../redux/hooks/hooks';
 import MyPageBoardLike from './MyPageBoardLike';
 
@@ -10,7 +11,9 @@ function MyPageBoardLikeList() {
     <>
       {likeBoardsList
         ? likeBoardsList.map(ele => (
-            <MyPageBoardLike key={ele.boardId} ele={ele}></MyPageBoardLike>
+            <Link to={`/board/detail/${ele.boardId}`}>
+              <MyPageBoardLike key={ele.boardId} ele={ele}></MyPageBoardLike>
+            </Link>
           ))
         : null}
     </>

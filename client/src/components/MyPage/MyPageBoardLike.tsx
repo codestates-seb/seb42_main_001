@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../UI/Card';
+import convertTime from '../../util/convertTime';
 
 interface props {
   ele: {
@@ -14,7 +15,7 @@ function MyPageBoardLike({ ele }: props) {
     <Card>
       <MainContainer>
         <p>{ele.boardTitle}</p>
-        <span>{ele.createdAt}</span>
+        <span>{convertTime(ele.createdAt)}</span>
       </MainContainer>
     </Card>
   );

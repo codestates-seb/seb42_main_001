@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { useAppSelector } from '../../redux/hooks/hooks';
 import MyPageDrinkComment from './MyPageDrinkComment';
 
@@ -10,9 +12,11 @@ function MyPageDrinkCommentList() {
     <>
       {drinkCommentsList
         ? drinkCommentsList.map(ele => (
-            <MyPageDrinkComment
-              key={ele.commentId}
-              ele={ele}></MyPageDrinkComment>
+            <Link to={`/drinks/${ele.drinkId}`}>
+              <MyPageDrinkComment
+                key={ele.commentId}
+                ele={ele}></MyPageDrinkComment>
+            </Link>
           ))
         : null}
     </>
