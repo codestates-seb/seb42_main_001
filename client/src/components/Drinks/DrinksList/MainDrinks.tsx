@@ -45,31 +45,6 @@ function MainDrinks() {
     handleDrinksData()
   }, [dispatch])
 
-
-  // useEffect(() => {
-  //   const handleDrinksTagData = async () => {
-  //     GetTag()
-  //       .then((res) => {
-  //         dispatch(setTagData(res.data));
-  //       })
-  //   };
-
-  //   const handleDrinksData = async () => {
-  //     GetDrinks()
-  //       .then((res) => {
-  //         const { data } = res;
-  //         dispatch(setDrinksData(data.data));
-  //         dispatch(setLikesData(data.likeList));
-  //         dispatch(setIsLoading());
-  //       })
-  //       .catch((error) => {
-  //         console.log(error)
-  //       })
-  //   }
-  //   handleDrinksTagData()
-  //   handleDrinksData()
-  // }, [dispatch])
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [page])
