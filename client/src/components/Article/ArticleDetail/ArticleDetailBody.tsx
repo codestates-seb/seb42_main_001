@@ -6,7 +6,16 @@ interface props {
 }
 
 function ArticleDetailBody({ content }: props) {
-  return <MainContainer>{content}</MainContainer>;
+  console.log(content);
+  return (
+    <MainContainer>
+      {content.includes('http') ? (
+        <img src={`${content}`} alt="drinkImg"></img>
+      ) : (
+        content
+      )}
+    </MainContainer>
+  );
 }
 
 export default ArticleDetailBody;
