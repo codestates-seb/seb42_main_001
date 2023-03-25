@@ -6,9 +6,9 @@ import DrinksInfo from './DrinksInfo';
 import Loading from '../../UI/Loading';
 import axios from 'axios';
 
-import { setDrinksData, setLikesData, setIsLoading } from '../../../redux/slice/drinks/drinksListSlice';
-import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice';
-import { RootState } from '../../../redux/store/store';
+import { setDrinksData, setLikesData, setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
+import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice'
+import { RootState } from '../../../redux/store/store'
 
 function MainDrinks() {
   const [search, setSearch] = useState<string>('');
@@ -33,10 +33,10 @@ function MainDrinks() {
       } catch (error) {
         console.log(error);
       }
-    };
-    handleDrinksTagData();
-    handleDrinksData();
-  }, [dispatch]);
+    }
+    handleDrinksTagData()
+    handleDrinksData()
+  }, [dispatch])
 
   useEffect(() => {
     window.scrollTo(0, 0);
