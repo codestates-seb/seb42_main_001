@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../redux/hooks/hooks';
 import MyPageBoardComment from './MyPageBoardComment';
 
@@ -10,9 +11,11 @@ function MyPageBoardCommentList() {
     <>
       {writeBoardCommentsList
         ? writeBoardCommentsList.map(ele => (
-            <MyPageBoardComment
-              key={ele.commentId}
-              ele={ele}></MyPageBoardComment>
+            <Link to={`/board/detail/${ele.boardId}`}>
+              <MyPageBoardComment
+                key={ele.commentId}
+                ele={ele}></MyPageBoardComment>
+            </Link>
           ))
         : null}
     </>
