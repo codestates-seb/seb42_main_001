@@ -4,12 +4,10 @@ import styled from 'styled-components';
 import BoardTag from './BoardTag';
 
 interface BoardTagsProps {
-  tags:
-    | Array<{
-        tagId: number;
-        tagName: string;
-      }>
-    | undefined;
+  tags?: Array<{
+    tagId: number;
+    tagName: string;
+  }>;
 }
 
 function BoardTags({ tags }: BoardTagsProps) {

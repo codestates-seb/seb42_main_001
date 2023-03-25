@@ -17,7 +17,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
   };
 
   const handleDrinksPost = async () => {
-    if (commentValue === '') {
+    if (commentValue.trim() === '') {
       alert('댓글을 작성해주세요');
     } else {
       const newDrinks = {
