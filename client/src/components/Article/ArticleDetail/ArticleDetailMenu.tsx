@@ -1,29 +1,38 @@
-import React from 'react'
-import ArticleDetailMenuItem from './ArticleDetailMenuItem'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+
+import ArticleDetailMenuItem from './ArticleDetailMenuItem';
 
 interface MenuProps {
-    onClick: (e: React.MouseEvent<HTMLElement>) => void;
+  handleIdChange: (value: number) => void;
+  articleList: Array<{
+    articleId: number;
+    articleTitle: string;
+  }>;
 }
 
-function ArticleDetailMenu({ onClick }: MenuProps) {
-
-    return (
-        <MainContainer>
-            <ArticleDetailMenuItem title={`❶ 인트로`} value={'1'} onClick={onClick} />
-            <ArticleDetailMenuItem title={`❷ 여정을 떠나기 위한 준비`} value={'2'} onClick={onClick} />
-            <ArticleDetailMenuItem title={`❸ 아! 위스키. 생명의 물이여.`} value={'3'} onClick={onClick} />
-            <ArticleDetailMenuItem title={`❹ 위스키 만드는 과정 Part 1`} value={'4'} onClick={onClick} />
-            <ArticleDetailMenuItem title={`❺ 위스키 만드는 과정 Part 2`} value={'5'} onClick={onClick} />
-        </MainContainer>
-    )
+function ArticleDetailMenu({ handleIdChange, articleList }: MenuProps) {
+  return (
+    <MainContainer>
+      {articleList.length
+        ? articleList.map(ele => (
+            <ArticleDetailMenuItem
+              key={ele.articleId}
+              title={ele.articleTitle}
+              handlIdChange={handleIdChange}
+              value={ele.articleId}
+            />
+          ))
+        : null}
+    </MainContainer>
+  );
 }
 
-export default ArticleDetailMenu
+export default ArticleDetailMenu;
 
 const MainContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
