@@ -15,7 +15,7 @@ import {
 
 interface BoardLikesProps {
   boardId: number;
-  like: number | undefined;
+  like?: number;
   likes?: boolean;
 }
 
@@ -28,7 +28,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
       axios
         .delete(`/likes/boards/${boardId}`)
         .then((res) => {
-          setIsLike(!isLike);
+          setIsLike(false);
           dispatch(boardLikeUncheck({ data: false, boardId }));
           dispatch(boardDetailUnLike({ data: false }));
         })
@@ -37,7 +37,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
       axios
         .post(`/likes/boards/${boardId}`)
         .then((res) => {
-          setIsLike(!isLike);
+          setIsLike(true);
           dispatch(boardLikeCheck({ data: true, boardId }));
           dispatch(boardDetailLike({ data: true }));
         })

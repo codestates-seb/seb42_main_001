@@ -16,13 +16,8 @@ function BoardInfo({ search, setSearch }: BoardInfoProps) {
 
   const handleSearchChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    if (!search) {
-      setIsInput('');
-      setSearch(true);
-    } else {
-      setIsInput('');
-      setSearch(false);
-    }
+    setIsInput('');
+    setSearch(search ? false : true);
   };
 
   return (
