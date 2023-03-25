@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IDrinks, ILikes } from "../../../util/interfaces/drinks.inerface";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IDrinks, ILikes } from '../../../util/interfaces/drinks.inerface';
 
 interface IDrinksListState {
   isLoading: boolean;
@@ -18,7 +18,7 @@ const initialState: IDrinksListState = {
 };
 
 const drinksListSlice = createSlice({
-  name: "drinksList",
+  name: 'drinksList',
   initialState,
   reducers: {
     setDrinksData: (state, action) => {
@@ -34,7 +34,7 @@ const drinksListSlice = createSlice({
       state.searchTag = action.payload;
     },
     setLikes: (state) => {
-      state.isLoading = true;
+      state.likes = true;
     },
   },
 });

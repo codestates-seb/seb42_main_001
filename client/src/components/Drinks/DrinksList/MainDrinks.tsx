@@ -6,9 +6,6 @@ import DrinksInfo from "./DrinksInfo";
 import Loading from "../../UI/Loading";
 import axios from "axios";
 
-// import { GetDrinks } from "../../../util/axios/drinks";
-// import { GetTag } from "../../../util/axios/tags";
-
 import { setDrinksData, setLikesData, setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
 import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice'
 import { RootState } from '../../../redux/store/store'
@@ -44,31 +41,6 @@ function MainDrinks() {
     handleDrinksTagData()
     handleDrinksData()
   }, [dispatch])
-
-
-  // useEffect(() => {
-  //   const handleDrinksTagData = async () => {
-  //     GetTag()
-  //       .then((res) => {
-  //         dispatch(setTagData(res.data));
-  //       })
-  //   };
-
-  //   const handleDrinksData = async () => {
-  //     GetDrinks()
-  //       .then((res) => {
-  //         const { data } = res;
-  //         dispatch(setDrinksData(data.data));
-  //         dispatch(setLikesData(data.likeList));
-  //         dispatch(setIsLoading());
-  //       })
-  //       .catch((error) => {
-  //         console.log(error)
-  //       })
-  //   }
-  //   handleDrinksTagData()
-  //   handleDrinksData()
-  // }, [dispatch])
 
   useEffect(() => {
     window.scrollTo(0, 0);

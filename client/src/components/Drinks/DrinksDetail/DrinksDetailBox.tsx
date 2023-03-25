@@ -19,7 +19,7 @@ function DrinksDetailBox({ drinksDetail }: IDrinksDetailProps) {
         })}
       </TagContainer>
       <MarginContainer>
-        <DrinksDetailLikes />
+        <DrinksDetailLikes drinksDetail={drinksDetail} />
       </MarginContainer>
       <DrinksDetailCount drinksDetail={drinksDetail} />
     </BoxContainer>
