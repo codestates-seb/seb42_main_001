@@ -19,7 +19,7 @@ function BoardList() {
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
-    setIsLoading(true);
+    setIsLoading(true); // 데이터의 갯수를 16으로 나누면 page의 번호를 알수 있다?
     const fetchData = async () => {
       const res = await axios.get(`/boards?page=${isPage}&size=16`);
 
