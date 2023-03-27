@@ -1,5 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface props {
   content: string;
@@ -12,7 +13,9 @@ function ArticleDetailBody({ content }: props) {
       {content.includes('http') ? (
         <img src={`${content}`} alt="drinkImg"></img>
       ) : (
-        content
+        <ReactMarkdown
+          children={content}
+          remarkPlugins={[remarkGfm]}></ReactMarkdown>
       )}
     </MainContainer>
   );
