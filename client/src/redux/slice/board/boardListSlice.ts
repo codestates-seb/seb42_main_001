@@ -28,24 +28,25 @@ export const boardListSlice = createSlice({
         payload: { data, likeList },
       }: PayloadAction<{ data: BoardDataProps[]; likeList: ILikeList[] }>
     ) => {
-      const result = data.map((board: BoardDataProps) => {
-        return {
-          ...board,
-          like: likeList.some(
-            (el: { boardId: number; boardTitle: string }) =>
-              el.boardId === board.boardId
-          ),
-        };
-      });
       state.likeList = likeList;
+      const NotData = data.reduce((acc: BoardDataProps[], cur) => {
+        let result: BoardDataProps[] = [...acc];
+        if (
+          state.listData.filter((el) => cur.boardId === el.boardId).length === 0
+        ) {
+          result.push(cur);
+        }
+        return result;
+      }, []);
       if (
         state.listData.length !== 0 &&
-        state.listData.filter((el) => el.boardId === data[0].boardId).length ===
-          0
+        // state.listData.filter((el) => el.boardId === data[0].boardId).length ===
+        //   0
+        NotData.length !== 0
       ) {
-        state.listData = [...state.listData, ...result];
+        state.listData = [...state.listData, ...NotData];
       } else if (state.listData.length === 0) {
-        state.listData = result;
+        state.listData = NotData;
       }
     },
     boardListFiltered: (state, { payload: data }: PayloadAction<string>) => {

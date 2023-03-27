@@ -24,8 +24,9 @@ function BoardList() {
       const res = await axios.get(`/boards?page=${isPage}&size=16`);
 
       const { data, likeList } = res.data;
-
-      dispatch(boardListItemAdd({ data, likeList }));
+      if (data.length !== 0) {
+        dispatch(boardListItemAdd({ data, likeList }));
+      }
       setIsLoading(false);
     };
     fetchData();
@@ -35,7 +36,7 @@ function BoardList() {
     // 스크롤 위치 감지 콜백 함수
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     // 마지막 페이지 조건 추가
-    if (scrollTop + clientHeight >= scrollHeight - 500) {
+    if (scrollTop + clientHeight >= scrollHeight - 100) {
       setPage((prev) => prev + 1);
     }
   };
