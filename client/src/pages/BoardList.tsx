@@ -19,13 +19,14 @@ function BoardList() {
 
   useEffect(() => {
     // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
-    setIsLoading(true);
+    setIsLoading(true); // 데이터의 갯수를 16으로 나누면 page의 번호를 알수 있다?
     const fetchData = async () => {
       const res = await axios.get(`/boards?page=${isPage}&size=16`);
 
       const { data, likeList } = res.data;
-
-      dispatch(boardListItemAdd({ data, likeList }));
+      if (data.length !== 0) {
+        dispatch(boardListItemAdd({ data, likeList }));
+      }
       setIsLoading(false);
     };
     fetchData();
@@ -35,7 +36,7 @@ function BoardList() {
     // 스크롤 위치 감지 콜백 함수
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     // 마지막 페이지 조건 추가
-    if (scrollTop + clientHeight >= scrollHeight - 500) {
+    if (scrollTop + clientHeight >= scrollHeight - 100) {
       setPage((prev) => prev + 1);
     }
   };
