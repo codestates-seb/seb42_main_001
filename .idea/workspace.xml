@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: yml 추가">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: article 완성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
     </list>
@@ -260,13 +260,6 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00036" summary="✨ feat: 로그인 핸들러 추가">
-      <created>1679137053670</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1679137053670</updated>
     </task>
     <task id="LOCAL-00037" summary="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
       <created>1679223419017</created>
@@ -604,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679646443453</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="✨ feat: article 완성">
+      <created>1679878370253</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1679878370254</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 상황 태그 추가" />
     <MESSAGE value="✨ feat: 실행 조건 수정" />
     <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
     <MESSAGE value="✨ feat: 초기데이터 수정" />
@@ -664,7 +663,8 @@
     <MESSAGE value="✨ feat: 로그인 성공 시 리다이렉트 url 수정" />
     <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
     <MESSAGE value="✨ feat: yml 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: yml 추가" />
+    <MESSAGE value="✨ feat: article 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: article 완성" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -707,11 +707,6 @@
           <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
           <line>66</line>
           <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/controller/CommentDrinkController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

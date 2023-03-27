@@ -150,7 +150,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('노랗�
 
 어때요? 처음부터 모르는 용어들이 마구마구 나오니까 혼란스럽죠?
 걱정마세요. 차근차근 알기 쉽게 알려드릴게요.
-너무 어려우신 분들은 제목 바로 밑에 적힌 한 줄 요약만 읽어주시면 돼요!','쿠키 지식',3);
+너무 어려우신 분들은 제목 바로 밑에 적힌 한 줄 요약만 읽어주시면 돼요!','위스키를 만드는 큰 그림부터',3);
 INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위스키의 원료가 되는 보리를 수확하는 과정
 
 위스키는 수확하는 과정부터 매우 중요해요!
@@ -512,7 +512,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스�
 가격이 꽤 비싸다는 단점이 있지만.. (아마 엔트리급 위스키 4~5병 가격은 될 거에요..)
 
 다만, 어느정도 전문적으로 향에 대해 훈련하고 표현에 관심이 많은 사람들은
-이런게 있다!~ 정도로 참고해두시면 좋을 것 같아요!','쉬어가기',6);
+이런게 있다!~ 정도로 참고해두시면 좋을 것 같아요!','쿠키 지식',6);
 
 
 
