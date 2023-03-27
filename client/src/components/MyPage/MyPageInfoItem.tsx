@@ -35,8 +35,9 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
       const res = await axios.get(`/members/logout`);
       if (res.status === 200) {
         dispatch(logoutSuccess());
-        localStorage.clear();
-        alert('로그아웃 되었습니다');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        alert('로그아웃되었습니다');
         navigate('/');
       }
     } catch (e) {
