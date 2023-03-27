@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: article 완성">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: article 오타 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,13 +259,6 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00037" summary="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
-      <created>1679223419017</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1679223419017</updated>
     </task>
     <task id="LOCAL-00038" summary="✨ feat: MyPage - 좋아요 한 술">
       <created>1679277203666</created>
@@ -604,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679878370254</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="✨ feat: article 오타 수정">
+      <created>1679894600578</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1679894600578</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 실행 조건 수정" />
     <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
     <MESSAGE value="✨ feat: 초기데이터 수정" />
     <MESSAGE value="✨ feat: 초기데이터 수정2" />
@@ -664,7 +662,8 @@
     <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
     <MESSAGE value="✨ feat: yml 추가" />
     <MESSAGE value="✨ feat: article 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: article 완성" />
+    <MESSAGE value="✨ feat: article 오타 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: article 오타 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
