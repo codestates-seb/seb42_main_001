@@ -23,8 +23,12 @@ function BoardSearch({ isInput, setIsInput }: IBoardSearchProps) {
     }
   };
 
+  const handlePropagation = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   return (
-    <SearchContainer>
+    <SearchContainer onClick={handlePropagation}>
       <Card>
         <input
           placeholder='Search'
