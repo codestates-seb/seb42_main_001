@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: article 완성">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/Server_001_WithsKey">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/Server_001_WithsKey">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Server_001_WithsKey" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Server_001_WithsKey" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Server_001_WithsKey" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="b426d46c394b92ccd359e11cd97089a08b885cfb" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Mz5JB6Rv4TLPrpraY3NhXGGmnW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MEcmp/Desktop/Main_Proj/main/Server_001_WithsKey/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;f657a97297bf0be16156a477b0470999&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MEcmp\Desktop\Main_Proj\main\Server_001_WithsKey\src\main\resources" />
+      <recent name="C:\Users\MEcmp\Desktop\Main_Proj\main\Server_001_WithsKey\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MEcmp\Desktop\Main_Proj\main\Server_001_WithsKey\src\main\resources\db" />
+      <recent name="C:\Users\MEcmp\Desktop\Main_Proj\main\Server_001_WithsKey\src\main\resources\templates" />
+      <recent name="C:\Users\MEcmp\Desktop\Main_Proj\main\Server_001_WithsKey\src\main\resources\static" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.codestates.server_001_withskey.domain" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.codestates.server_001_withskey.global.security" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.localExecute">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="zulu-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server_001_WithsKey [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Server_001_WithsKey" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Server_001_WithsKey [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Server_001_WithsKey" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TagRepositoryTests.testTagBoard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Server_001_WithsKey" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.codestates.server_001_withskey.tag.repository.TagRepositoryTests.testTagBoard&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Server001WithsKeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="com.codestates.Server_001_WithsKey.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deployExecute" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="deploy" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="localExecute" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="com.codestates.Server_001_WithsKey.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codestates.server_001_withskey.Server001WithsKeyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Gradle.Server_001_WithsKey [build]" />
+      <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
+      <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
+      <item itemvalue="Spring Boot.Server001WithsKeyApplication" />
+      <item itemvalue="Spring Boot.localExecute" />
+      <item itemvalue="Spring Boot.deployExecute" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
+        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
+        <item itemvalue="Gradle.Server_001_WithsKey [build]" />
+        <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
+        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 설정 프로파일 추가" />
+      <created>1678757501712</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678757501712</updated>
+      <workItem from="1678757503965" duration="6986000" />
+      <workItem from="1678837124089" duration="26512000" />
+      <workItem from="1678922318843" duration="36507000" />
+      <workItem from="1679037398838" duration="315000" />
+      <workItem from="1679224462162" duration="1525000" />
+      <workItem from="1679273834588" duration="10803000" />
+      <workItem from="1679290311385" duration="271000" />
+      <workItem from="1679290636310" duration="3849000" />
+      <workItem from="1679296676561" duration="6028000" />
+      <workItem from="1679309451947" duration="616000" />
+      <workItem from="1679312939323" duration="1498000" />
+      <workItem from="1679314514903" duration="52000" />
+      <workItem from="1679316607877" duration="12000" />
+      <workItem from="1679320645538" duration="1736000" />
+      <workItem from="1679355981122" duration="469000" />
+      <workItem from="1679360586070" duration="5818000" />
+      <workItem from="1679483539070" duration="2211000" />
+      <workItem from="1679533351467" duration="5628000" />
+      <workItem from="1679619686781" duration="10559000" />
+    </task>
+    <task id="LOCAL-00037" summary="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
+      <created>1679223419017</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1679223419017</updated>
+    </task>
+    <task id="LOCAL-00038" summary="✨ feat: MyPage - 좋아요 한 술">
+      <created>1679277203666</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1679277203666</updated>
+    </task>
+    <task id="LOCAL-00039" summary="✨ feat: 로컬 설정 변경">
+      <created>1679277358760</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1679277358760</updated>
+    </task>
+    <task id="LOCAL-00040" summary="✨ feat: 리다이렉트 토큰 전달">
+      <created>1679285437834</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1679285437834</updated>
+    </task>
+    <task id="LOCAL-00041" summary="✨ feat: 설정 프로파일 추가">
+      <created>1679290151321</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1679290151321</updated>
+    </task>
+    <task id="LOCAL-00042" summary="✨ feat: 설정 프로파일 추가2">
+      <created>1679290806466</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1679290806466</updated>
+    </task>
+    <task id="LOCAL-00043" summary="✨ feat: 리다이렉트 헤더에 accessToken, refreshToken 추가">
+      <created>1679293972219</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1679293972219</updated>
+    </task>
+    <task id="LOCAL-00044" summary="✨ feat: yml 설정변경 및 redis 적용">
+      <created>1679297055631</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1679297055631</updated>
+    </task>
+    <task id="LOCAL-00045" summary="✨ feat: tag_Drink 임시 데이터 추가">
+      <created>1679303905675</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1679303905675</updated>
+    </task>
+    <task id="LOCAL-00046" summary="✨ feat: snack_drink 임시 추가">
+      <created>1679304357476</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1679304357476</updated>
+    </task>
+    <task id="LOCAL-00047" summary="test">
+      <created>1679313298529</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1679313298530</updated>
+    </task>
+    <task id="LOCAL-00048" summary="test2">
+      <created>1679313672324</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1679313672324</updated>
+    </task>
+    <task id="LOCAL-00049" summary="test2">
+      <created>1679313830690</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1679313830690</updated>
+    </task>
+    <task id="LOCAL-00050" summary="✨ feat: delete LikeDrink 수정">
+      <created>1679321294791</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1679321294791</updated>
+    </task>
+    <task id="LOCAL-00051" summary="✨ feat: sql Drink Url S3 것으로 반영">
+      <created>1679363549104</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1679363549104</updated>
+    </task>
+    <task id="LOCAL-00052" summary="✨ feat: tastingNote.sql 수정">
+      <created>1679363690078</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1679363690078</updated>
+    </task>
+    <task id="LOCAL-00053" summary="✨ feat: tastingNote 칼럼 변경 전 저장">
+      <created>1679365309207</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1679365309207</updated>
+    </task>
+    <task id="LOCAL-00054" summary="✨ feat: tastingNote 칼럼 및 엔티티 필드 수정">
+      <created>1679365926845</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1679365926846</updated>
+    </task>
+    <task id="LOCAL-00055" summary="✨ feat:Drink에 동일한 태그 추가">
+      <created>1679371793151</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1679371793151</updated>
+    </task>
+    <task id="LOCAL-00056" summary="✨ feat: 몽키 숄더 이전까지 테이스팅 노트 적용">
+      <created>1679373383529</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1679373383529</updated>
+    </task>
+    <task id="LOCAL-00057" summary="✨ feat: 테이스팅 노트 작성 완료">
+      <created>1679374493616</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1679374493617</updated>
+    </task>
+    <task id="LOCAL-00058" summary="✨ feat: Drink 가격 태깅">
+      <created>1679375892786</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1679375892786</updated>
+    </task>
+    <task id="LOCAL-00059" summary="✨ feat: Snack 등록">
+      <created>1679377445375</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1679377445375</updated>
+    </task>
+    <task id="LOCAL-00060" summary="✨ feat: Snack, SnackDrink 등록">
+      <created>1679378474469</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1679378474469</updated>
+    </task>
+    <task id="LOCAL-00061" summary="✨ feat: 상황 태그 추가">
+      <created>1679384930448</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1679384930448</updated>
+    </task>
+    <task id="LOCAL-00062" summary="✨ feat: 실행 조건 수정">
+      <created>1679476102759</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1679476102759</updated>
+    </task>
+    <task id="LOCAL-00063" summary="✨ feat: S3config 배포 환경에 맞게 수정2">
+      <created>1679476561668</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1679476561668</updated>
+    </task>
+    <task id="LOCAL-00064" summary="✨ feat: 초기데이터 수정">
+      <created>1679476838554</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1679476838554</updated>
+    </task>
+    <task id="LOCAL-00065" summary="✨ feat: 초기데이터 수정2">
+      <created>1679477957388</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1679477957388</updated>
+    </task>
+    <task id="LOCAL-00066" summary="✨ feat: recommandDrinks 기능 추가">
+      <created>1679479924977</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1679479924977</updated>
+    </task>
+    <task id="LOCAL-00067" summary="✨ feat: recommandDrinks 기능 수정">
+      <created>1679480094178</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1679480094178</updated>
+    </task>
+    <task id="LOCAL-00068" summary="✨ feat: recommandDrinks 기능 수정2">
+      <created>1679480304160</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1679480304160</updated>
+    </task>
+    <task id="LOCAL-00069" summary="✨ feat: yml 변경사항 반영">
+      <created>1679485381211</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1679485381211</updated>
+    </task>
+    <task id="LOCAL-00070" summary="✨ feat: 리디렉션 URI 작성 수정">
+      <created>1679533739448</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1679533739448</updated>
+    </task>
+    <task id="LOCAL-00071" summary="🐛 fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함.">
+      <created>1679534641282</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1679534641282</updated>
+    </task>
+    <task id="LOCAL-00072" summary="✨ feat: 주소지 변경 로직">
+      <created>1679537174525</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1679537174525</updated>
+    </task>
+    <task id="LOCAL-00073" summary="✨ feat: 주소지 변경 로직2">
+      <created>1679537912522</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1679537912522</updated>
+    </task>
+    <task id="LOCAL-00074" summary="✨ feat: 주소지 변경 로직3">
+      <created>1679538866518</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1679538866519</updated>
+    </task>
+    <task id="LOCAL-00075" summary="✨ feat: Security 의존성 수정">
+      <created>1679623202862</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1679623202862</updated>
+    </task>
+    <task id="LOCAL-00076" summary="✨ feat: Article 엔드포인트 수정">
+      <created>1679623561463</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1679623561463</updated>
+    </task>
+    <task id="LOCAL-00077" summary="✨ feat: Article 엔드포인트 수정2">
+      <created>1679626438909</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1679626438909</updated>
+    </task>
+    <task id="LOCAL-00078" summary="✨ feat: Tutorial Article 추가 내용 작성">
+      <created>1679630382155</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1679630382155</updated>
+    </task>
+    <task id="LOCAL-00079" summary="✨ feat: Comment Drink 로직 수정2">
+      <created>1679637180538</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1679637180538</updated>
+    </task>
+    <task id="LOCAL-00080" summary="✨ feat: deploy yml 수정">
+      <created>1679643007672</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1679643007673</updated>
+    </task>
+    <task id="LOCAL-00081" summary="✨ feat: Blended.sql 작성">
+      <created>1679643742989</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1679643742989</updated>
+    </task>
+    <task id="LOCAL-00082" summary="✨ feat: 로그인 성공 시 리다이렉트 url 수정">
+      <created>1679645918160</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1679645918160</updated>
+    </task>
+    <task id="LOCAL-00083" summary="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정">
+      <created>1679646039545</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1679646039545</updated>
+    </task>
+    <task id="LOCAL-00084" summary="✨ feat: yml 추가">
+      <created>1679646443453</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1679646443453</updated>
+    </task>
+    <task id="LOCAL-00085" summary="✨ feat: article 완성">
+      <created>1679878370253</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1679878370254</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="merge" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="ebcf9e95-9f51-4604-b914-273d5d64c7af">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="✨ feat: 실행 조건 수정" />
+    <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
+    <MESSAGE value="✨ feat: 초기데이터 수정" />
+    <MESSAGE value="✨ feat: 초기데이터 수정2" />
+    <MESSAGE value="✨ feat: recommandDrinks 기능 추가" />
+    <MESSAGE value="✨ feat: recommandDrinks 기능 수정" />
+    <MESSAGE value="✨ feat: recommandDrinks 기능 수정2" />
+    <MESSAGE value="✨ feat: yml 변경사항 반영" />
+    <MESSAGE value="✨ feat: 리디렉션 URI 작성 수정" />
+    <MESSAGE value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
+    <MESSAGE value="✨ feat: 주소지 변경 로직" />
+    <MESSAGE value="✨ feat: 주소지 변경 로직2" />
+    <MESSAGE value="✨ feat: 주소지 변경 로직23" />
+    <MESSAGE value="✨ feat: 주소지 변경 로직3" />
+    <MESSAGE value="✨ feat: Security 의존성 수정" />
+    <MESSAGE value="✨ feat: Article 엔드포인트 수정" />
+    <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
+    <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
+    <MESSAGE value="✨ feat: Comment Drink 로직 수정2" />
+    <MESSAGE value="✨ feat: deploy yml 수정" />
+    <MESSAGE value="✨ feat: Blended.sql 작성" />
+    <MESSAGE value="✨ feat: 로그인 성공 시 리다이렉트 url 수정" />
+    <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
+    <MESSAGE value="✨ feat: yml 추가" />
+    <MESSAGE value="✨ feat: article 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: article 완성" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="20" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/mapper/ArticleMapper.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/mapper/ArticleMapper.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/article/mapper/ArticleMapper.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
+        <PinnedItemInfo parentTag="org.apache.catalina.connector.Response" memberName="request" />
+        <PinnedItemInfo parentTag="org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest" memberName="response" />
+        <PinnedItemInfo parentTag="org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse" memberName="request" />
+        <PinnedItemInfo parentTag="com.codestates.server_001_withskey.domain.board.dto.BoardDto$Patch" memberName="content" />
+        <PinnedItemInfo parentTag="com.codestates.server_001_withskey.domain.image.entity.Image" memberName="imageId" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="authorizationHeader" />
+        <watch expression="response.memberName" />
+        <watch expression="((HashMap.Node)((HashMap)http.filterOrders.filterToOrder).entrySet().toArray()[1]).getKey()" custom="java.util.HashMap.Node,java.util.HashMap" />
+        <watch expression="this.$$beanFactory" custom="com.codestates.server_001_withskey.global.security.SecurityConfiguration" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
