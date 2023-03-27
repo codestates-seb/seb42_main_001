@@ -57,7 +57,10 @@ function App() {
       </Route>
       <Route element={<BaseLayout />}>
         <Route path="/article" element={<ArticleList />} />
-        <Route path="/article/detail/articleId" element={<ArticleDetail />} />
+        <Route
+          path="/article/detail/:articleType"
+          element={<ArticleDetail />}
+        />
         <Route path="/mypage" element={<MyPage />} />
       </Route>
       <Route element={<BaseLayout bgColor />}>

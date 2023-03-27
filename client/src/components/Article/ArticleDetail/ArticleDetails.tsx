@@ -1,59 +1,80 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import ArticleDetailContent from './ArticleDetailContent'
-import ArticleDetailMenu from './ArticleDetailMenu'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router';
+import styled from 'styled-components';
+
+import ArticleDetailContent from './ArticleDetailContent';
+import ArticleDetailMenu from './ArticleDetailMenu';
 
 function ArticleDetails() {
-    const [detailid, setDetailId] = useState<number>(1)
+  const { articleType } = useParams();
+  const [articleList, setArticleList] = useState<
+    { articleId: number; articleTitle: string }[]
+  >([]);
+  const [articleId, setArticleId] = useState<number>(articleList[0]?.articleId);
 
-    useEffect(() => {
-        console.log(detailid);
-    }, [detailid]);
+  useEffect(() => {
+    const getArticleList = async () => {
+      try {
+        const res = await axios.get(`/articles?type=${articleType}`);
+        if (res.status === 200) {
+          setArticleList(res.data);
+          setArticleId(res.data[0].articleId);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
 
-    const handleIdChange = (e: React.MouseEvent<HTMLElement>) => {
-        const newId = parseInt((e.target as HTMLButtonElement).value);
-        setDetailId(newId);
-    }
+    getArticleList();
+  }, [articleType]);
 
-    return (
-        <MainContainer>
-            <FlexMenu>
-                <ArticleDetailMenu onClick={handleIdChange} />
-            </FlexMenu>
-            <FlexContent>
-                <ArticleDetailContent />
-            </FlexContent>
-        </MainContainer>
-    )
+  const handleIdChange = (value: number) => {
+    setArticleId(value);
+  };
+
+  return (
+    <MainContainer>
+      <FlexMenu>
+        <ArticleDetailMenu
+          handleIdChange={handleIdChange}
+          articleList={articleList}
+        />
+      </FlexMenu>
+      <FlexContent>
+        <ArticleDetailContent articleId={articleId} />
+      </FlexContent>
+    </MainContainer>
+  );
 }
 
-export default ArticleDetails
+export default ArticleDetails;
 
 const MainContainer = styled.div`
-    width: 100%;
-    height: 100vmax;
-    display: flex;
-    align-items: flex-start;
+  width: 100%;
+  height: 100vmax;
+  display: flex;
+  align-items: flex-start;
 
-    @media only screen and (max-width: 768px) {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        margin-bottom: var(--5x-large);
-    }
-`
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: var(--5x-large);
+  }
+`;
 
 const FlexMenu = styled.div`
-    flex: 3;
-    padding-right: var(--5x-large);
+  flex: 3;
+  padding-right: var(--5x-large);
 
-    @media only screen and (max-width: 768px) {
-        width: 100%;
-        padding: 0;
-    }
-`
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+  }
+`;
 
 const FlexContent = styled.div`
-    flex: 7;
-        display: flex;
-`
+  flex: 7;
+  display: flex;
+`;
