@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: article 오타 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 로그인 리디렉션 경로 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,13 +260,8 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00038" summary="✨ feat: MyPage - 좋아요 한 술">
-      <created>1679277203666</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1679277203666</updated>
+      <workItem from="1679917815967" duration="941000" />
+      <workItem from="1679925351972" duration="16000" />
     </task>
     <task id="LOCAL-00039" summary="✨ feat: 로컬 설정 변경">
       <created>1679277358760</created>
@@ -603,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679894600578</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="✨ feat: 로그인 리디렉션 경로 수정">
+      <created>1679917873635</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1679917873635</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +641,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
     <MESSAGE value="✨ feat: 초기데이터 수정" />
     <MESSAGE value="✨ feat: 초기데이터 수정2" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 추가" />
@@ -663,7 +665,8 @@
     <MESSAGE value="✨ feat: yml 추가" />
     <MESSAGE value="✨ feat: article 완성" />
     <MESSAGE value="✨ feat: article 오타 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: article 오타 수정" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 로그인 리디렉션 경로 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
