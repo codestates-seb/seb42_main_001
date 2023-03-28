@@ -56,7 +56,7 @@ const ItemContainer = styled.div`
     }
 
     @media only screen and (max-width: 450px) {
-      width: 270px;
+      max-width: 300px;
       min-height: 0;
     }
 `;
