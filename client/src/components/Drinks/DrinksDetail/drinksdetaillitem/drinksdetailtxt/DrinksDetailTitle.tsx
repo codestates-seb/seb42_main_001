@@ -22,12 +22,12 @@ const TitleContainer = styled.div`
   color: var(--color-main);
 
   div {
+    display: flex;
     width: 100%;
     font-size: var(--3x-large);
   }
 
     @media only screen and (max-width: 768px) {
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,21 +37,19 @@ const TitleContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
         font-size: var(--3x-large);
       }
     }
 
     @media only screen and (max-width: 450px) {
-      width: 100%;
+      width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: var(--3x-large);
 
       div {
-        width: 100%;
-        font-size: calc(var(--4x-large) / 2);
+        font-size: calc(var(--4x-large) / 2.3);
       }
     }
 `;

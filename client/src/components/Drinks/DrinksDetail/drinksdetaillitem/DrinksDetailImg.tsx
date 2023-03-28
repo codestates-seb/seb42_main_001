@@ -24,6 +24,11 @@ const ImgContainer = styled.div`
   align-items: center;
   justify-content: center;
 
+  img {
+    max-width: 695px;
+    height: 50%;
+  }
+
   @media only screen and (max-width: 768px) {
     width: 100%;
     display: flex;
@@ -32,9 +37,19 @@ const ImgContainer = styled.div`
     margin-bottom: var(--x-large);
   }
 
-  img {
-    max-width: 695px;
-    height: 50%;
+  @media only screen and (max-width: 450px) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--large);
+    padding: var(--x-large);
+
+    img {
+      max-width: 180px;
+      height: 40%;
+    }
   }
 `;
 
