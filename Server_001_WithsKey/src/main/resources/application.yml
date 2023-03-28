@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://main001.ctmvpylzede6.ap-northeast-2.rds.amazonaws.com:23306/main001
     username: david
     password: 001mainproject
-    driver-class-name: com.mysql.cj.jdbc.Drvier
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     defer-datasource-initialization: true
     hibernate:
