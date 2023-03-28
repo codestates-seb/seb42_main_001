@@ -12,7 +12,7 @@ interface BoardAuthorInfoProps {
 function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage ? <img src={userImage} alt="userImage" /> : <FaUserCircle />}
+      {userImage ? <img src={userImage} alt='userImage' /> : <FaUserCircle />}
       <BoardAuthorInfoName>
         {userName}
         <p>{convertTime(date)}</p>
@@ -29,6 +29,12 @@ const BoardAuthorInfoContainer = styled.div`
   padding-bottom: var(--small);
   display: flex;
   align-items: center;
+
+  > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
 
   > svg {
     width: 40px;

@@ -6,24 +6,30 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { logoutSuccess } from '../../redux/slice/auth/authSlice';
 
 interface InfoProps {
-  userInfo: boolean;
-  setUserInfo: (state: boolean) => void;
+  editMode: boolean;
+  setEditMode: (state: boolean) => void;
 }
 
-function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
+function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
+  const { displayName, aboutMe, profilePicture } = useAppSelector(
+    state => state.auth.userInfo,
+  );
 
   const handleUserTrueChange = () => {
-    setUserInfo(true);
+    setEditMode(true);
   };
 
   const handleUserFalseChange = async () => {
     try {
-      const res = await axios.patch('/members', { displayName, aboutMe });
+      const res = await axios.patch('/members', {
+        displayName,
+        aboutMe,
+        profilePicture,
+      });
       if (res.status === 200) {
-        setUserInfo(false);
+        setEditMode(false);
       }
     } catch (e) {
       console.error(e);
@@ -47,7 +53,7 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
 
   return (
     <MainContainer>
-      {userInfo ? (
+      {editMode ? (
         <TrueItemContainer onClick={handleUserFalseChange}>
           수정 완료
         </TrueItemContainer>
