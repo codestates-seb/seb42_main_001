@@ -24,17 +24,17 @@ const TagsContainer = styled.div`
   width: 100%;
   
   div {
-    color: var(--color-sub-dark-gray);
-    font-size: var(--text-x-small);
-    border: 1px solid var(--color-sub-dark-gray);
-    border-radius: var(--medium);
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 7px;
-    white-space: nowrap;
-    transition: .5s;
+  color: var(--color-sub-dark-gray);
+  font-size: var(--text-x-small);
+  border: 1px solid var(--color-sub-dark-gray);
+  border-radius: var(--medium);
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 7px;
+  white-space: nowrap;
+  transition: .5s;
 
     &:hover {
       transition: .5s;
@@ -48,6 +48,6 @@ const TagsContainer = styled.div`
     font-size: calc(var(--text-x-large) / 2);
     display: flex;
     flex-direction: column;
-  }
+    }
   }
 `;

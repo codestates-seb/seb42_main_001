@@ -62,8 +62,8 @@ const InfoContainer = styled.div`
   justify-content: space-between;
 
     @media only screen and (max-width: 768px) {
-    margin: var(--large);
-    justify-content: flex-end;
+      margin: var(--large);
+      justify-content: flex-end;
     }
 `;
 

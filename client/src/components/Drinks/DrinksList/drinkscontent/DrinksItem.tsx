@@ -42,23 +42,23 @@ const ItemContainer = styled.div`
   flex-direction: column;
   transition: .4s;
 
-  &:hover {
-    transition: .4s;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px #473f3f73;
-  }
+    &:hover {
+      transition: .4s;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px #473f3f73;
+    }
 
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 240px;
-  }
+    @media only screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 240px;
+    }
 
-  @media only screen and (max-width: 450px) {
-    width: 270px;
-    min-height: 0;
-  }
+    @media only screen and (max-width: 450px) {
+      width: 270px;
+      min-height: 0;
+    }
 `;
 
 const SubContainer = styled.div`

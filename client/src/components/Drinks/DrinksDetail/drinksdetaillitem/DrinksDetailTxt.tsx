@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import DrinksDetailBox from "./DrinksDetailBox";
-import DrinksDetailInfo from "./DrinksDetailInfo";
-import DrinksDetailTitle from "./DrinksDetailTitle";
-import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
+import DrinksDetailBox from "./drinksdetailtxt/DrinksDetailBox";
+import DrinksDetailInfo from "./drinksdetailtxt/DrinksDetailInfo";
+import DrinksDetailTitle from "./drinksdetailtxt/DrinksDetailTitle";
+import { IDrinksDetailProps } from '../../../../util/interfaces/drinks.inerface'
 
 function DrinksDetailTxt({ drinksDetail }: IDrinksDetailProps) {
   return (
@@ -28,13 +28,12 @@ const TxtContainer = styled.div`
   margin-left: var(--4x-large);
   padding: var(--medium) 0;
 
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-  height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    margin-bottom: var(--2x-large);
-  }
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
 `;

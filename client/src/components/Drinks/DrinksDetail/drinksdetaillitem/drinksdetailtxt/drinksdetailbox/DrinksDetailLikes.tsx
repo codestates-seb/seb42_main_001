@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../../../../util/interfaces/drinks.inerface'
 
 function DrinksDetailLikes({ drinksDetail }: IDrinksDetailProps) {
   const [likes, setlikes] = useState(false);

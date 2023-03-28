@@ -55,13 +55,13 @@ function DrinksTagList({ tagData }: TagProps) {
 export default DrinksTagList;
 
 const DisplayContainer = styled.div`
-    display: flex;
-    align-items: center;
-    width: 95%;
+  display: flex;
+  align-items: center;
+  width: 95%;
 
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
 `
 
 const TagListContainer = styled.div`
@@ -69,13 +69,13 @@ const TagListContainer = styled.div`
   width: 90%;
   overflow: overlay;
   
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    width: 100%;
-    align-items: center;
-  }
+    @media only screen and (max-width: 768px) {
+      display: flex;
+      width: 100%;
+      align-items: center;
+    }
 `;

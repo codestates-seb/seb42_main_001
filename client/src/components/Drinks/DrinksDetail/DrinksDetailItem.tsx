@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import DrinksDetailImg from "./DrinksDetailImg";
-import DrinksDetailTxt from "./DrinksDetailTxt";
+import DrinksDetailImg from "./drinksdetaillitem/DrinksDetailImg";
+import DrinksDetailTxt from "./drinksdetaillitem/DrinksDetailTxt";
 import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
 
 function DrinksDetailItem({ drinksDetail }: IDrinksDetailProps) {

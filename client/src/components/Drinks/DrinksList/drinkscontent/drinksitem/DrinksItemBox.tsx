@@ -31,11 +31,11 @@ const InfoContainer = styled.div`
   align-items: center;
   padding: var(--large) var(--large) 0 var(--large);
 
-  @media only screen and (max-width: 450px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+    @media only screen and (max-width: 450px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 `;
 
 const TagContainer = styled.div`
@@ -44,15 +44,14 @@ const TagContainer = styled.div`
   justify-content: flex-end;
   overflow-x: scroll;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-  @media only screen and (max-width: 450px) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: var(--small);
-  }
-  
+    @media only screen and (max-width: 450px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: var(--small);
+    }
 `
