@@ -13,7 +13,9 @@ interface InfoProps {
 function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
+  const { displayName, aboutMe, profilePicture } = useAppSelector(
+    state => state.auth.userInfo,
+  );
 
   const handleUserTrueChange = () => {
     setEditMode(true);
@@ -21,7 +23,11 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
 
   const handleUserFalseChange = async () => {
     try {
-      const res = await axios.patch('/members', { displayName, aboutMe });
+      const res = await axios.patch('/members', {
+        displayName,
+        aboutMe,
+        profilePicture,
+      });
       if (res.status === 200) {
         setEditMode(false);
       }

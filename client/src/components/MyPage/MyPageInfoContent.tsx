@@ -1,29 +1,72 @@
 import styled from 'styled-components';
+import { useRef } from 'react';
+import axios from 'axios';
 
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import { RiImageAddLine } from 'react-icons/ri';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import {
+  modifyDisplayName,
+  modifyAboutMe,
+  modifyProfilePicture,
+} from '../../redux/slice/auth/authSlice';
 
 interface InfoProps {
   editMode: boolean;
-  displayName: string;
-  aboutMe: string;
-  handleDisplayNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleAboutMeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function MyPageInfoContent({
-  editMode,
-  displayName,
-  aboutMe,
-  handleDisplayNameChange,
-  handleAboutMeChange,
-}: InfoProps) {
+function MyPageInfoContent({ editMode }: InfoProps) {
+  const { displayName, aboutMe, profilePicture } = useAppSelector(
+    state => state.auth.userInfo,
+  );
+  const fileInput = useRef<HTMLInputElement>(null);
+  const dispatch = useAppDispatch();
+
+  const handleDisplayNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(modifyDisplayName(e.target.value));
+  };
+
+  const handleAboutMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(modifyAboutMe(e.target.value));
+  };
+
+  const handleProfilePictureChange = async () => {
+    try {
+      const curfiles: any = fileInput.current?.files;
+      const formData = new FormData();
+      formData.append('file', curfiles['0']);
+
+      const res = await axios.post('/spring/upload', formData);
+
+      if (res.status === 200) {
+        const imgUrl = res.data[0].boardImageUrl;
+        dispatch(modifyProfilePicture(imgUrl));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <MainContainer>
       <ImgContainer>
         {editMode ? (
-          <input type="file" accept="image/*"></input>
+          <>
+            <label htmlFor="image_upload">
+              <RiImageAddLine></RiImageAddLine>
+            </label>
+            <input
+              type="file"
+              id="image_upload"
+              accept="image/*"
+              ref={fileInput}
+              onChange={handleProfilePictureChange}
+            />
+          </>
+        ) : profilePicture ? (
+          <img src={`${profilePicture}`} alt="profilePicture"></img>
         ) : (
-          <HiOutlineUserCircle />
+          <HiOutlineUserCircle></HiOutlineUserCircle>
         )}
       </ImgContainer>
       <TextContainer>
@@ -65,9 +108,29 @@ const ImgContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  > img,
   > svg {
     width: 90%;
     height: 90%;
+    border-radius: var(--3x-large);
+  }
+
+  > label {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--3x-large);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > * {
+      width: 20%;
+      height: 20%;
+    }
+  }
+
+  input {
+    display: none;
   }
 
   &:hover {
