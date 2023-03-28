@@ -8,12 +8,11 @@ spring:
 ---
 
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:mysql:main001.ctmvpylzede6.ap-northeast-2.rds.amazonaws.com:23306/main001
+    username: david
+    password: 001mainproject
+    driver-class-name: com.mysql.cj.jdbc.Drvier
     initialization-mode: always
   jpa:
     defer-datasource-initialization: true

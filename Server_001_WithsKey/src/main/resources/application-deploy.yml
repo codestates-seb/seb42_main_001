@@ -54,6 +54,7 @@ cloud:
     stack:
       auto: false
 
+
 awsParameterStorePropertySource:
   enabled: true
 
