@@ -75,7 +75,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
                                     String refreshToken) {
 
         // UriComponentsBuilder를 사용하여 scheme+host+port+path 형식으로 구성한다.
-        // ex: http://localhost:8080/mypage > 프엔에서 보내줌.
+        // ex: 이 부분은 프엔에서 보내줌. 배포환경에서는 EC2와 연결된 S3 엔드포인트를 넣는다.
 //        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
         return UriComponentsBuilder.fromUriString("http://localhost:8080/mypage")
                 .queryParam("Authorization", accessToken)
