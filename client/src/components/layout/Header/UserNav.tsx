@@ -26,6 +26,10 @@ const UserContainer = styled.div`
   @media only screen and (max-width: 768px) {
   width: 40px;
   }
+
+  @media only screen and (max-width: 280px) {
+  display: none;
+  }
 `;
 
 const PorfileImg = styled.div<UserNavProps>`
