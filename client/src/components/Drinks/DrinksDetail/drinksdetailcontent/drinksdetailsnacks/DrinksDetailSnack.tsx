@@ -22,7 +22,7 @@ function DrinksDetailSnack({ drinksDetail }: IDrinksSnacksProps) {
 export default DrinksDetailSnack;
 
 const SnackContainer = styled.div`
-  width: 350px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,10 @@ const Kcal = styled.p`
 `
 
 const Info = styled.div`
+  display: flex;
+  align-items: center; 
+  justify-content: center;
   margin-top: var(--medium);
   line-height: 22px;
-  width: 50%;
+  width: 90%;
 `

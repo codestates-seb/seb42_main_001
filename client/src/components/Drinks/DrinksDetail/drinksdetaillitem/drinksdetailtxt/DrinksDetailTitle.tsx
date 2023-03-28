@@ -5,7 +5,7 @@ import { IDrinksDetailProps } from '../../../../../util/interfaces/drinks.inerfa
 function DrinksDetailTitle({ drinksDetail }: IDrinksDetailProps) {
   return (
     <TitleContainer>
-      <span>{drinksDetail?.drinkName}</span>
+      <div>{drinksDetail?.drinkName}</div>
     </TitleContainer>
   );
 }
@@ -21,8 +21,9 @@ const TitleContainer = styled.div`
   justify-content: center;
   color: var(--color-main);
 
-  span {
-    font-size: 70px;
+  div {
+    width: 100%;
+    font-size: var(--3x-large);
   }
 
     @media only screen and (max-width: 768px) {
@@ -32,7 +33,11 @@ const TitleContainer = styled.div`
       align-items: center;
       margin-bottom: var(--4x-large);
 
-      span {
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         font-size: var(--3x-large);
       }
     }
@@ -44,8 +49,9 @@ const TitleContainer = styled.div`
       align-items: center;
       margin-bottom: var(--3x-large);
 
-      span {
-        font-size: var(--2x-large);
+      div {
+        width: 100%;
+        font-size: calc(var(--4x-large) / 2);
       }
     }
 `;

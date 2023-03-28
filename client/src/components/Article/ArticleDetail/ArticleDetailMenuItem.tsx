@@ -25,7 +25,7 @@ export default ArticleDetailMenuItem;
 const MainContainer = styled.div`
   width: 100%;
   height: 100%;
-  margin-bottom: var(--x-small);
+  margin-bottom: var(--small);
   color: var(--color-main);
   opacity: 0.6;
   font-weight: var(--weight-small);
@@ -43,6 +43,7 @@ const MainContainer = styled.div`
 `;
 
 const SizeContainer = styled.button`
+  cursor: pointer;
   width: 100%;
   display: flex;
   border: 0;
