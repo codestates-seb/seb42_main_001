@@ -1,6 +1,6 @@
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키를 아시나요?', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('여러분은 바에 가보신 적 있어요?
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키를 아시나요?', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('여러분은 바에 가보신 적 있어요?
 
 어땠어요?
 
@@ -23,8 +23,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('여러�
 시작은 위스키여도 결과적으로는 위스키를 기준으로 다른 양주들에 대한 이해도가 높아지는거죠.
 
 서론이 길었네요. 그럼 같이 여정을 떠나볼까요?','양주 좋아하세요?', 1);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스키에 대해 알아가기 전에, 간단하게 양조주와 증류주의 개념을 알아야해요.','여정을 떠나기 위한 준비',1);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('양조주는 당분을 발효시켜 만든 알콜성 음료를 말해요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('위스키에 대해 알아가기 전에, 간단하게 양조주와 증류주의 개념을 알아야해요.','여정을 떠나기 위한 준비',1);
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('양조주는 당분을 발효시켜 만든 알콜성 음료를 말해요.
 세가지만 예시를 들어볼까요?
 
 * 포도 + 발효 = 와인
@@ -44,7 +44,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('양조�
 자기 자신도 알콜에 사멸해버리고 말아요. 독특한 성질이죠?
 
 따라서 일반적인 발효 환경에서는 20도까지가 양조주에서는 최대값이에요.','양조주',1);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류주는 발효 과정을 통해 빚은 술을 끓여서 응축시킨 술이에요!
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('증류주는 발효 과정을 통해 빚은 술을 끓여서 응축시킨 술이에요!
 
 왜 애써 만든 술을 끓일까요?
 
@@ -62,7 +62,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류�
 
 이제 증류주에 대한 개념을 알았으니 위스키를 알기 위한 준비는 모두 끝났어요!','증류주',1);
 
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('흔히 말하는 초록병 소주를 희석식, 전통 소주를 증류식으로 나누는데요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('흔히 말하는 초록병 소주를 희석식, 전통 소주를 증류식으로 나누는데요.
 엄밀하게 말하면 초록병 소주도 증류 과정을 거친답니다.
 
 다만 초록병으로 만드는 소주는 원료가 값싼 돼지감자나 카사바 전분을 발효시켜
@@ -78,8 +78,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('흔히 
 
 
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키의 탄생', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류기법이 도입된 직후, 술의 도수는 매우 높아졌어요.
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키의 탄생', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('증류기법이 도입된 직후, 술의 도수는 매우 높아졌어요.
 어림짐작으로  75도는 됐을거라고 추정되는데요.
 
 우리가 쓰는 살균제의 알콜 도수가 약 70도인걸 감안하면,
@@ -94,7 +94,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류�
 당시 스코틀랜드와 잉글랜드는 서로 인접한 상황이였고, 전쟁도 많이 치뤘어요.
 그 과정에서 발음이 어려운 우스게 바하를 **잉글랜드인들이  Uisgy**로 불렀고
 이것이 오늘 날 위스키가 된답니다.','아! 위스키! 생명의 물!',2);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('그런데 왜 하필 스코틀랜드의 게일어가 오늘날의 위스키로 불리게 됐을까요?
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('그런데 왜 하필 스코틀랜드의 게일어가 오늘날의 위스키로 불리게 됐을까요?
 
 그 이유는 현대에 마시는 위스키의 원형이 스코틀랜드에서 시작됐기 때문이에요.
 
@@ -113,7 +113,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('그런�
 우스게 바하를 더욱 매력적으로 탈바꿈 시켜주게 돼죠.
 
 이렇게 탄생한게 오늘 날의 위스키에요.','왜 하필 스코틀랜드일까?',2);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('문샤인이라는 용어를 들어보신 적이 있나요?
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('문샤인이라는 용어를 들어보신 적이 있나요?
 
 이 문샤인은 밀주를 지칭하는 용어인데요.
 세금 내는 것을 피하기 위해 달빛을 받아가면서 빚어냈다고 하여 문샤인이라고 불렸어요.
@@ -129,8 +129,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('문샤�
 
 
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키 제조 과정 -상-', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('노랗게 잘 숙성된 위스키가,
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키 제조 과정 -상-', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('노랗게 잘 숙성된 위스키가,
 우리 잔에 담기기까지 어떤 과정을 거치게 될까요?
 
 위스키마다 조금씩 섬세한 터치는 다르지만,
@@ -151,7 +151,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('노랗�
 어때요? 처음부터 모르는 용어들이 마구마구 나오니까 혼란스럽죠?
 걱정마세요. 차근차근 알기 쉽게 알려드릴게요.
 너무 어려우신 분들은 제목 바로 밑에 적힌 한 줄 요약만 읽어주시면 돼요!','위스키를 만드는 큰 그림부터',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위스키의 원료가 되는 보리를 수확하는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 위스키의 원료가 되는 보리를 수확하는 과정
 
 위스키는 수확하는 과정부터 매우 중요해요!
 다만 술을 만들기 위한 보리와 일반적인 농사 관점에서의 보리 수확은
@@ -159,7 +159,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위�
 
 농부는 단위 면적당 생산량이 중요하지만
 증류업자는 보리에서 얻을 수 있는 알콜량이 중요해요.','위스키 만드는 과정 1',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위스키의 원료가 되는 보리를 수확하는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 위스키의 원료가 되는 보리를 수확하는 과정
 
 위스키는 수확하는 과정부터 매우 중요해요!
 다만 술을 만들기 위한 보리와 일반적인 농사 관점에서의 보리 수확은
@@ -167,7 +167,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위�
 
 농부는 단위 면적당 생산량이 중요하지만
 증류업자는 보리에서 얻을 수 있는 알콜량이 중요해요.','1. 보리 수확',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 보리를 말랑말랑하게 해서 당분을 생성하는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 보리를 말랑말랑하게 해서 당분을 생성하는 과정
 
 여러분은 딱딱한 생쌀과 쫀득쫀득한 갓 지은 쌀밥 중 어떤게 더 소화하기 쉬우세요?
 10이면 10 말랑말랑하고 탱글한 갓 지은 밥일거에요.
@@ -180,7 +180,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 보�
 보리를 보다 분해하기 쉬운 환경을 조성해서 효모에게 한 상 차려주는 과정인거죠!
 
 ','2. 몰팅',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 당분이 만들어진 맥아를 말리는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 당분이 만들어진 맥아를 말리는 과정
 
 킬닝은 이렇게 먹기 쉬워진 보리를 다시 건조시키는 과정을 말해요.
 
@@ -191,7 +191,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 당�
 이 때, 건조시키는 방법에 따라 독특한 위스키가 만들어지기도 하는데,
 이는 나중에 다시 언급할게요!
 (빨리 알고 싶은 분들은 피트 위스키를 검색해보세요!)','3. 킬닝',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 말린 맥아를 거칠게 갈아내는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 말린 맥아를 거칠게 갈아내는 과정
 
 여러분! 엿기름을 아세요?
 
@@ -202,13 +202,13 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 말�
 그래서 식혜에서는 단맛이 나는거랍니다!
 
 밀링은 킬닝을 마친 맥아를 거칠게 가는 과정을 말해요!','4. 밀링',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 따듯한 물에 갈린 맥아를 걸쭉하게 섞어 맥아즙을 뽑는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 따듯한 물에 갈린 맥아를 걸쭉하게 섞어 맥아즙을 뽑는 과정
 
 매싱은 커다란 통에 따듯한 물과 분쇄한 맥아를 넣고 섞는 과정이에요.
 
 이 과정에서 맥아에 있는 달달한 엿당이 물에 섞여서 맥아즙을 얻게 돼요!
 증류업자들은 이 맥아즙의 양을 보고 생산될 위스키의 양을 짐작한다고 합니다.','5. 매싱',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('후! 하! 어때요? 위스키를 만드는 과정이 생각보다 긴 여정이죠?
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('후! 하! 어때요? 위스키를 만드는 과정이 생각보다 긴 여정이죠?
 
 벌써 절반이나 알아봤지만, 이야기가 너무 길어져서 슬슬 딴짓을 하고 싶어져서요! (ㅋㅋ)
 
@@ -220,7 +220,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('후! �
 위스키도 마찬가지에요.
 
 기후, 토양, 설비의 재질, 수질에 따라 나오는 결과물이 많이 다르답니다!','쉬어가기',3);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('만일 여러분이 김치찌개 식당을 운영한다고 가정해볼게요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('만일 여러분이 김치찌개 식당을 운영한다고 가정해볼게요.
 
 그런데 김치찌개 레시피가 대한민국 법으로 명시가 되어있는거에요!
 물 양, 김치의 종류, 넣을 수 있는 MSG의 양, 염도계로 측정한 염도 등이요.
@@ -236,15 +236,15 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('만일 
 
 
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키 제조 과정 -하-', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('안녕하세요! 오늘은 열심히 맥아즙까지 잘 뽑아낸 위스키 후보를
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키 제조 과정 -하-', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('안녕하세요! 오늘은 열심히 맥아즙까지 잘 뽑아낸 위스키 후보를
 진정한 위스키로 거듭나도록하는 과정을 알아볼거에요!
 
 첫번째 파트에 나오는 단어들이 다소 생소했지만,
 오늘 보이는 과정들은 이름과 설명이 직관적이라서 이해하시기 더 쉬울거에요!
 
 너무 걱정하지마시고 다시 출발해볼까요?','위스키 만드는 과정 2',4);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 맥아즙을 발효시키는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 맥아즙을 발효시키는 과정
 
 위 과정을 마치고 난 다음에 하이라이트인 발효 과정을 거치게 돼요.
 
@@ -253,7 +253,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 맥�
 
 발효가 이뤄지는 통을 워시백이라고 하는데요,
 워시백은 나무통 또는 스테인레스 통으로 만든다고 해요.','6. 발효',4);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 발효된 원액을 증류하는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 발효된 원액을 증류하는 과정
 
 발효를 마친 원액을 증류하는 과정을 말해요.
 보통 보리로 만든 위스키의 경우에는 2번 증류를 합니다.
@@ -269,7 +269,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 발�
 단식 증류기보다는 시간효율성은 좋지만 풍미는 조금 떨어진다고 합니다.
 
 스코틀랜드에서는 단식 증류기 사용을 권고하고 있다고 합니다!','7. 증류',4);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 증류한 위스키를 오크통에 넣어서 숙성하는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 증류한 위스키를 오크통에 넣어서 숙성하는 과정
 
 어쩌면 발효만큼이나 매우 중요한 과정인데요.
 지금까지는 단순히 도수가 높은 보리 원료의 술을 만드는 과정이였다면,
@@ -281,7 +281,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 증�
 심지어 어떤 위스키는 구체적인 오크통의 종류를 법으로 명시하기도 한답니다.
 
 ','8. 숙성',4);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위스키를 병에 넣기 전에 물을 섞거나 여과하는 과정
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('> 위스키를 병에 넣기 전에 물을 섞거나 여과하는 과정
 
 병입은 위스키를 병에 넣는 단계를 말하는게 아니에요!
 위스키를 병에 넣기 전에 처리해주는 작업을 말합니다.
@@ -290,7 +290,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('> 위�
 그래서 물을 섞는다거나, 여과를 하는 과정이 들어가요.
 
 그 과정을 병입이라고 합니다!','9. 병입',4);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('만들었으면요!? 마셔야죠!
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('만들었으면요!? 마셔야죠!
 마시는 것 까지가 위스키의 완성이라고 볼 수 있어요.
 
 위스키에서는 정말 다양한 맛과 향을 느낄 수 있는데요!
@@ -317,7 +317,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('만들�
 위스키를 만들기까지 너무 많은 변수가 있고,
 미래 시장에 대한 대처가 어려운 것을 감안하면 어느정도 비싼 이 술 한 병의 가격이
 이해가 되기 시작해요.','10. 시음',4);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스키에 물을 타지 않을 순 없을까요?
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('위스키에 물을 타지 않을 순 없을까요?
 
 위스키는 위에서 서술했지만, 마지막 과정에서 물을 타게 되는데요.
 사실 여기에도 추가적인 과정이 필요해요.
@@ -341,8 +341,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스�
 
 
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키 시음 -상-', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스키의 시음에 대해 이야기하기 전에
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키 시음 -상-', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('위스키의 시음에 대해 이야기하기 전에
 먼저 명심해야할 것이 있어요!
 
 ***맛과 향에 대해 정답은 없다는 거에요.***
@@ -366,7 +366,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스�
 곧 알려드릴 시음에 대한 이야기는 다음과 같아요!
 * 위스키는 어떻게 마셔야해요?
 * 맛을 느끼는 법을 알아보기','위스키를 만나는 태도',5);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 말씀드릴건 위스키를 마시는 방법도 매우 많다는거에요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('먼저 말씀드릴건 위스키를 마시는 방법도 매우 많다는거에요.
 섞어드셔도 되고~, 그냥 드셔도 좋고, 얼음에 타서 마셔도 좋고~
 정답은 없습니다!
 
@@ -393,7 +393,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 
 
 
 다만, 평소에 주량이 약하신 분들이라면 온 더 록 방식(얼음을 타는 방식)으로 드셔도 괜찮아요!','위스키는 어떻게 마셔요?',5);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 말씀드릴건 위스키를 마시는 방법도 매우 많다는거에요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('먼저 말씀드릴건 위스키를 마시는 방법도 매우 많다는거에요.
 섞어드셔도 되고~, 그냥 드셔도 좋고, 얼음에 타서 마셔도 좋고~
 정답은 없습니다!
 
@@ -412,7 +412,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 
 아무 것도 첨가하지 않기 때문에, 술의 질감이나 향을 온전히 느낄 수 있는 방식이랍니다!
 
 다만, 평소에 주량이 약하신 분들이라면 온 더 록 방식(얼음을 타는 방식)으로 드셔도 괜찮아요!','위스키는 어떻게 마셔요?',5);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 말씀드릴건 위스키를 마시는 방법도 매우 많다는거에요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('먼저 말씀드릴건 위스키를 마시는 방법도 매우 많다는거에요.
 섞어드셔도 되고~, 그냥 드셔도 좋고, 얼음에 타서 마셔도 좋고~
 정답은 없습니다!
 
@@ -445,8 +445,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 
 
 
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키 시음 -하-', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 위스키를 글라스에 따라주세요!
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키 시음 -하-', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('먼저 위스키를 글라스에 따라주세요!
 
 전용잔이 있다면 전용잔을 쓰시면 되지만,
 굳이 전용잔이 아니어도 위스키를 즐기는 데에는 지장 없습니다!
@@ -455,7 +455,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 
 아로마 : 위스키를 마시기 전에 맡을 수 있는 향
 팔레트 : 위스키가 입에 들어올 때 입안에서 느껴지는 질감과 맛
 피니시 : 위스키가 넘어가고 나서 입안에 남는 여운','본격적으로 맛보기',6);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 위스키를 글라스에 따라주세요!
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('먼저 위스키를 글라스에 따라주세요!
 
 전용잔이 있다면 전용잔을 쓰시면 되지만,
 굳이 전용잔이 아니어도 위스키를 즐기는 데에는 지장 없습니다!
@@ -464,7 +464,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('먼저 
 아로마 : 위스키를 마시기 전에 맡을 수 있는 향
 팔레트 : 위스키가 입에 들어올 때 입안에서 느껴지는 질감과 맛
 피니시 : 위스키가 넘어가고 나서 입안에 남는 여운','위스키 3 Point',6);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('* 아로마
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('* 아로마
 
 먼저 잔을 기울여 코를 가져다 댄 뒤
 **토끼가 냄새를 맡듯** 살살 맡아보세요!
@@ -486,7 +486,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('* 아�
 숨을 크게 들이쉬었다가 천천히 내쉬면서 느껴보기도하고,
 입안에서는 어떤 잔상이 남는지 느껴보세요!','본격적으로 맛보기',6);
 
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('어때요? 충분히 자신의 위스키와 대화를 나눠보셨나요?
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('어때요? 충분히 자신의 위스키와 대화를 나눠보셨나요?
 
 자신이 마신 위스키에 대한 감상을 모두 마치셨다면,
 다른 사람들의 감상과 비교해보세요!
@@ -500,7 +500,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('어때�
 따라서 의견 공유를 하거나 공식 테이스팅 노트를 보기 전에
 충분히 스스로 즐겨보는 시간을 가질 것!','충분히 위스키를 느껴봤다면...',6);
 
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스키가 주는 아로마는 정말 다양해요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('위스키가 주는 아로마는 정말 다양해요.
 숨은 듯이 잘 찾아야 맡아지는 향도 있고,
 대놓고 코와 혀를 때리는 강렬한 향도 있죠.
 
@@ -518,10 +518,10 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스�
 
 
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키 종류 알아보기', 'tutorial');
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키 종류 알아보기', 'tutorial');
 -- TODO: 위스키 종류 알아보기 추가해야됨 --
 -- ID : 7--
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스키는 정말 외우기도 힘들 정도로 종류가 많죠?
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('위스키는 정말 외우기도 힘들 정도로 종류가 많죠?
 어떤 기준으로 위스키를 구분짓게 되는걸까요?
 
 원료? 지역? 오크통? 생산과정?... 정답은 모두 다에요!
@@ -543,7 +543,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('위스�
 * 라이
 * 버번
 * 싱글과 블렌디드','위스키 구분의 기준',7);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('첫번째 위스키를 구분하는 기준은 위스키를 구성하는 원료에요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('첫번째 위스키를 구분하는 기준은 위스키를 구성하는 원료에요.
 
 자! 말로 설명하는 것보다 실제로 예시를 들어서 살펴볼게요.
 "싱글 몰트 위스키"를 3분할로 나눠보죠!
@@ -571,7 +571,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('첫번�
 블렌디드 그레인 위스키는 싱글 그레인만을 이용해 블렌딩한 위스키.
 
 기준점이 생기면 구분하기도 훨씬 수월해요.','싱글? 블렌디드?',7);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('라이는 말 그대로 호밀이라는 뜻이고,  호밀을 이용해 만든 위스키를 라이 위스키라고 해요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('라이는 말 그대로 호밀이라는 뜻이고,  호밀을 이용해 만든 위스키를 라이 위스키라고 해요.
 
 버번 위스키는 조금 특별한 케이스인데요.
 일반적인 위스키와 구분되는 특이한 점이 몇가지 있어요.
@@ -590,7 +590,7 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('라이�
 달달한 바닐라와 흑설탕 향이 매우 농후해진답니다.
 
 ','라이, 버번',7);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('그런데, 버번과 매우 비슷한 위스키가 있어요.
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('그런데, 버번과 매우 비슷한 위스키가 있어요.
 바로 테네시 위스키인데요. 가장 우리에게 친숙한 테네시 위스키는 잭 다니엘이에요.
 
 테네시 위스키는 버번 위스키와 다른 조건은 모두 같지만,
@@ -616,9 +616,9 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('그런�
 
 
 
--- 용준님 작성 Article --
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('이야깃 거리', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
+-- 용준님 작성 article --
+INSERT INTO article(TITLE, TYPES) VALUES ('이야깃 거리', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('
  1) 프루프(proof)
  - 술의 도수를 의미하는 프루프
 
@@ -674,8 +674,8 @@ INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
 
 ','이야깃거리', 8);
 
-INSERT INTO ARTICLE(TITLE) VALUES ('위스키 용어 사전');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키 용어 사전', 'tutorial');
+INSERT INTO section(section_content, section_TITLE, article_ID) VALUES ('
 
  니트
 

@@ -8,13 +8,16 @@ spring:
 ---
 
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:mysql://main-001-db.claqadurzooy.ap-northeast-2.rds.amazonaws.com:3306/main?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     initialization-mode: always
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: ${/main001/mysql/password}
   jpa:
     defer-datasource-initialization: true
     hibernate:
@@ -26,6 +29,9 @@ spring:
         hbm2ddl:
           import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
     open-in-view: false
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   sql:
     init:
-      data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
+      data-locations: classpath:db/*
+      mode: always
