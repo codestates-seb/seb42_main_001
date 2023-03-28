@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { BsPlusCircle } from 'react-icons/bs';
+
+import { HiOutlineUserCircle } from 'react-icons/hi';
+
 interface InfoProps {
   editMode: boolean;
   displayName: string;
@@ -18,7 +20,11 @@ function MyPageInfoContent({
   return (
     <MainContainer>
       <ImgContainer>
-        <BsPlusCircle />
+        {editMode ? (
+          <input type="file" accept="image/*"></input>
+        ) : (
+          <HiOutlineUserCircle />
+        )}
       </ImgContainer>
       <TextContainer>
         {editMode ? (
@@ -55,15 +61,13 @@ const ImgContainer = styled.div`
   border-radius: var(--3x-large);
   cursor: pointer;
   transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  svg {
-    display: none;
-    background-color: red;
-
-    &:hover {
-      display: block;
-      background-color: red;
-    }
+  > svg {
+    width: 90%;
+    height: 90%;
   }
 
   &:hover {
