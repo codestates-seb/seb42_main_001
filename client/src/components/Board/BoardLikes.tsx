@@ -64,10 +64,18 @@ const LikesWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: 768px) {
+    margin-right: 3vw;
+  }
+
   svg {
     margin-right: 5px;
     color: var(--color-main);
     font-size: var(--medium);
+
+    @media only screen and (max-width: 768px) {
+      font-size: 4vw;
+    }
   }
 `;
 
@@ -75,4 +83,8 @@ const LikesCount = styled.div`
   font-size: var(--x-small);
   font-weight: var(--weight-medium);
   color: var(--color-main);
+
+  @media only screen and (max-width: 768px) {
+    font-size: 4vw;
+  }
 `;
