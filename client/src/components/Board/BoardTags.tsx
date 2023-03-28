@@ -31,6 +31,10 @@ export default BoardTags;
 
 const TagsBox = styled.div`
   display: flex;
+  height: 25px;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const TagsContainer = styled.div`

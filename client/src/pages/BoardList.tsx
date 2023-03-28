@@ -84,8 +84,8 @@ const ListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  @media only screen and (max-width: 768px) {
+  /* @media only screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
-  }
+  } */
 `;
