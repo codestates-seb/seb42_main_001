@@ -4,7 +4,7 @@ spring:
     username: david
     password: 001mainproject
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    initialization-mode: always
+    initialization-mode: always
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
