@@ -35,7 +35,6 @@ const InfoContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 `;
 
@@ -50,7 +49,10 @@ const TagContainer = styled.div`
   }
 
   @media only screen and (max-width: 450px) {
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--small);
   }
   
 `

@@ -42,5 +42,12 @@ const TagsContainer = styled.div`
       color: var(--color-white);
       border: 1px solid var(--color-main);
     }
+
+    @media only screen and (max-width: 450px) {
+    height: 30px;
+    font-size: calc(var(--text-x-large) / 2);
+    display: flex;
+    flex-direction: column;
+  }
   }
 `;
