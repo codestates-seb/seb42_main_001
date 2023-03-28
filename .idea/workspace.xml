@@ -62,7 +62,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="b426d46c394b92ccd359e11cd97089a08b885cfb" />
+        <entry key="$PROJECT_DIR$" value="be" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -626,7 +626,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="merge" />
+                        <option value="be" />
                       </list>
                     </value>
                   </entry>
