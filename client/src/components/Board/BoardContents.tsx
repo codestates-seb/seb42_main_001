@@ -34,7 +34,10 @@ const BoardContentsTitle = styled.div`
 `;
 
 const BoardContentsBody = styled.div`
+  width: 100%;
+  height: 100px;
   line-height: var(--medium);
   font-size: var(--text-small);
   font-weight: var(--weight-x-small);
+  overflow: hidden;
 `;

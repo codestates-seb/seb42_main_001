@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import Card from '../UI/Card';
 import BoardContents from './BoardContents';
 import BoardMetaInfo from './BoardMetaInfo';
@@ -30,14 +30,14 @@ function BoardItem({ data }: BoardItemprops) {
     <MarginContainer>
       <Card>
         <ItemContainer>
-          <BoardAuthorInfo
-            userName={data.memberName}
-            userImage={data.profileImageUrl}
-            date={data.createdAt}
-          />
-
-          <BoardContents title={data.boardTitle} content={data.content} />
-
+          <Link to={`/board/detail/${data.boardId}`}>
+            <BoardAuthorInfo
+              userName={data.memberName}
+              userImage={data.profileImageUrl}
+              date={data.createdAt}
+            />
+            <BoardContents title={data.boardTitle} content={data.content} />
+          </Link>
           <BoardMetaInfo
             boardId={data.boardId}
             tags={data.tags}
@@ -57,6 +57,10 @@ const MarginContainer = styled.div`
   margin-bottom: calc(var(--4x-large) / 2);
   margin-right: var(--x-small);
   margin-left: var(--x-small);
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -80,5 +84,6 @@ const ItemContainer = styled.div`
 
   > a {
     width: 100%;
+    max-width: 680px;
   }
 `;

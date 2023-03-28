@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface BoardTagProps {
   tag: string;
@@ -27,11 +27,12 @@ const TagWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--2x-small);
-    transition: .5s;
+    padding: var(--3x-small);
+    transition: 0.5s;
+    white-space: nowrap;
 
     &:hover {
-      transition: .5s;
+      transition: 0.5s;
       background-color: var(--color-main);
       color: var(--color-white);
       border: 1px solid var(--color-main);

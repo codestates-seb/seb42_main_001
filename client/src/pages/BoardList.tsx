@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
@@ -58,11 +57,7 @@ function BoardList() {
           <BoardInfo search={search} setSearch={setSearch} />
           <ListContainer>
             {(filteredData.length === 0 ? isData : filteredData)?.map((el) => {
-              return (
-                <Link to={`/board/detail/${el.boardId}`}>
-                  <BoardItem key={el.boardId} data={el} />
-                </Link>
-              );
+              return <BoardItem key={el.boardId} data={el} />;
             })}
           </ListContainer>
         </Wrapper>
@@ -89,8 +84,8 @@ const ListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  @media only screen and (max-width: 768px) {
+  /* @media only screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
-  }
+  } */
 `;
