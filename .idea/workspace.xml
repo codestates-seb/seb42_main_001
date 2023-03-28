@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ chore: gradle 의존성 수정(runtimeonly option 제거)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,14 +291,7 @@
       <workItem from="1679925351972" duration="273000" />
       <workItem from="1679979002157" duration="2990000" />
       <workItem from="1679984527204" duration="715000" />
-      <workItem from="1679985274091" duration="3910000" />
-    </task>
-    <task id="LOCAL-00042" summary="✨ feat: 설정 프로파일 추가2">
-      <created>1679290806466</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1679290806466</updated>
+      <workItem from="1679985274091" duration="4026000" />
     </task>
     <task id="LOCAL-00043" summary="✨ feat: 리다이렉트 헤더에 accessToken, refreshToken 추가">
       <created>1679293972219</created>
@@ -635,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679988605629</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="✨ chore: gradle 의존성 수정(runtimeonly option 제거)">
+      <created>1679989229443</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1679989229443</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: recommandDrinks 기능 수정2" />
     <MESSAGE value="✨ feat: yml 변경사항 반영" />
     <MESSAGE value="✨ feat: 리디렉션 URI 작성 수정" />
     <MESSAGE value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
@@ -695,7 +695,8 @@
     <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정3" />
     <MESSAGE value="✨ feat: 게스트 계정 엔드포인트 추가" />
     <MESSAGE value="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경" />
+    <MESSAGE value="✨ chore: gradle 의존성 수정(runtimeonly option 제거)" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ chore: gradle 의존성 수정(runtimeonly option 제거)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
