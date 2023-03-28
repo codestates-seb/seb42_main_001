@@ -60,6 +60,7 @@ const MarginContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    margin-bottom: calc(var(--2x-large) / 2);
   }
 `;
 
@@ -80,6 +81,7 @@ const ItemContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    padding: var(--large);
   }
 
   > a {
