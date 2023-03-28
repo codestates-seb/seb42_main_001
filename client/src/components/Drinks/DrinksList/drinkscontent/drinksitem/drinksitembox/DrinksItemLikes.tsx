@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEventHandler } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
 import axios from "axios";
@@ -18,8 +18,9 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
     setLike(isDrinkLiked)
   }, [drinksData.drinkId, likesData])
 
-  const handleLikesData = async () => {
+  const handleLikesData: MouseEventHandler<SVGElement> = async (e) => {
     if (like) {
+      e.preventDefault();
       try {
         await axios.delete(`/likes/drinks/${drinksData.drinkId}`);
         dispatch(setLikes());
@@ -29,6 +30,7 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
         console.log(error);
       }
     } else {
+      e.preventDefault();
       try {
         await axios.post(`/likes/drinks/${drinksData.drinkId}`);
         dispatch(setLikes());
