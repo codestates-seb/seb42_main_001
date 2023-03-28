@@ -18,7 +18,7 @@ spring:
 #    password: Optional, if Redis requires a password
 
 redirect:
-  oauth2login: ${/main001/redirect/oauth2loginurl}
+  oauth2login: ${GOOGLE_OAUTH2_LOGIN}
 
 logging:
   level:
