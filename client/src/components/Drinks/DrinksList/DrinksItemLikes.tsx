@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import styled from "styled-components";
 import axios from "axios";
@@ -10,7 +10,6 @@ import { setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
 function DrinksItemLikes({ drinksData }: IDrinksProps) {
   const { likesData } = useAppSelector((state) => state.drinkslist);
   const dispatch = useAppDispatch();
-
   const [like, setLike] = useState(false)
 
   useEffect(() => {
