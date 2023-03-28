@@ -22,6 +22,13 @@ const BodyContainer = styled.div`
   align-items: center;
   flex-direction: column;
   padding: var(--large);
+
+  @media only screen and (max-width: 768px) {
+    width: 320px;
+    height: auto;  
+    margin-top: var(--x-small);
+    margin-bottom: var(--x-small);
+    }
 `
 
 const BodyImg = styled.img`
@@ -30,6 +37,13 @@ const BodyImg = styled.img`
   height: 220px;
   margin-top: var(--small);
   margin-bottom: var(--medium);
+
+    @media only screen and (max-width: 768px) {
+    width: 200px;
+    height: auto;  
+    margin-top: var(--x-small);
+    margin-bottom: var(--x-small);
+    }
 
     @media only screen and (max-width: 450px) {
     width: 180px;
