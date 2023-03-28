@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 게스트 계정 엔드포인트 추가">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/blended.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/blended.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/bourbon.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/bourbon.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/drink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/drink.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/single.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/single.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snack.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snack.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snackdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/snackdrink.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tag.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tag.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tagdrink.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tastingNote.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/tastingNote.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +120,7 @@
       <recent name="com.codestates.server_001_withskey.global.security" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.localExecute">
+  <component name="RunManager" selected="Gradle.Server_001_WithsKey [bootJar]">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="zulu-11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -142,6 +129,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Server_001_WithsKey [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Server_001_WithsKey" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="Server_001_WithsKey [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -233,6 +241,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Gradle.Server_001_WithsKey [bootJar]" />
       <item itemvalue="Gradle.Server_001_WithsKey [build]" />
       <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
       <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
@@ -242,11 +251,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Server_001_WithsKey [bootJar]" />
         <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
         <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
         <item itemvalue="Gradle.Server_001_WithsKey [build]" />
         <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
-        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -281,14 +290,7 @@
       <workItem from="1679925351972" duration="273000" />
       <workItem from="1679979002157" duration="2990000" />
       <workItem from="1679984527204" duration="715000" />
-      <workItem from="1679985274091" duration="3207000" />
-    </task>
-    <task id="LOCAL-00041" summary="✨ feat: 설정 프로파일 추가">
-      <created>1679290151321</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1679290151321</updated>
+      <workItem from="1679985274091" duration="3910000" />
     </task>
     <task id="LOCAL-00042" summary="✨ feat: 설정 프로파일 추가2">
       <created>1679290806466</created>
@@ -626,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679925416216</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경">
+      <created>1679988605629</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1679988605629</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +670,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: recommandDrinks 기능 수정" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 수정2" />
     <MESSAGE value="✨ feat: yml 변경사항 반영" />
     <MESSAGE value="✨ feat: 리디렉션 URI 작성 수정" />
@@ -686,7 +694,8 @@
     <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정2" />
     <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정3" />
     <MESSAGE value="✨ feat: 게스트 계정 엔드포인트 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 게스트 계정 엔드포인트 추가" />
+    <MESSAGE value="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
