@@ -59,6 +59,9 @@ function BoardCreate() {
           setPreData(item);
           setTags(item.tags);
           setBoardImageUrl(item.boardImageUrl);
+        } else {
+          localStorage.removeItem('editData');
+          editData();
         }
       } else {
         editData();
@@ -158,6 +161,7 @@ function BoardCreate() {
         axios
           .patch(`/boards/${editId}`, newBoard)
           .then((res) => {
+            localStorage.removeItem('editData');
             navigate('/board/list');
             alert('성공적으로 수정되었습니다.');
             window.location.reload();
