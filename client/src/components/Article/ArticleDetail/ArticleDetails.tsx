@@ -52,9 +52,10 @@ export default ArticleDetails;
 
 const MainContainer = styled.div`
   width: 100%;
-  height: 100vmax;
+  height: 100%;
   display: flex;
   align-items: flex-start;
+  margin-bottom: var(--5x-large);
 
   @media only screen and (max-width: 768px) {
     display: flex;

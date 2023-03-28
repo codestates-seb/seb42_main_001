@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
+import { IDrinksDetailProps } from '../../../../../util/interfaces/drinks.inerface'
 
 function DrinksDetailInfo({ drinksDetail }: IDrinksDetailProps) {
 
@@ -38,13 +38,21 @@ const InfoContainer = styled.div`
     font-weight: var(--weight-large);
   }
 
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: var(--3x-large);
-  }
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: calc(var(--2x-large) / 2);
+    }    
+    
+    @media only screen and (max-width: 450px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: calc(var(--2x-large) / 2);
+    }
 `;
 
 const TopBorder = styled.div`
@@ -56,10 +64,10 @@ const TopBorder = styled.div`
   border-top: 1px solid var(--color-main);
   padding: var(--2x-small);
 
-  @media only screen and (max-width: 768px) {
-    margin: 0;
-    margin-bottom: var(--x-small);
-  }
+    @media only screen and (max-width: 768px) {
+      margin: 0;
+      margin-bottom: var(--x-small);
+    }
 `;
 
 const TopBorderMargin = styled.div`
@@ -72,8 +80,8 @@ const TopBorderMargin = styled.div`
   padding: var(--2x-small);
   margin-left: var(--large);
 
-  @media only screen and (max-width: 768px) {
-    margin: 0;
-    margin-bottom: var(--x-small);
-  }
+    @media only screen and (max-width: 768px) {
+      margin: 0;
+      margin-bottom: var(--x-small);
+    }
 `;

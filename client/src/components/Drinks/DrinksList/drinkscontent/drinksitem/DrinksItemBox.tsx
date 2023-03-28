@@ -1,9 +1,8 @@
-import React from "react";
-import DrinksLikes from "./DrinksItemLikes";
-import DrinksItemTags from "./DrinksItemTags";
+import DrinksLikes from "./drinksitembox/DrinksItemLikes";
+import DrinksItemTags from "./drinksitembox/DrinksItemTags";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../../../util/interfaces/drinks.inerface";
 
 function DrinksItemBox({ drinksData }: IDrinksProps) {
 
@@ -27,11 +26,16 @@ export default DrinksItemBox;
 
 const InfoContainer = styled.div`
   width: 100%;
-  height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: var(--large) var(--large) 0 var(--large);
+
+    @media only screen and (max-width: 450px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 `;
 
 const TagContainer = styled.div`
@@ -40,7 +44,14 @@ const TagContainer = styled.div`
   justify-content: flex-end;
   overflow-x: scroll;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media only screen and (max-width: 450px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: var(--small);
+    }
 `

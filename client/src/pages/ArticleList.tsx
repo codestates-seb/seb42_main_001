@@ -16,7 +16,7 @@ export default ArticleList;
 
 const ArticleListContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 150px 0;
   background-color: var(--color-main);
 
@@ -31,6 +31,7 @@ const ArticleListCardContainer = styled.div`
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 200px;
 
   @media only screen and (max-width: 768px) {
     height: auto;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import DrinksDetailSnacks from "./DrinksDetailSnacks";
-import DrinksDetailTasting from "./DrinksDetailTasting";
-import DrinksDetailWiths from "./DrinksDetailWiths";
+import DrinksDetailSnacks from "./drinksdetailcontent/DrinksDetailSnacks";
+import DrinksDetailTasting from "./drinksdetailcontent/DrinksDetailTasting";
+import DrinksDetailWiths from "./drinksdetailcontent/DrinksDetailWiths";
 import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
 
 function DrinksDetailContent({ drinksDetail }: IDrinksDetailProps) {
@@ -31,7 +31,7 @@ const ContentContainer = styled.div`
 `;
 
 const BottomMargin = styled.div`
-  margin-top: var(--4x-large);
+  margin-top: var(--2x-large);
   margin-bottom: var(--1x-large);
 
   @media only screen and (max-width: 768px) {
@@ -39,6 +39,5 @@ const BottomMargin = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: var(--3x-large) 0;
   }
 `;

@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import { IDrinks } from '../../../util/interfaces/drinks.inerface';
+import { IDrinks } from '../../../../../util/interfaces/drinks.inerface';
 
 interface IDrinksContentsProps {
   drinksData: IDrinks;
@@ -26,4 +25,8 @@ const LevelContainer = styled.div`
   justify-content: center;
   padding: var(--small);
   border-top: 1px solid var(--color-sub-light-gray);
+
+    @media only screen and (max-width: 450px) {
+      width: 100%;
+    }
 `

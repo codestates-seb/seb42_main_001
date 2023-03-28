@@ -1,11 +1,10 @@
-import React from "react";
-import DrinksItemBox from "./DrinksItemBox";
-import DrinksItemBody from "./DrinksItemBody";
-import DrinksItemLevel from "./DrinksItemLevel";
-import Card from "../../UI/Card";
+import DrinksItemBox from "./drinksitem/DrinksItemBox";
+import DrinksItemBody from "./drinksitem/DrinksItemBody";
+import DrinksItemLevel from "./drinksitem/DrinksItemLevel";
+import Card from "../../../UI/Card";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../../util/interfaces/drinks.inerface";
 
 function DrinksItem({ drinksData, likesData }: IDrinksProps) {
   return (
@@ -29,26 +28,37 @@ export default DrinksItem;
 
 const Margin = styled.div`
   margin: 0 calc(var(--large) / 2) calc(var(--4x-large) / 2) calc(var(--large) / 2);
+
+  @media only screen and (max-width: 450px) {
+    margin: 0 0 calc(var(--4x-large) / 2) 0;
+  }
 `;
 
 const ItemContainer = styled.div`
-  width: 320px;
-  height: 490px;
+  width: auto;
+  min-width: 320px;
+  min-height: 490px;
   display: flex;
   flex-direction: column;
   transition: .4s;
 
-  &:hover {
-    transition: .4s;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px #473f3f73;
-  }
+    &:hover {
+      transition: .4s;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px #473f3f73;
+    }
 
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    @media only screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 240px;
+    }
+
+    @media only screen and (max-width: 450px) {
+      width: 270px;
+      min-height: 0;
+    }
 `;
 
 const SubContainer = styled.div`
