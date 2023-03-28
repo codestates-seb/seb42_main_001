@@ -53,7 +53,10 @@ function MyPageInfoContent({ editMode }: InfoProps) {
         {editMode ? (
           <>
             <label htmlFor="image_upload">
-              <RiImageAddLine></RiImageAddLine>
+              <img src={`${profilePicture}`} alt="profilePicture" />
+              <IconWrapper>
+                <RiImageAddLine></RiImageAddLine>
+              </IconWrapper>
             </label>
             <input
               type="file"
@@ -108,13 +111,6 @@ const ImgContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  > img,
-  > svg {
-    width: 90%;
-    height: 90%;
-    border-radius: var(--3x-large);
-  }
-
   > label {
     width: 100%;
     height: 100%;
@@ -122,20 +118,32 @@ const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    > * {
-      width: 20%;
-      height: 20%;
-    }
+    opacity: 0.5;
   }
 
   input {
     display: none;
   }
 
+  > svg,
+  img {
+    width: 90%;
+    height: 90%;
+    border-radius: var(--3x-large);
+  }
+
   &:hover {
     transition: 0.5s;
     background-color: var(--color-sub-gray);
+  }
+`;
+
+const IconWrapper = styled.div`
+  position: absolute;
+
+  > svg {
+    width: 30px;
+    height: 30px;
   }
 `;
 
