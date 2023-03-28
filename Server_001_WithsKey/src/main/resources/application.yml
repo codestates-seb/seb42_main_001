@@ -13,7 +13,7 @@ spring:
     username: david
     password: 001mainproject
     driver-class-name: com.mysql.cj.jdbc.Drvier
-    initialization-mode: always
+#    initialization-mode: always
   jpa:
     defer-datasource-initialization: true
     hibernate:
