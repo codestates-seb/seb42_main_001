@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import { IDrinks } from '../../../util/interfaces/drinks.inerface';
+import { IDrinks } from '../../../../../util/interfaces/drinks.inerface';
 
 interface IDrinksContentsProps {
   drinksData: IDrinks;
@@ -38,4 +37,14 @@ const BodyContainer = styled.div`
       font-weight: var(--weight-large);
     }
 
+    @media only screen and (max-width: 450px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
 `

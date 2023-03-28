@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useAppSelector } from '../../redux/hooks/hooks';
 
-import DrinksItem from '../Drinks/DrinksList/DrinksItem';
+import DrinksItem from '../Drinks/DrinksList/drinkscontent/DrinksItem';
 
 const TagsDrinksContent = () => {
   const drinksList = useAppSelector(state => state.tag.tagData.drink);
@@ -10,11 +10,11 @@ const TagsDrinksContent = () => {
     <DrinksContentContainer>
       {drinksList
         ? drinksList.map(ele => (
-            <DrinksItem
-              key={ele.drinkId}
-              drinksData={ele}
-              likesData={[]}></DrinksItem>
-          ))
+          <DrinksItem
+            key={ele.drinkId}
+            drinksData={ele}
+            likesData={[]}></DrinksItem>
+        ))
         : null}
     </DrinksContentContainer>
   );

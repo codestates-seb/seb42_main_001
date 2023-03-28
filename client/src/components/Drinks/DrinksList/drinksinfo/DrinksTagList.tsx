@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
-import Button from "../../UI/Button";
+import Button from "../../../UI/Button";
 import DrinksTags from "./DrinksTags";
 
 interface TagProps {

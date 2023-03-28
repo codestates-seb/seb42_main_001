@@ -1,11 +1,10 @@
-import React from "react";
-import DrinksItemBox from "./DrinksItemBox";
-import DrinksItemBody from "./DrinksItemBody";
-import DrinksItemLevel from "./DrinksItemLevel";
-import Card from "../../UI/Card";
+import DrinksItemBox from "./drinksitem/DrinksItemBox";
+import DrinksItemBody from "./drinksitem/DrinksItemBody";
+import DrinksItemLevel from "./drinksitem/DrinksItemLevel";
+import Card from "../../../UI/Card";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { IDrinksProps } from "../../../util/interfaces/drinks.inerface";
+import { IDrinksProps } from "../../../../util/interfaces/drinks.inerface";
 
 function DrinksItem({ drinksData, likesData }: IDrinksProps) {
   return (
@@ -32,8 +31,9 @@ const Margin = styled.div`
 `;
 
 const ItemContainer = styled.div`
-  width: 320px;
-  height: 490px;
+  width: auto;
+  min-width: 320px;
+  min-height: 490px;
   display: flex;
   flex-direction: column;
   transition: .4s;
@@ -48,6 +48,7 @@ const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 240px;
   }
 `;
 

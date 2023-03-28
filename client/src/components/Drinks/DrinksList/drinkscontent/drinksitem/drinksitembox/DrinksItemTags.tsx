@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { IDrinksTagsProps } from "../../../util/interfaces/drinks.inerface";
+import { IDrinksTagsProps } from "../../../../../../util/interfaces/drinks.inerface";
 
 function DrinksItemTags({ drinksData }: IDrinksTagsProps) {
 

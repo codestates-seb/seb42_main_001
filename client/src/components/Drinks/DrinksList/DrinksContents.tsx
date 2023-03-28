@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import DrinksItem from "./DrinksItem";
+import { useState } from "react";
+import DrinksItem from "./drinkscontent/DrinksItem";
 import styled from "styled-components";
 import { IDrinks } from "../../../util/interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";
@@ -76,6 +76,14 @@ const ContentsContainer = styled.div`
   justify-content: center;
 
   @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 450px) {
     width: 100%;
     display: flex;
     flex-direction: column;

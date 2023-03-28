@@ -1,6 +1,6 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
-import DrinksTagList from "./DrinksTagList";
-import DrinkSearch from "./DrinksSearch";
+import { useState, Dispatch, SetStateAction } from "react";
+import DrinksTagList from "./drinksinfo/DrinksTagList";
+import DrinkSearch from "./drinksinfo/DrinksSearch";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../../UI/Button";

@@ -1,6 +1,6 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
-import Card from "../../UI/Card";
+import Card from "../../../UI/Card";
 
 interface ISearchProps {
   search?: string;
