@@ -1,6 +1,6 @@
 
-INSERT INTO ARTICLE(TITLE, TYPES) VALUES ('위스키를 아시나요?', 'tutorial');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('여러분은 바에 가보신 적 있어요?
+INSERT INTO article(TITLE, TYPES) VALUES ('위스키를 아시나요?', 'tutorial');
+INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('여러분은 바에 가보신 적 있어요?
 
 어땠어요?
 
