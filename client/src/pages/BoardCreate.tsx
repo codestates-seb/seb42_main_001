@@ -102,7 +102,7 @@ function BoardCreate() {
 
   const handleTagSearchOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setSearchOpen(true);
+    setSearchOpen((prev) => !prev);
   };
   const handleTagSearchClose = () => {
     setSearchOpen(false);
