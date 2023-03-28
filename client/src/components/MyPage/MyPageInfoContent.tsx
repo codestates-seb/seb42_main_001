@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useRef } from 'react';
 import axios from 'axios';
 
-import { HiOutlineUserCircle } from 'react-icons/hi';
 import { RiImageAddLine } from 'react-icons/ri';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import {
@@ -10,6 +9,7 @@ import {
   modifyAboutMe,
   modifyProfilePicture,
 } from '../../redux/slice/auth/authSlice';
+import defaultImg from '../../assets/img/brandon-green-21jzeYnvZTY-unsplash.jpg';
 
 interface InfoProps {
   editMode: boolean;
@@ -53,7 +53,10 @@ function MyPageInfoContent({ editMode }: InfoProps) {
         {editMode ? (
           <>
             <label htmlFor="image_upload">
-              <img src={`${profilePicture}`} alt="profilePicture" />
+              <img
+                src={profilePicture ? `${profilePicture}` : defaultImg}
+                alt="profilePicture"
+              />
               <IconWrapper>
                 <RiImageAddLine></RiImageAddLine>
               </IconWrapper>
@@ -66,10 +69,10 @@ function MyPageInfoContent({ editMode }: InfoProps) {
               onChange={handleProfilePictureChange}
             />
           </>
-        ) : profilePicture ? (
-          <img src={`${profilePicture}`} alt="profilePicture"></img>
         ) : (
-          <HiOutlineUserCircle></HiOutlineUserCircle>
+          <img
+            src={profilePicture ? `${profilePicture}` : defaultImg}
+            alt="profilePicture"></img>
         )}
       </ImgContainer>
       <TextContainer>
@@ -84,7 +87,7 @@ function MyPageInfoContent({ editMode }: InfoProps) {
         ) : (
           <>
             <Name>{displayName}</Name>
-            <Text>{aboutMe || '자기를 소개해주세요'}</Text>
+            <Text>{aboutMe || '🥃 자기소개를 입력해 주세요 🍹'}</Text>
           </>
         )}
       </TextContainer>
