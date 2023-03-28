@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useAppSelector } from '../../../redux/hooks/hooks';
+import defaultImg from '../../../assets/img/brandon-green-21jzeYnvZTY-unsplash.jpg';
 
 interface UserNavProps {
   profileColor?: string;
@@ -16,7 +17,9 @@ function UserNav({ profileColor }: UserNavProps) {
     <UserContainer>
       <Link to="/mypage">
         <PorfileImg profileColor={profileColor}>
-          <img src={`${profilePicture}`} alt="profilePicture"></img>
+          <img
+            src={profilePicture ? `${profilePicture}` : defaultImg}
+            alt="profilePicture"></img>
         </PorfileImg>
       </Link>
     </UserContainer>
@@ -35,7 +38,7 @@ const UserContainer = styled.div`
   }
 
   @media only screen and (max-width: 280px) {
-  display: none;
+    display: none;
   }
 `;
 
