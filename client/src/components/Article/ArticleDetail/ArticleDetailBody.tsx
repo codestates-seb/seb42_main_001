@@ -26,7 +26,12 @@ export default ArticleDetailBody;
 const MainContainer = styled.div`
   color: var(--color-main);
   width: 100%;
-  padding: var(--2x-large);
+  padding: var(--large) var(--2x-large) var(--2x-large) var(--2x-large);
   font-size: var(--small);
   white-space: pre-wrap;
+  line-height: calc(var(--x-small) * 2);
+
+  ul {
+    padding-left: var(--large);
+  }
 `;
