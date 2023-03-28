@@ -11,7 +11,7 @@ import {
 } from '../../redux/slice/auth/authSlice';
 
 function MyPageInfo() {
-  const [userInfo, setUserInfo] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
   const dispatch = useAppDispatch();
 
@@ -28,13 +28,13 @@ function MyPageInfo() {
       <Card>
         <MainContainer>
           <MyPageInfoContent
-            userInfo={userInfo}
+            editMode={editMode}
             handleDisplayNameChange={handleDisplayNameChange}
             handleAboutMeChange={handleAboutMeChange}
             displayName={displayName}
             aboutMe={aboutMe}
           />
-          <MyPageInfoItem userInfo={userInfo} setUserInfo={setUserInfo} />
+          <MyPageInfoItem editMode={editMode} setEditMode={setEditMode} />
         </MainContainer>
       </Card>
     </MarginContainer>

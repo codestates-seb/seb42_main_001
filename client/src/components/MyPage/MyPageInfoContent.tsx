@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BsPlusCircle } from 'react-icons/bs';
 interface InfoProps {
-  userInfo: boolean;
+  editMode: boolean;
   displayName: string;
   aboutMe: string;
   handleDisplayNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -9,7 +9,7 @@ interface InfoProps {
 }
 
 function MyPageInfoContent({
-  userInfo,
+  editMode,
   displayName,
   aboutMe,
   handleDisplayNameChange,
@@ -21,7 +21,7 @@ function MyPageInfoContent({
         <BsPlusCircle />
       </ImgContainer>
       <TextContainer>
-        {userInfo ? (
+        {editMode ? (
           <>
             <TextEditContainer
               value={displayName}
