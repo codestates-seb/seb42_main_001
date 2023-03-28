@@ -28,8 +28,17 @@ export const boardListSlice = createSlice({
         payload: { data, likeList },
       }: PayloadAction<{ data: BoardDataProps[]; likeList: ILikeList[] }>
     ) => {
+      const result = data.map((board: BoardDataProps) => {
+        return {
+          ...board,
+          like: likeList.some(
+            (el: { boardId: number; boardTitle: string }) =>
+              el.boardId === board.boardId
+          ),
+        };
+      });
       state.likeList = likeList;
-      const NotData = data.reduce((acc: BoardDataProps[], cur) => {
+      const NotData = result.reduce((acc: BoardDataProps[], cur) => {
         let result: BoardDataProps[] = [...acc];
         if (
           state.listData.filter((el) => cur.boardId === el.boardId).length === 0
