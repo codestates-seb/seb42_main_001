@@ -8,7 +8,7 @@ spring:
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#    defer-datasource-initialization: true
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -20,4 +20,4 @@ spring:
     open-in-view: false
   sql:
     init:
-      data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
+      data-locations: classpath:db/*

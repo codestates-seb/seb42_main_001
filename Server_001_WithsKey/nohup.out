@@ -35615,3 +35615,1817 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 09:47:43.684  INFO 199784 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 199784 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 09:47:43.697  INFO 199784 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 09:47:47.828  INFO 199784 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:47:47.839  INFO 199784 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 09:47:48.444  INFO 199784 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 583 ms. Found 12 JPA repository interfaces.
+2023-03-28 09:47:48.499  INFO 199784 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:47:48.506  INFO 199784 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 09:47:48.575  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.579  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.580  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.581  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.585  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.586  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.588  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.589  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.591  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.592  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.596  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.597  INFO 199784 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:47:48.600  INFO 199784 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 0 Redis repository interfaces.
+2023-03-28 09:47:51.795  INFO 199784 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 09:47:51.819  INFO 199784 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 09:47:51.820  INFO 199784 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 09:47:51.993  INFO 199784 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 09:47:51.994  INFO 199784 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8129 ms
+2023-03-28 09:47:53.194 DEBUG 199429 --- [io-8080-exec-10] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2023-03-28 09:47:53.833 DEBUG 199429 --- [io-8080-exec-10] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2023-03-28 09:47:53.884 DEBUG 199429 --- [io-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2023-03-28 09:47:53.887 DEBUG 199429 --- [io-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(134920714<open>)] for JPA transaction
+2023-03-28 09:47:53.898 DEBUG 199429 --- [io-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5df54625]
+2023-03-28 09:47:54.088  INFO 199784 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+Hibernate: 
+    insert 
+    into
+        member
+        (about_me, display_name, email, oauth_type, phone_number, profile_picture) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2023-03-28 09:47:54.190 DEBUG 199429 --- [io-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2023-03-28 09:47:54.191 DEBUG 199429 --- [io-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(134920714<open>)]
+Hibernate: 
+    insert 
+    into
+        member_roles
+        (member_member_id, roles) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        member_roles
+        (member_member_id, roles) 
+    values
+        (?, ?)
+2023-03-28 09:47:54.252 DEBUG 199429 --- [io-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager [SessionImpl(134920714<open>)] after transaction
+2023-03-28 09:47:54.297 DEBUG 199429 --- [io-8080-exec-10] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2023-03-28 09:47:54.333 DEBUG 199429 --- [io-8080-exec-10] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+Exception in thread "http-nio-8080-exec-10" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:119)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:419)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:383)
+	at ch.qos.logback.classic.Logger.log(Logger.java:765)
+	at org.slf4j.bridge.SLF4JBridgeHandler.callLocationAwareLogger(SLF4JBridgeHandler.java:221)
+	at org.slf4j.bridge.SLF4JBridgeHandler.publish(SLF4JBridgeHandler.java:303)
+	at java.logging/java.util.logging.Logger.log(Logger.java:979)
+	at java.logging/java.util.logging.Logger.doLog(Logger.java:1006)
+	at java.logging/java.util.logging.Logger.logp(Logger.java:1283)
+	at org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:175)
+	at org.apache.juli.logging.DirectJDKLog.error(DirectJDKLog.java:141)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1802)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2023-03-28 09:47:54.830  INFO 199784 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 09:47:55.429 DEBUG 199784 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:47:55.520  INFO 199784 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 09:47:55.729  INFO 199784 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 09:47:56.335  INFO 199784 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 09:47:57.041  INFO 199784 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+Hibernate: 
+    
+    alter table board 
+       drop 
+       foreign key FKsds8ox89wwf6aihinar49rmfy
+Hibernate: 
+    
+    alter table comment_board 
+       drop 
+       foreign key FKi9kl7st2femkv2bv43q321ssx
+Hibernate: 
+    
+    alter table comment_drink 
+       drop 
+       foreign key FKnygdbni5m8b3w805aqs5fbg7t
+Hibernate: 
+    
+    alter table image 
+       drop 
+       foreign key FKil875c0myaxwwf0hty0u1ej2d
+Hibernate: 
+    
+    alter table like_board 
+       drop 
+       foreign key FK5steqwy6ycb09bb386lgn6snh
+Hibernate: 
+    
+    alter table like_drink 
+       drop 
+       foreign key FKs3ae31rc6ukxqdwp83vklth3h
+Hibernate: 
+    
+    alter table member_roles 
+       drop 
+       foreign key FKruptm2dtwl95mfks4bnhv828k
+Hibernate: 
+    
+    alter table section 
+       drop 
+       foreign key FKkndgvqr4l6vj4fa2ieym3v8es
+Hibernate: 
+    
+    alter table snack_drink 
+       drop 
+       foreign key FKduu2qr29d7onshpyjnrg6959q
+Hibernate: 
+    
+    alter table snack_drink 
+       drop 
+       foreign key FKmgtvhutymum57ydyl6xpxfo1h
+Hibernate: 
+    
+    alter table tag_board 
+       drop 
+       foreign key FKrlmno0er4y5bx0elf2mwu0ni0
+Hibernate: 
+    
+    alter table tag_board 
+       drop 
+       foreign key FK5asgcqs3ctvls5kbb0b3a9td7
+Hibernate: 
+    
+    alter table tag_drink 
+       drop 
+       foreign key FKp3l6qudqbmebvbrppiaveek0s
+Hibernate: 
+    
+    alter table tag_drink 
+       drop 
+       foreign key FKk7pjrso7qwgrjlcubbebxx542
+Hibernate: 
+    
+    alter table tasting_note 
+       drop 
+       foreign key FKdr11dn262uq4oyutlbxbl60tq
+Hibernate: 
+    
+    drop table if exists article
+Hibernate: 
+    
+    drop table if exists board
+Hibernate: 
+    
+    drop table if exists comment_board
+Hibernate: 
+    
+    drop table if exists comment_drink
+Hibernate: 
+    
+    drop table if exists drink
+Hibernate: 
+    
+    drop table if exists hibernate_sequence
+Hibernate: 
+    
+    drop table if exists image
+Hibernate: 
+    
+    drop table if exists like_board
+Hibernate: 
+    
+    drop table if exists like_drink
+Hibernate: 
+    
+    drop table if exists member
+Hibernate: 
+    
+    drop table if exists member_roles
+Hibernate: 
+    
+    drop table if exists section
+Hibernate: 
+    
+    drop table if exists snack
+Hibernate: 
+    
+    drop table if exists snack_drink
+Hibernate: 
+    
+    drop table if exists tag
+Hibernate: 
+    
+    drop table if exists tag_board
+Hibernate: 
+    
+    drop table if exists tag_drink
+Hibernate: 
+    
+    drop table if exists tasting_note
+Hibernate: 
+    
+    create table article (
+       article_id bigint not null auto_increment,
+        title varchar(255),
+        types varchar(255),
+        primary key (article_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table board (
+       board_id bigint not null,
+        created_at datetime,
+        modified_at datetime,
+        board_title varchar(255) not null,
+        content varchar(255) not null,
+        member_id bigint,
+        primary key (board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table comment_board (
+       comment_board_id bigint not null auto_increment,
+        created_at datetime,
+        modified_at datetime,
+        comment_content varchar(255),
+        display_name varchar(255),
+        member_id bigint,
+        board_board_id bigint,
+        primary key (comment_board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table comment_drink (
+       comment_drink_id bigint not null auto_increment,
+        created_at datetime,
+        modified_at datetime,
+        comment_content varchar(255),
+        display_name varchar(255),
+        member_id bigint,
+        drink_drink_id bigint,
+        primary key (comment_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table drink (
+       drink_id bigint not null,
+        created_at datetime,
+        modified_at datetime,
+        drink_abv integer not null,
+        drink_code varchar(255) not null,
+        drink_image_url longtext not null,
+        drink_name varchar(255) not null,
+        price_rank varchar(255) not null,
+        primary key (drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table hibernate_sequence (
+       next_val bigint
+    ) engine=InnoDB
+Hibernate: 
+    
+    insert into hibernate_sequence values ( 1 )
+Hibernate: 
+    
+    create table image (
+       image_id bigint not null auto_increment,
+        file_name varchar(255),
+        img_url varchar(255),
+        board_id bigint,
+        primary key (image_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table like_board (
+       like_board_id bigint not null auto_increment,
+        member_id bigint,
+        board_id bigint,
+        primary key (like_board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table like_drink (
+       like_drink_id bigint not null auto_increment,
+        member_id bigint,
+        drink_drink_id bigint,
+        primary key (like_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table member (
+       member_id bigint not null auto_increment,
+        about_me varchar(255),
+        display_name varchar(255),
+        email varchar(255),
+        oauth_type varchar(255),
+        phone_number varchar(255),
+        profile_picture varchar(255),
+        primary key (member_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table member_roles (
+       member_member_id bigint not null,
+        roles varchar(255)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table section (
+       section_id bigint not null auto_increment,
+        section_content varchar(10000),
+        section_title varchar(255),
+        article_id bigint,
+        primary key (section_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table snack (
+       snack_id bigint not null auto_increment,
+        snack_image_url varchar(255),
+        snack_info varchar(255),
+        snack_kcal varchar(255),
+        snack_name varchar(255) not null,
+        primary key (snack_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table snack_drink (
+       snack_drink_id bigint not null auto_increment,
+        drink_id bigint,
+        snack_id bigint,
+        primary key (snack_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tag (
+       tag_id bigint not null auto_increment,
+        tag_info varchar(255) not null,
+        tag_name varchar(255) not null,
+        primary key (tag_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tag_board (
+       tag_board_id bigint not null auto_increment,
+        board_id bigint,
+        tag_id bigint,
+        primary key (tag_board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tag_drink (
+       tag_drink_id bigint not null auto_increment,
+        drink_id bigint,
+        tag_id bigint,
+        primary key (tag_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tasting_note (
+       tasting_note_id bigint not null auto_increment,
+        fruity bigint,
+        orc bigint,
+        smoky bigint,
+        spicy bigint,
+        sweet bigint,
+        drink_id bigint,
+        primary key (tasting_note_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    alter table drink 
+       add constraint UK_lfmgjb5fug9vliusy2f1xh3ha unique (drink_code)
+Hibernate: 
+    
+    alter table snack 
+       add constraint UK_2ywrl5rst7tncwo6w5aj5g5px unique (snack_name)
+Hibernate: 
+    
+    alter table tag 
+       add constraint UK_1r1tyf6uga9k6jwdqnoqwtk2a unique (tag_name)
+Hibernate: 
+    
+    alter table board 
+       add constraint FKsds8ox89wwf6aihinar49rmfy 
+       foreign key (member_id) 
+       references member (member_id)
+Hibernate: 
+    
+    alter table comment_board 
+       add constraint FKi9kl7st2femkv2bv43q321ssx 
+       foreign key (board_board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table comment_drink 
+       add constraint FKnygdbni5m8b3w805aqs5fbg7t 
+       foreign key (drink_drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table image 
+       add constraint FKil875c0myaxwwf0hty0u1ej2d 
+       foreign key (board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table like_board 
+       add constraint FK5steqwy6ycb09bb386lgn6snh 
+       foreign key (board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table like_drink 
+       add constraint FKs3ae31rc6ukxqdwp83vklth3h 
+       foreign key (drink_drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table member_roles 
+       add constraint FKruptm2dtwl95mfks4bnhv828k 
+       foreign key (member_member_id) 
+       references member (member_id)
+Hibernate: 
+    
+    alter table section 
+       add constraint FKkndgvqr4l6vj4fa2ieym3v8es 
+       foreign key (article_id) 
+       references article (article_id)
+Hibernate: 
+    
+    alter table snack_drink 
+       add constraint FKduu2qr29d7onshpyjnrg6959q 
+       foreign key (drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table snack_drink 
+       add constraint FKmgtvhutymum57ydyl6xpxfo1h 
+       foreign key (snack_id) 
+       references snack (snack_id)
+Hibernate: 
+    
+    alter table tag_board 
+       add constraint FKrlmno0er4y5bx0elf2mwu0ni0 
+       foreign key (board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table tag_board 
+       add constraint FK5asgcqs3ctvls5kbb0b3a9td7 
+       foreign key (tag_id) 
+       references tag (tag_id)
+Hibernate: 
+    
+    alter table tag_drink 
+       add constraint FKp3l6qudqbmebvbrppiaveek0s 
+       foreign key (drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table tag_drink 
+       add constraint FKk7pjrso7qwgrjlcubbebxx542 
+       foreign key (tag_id) 
+       references tag (tag_id)
+Hibernate: 
+    
+    alter table tasting_note 
+       add constraint FKdr11dn262uq4oyutlbxbl60tq 
+       foreign key (drink_id) 
+       references drink (drink_id)
+2023-03-28 09:48:02.519  INFO 199784 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 09:48:02.550  INFO 199784 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:48:02.862 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:03.004 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:03.367 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:03.562 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:03.696 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.057 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.062 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.127 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.134 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.165 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.555 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.558 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.603 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.611 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:04.646 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.001 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.003 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.043 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.052 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.089 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.094 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.125 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.135 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.191 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.197 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.231 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.237 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.310 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.315 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.345 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.347 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.377 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.380 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.418 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.449 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.456 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.486 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.489 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.559 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.563 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.587 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.661 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.675 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:05.709 DEBUG 199784 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:48:06.361  INFO 199784 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52909a97, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36e409e0, org.springframework.security.web.context.SecurityContextPersistenceFilter@520a95ff, org.springframework.security.web.header.HeaderWriterFilter@502c2278, org.springframework.web.filter.CorsFilter@145e958f, org.springframework.security.web.authentication.logout.LogoutFilter@23396fc0, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@b5de9ac, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4ecd8ab1, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@4e17913b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c573229, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@714f1a44, org.springframework.security.web.session.SessionManagementFilter@696174d3, org.springframework.security.web.access.ExceptionTranslationFilter@49d42faf, org.springframework.security.web.access.intercept.AuthorizationFilter@697a92af]
+2023-03-28 09:48:08.027  WARN 199784 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-03-28 09:48:08.066  INFO 199784 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:48:08.076  INFO 199784 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-28 09:48:08.100  INFO 199784 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-28 09:48:08.139  INFO 199784 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-28 09:48:08.180  INFO 199784 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-03-28 09:48:08.260 ERROR 199784 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 09:49:12.012  INFO 199948 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 199948 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 09:49:12.023  INFO 199948 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 09:49:15.872  INFO 199948 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:49:15.880  INFO 199948 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 09:49:16.430  INFO 199948 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 530 ms. Found 12 JPA repository interfaces.
+2023-03-28 09:49:16.486  INFO 199948 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:49:16.491  INFO 199948 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 09:49:16.550  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.552  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.553  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.554  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.555  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.558  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.559  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.565  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.566  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.567  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.568  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.569  INFO 199948 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:49:16.571  INFO 199948 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 0 Redis repository interfaces.
+2023-03-28 09:49:19.065  INFO 199948 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 09:49:19.098  INFO 199948 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 09:49:19.104  INFO 199948 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 09:49:19.258  INFO 199948 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 09:49:19.263  INFO 199948 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7080 ms
+2023-03-28 09:49:20.874  INFO 199948 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 09:49:21.406  INFO 199948 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 09:49:21.987 DEBUG 199948 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:49:22.085  INFO 199948 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 09:49:22.282  INFO 199948 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 09:49:22.848  INFO 199948 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 09:49:23.193  INFO 199948 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+Hibernate: 
+    
+    alter table board 
+       drop 
+       foreign key FKsds8ox89wwf6aihinar49rmfy
+Hibernate: 
+    
+    alter table comment_board 
+       drop 
+       foreign key FKi9kl7st2femkv2bv43q321ssx
+Hibernate: 
+    
+    alter table comment_drink 
+       drop 
+       foreign key FKnygdbni5m8b3w805aqs5fbg7t
+Hibernate: 
+    
+    alter table image 
+       drop 
+       foreign key FKil875c0myaxwwf0hty0u1ej2d
+Hibernate: 
+    
+    alter table like_board 
+       drop 
+       foreign key FK5steqwy6ycb09bb386lgn6snh
+Hibernate: 
+    
+    alter table like_drink 
+       drop 
+       foreign key FKs3ae31rc6ukxqdwp83vklth3h
+Hibernate: 
+    
+    alter table member_roles 
+       drop 
+       foreign key FKruptm2dtwl95mfks4bnhv828k
+Hibernate: 
+    
+    alter table section 
+       drop 
+       foreign key FKkndgvqr4l6vj4fa2ieym3v8es
+Hibernate: 
+    
+    alter table snack_drink 
+       drop 
+       foreign key FKduu2qr29d7onshpyjnrg6959q
+Hibernate: 
+    
+    alter table snack_drink 
+       drop 
+       foreign key FKmgtvhutymum57ydyl6xpxfo1h
+Hibernate: 
+    
+    alter table tag_board 
+       drop 
+       foreign key FKrlmno0er4y5bx0elf2mwu0ni0
+Hibernate: 
+    
+    alter table tag_board 
+       drop 
+       foreign key FK5asgcqs3ctvls5kbb0b3a9td7
+Hibernate: 
+    
+    alter table tag_drink 
+       drop 
+       foreign key FKp3l6qudqbmebvbrppiaveek0s
+Hibernate: 
+    
+    alter table tag_drink 
+       drop 
+       foreign key FKk7pjrso7qwgrjlcubbebxx542
+Hibernate: 
+    
+    alter table tasting_note 
+       drop 
+       foreign key FKdr11dn262uq4oyutlbxbl60tq
+Hibernate: 
+    
+    drop table if exists article
+Hibernate: 
+    
+    drop table if exists board
+Hibernate: 
+    
+    drop table if exists comment_board
+Hibernate: 
+    
+    drop table if exists comment_drink
+Hibernate: 
+    
+    drop table if exists drink
+Hibernate: 
+    
+    drop table if exists hibernate_sequence
+Hibernate: 
+    
+    drop table if exists image
+Hibernate: 
+    
+    drop table if exists like_board
+Hibernate: 
+    
+    drop table if exists like_drink
+Hibernate: 
+    
+    drop table if exists member
+Hibernate: 
+    
+    drop table if exists member_roles
+Hibernate: 
+    
+    drop table if exists section
+Hibernate: 
+    
+    drop table if exists snack
+Hibernate: 
+    
+    drop table if exists snack_drink
+Hibernate: 
+    
+    drop table if exists tag
+Hibernate: 
+    
+    drop table if exists tag_board
+Hibernate: 
+    
+    drop table if exists tag_drink
+Hibernate: 
+    
+    drop table if exists tasting_note
+Hibernate: 
+    
+    create table article (
+       article_id bigint not null auto_increment,
+        title varchar(255),
+        types varchar(255),
+        primary key (article_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table board (
+       board_id bigint not null,
+        created_at datetime,
+        modified_at datetime,
+        board_title varchar(255) not null,
+        content varchar(255) not null,
+        member_id bigint,
+        primary key (board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table comment_board (
+       comment_board_id bigint not null auto_increment,
+        created_at datetime,
+        modified_at datetime,
+        comment_content varchar(255),
+        display_name varchar(255),
+        member_id bigint,
+        board_board_id bigint,
+        primary key (comment_board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table comment_drink (
+       comment_drink_id bigint not null auto_increment,
+        created_at datetime,
+        modified_at datetime,
+        comment_content varchar(255),
+        display_name varchar(255),
+        member_id bigint,
+        drink_drink_id bigint,
+        primary key (comment_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table drink (
+       drink_id bigint not null,
+        created_at datetime,
+        modified_at datetime,
+        drink_abv integer not null,
+        drink_code varchar(255) not null,
+        drink_image_url longtext not null,
+        drink_name varchar(255) not null,
+        price_rank varchar(255) not null,
+        primary key (drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table hibernate_sequence (
+       next_val bigint
+    ) engine=InnoDB
+Hibernate: 
+    
+    insert into hibernate_sequence values ( 1 )
+Hibernate: 
+    
+    create table image (
+       image_id bigint not null auto_increment,
+        file_name varchar(255),
+        img_url varchar(255),
+        board_id bigint,
+        primary key (image_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table like_board (
+       like_board_id bigint not null auto_increment,
+        member_id bigint,
+        board_id bigint,
+        primary key (like_board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table like_drink (
+       like_drink_id bigint not null auto_increment,
+        member_id bigint,
+        drink_drink_id bigint,
+        primary key (like_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table member (
+       member_id bigint not null auto_increment,
+        about_me varchar(255),
+        display_name varchar(255),
+        email varchar(255),
+        oauth_type varchar(255),
+        phone_number varchar(255),
+        profile_picture varchar(255),
+        primary key (member_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table member_roles (
+       member_member_id bigint not null,
+        roles varchar(255)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table section (
+       section_id bigint not null auto_increment,
+        section_content varchar(10000),
+        section_title varchar(255),
+        article_id bigint,
+        primary key (section_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table snack (
+       snack_id bigint not null auto_increment,
+        snack_image_url varchar(255),
+        snack_info varchar(255),
+        snack_kcal varchar(255),
+        snack_name varchar(255) not null,
+        primary key (snack_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table snack_drink (
+       snack_drink_id bigint not null auto_increment,
+        drink_id bigint,
+        snack_id bigint,
+        primary key (snack_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tag (
+       tag_id bigint not null auto_increment,
+        tag_info varchar(255) not null,
+        tag_name varchar(255) not null,
+        primary key (tag_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tag_board (
+       tag_board_id bigint not null auto_increment,
+        board_id bigint,
+        tag_id bigint,
+        primary key (tag_board_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tag_drink (
+       tag_drink_id bigint not null auto_increment,
+        drink_id bigint,
+        tag_id bigint,
+        primary key (tag_drink_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tasting_note (
+       tasting_note_id bigint not null auto_increment,
+        fruity bigint,
+        orc bigint,
+        smoky bigint,
+        spicy bigint,
+        sweet bigint,
+        drink_id bigint,
+        primary key (tasting_note_id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    alter table drink 
+       add constraint UK_lfmgjb5fug9vliusy2f1xh3ha unique (drink_code)
+Hibernate: 
+    
+    alter table snack 
+       add constraint UK_2ywrl5rst7tncwo6w5aj5g5px unique (snack_name)
+Hibernate: 
+    
+    alter table tag 
+       add constraint UK_1r1tyf6uga9k6jwdqnoqwtk2a unique (tag_name)
+Hibernate: 
+    
+    alter table board 
+       add constraint FKsds8ox89wwf6aihinar49rmfy 
+       foreign key (member_id) 
+       references member (member_id)
+Hibernate: 
+    
+    alter table comment_board 
+       add constraint FKi9kl7st2femkv2bv43q321ssx 
+       foreign key (board_board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table comment_drink 
+       add constraint FKnygdbni5m8b3w805aqs5fbg7t 
+       foreign key (drink_drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table image 
+       add constraint FKil875c0myaxwwf0hty0u1ej2d 
+       foreign key (board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table like_board 
+       add constraint FK5steqwy6ycb09bb386lgn6snh 
+       foreign key (board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table like_drink 
+       add constraint FKs3ae31rc6ukxqdwp83vklth3h 
+       foreign key (drink_drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table member_roles 
+       add constraint FKruptm2dtwl95mfks4bnhv828k 
+       foreign key (member_member_id) 
+       references member (member_id)
+Hibernate: 
+    
+    alter table section 
+       add constraint FKkndgvqr4l6vj4fa2ieym3v8es 
+       foreign key (article_id) 
+       references article (article_id)
+Hibernate: 
+    
+    alter table snack_drink 
+       add constraint FKduu2qr29d7onshpyjnrg6959q 
+       foreign key (drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table snack_drink 
+       add constraint FKmgtvhutymum57ydyl6xpxfo1h 
+       foreign key (snack_id) 
+       references snack (snack_id)
+Hibernate: 
+    
+    alter table tag_board 
+       add constraint FKrlmno0er4y5bx0elf2mwu0ni0 
+       foreign key (board_id) 
+       references board (board_id)
+Hibernate: 
+    
+    alter table tag_board 
+       add constraint FK5asgcqs3ctvls5kbb0b3a9td7 
+       foreign key (tag_id) 
+       references tag (tag_id)
+Hibernate: 
+    
+    alter table tag_drink 
+       add constraint FKp3l6qudqbmebvbrppiaveek0s 
+       foreign key (drink_id) 
+       references drink (drink_id)
+Hibernate: 
+    
+    alter table tag_drink 
+       add constraint FKk7pjrso7qwgrjlcubbebxx542 
+       foreign key (tag_id) 
+       references tag (tag_id)
+Hibernate: 
+    
+    alter table tasting_note 
+       add constraint FKdr11dn262uq4oyutlbxbl60tq 
+       foreign key (drink_id) 
+       references drink (drink_id)
+2023-03-28 09:49:28.019  INFO 199948 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 09:49:28.050  INFO 199948 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:49:28.350 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:28.486 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:28.821 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.039 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.166 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.492 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.494 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.580 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.582 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:29.623 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.016 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.018 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.063 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.070 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.098 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.427 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.429 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.474 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.486 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.525 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.528 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.561 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.574 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.629 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.635 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.666 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.673 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.754 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.756 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.792 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.794 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.824 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.826 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.859 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.897 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.899 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.934 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:30.940 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.016 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.018 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.045 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.124 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.140 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.181 DEBUG 199948 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:49:31.855  INFO 199948 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5ee77baf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@485deee1, org.springframework.security.web.context.SecurityContextPersistenceFilter@577f9dfd, org.springframework.security.web.header.HeaderWriterFilter@4948daec, org.springframework.web.filter.CorsFilter@25cde5bb, org.springframework.security.web.authentication.logout.LogoutFilter@4b508371, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7bbdb220, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@6d001fbe, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@3db663d0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30c01c37, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45bd4753, org.springframework.security.web.session.SessionManagementFilter@1209a0f, org.springframework.security.web.access.ExceptionTranslationFilter@7de5871d, org.springframework.security.web.access.intercept.AuthorizationFilter@144ee8a7]
+2023-03-28 09:49:33.646  INFO 199948 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-28 09:49:33.674  INFO 199948 --- [           main] c.c.s.Server001WithsKeyApplication       : Started Server001WithsKeyApplication in 25.191 seconds (JVM running for 26.735)
+2023-03-28 09:49:50.381  INFO 199948 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-28 09:49:50.381  INFO 199948 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-28 09:49:50.383  INFO 199948 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-28 09:49:51.453 DEBUG 199948 --- [nio-8080-exec-2] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2023-03-28 09:49:51.625 DEBUG 199948 --- [nio-8080-exec-2] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2023-03-28 09:49:51.644 DEBUG 199948 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2023-03-28 09:49:51.645 DEBUG 199948 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1747516947<open>)] for JPA transaction
+2023-03-28 09:49:51.651 DEBUG 199948 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@7adf7f60]
+Hibernate: 
+    insert 
+    into
+        member
+        (about_me, display_name, email, oauth_type, phone_number, profile_picture) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2023-03-28 09:49:51.793 DEBUG 199948 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2023-03-28 09:49:51.793 DEBUG 199948 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1747516947<open>)]
+Hibernate: 
+    insert 
+    into
+        member_roles
+        (member_member_id, roles) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        member_roles
+        (member_member_id, roles) 
+    values
+        (?, ?)
+2023-03-28 09:49:51.855 DEBUG 199948 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager [SessionImpl(1747516947<open>)] after transaction
+2023-03-28 09:49:51.861 DEBUG 199948 --- [nio-8080-exec-2] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2023-03-28 09:49:51.882 DEBUG 199948 --- [nio-8080-exec-2] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+Hibernate: 
+    select
+        member0_.member_id as member_i1_8_,
+        member0_.about_me as about_me2_8_,
+        member0_.display_name as display_3_8_,
+        member0_.email as email4_8_,
+        member0_.oauth_type as oauth_ty5_8_,
+        member0_.phone_number as phone_nu6_8_,
+        member0_.profile_picture as profile_7_8_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+accessToken's memberId: 1
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 09:52:26.719  INFO 200116 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 200116 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 09:52:26.730  INFO 200116 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 09:52:30.735  INFO 200116 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:52:30.746  INFO 200116 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 09:52:31.407  INFO 200116 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 641 ms. Found 12 JPA repository interfaces.
+2023-03-28 09:52:31.464  INFO 200116 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:52:31.466  INFO 200116 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 09:52:31.523  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.532  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.532  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.533  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.534  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.535  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.536  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.540  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.541  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.542  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.544  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.549  INFO 200116 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:52:31.550  INFO 200116 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 0 Redis repository interfaces.
+2023-03-28 09:52:33.620  INFO 200116 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 09:52:33.639  INFO 200116 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 09:52:33.640  INFO 200116 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 09:52:33.777  INFO 200116 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 09:52:33.783  INFO 200116 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6890 ms
+2023-03-28 09:52:35.321  INFO 200116 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 09:52:35.853  INFO 200116 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 09:52:36.439 DEBUG 200116 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:52:36.525  INFO 200116 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 09:52:36.737  INFO 200116 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 09:52:37.338  INFO 200116 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 09:52:37.711  INFO 200116 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-03-28 09:52:41.694  INFO 200116 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 09:52:41.721  INFO 200116 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:52:42.038 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:42.174 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:42.523 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:42.738 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:42.881 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.180 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.181 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.247 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.249 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.289 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.680 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.681 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.722 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.731 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:43.759 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.101 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.103 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.144 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.150 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.184 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.188 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.225 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.229 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.290 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.292 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.328 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.338 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.428 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.434 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.466 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.477 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.505 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.507 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.547 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.581 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.582 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.612 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.615 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.686 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.692 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.718 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.795 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.809 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:44.845 DEBUG 200116 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:52:45.467  INFO 200116 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e07b4db, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76b305e1, org.springframework.security.web.context.SecurityContextPersistenceFilter@30eedaa4, org.springframework.security.web.header.HeaderWriterFilter@46702c26, org.springframework.web.filter.CorsFilter@6be766d1, org.springframework.security.web.authentication.logout.LogoutFilter@4ecd8ab1, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@3e28dc96, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@44eb2452, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@2de50ee4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f6b57f2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52b32b70, org.springframework.security.web.session.SessionManagementFilter@e3ed455, org.springframework.security.web.access.ExceptionTranslationFilter@74707df8, org.springframework.security.web.access.intercept.AuthorizationFilter@52cb52bd]
+2023-03-28 09:52:47.107  WARN 200116 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-03-28 09:52:47.128  INFO 200116 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:52:47.134  INFO 200116 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-28 09:52:47.157  INFO 200116 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-28 09:52:47.194  INFO 200116 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-28 09:52:47.224  INFO 200116 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-03-28 09:52:47.278 ERROR 200116 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 09:54:02.446  INFO 200273 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 200273 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 09:54:02.458  INFO 200273 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 09:54:06.859  INFO 200273 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:54:06.865  INFO 200273 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 09:54:07.480  INFO 200273 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 595 ms. Found 12 JPA repository interfaces.
+2023-03-28 09:54:07.532  INFO 200273 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 09:54:07.535  INFO 200273 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 09:54:07.603  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.609  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.609  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.610  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.611  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.613  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.617  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.618  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.619  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.619  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.621  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.625  INFO 200273 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 09:54:07.627  INFO 200273 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 0 Redis repository interfaces.
+2023-03-28 09:54:09.798  INFO 200273 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 09:54:09.827  INFO 200273 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 09:54:09.833  INFO 200273 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 09:54:09.975  INFO 200273 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 09:54:09.979  INFO 200273 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7345 ms
+2023-03-28 09:54:11.556  INFO 200273 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 09:54:12.125  INFO 200273 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 09:54:12.746 DEBUG 200273 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:54:12.848  INFO 200273 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 09:54:13.005  INFO 200273 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 09:54:13.442  INFO 200273 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 09:54:13.791  INFO 200273 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-03-28 09:54:17.268  INFO 200273 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 09:54:17.289  INFO 200273 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 09:54:17.585 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:17.749 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.108 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.323 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.459 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.741 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.749 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.803 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.812 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:18.844 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.246 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.253 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.300 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.302 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.333 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.697 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.698 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.732 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.741 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.782 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.784 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.820 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.828 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.886 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.894 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.923 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:19.929 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.013 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.015 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.050 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.055 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.092 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.094 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.130 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.169 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.170 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.206 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.209 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.283 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.287 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.314 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.391 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.410 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:20.439 DEBUG 200273 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 09:54:21.104  INFO 200273 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3193e21d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79604abe, org.springframework.security.web.context.SecurityContextPersistenceFilter@27bb74e1, org.springframework.security.web.header.HeaderWriterFilter@74707df8, org.springframework.web.filter.CorsFilter@6b126187, org.springframework.security.web.authentication.logout.LogoutFilter@52b32b70, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@51132514, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@20864cd1, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@64f16277, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e3cd732, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ab8589a, org.springframework.security.web.session.SessionManagementFilter@46702c26, org.springframework.security.web.access.ExceptionTranslationFilter@65e620b0, org.springframework.security.web.access.intercept.AuthorizationFilter@4a9bce99]
+2023-03-28 09:54:22.819  INFO 200273 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-28 09:54:22.849  INFO 200273 --- [           main] c.c.s.Server001WithsKeyApplication       : Started Server001WithsKeyApplication in 24.891 seconds (JVM running for 26.427)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 10:01:06.888  INFO 200446 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 200446 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 10:01:06.904  INFO 200446 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 10:01:11.033  INFO 200446 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:01:11.037  INFO 200446 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 10:01:11.556  INFO 200446 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 499 ms. Found 12 JPA repository interfaces.
+2023-03-28 10:01:11.628  INFO 200446 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:01:11.633  INFO 200446 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 10:01:11.700  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.704  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.708  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.709  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.710  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.713  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.714  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.717  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.718  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.719  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.721  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.723  INFO 200446 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:01:11.725  INFO 200446 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 0 Redis repository interfaces.
+2023-03-28 10:01:13.918  INFO 200446 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 10:01:13.953  INFO 200446 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 10:01:13.954  INFO 200446 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 10:01:14.104  INFO 200446 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 10:01:14.104  INFO 200446 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7049 ms
+2023-03-28 10:01:15.669  INFO 200446 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 10:01:16.249  INFO 200446 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 10:01:16.946 DEBUG 200446 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:01:17.035  INFO 200446 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 10:01:17.217  INFO 200446 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 10:01:17.805  INFO 200446 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 10:01:18.181  INFO 200446 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-03-28 10:01:21.506  INFO 200446 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 10:01:21.531  INFO 200446 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:01:21.842 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:21.978 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:22.319 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:22.538 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:22.668 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:22.930 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:22.932 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.011 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.013 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.066 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.440 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.442 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.504 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.516 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.546 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.888 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.890 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.929 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.931 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.965 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:23.969 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.002 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.009 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.063 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.068 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.098 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.103 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.173 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.182 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.201 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.205 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.238 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.240 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.282 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.321 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.325 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.353 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.360 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.425 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.428 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.445 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.522 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.537 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:24.564 DEBUG 200446 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:01:25.339  INFO 200446 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b126187, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b6262bc, org.springframework.security.web.context.SecurityContextPersistenceFilter@74b97416, org.springframework.security.web.header.HeaderWriterFilter@2e1add6f, org.springframework.web.filter.CorsFilter@5cffec7, org.springframework.security.web.authentication.logout.LogoutFilter@3d3930fe, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5c839677, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@3193e21d, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@47fbc56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12c76d6e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7956f93a, org.springframework.security.web.session.SessionManagementFilter@43786627, org.springframework.security.web.access.ExceptionTranslationFilter@473847fb, org.springframework.security.web.access.intercept.AuthorizationFilter@243c4346]
+2023-03-28 10:01:27.006  WARN 200446 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-03-28 10:01:27.028  INFO 200446 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:01:27.033  INFO 200446 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-28 10:01:27.065  INFO 200446 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-28 10:01:27.103  INFO 200446 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-28 10:01:27.133  INFO 200446 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-03-28 10:01:27.185 ERROR 200446 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 10:02:36.153  INFO 200605 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 200605 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 10:02:36.164  INFO 200605 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 10:02:39.910  INFO 200605 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:02:39.918  INFO 200605 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 10:02:40.532  INFO 200605 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 596 ms. Found 12 JPA repository interfaces.
+2023-03-28 10:02:40.584  INFO 200605 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:02:40.586  INFO 200605 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 10:02:40.655  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.662  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.663  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.664  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.669  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.671  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.672  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.673  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.676  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.677  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.680  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.681  INFO 200605 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:02:40.685  INFO 200605 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 0 Redis repository interfaces.
+2023-03-28 10:02:42.794  INFO 200605 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 10:02:42.829  INFO 200605 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 10:02:42.830  INFO 200605 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 10:02:42.978  INFO 200605 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 10:02:42.978  INFO 200605 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6661 ms
+2023-03-28 10:02:44.555  INFO 200605 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 10:02:45.130  INFO 200605 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 10:02:45.715 DEBUG 200605 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:02:45.820  INFO 200605 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 10:02:46.116  INFO 200605 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 10:02:46.866  INFO 200605 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 10:02:47.228  INFO 200605 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-03-28 10:02:50.852  INFO 200605 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 10:02:50.869  INFO 200605 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:02:51.143 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:51.282 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:51.625 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:51.834 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:51.956 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.270 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.276 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.334 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.341 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.383 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.748 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.757 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.801 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.808 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:52.835 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.175 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.177 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.219 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.223 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.257 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.262 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.298 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.307 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.365 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.371 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.412 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.417 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.498 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.500 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.538 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.543 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.580 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.582 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.624 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.664 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.666 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.710 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.713 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.793 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.797 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.825 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.898 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.917 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:53.956 DEBUG 200605 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:02:54.642  INFO 200605 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7433ca19, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d221b20, org.springframework.security.web.context.SecurityContextPersistenceFilter@5df64b2a, org.springframework.security.web.header.HeaderWriterFilter@d120d7c, org.springframework.web.filter.CorsFilter@79d4ff58, org.springframework.security.web.authentication.logout.LogoutFilter@59a2d756, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@38022758, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@69f9b561, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@47fbc56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30d15e4a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c678c7b, org.springframework.security.web.session.SessionManagementFilter@485deee1, org.springframework.security.web.access.ExceptionTranslationFilter@7bbdb220, org.springframework.security.web.access.intercept.AuthorizationFilter@5a48d186]
+2023-03-28 10:02:56.348  INFO 200605 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-28 10:02:56.379  INFO 200605 --- [           main] c.c.s.Server001WithsKeyApplication       : Started Server001WithsKeyApplication in 23.742 seconds (JVM running for 25.229)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 10:05:29.289  INFO 200828 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 200828 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 10:05:29.302  INFO 200828 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 10:05:33.215  INFO 200828 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:05:33.222  INFO 200828 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 10:05:33.786  INFO 200828 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 539 ms. Found 12 JPA repository interfaces.
+2023-03-28 10:05:33.844  INFO 200828 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:05:33.853  INFO 200828 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 10:05:33.916  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.921  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.922  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.923  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.925  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.928  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.929  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.933  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.934  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.935  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.937  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.938  INFO 200828 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:05:33.940  INFO 200828 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 0 Redis repository interfaces.
+2023-03-28 10:05:36.102  INFO 200828 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 10:05:36.140  INFO 200828 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 10:05:36.141  INFO 200828 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 10:05:36.291  INFO 200828 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 10:05:36.295  INFO 200828 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6850 ms
+2023-03-28 10:05:37.925  INFO 200828 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 10:05:38.529  INFO 200828 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 10:05:39.230 DEBUG 200828 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:05:39.309  INFO 200828 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 10:05:39.495  INFO 200828 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 10:05:40.081  INFO 200828 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 10:05:40.432  INFO 200828 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-03-28 10:05:43.897  INFO 200828 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 10:05:43.917  INFO 200828 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:05:44.248 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:44.395 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:44.753 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:44.939 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.079 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.348 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.349 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.440 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.442 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.485 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.878 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.881 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.944 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.954 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:45.980 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.312 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.314 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.346 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.348 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.383 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.393 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.421 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.432 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.493 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.496 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.526 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.529 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.605 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.606 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.633 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.641 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.673 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.675 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.720 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.771 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.774 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.805 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.808 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.875 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.885 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.920 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:46.997 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:47.008 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:47.039 DEBUG 200828 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:05:47.693  INFO 200828 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@76b305e1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6be766d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@52b30054, org.springframework.security.web.header.HeaderWriterFilter@697a92af, org.springframework.web.filter.CorsFilter@7adae08e, org.springframework.security.web.authentication.logout.LogoutFilter@57bdceaa, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@44eb2452, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@31940704, com.codestates.server_001_withskey.global.security.Jwt.JwtVerificationFilter@ad9e63e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@144ee8a7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18c820d2, org.springframework.security.web.session.SessionManagementFilter@16b76858, org.springframework.security.web.access.ExceptionTranslationFilter@2ab8589a, org.springframework.security.web.access.intercept.AuthorizationFilter@1d1c37d5]
+2023-03-28 10:05:49.490  INFO 200828 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-28 10:05:49.522  INFO 200828 --- [           main] c.c.s.Server001WithsKeyApplication       : Started Server001WithsKeyApplication in 23.889 seconds (JVM running for 25.394)
+10:08:30.831 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.yaml.snakeyaml.scanner.ScannerException: while scanning a simple key
+ in 'reader', line 23, column 1:
+    <<<<<<< HEAD
+    ^
+could not find expected ':'
+ in 'reader', line 24, column 21:
+          data-locations: classpath:db/* #{classpath:art ... 
+                        ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.stalePossibleSimpleKeys(ScannerImpl.java:505)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.needMoreTokens(ScannerImpl.java:320)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:250)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingValue.produce(ParserImpl.java:660)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:166)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:59)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:45)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:140)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:119)
+	at org.yaml.snakeyaml.composer.Composer.composeScalarNode(Composer.java:214)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:184)
+	at org.yaml.snakeyaml.composer.Composer.composeKeyNode(Composer.java:310)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:301)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:286)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:188)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:314)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:305)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:286)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:188)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:314)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:305)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:286)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:188)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:115)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:135)
+	at org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor.getData(OriginTrackedYamlLoader.java:103)
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:514)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:198)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:166)
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:88)
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:54)
+	at org.springframework.boot.context.config.StandardConfigDataLoader.load(StandardConfigDataLoader.java:36)
+	at org.springframework.boot.context.config.ConfigDataLoaders.load(ConfigDataLoaders.java:108)
+	at org.springframework.boot.context.config.ConfigDataImporter.load(ConfigDataImporter.java:128)
+	at org.springframework.boot.context.config.ConfigDataImporter.resolveAndLoad(ConfigDataImporter.java:86)
+	at org.springframework.boot.context.config.ConfigDataEnvironmentContributors.withProcessedImports(ConfigDataEnvironmentContributors.java:116)
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processInitial(ConfigDataEnvironment.java:240)
+	at org.springframework.boot.context.config.ConfigDataEnvironment.processAndApply(ConfigDataEnvironment.java:227)
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:102)
+	at org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor.postProcessEnvironment(ConfigDataEnvironmentPostProcessor.java:94)
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:102)
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:87)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:131)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:85)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:66)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:120)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:114)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:65)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:301)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.codestates.server_001_withskey.Server001WithsKeyApplication.main(Server001WithsKeyApplication.java:13)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:108)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.9)
+
+2023-03-28 10:11:26.522  INFO 201150 --- [           main] c.c.s.Server001WithsKeyApplication       : Starting Server001WithsKeyApplication using Java 11.0.18 on ip-172-31-1-137 with PID 201150 (/home/ubuntu/Server_001_WithsKey-0.0.1-SNAPSHOT.jar started by ubuntu in /home/ubuntu/seb42_main_001/Server_001_WithsKey)
+2023-03-28 10:11:26.534  INFO 201150 --- [           main] c.c.s.Server001WithsKeyApplication       : The following 1 profile is active: "deploy"
+2023-03-28 10:11:30.551  INFO 201150 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:11:30.557  INFO 201150 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-28 10:11:31.365  INFO 201150 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 781 ms. Found 12 JPA repository interfaces.
+2023-03-28 10:11:31.483  INFO 201150 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-28 10:11:31.488  INFO 201150 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-28 10:11:31.595  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.board.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.601  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.602  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.comment.repository.CommentBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.606  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.member.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.607  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.image.repository.ImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.611  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.613  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.614  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.tag.repository.TagRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.615  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.article.repository.ArticleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.617  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.drink.repository.DrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.619  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeDrinkRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.619  INFO 201150 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.codestates.server_001_withskey.domain.like.repository.LikeBoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-03-28 10:11:31.621  INFO 201150 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 0 Redis repository interfaces.
+2023-03-28 10:11:33.772  INFO 201150 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-28 10:11:33.800  INFO 201150 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-28 10:11:33.805  INFO 201150 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-28 10:11:33.947  INFO 201150 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-28 10:11:33.948  INFO 201150 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7262 ms
+2023-03-28 10:11:35.767 DEBUG 201150 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:11:35.822  INFO 201150 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-28 10:11:36.011  INFO 201150 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-28 10:11:36.603  INFO 201150 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-28 10:11:37.019  INFO 201150 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-28 10:11:37.607  INFO 201150 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-28 10:11:37.650  INFO 201150 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-03-28 10:11:41.603  INFO 201150 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-28 10:11:41.632  INFO 201150 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-28 10:11:41.954 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:42.107 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:42.466 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:42.678 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:42.814 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.105 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.114 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.175 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.182 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.213 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.618 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.620 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.671 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.676 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2023-03-28 10:11:43.714 DEBUG 201150 --- [           main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
