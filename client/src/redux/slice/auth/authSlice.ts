@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../store/store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../../store/store';
 
-import { userInfo } from "../../../util/interfaces/userInfo.interface";
+import { userInfo } from '../../../util/interfaces/userInfo.interface';
 
 interface authState {
   isLogin: boolean;
@@ -14,17 +14,17 @@ const initialState: authState = {
 };
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     loginSuccess: (
       state,
-      { payload: { userInfo } }: PayloadAction<{ userInfo: userInfo }>
+      { payload: { userInfo } }: PayloadAction<{ userInfo: userInfo }>,
     ) => {
       state.isLogin = true;
       state.userInfo = userInfo;
     },
-    logoutSuccess: (state) => {
+    logoutSuccess: state => {
       state.isLogin = false;
       state.userInfo = {};
     },
@@ -34,11 +34,19 @@ export const authSlice = createSlice({
     modifyAboutMe: (state, { payload: data }: PayloadAction<string>) => {
       state.userInfo.aboutMe = data;
     },
+    modifyProfilePicture: (state, { payload: data }: PayloadAction<string>) => {
+      state.userInfo.profilePicture = data;
+    },
   },
 });
 
-export const { loginSuccess, logoutSuccess, modifyDisplayName, modifyAboutMe } =
-  authSlice.actions;
+export const {
+  loginSuccess,
+  logoutSuccess,
+  modifyDisplayName,
+  modifyAboutMe,
+  modifyProfilePicture,
+} = authSlice.actions;
 
 export const selectAuth = (state: RootState) => state.auth.isLogin;
 
