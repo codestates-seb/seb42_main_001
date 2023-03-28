@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: Tutorial Article 추가 내용 작성">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 로그인 리디렉션 경로 수정3">
+      <change afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/Jwt/JwtVerificationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/Jwt/JwtVerificationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,83 +262,9 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00030" summary="✨ feat: 페이지네이션 처리 완료">
-      <created>1678957867071</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1678957867071</updated>
-    </task>
-    <task id="LOCAL-00031" summary="✨ feat: 배포시도 4">
-      <created>1679025320062</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1679025320062</updated>
-    </task>
-    <task id="LOCAL-00032" summary="✨ feat: 배포시도 5">
-      <created>1679025446543</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1679025446543</updated>
-    </task>
-    <task id="LOCAL-00033" summary="✨ feat: 순서 정렬하기2">
-      <created>1679109409057</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1679109409057</updated>
-    </task>
-    <task id="LOCAL-00034" summary="✨ feat: CORS 설정 방식 변경4">
-      <created>1679120628934</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1679120628934</updated>
-    </task>
-    <task id="LOCAL-00035" summary="✨ feat: CORSFilter 구현방식2">
-      <created>1679122938042</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1679122938042</updated>
-    </task>
-    <task id="LOCAL-00036" summary="✨ feat: 로그인 핸들러 추가">
-      <created>1679137053670</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1679137053670</updated>
-    </task>
-    <task id="LOCAL-00037" summary="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
-      <created>1679223419017</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1679223419017</updated>
-    </task>
-    <task id="LOCAL-00038" summary="✨ feat: MyPage - 좋아요 한 술">
-      <created>1679277203666</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1679277203666</updated>
-    </task>
-    <task id="LOCAL-00039" summary="✨ feat: 로컬 설정 변경">
-      <created>1679277358760</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1679277358760</updated>
-    </task>
-    <task id="LOCAL-00040" summary="✨ feat: 리다이렉트 토큰 전달">
-      <created>1679285437834</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1679285437834</updated>
+      <workItem from="1679917815967" duration="941000" />
+      <workItem from="1679925351972" duration="273000" />
+      <workItem from="1679979002157" duration="2990000" />
     </task>
     <task id="LOCAL-00041" summary="✨ feat: 설정 프로파일 추가">
       <created>1679290151321</created>
@@ -606,7 +532,84 @@
       <option name="project" value="LOCAL" />
       <updated>1679630382155</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="✨ feat: Comment Drink 로직 수정2">
+      <created>1679637180538</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1679637180538</updated>
+    </task>
+    <task id="LOCAL-00080" summary="✨ feat: deploy yml 수정">
+      <created>1679643007672</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1679643007673</updated>
+    </task>
+    <task id="LOCAL-00081" summary="✨ feat: Blended.sql 작성">
+      <created>1679643742989</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1679643742989</updated>
+    </task>
+    <task id="LOCAL-00082" summary="✨ feat: 로그인 성공 시 리다이렉트 url 수정">
+      <created>1679645918160</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1679645918160</updated>
+    </task>
+    <task id="LOCAL-00083" summary="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정">
+      <created>1679646039545</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1679646039545</updated>
+    </task>
+    <task id="LOCAL-00084" summary="✨ feat: yml 추가">
+      <created>1679646443453</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1679646443453</updated>
+    </task>
+    <task id="LOCAL-00085" summary="✨ feat: article 완성">
+      <created>1679878370253</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1679878370254</updated>
+    </task>
+    <task id="LOCAL-00086" summary="✨ feat: article 오타 수정">
+      <created>1679894600578</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1679894600578</updated>
+    </task>
+    <task id="LOCAL-00087" summary="✨ feat: 로그인 리디렉션 경로 수정">
+      <created>1679917873635</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1679917873635</updated>
+    </task>
+    <task id="LOCAL-00088" summary="✨ feat: 로그인 리디렉션 경로 수정2">
+      <created>1679925373672</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1679925373672</updated>
+    </task>
+    <task id="LOCAL-00089" summary="✨ feat: 로그인 리디렉션 경로 수정3">
+      <created>1679925416215</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1679925416216</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,17 +644,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat:Drink에 동일한 태그 추가" />
-    <MESSAGE value="✨ feat: 몽키 숄더 이전까지 테이스팅 노트 적용" />
-    <MESSAGE value="✨ feat: 테이스팅 노트 작성 완료" />
-    <MESSAGE value="✨ feat: Drink 가격 태깅" />
-    <MESSAGE value="✨ feat: Snack 등록" />
-    <MESSAGE value="✨ feat: Snack, SnackDrink 등록" />
-    <MESSAGE value="✨ feat: 상황 태그 추가" />
-    <MESSAGE value="✨ feat: 실행 조건 수정" />
-    <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
-    <MESSAGE value="✨ feat: 초기데이터 수정" />
-    <MESSAGE value="✨ feat: 초기데이터 수정2" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 추가" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 수정" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 수정2" />
@@ -666,7 +658,18 @@
     <MESSAGE value="✨ feat: Article 엔드포인트 수정" />
     <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
     <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: Tutorial Article 추가 내용 작성" />
+    <MESSAGE value="✨ feat: Comment Drink 로직 수정2" />
+    <MESSAGE value="✨ feat: deploy yml 수정" />
+    <MESSAGE value="✨ feat: Blended.sql 작성" />
+    <MESSAGE value="✨ feat: 로그인 성공 시 리다이렉트 url 수정" />
+    <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
+    <MESSAGE value="✨ feat: yml 추가" />
+    <MESSAGE value="✨ feat: article 완성" />
+    <MESSAGE value="✨ feat: article 오타 수정" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정2" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정3" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 로그인 리디렉션 경로 수정3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,11 +712,6 @@
           <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/drink/service/DrinkService.java</url>
           <line>66</line>
           <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/comment/controller/CommentDrinkController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
