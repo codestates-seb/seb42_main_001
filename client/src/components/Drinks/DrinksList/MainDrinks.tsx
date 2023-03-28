@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import DrinksContents from './DrinksContents';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import axios from 'axios';
+import DrinksContents from './DrinksContents';
 import DrinksInfo from './DrinksInfo';
 import Loading from '../../UI/Loading';
-import axios from 'axios';
 
 import { setDrinksData, setLikesData, setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
 import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice'

@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import ArticleDetailMenuItem from './ArticleDetailMenuItem';
+import ArticleDetailMenuItem from './articledetailmenu/ArticleDetailMenuItem';
 
 interface MenuProps {
   handleIdChange: (value: number) => void;
@@ -16,13 +15,13 @@ function ArticleDetailMenu({ handleIdChange, articleList }: MenuProps) {
     <MainContainer>
       {articleList.length
         ? articleList.map(ele => (
-            <ArticleDetailMenuItem
-              key={ele.articleId}
-              title={ele.articleTitle}
-              handlIdChange={handleIdChange}
-              value={ele.articleId}
-            />
-          ))
+          <ArticleDetailMenuItem
+            key={ele.articleId}
+            title={ele.articleTitle}
+            handlIdChange={handleIdChange}
+            value={ele.articleId}
+          />
+        ))
         : null}
     </MainContainer>
   );

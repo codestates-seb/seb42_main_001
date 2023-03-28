@@ -89,11 +89,6 @@ function BoardCreate() {
         editId,
       };
       const jsonData = JSON.stringify(setData);
-      // if (editId) {
-      //   localStorage.setItem('editData', jsonData);
-      // } else {
-      //   localStorage.setItem('data', jsonData);
-      // }
       localStorage.setItem(editId ? 'editData' : 'data', jsonData);
       setTime((prev) => prev + 1);
     }, 30000);
