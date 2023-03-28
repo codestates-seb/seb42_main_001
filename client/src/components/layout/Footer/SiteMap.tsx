@@ -24,6 +24,10 @@ const SiteContainer = styled.div`
   justify-content: center;
   font-size: var(--text-small);
   color: var(--color-sub-dark-gray);
+
+  @media only screen and (max-width: 280px) {
+    display: none;
+  }
 `
 
 const MenuContainer = styled.div`
