@@ -12,10 +12,8 @@ function MyPageDrinkCommentList() {
     <>
       {drinkCommentsList
         ? drinkCommentsList.map(ele => (
-            <Link to={`/drinks/${ele.drinkId}`}>
-              <MyPageDrinkComment
-                key={ele.commentId}
-                ele={ele}></MyPageDrinkComment>
+            <Link to={`/drinks/${ele.drinkId}`} key={ele.commentId}>
+              <MyPageDrinkComment ele={ele}></MyPageDrinkComment>
             </Link>
           ))
         : null}

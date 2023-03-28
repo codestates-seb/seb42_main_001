@@ -1,44 +1,31 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import styled from 'styled-components';
 
 import ArticleListCard from './ArticleListCard';
 
-interface articleListItemType {
-  articleId: number;
-  aricleTitle: string;
-}
-
 function ArticleListItem() {
-  const [articleList, setArticleList] = useState([]);
-
-  useEffect(() => {
-    const getArticleList = async () => {
-      try {
-        const res = await axios.get('/articles');
-        if (res.status === 200) {
-          setArticleList(res.data);
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    getArticleList();
-  }, []);
-
   return (
     <>
-      {articleList.length
-        ? articleList.map((ele: articleListItemType) => (
-            <MarginContainer key={ele.articleId}>
-              <Link to={`/article/detail/${ele.articleId}`}>
-                <ArticleListCard text={ele.aricleTitle}></ArticleListCard>
-              </Link>
-            </MarginContainer>
-          ))
-        : null}
+      <MarginContainer>
+        <Link to={`/article/detail/tutorial`}>
+          <ArticleListCard text={'Tutorial'} />
+        </Link>
+      </MarginContainer>
+      <MarginContainer>
+        <Link to={`/article/detail/blended`}>
+          <ArticleListCard text={'Blended'} />
+        </Link>
+      </MarginContainer>
+      <MarginContainer>
+        <Link to={`/article/detail/bourbon`}>
+          <ArticleListCard text={'Bourbon'} />
+        </Link>
+      </MarginContainer>
+      <MarginContainer>
+        <Link to={`/article/detail/single`}>
+          <ArticleListCard text={'Single Malt'} />
+        </Link>
+      </MarginContainer>
     </>
   );
 }

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Card from "../UI/Card";
+import Card from '../UI/Card';
 
 interface props {
   ele: {
@@ -14,7 +14,7 @@ function BoardCreateTag({ ele, onClick }: props) {
   return (
     <OuterWrapper onClick={() => onClick(ele)}>
       <Card>
-        <TagWrapper>{ele.tagName ? ele.tagName : "데이트"}</TagWrapper>
+        <TagWrapper>{ele.tagName}</TagWrapper>
       </Card>
     </OuterWrapper>
   );

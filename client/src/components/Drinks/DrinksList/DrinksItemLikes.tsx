@@ -7,10 +7,10 @@ import { setLikes } from '../../../redux/slice/drinks/drinksListSlice'
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks/hooks'
 import { setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
 
-
 function DrinksItemLikes({ drinksData }: IDrinksProps) {
   const { likesData } = useAppSelector((state) => state.drinkslist);
   const dispatch = useAppDispatch();
+
   const [like, setLike] = useState(false)
 
   useEffect(() => {
@@ -28,8 +28,7 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
       } catch (error) {
         console.log(error);
       }
-    }
-    else {
+    } else {
       try {
         await axios.post(`/likes/drinks/${drinksData.drinkId}`);
         dispatch(setLikes());
@@ -39,7 +38,7 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
         console.log(error);
       }
     }
-  }
+  };
 
   return (
     <LikesSize>

@@ -11,8 +11,8 @@ function MyPageBoardLikeList() {
     <>
       {likeBoardsList
         ? likeBoardsList.map(ele => (
-            <Link to={`/board/detail/${ele.boardId}`}>
-              <MyPageBoardLike key={ele.boardId} ele={ele}></MyPageBoardLike>
+            <Link to={`/board/detail/${ele.boardId}`} key={ele.boardId}>
+              <MyPageBoardLike ele={ele}></MyPageBoardLike>
             </Link>
           ))
         : null}

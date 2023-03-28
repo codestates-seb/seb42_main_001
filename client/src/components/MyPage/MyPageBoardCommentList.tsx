@@ -11,10 +11,8 @@ function MyPageBoardCommentList() {
     <>
       {writeBoardCommentsList
         ? writeBoardCommentsList.map(ele => (
-            <Link to={`/board/detail/${ele.boardId}`}>
-              <MyPageBoardComment
-                key={ele.commentId}
-                ele={ele}></MyPageBoardComment>
+            <Link to={`/board/detail/${ele.boardId}`} key={ele.commentId}>
+              <MyPageBoardComment ele={ele}></MyPageBoardComment>
             </Link>
           ))
         : null}

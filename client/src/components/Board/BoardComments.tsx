@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
+import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
 
 interface BoardCommentsProps {
-  comment: number | undefined;
+  comment?: number;
 }
 
 function BoardComments({ comment }: BoardCommentsProps) {

@@ -89,11 +89,7 @@ function BoardCreate() {
         editId,
       };
       const jsonData = JSON.stringify(setData);
-      if (editId) {
-        localStorage.setItem('editData', jsonData);
-      } else {
-        localStorage.setItem('data', jsonData);
-      }
+      localStorage.setItem(editId ? 'editData' : 'data', jsonData);
       setTime((prev) => prev + 1);
     }, 30000);
     return () => clearInterval(interval);
@@ -137,9 +133,9 @@ function BoardCreate() {
   };
 
   const handleBoardSubmit = () => {
-    if (boardTitle === '') {
+    if (boardTitle.trim() === '') {
       alert('제목을 작성해 주세요');
-    } else if (boardContent === '') {
+    } else if (boardContent.trim() === '') {
       alert('본문을 작성해 주세요');
     } else {
       const newBoard = {
