@@ -1,12 +1,14 @@
-
 spring:
   datasource:
     url: jdbc:mysql://main001.ctmvpylzede6.ap-northeast-2.rds.amazonaws.com:23306/main001
     username: david
     password: 001mainproject
     driver-class-name: com.mysql.cj.jdbc.Driver
+#    initialization-mode: always
   jpa:
-    defer-datasource-initialization: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
     show-sql: true
