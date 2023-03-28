@@ -20,7 +20,7 @@ interface Tags {
 }
 
 function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any {
-  const [limit, setLimit] = useState<number>(16);
+  const [limit, setLimit] = useState<number>(8);
   const offset = (page - 1) * limit;
 
   const { drinksData } = useSelector((state: RootState) => state.drinkslist);
