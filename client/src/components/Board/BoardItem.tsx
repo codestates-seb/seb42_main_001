@@ -4,7 +4,6 @@ import Card from '../UI/Card';
 import BoardContents from './BoardContents';
 import BoardMetaInfo from './BoardMetaInfo';
 import BoardAuthorInfo from './BoardAuthorInfo';
-import { Link } from 'react-router-dom';
 
 interface BoardItemprops {
   data: {
@@ -36,9 +35,9 @@ function BoardItem({ data }: BoardItemprops) {
             userImage={data.profileImageUrl}
             date={data.createdAt}
           />
-          <Link to={`/board/detail/${data.boardId}`}>
-            <BoardContents title={data.boardTitle} content={data.content} />
-          </Link>
+
+          <BoardContents title={data.boardTitle} content={data.content} />
+
           <BoardMetaInfo
             boardId={data.boardId}
             tags={data.tags}

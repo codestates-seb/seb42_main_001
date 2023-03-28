@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
@@ -57,7 +58,11 @@ function BoardList() {
           <BoardInfo search={search} setSearch={setSearch} />
           <ListContainer>
             {(filteredData.length === 0 ? isData : filteredData)?.map((el) => {
-              return <BoardItem key={el.boardId} data={el} />;
+              return (
+                <Link to={`/board/detail/${el.boardId}`}>
+                  <BoardItem key={el.boardId} data={el} />
+                </Link>
+              );
             })}
           </ListContainer>
         </Wrapper>
