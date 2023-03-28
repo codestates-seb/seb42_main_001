@@ -16,6 +16,10 @@ spring:
     host: localhost
     port: 6379
 #    password: Optional, if Redis requires a password
+# http://ec2-52-79-239-234.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google
+# http://ec2-52-79-239-234.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google
+# http://localhost:8080/login/oauth2/code/google
+# http://localhost:8080/oauth2/authorization/google
 
 logging:
   level:
@@ -29,8 +33,8 @@ mail:
 jwt:
   key:
     secret: ${/main001/jwt.key.secret}
-  access-token-expiration-minutes: 1
-  refresh-token-expiration-minutes: 1
+  access-token-expiration-minutes: 10000
+  refresh-token-expiration-minutes: 10000
 
 file:
   root:
@@ -41,10 +45,10 @@ file:
 cloud:
   aws:
     s3:
-      bucket: ${/main001/cloud.aws.s3.bucket}
+      bucket: ${/main001/cloud.aws.s3.bucketname}
     credentials:
-      access-key: ${/main001/cloud.aws.s3.credentials.access-key}
-      secret-key: ${/main001/cloud.aws.s3.credentials.secret-key}
+      access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
+      secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
     region:
       static: ${/main001/cloud.aws.region.static}
     stack:

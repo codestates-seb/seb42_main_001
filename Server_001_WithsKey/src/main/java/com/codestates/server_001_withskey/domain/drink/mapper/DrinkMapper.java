@@ -96,7 +96,21 @@ public class DrinkMapper {
                 }).collect(Collectors.toList());
     }
 
+    public DrinkDto.Recommand drinkToRecommand(Drink drink){
+        DrinkDto.Recommand recommand = new DrinkDto.Recommand();
+        recommand.setImageUrl(drink.getDrinkImageUrl());
+        recommand.setDrinkName(drink.getDrinkName());
+        recommand.setDrinkId(drink.getDrinkId());
 
+        return recommand;
+    }
+
+    public List<DrinkDto.Recommand> drinksToRecomands(List<Drink> drinks){
+        return drinks.stream()
+                .map(drink -> {
+                    return drinkToRecommand(drink);
+                }).collect(Collectors.toList());
+    }
     // Todo
 //     List<TastingNote>
 //     List<tag>

@@ -57,14 +57,14 @@ public class CommentDrinkController {
         }
     }
 
-    @DeleteMapping("/{commentBoardId}")
+    @DeleteMapping("/{commentDrinkId}")
     @Transactional
     public ResponseEntity deleteComment(@PathVariable long commentDrinkId){
 
+        CommentDrink findCommentDrink = commentDrinkService.findCommentDrinkById(commentDrinkId);
+        Member writer = memberService.findMemberById(findCommentDrink.getMemberId());
+        Long writeId = writer.getMemberId();
         Long memberId = Long.valueOf(String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
-
-        CommentDrink findCommentDrink = commentDrinkService.findVerifiedCommentById(commentDrinkId);
-        long writeId = findCommentDrink.getMemberId();
 
         if(memberId != writeId) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("접근 권한이 없습니다.");

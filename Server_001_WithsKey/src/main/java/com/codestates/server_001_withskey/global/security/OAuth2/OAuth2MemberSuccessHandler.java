@@ -5,6 +5,8 @@ import com.codestates.server_001_withskey.domain.member.repository.MemberReposit
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
 import com.codestates.server_001_withskey.global.security.Jwt.withsKeyAuthorityUtils;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -21,22 +23,15 @@ import java.util.List;
 import java.util.Map;
 
 // OAuth2 인증에 성공하면 JWT를 생성하여 response header를 통해 FE 쪽으로  전달하는 역할
+@Slf4j
+@RequiredArgsConstructor
 public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JwtTokenizer jwtTokenizer;
     private final withsKeyAuthorityUtils authorityUtils;
     private final MemberService memberService;
     private final MemberRepository memberRepository;
 
-    public OAuth2MemberSuccessHandler(JwtTokenizer jwtTokenizer,
-                                      withsKeyAuthorityUtils authorityUtils,
-                                      MemberService memberService,
-                                      MemberRepository memberRepository) {
-        this.jwtTokenizer = jwtTokenizer;
-        this.authorityUtils = authorityUtils;
-        this.memberService = memberService;
-        this.memberRepository = memberRepository;
-    }
-    // OAuth2 인증의 성공의 경우에 동작함.
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
@@ -73,26 +68,15 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 //        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
 //        // v2
         // 사용자에게 makeRedirectUrl 메서드를 활용하여 endpoint + accessToken + RefreshToken을 보냄.
-        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken, request));
+        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
     }
     // v2
     private String makeRedirectUrl (String accessToken,
-                                    String refreshToken,
-                                    HttpServletRequest request) {
-        // request의 요청의 체계 (http or https)를 확인하여 scheme 변수에 저장.
-        String scheme = request.getScheme(); // http or https
-        // request의 서버 이름(호스트 이름, IP 주소)을 확인하여 serverName 변수에 저장.
-        String serverName = request.getServerName(); // hostname or ip address
-        // request의 서버 포트 번호를 확인하여 serverPort 변수에 저장.
-        int serverPort = request.getServerPort(); // port number
+                                    String refreshToken) {
 
         // UriComponentsBuilder를 사용하여 scheme+host+port+path 형식으로 구성한다.
         // ex: http://localhost:8080/mypage
-        return UriComponentsBuilder.newInstance()
-                .scheme(scheme)
-                .host(serverName)
-                .port(serverPort)
-                .path("/mypage?")
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
@@ -132,6 +116,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
                 subject,
                 expiration,
                 base64EncodedSecretKey);
+        System.out.println("accessToken's memberId: "+subject);
         return accessToken;
     }
     //

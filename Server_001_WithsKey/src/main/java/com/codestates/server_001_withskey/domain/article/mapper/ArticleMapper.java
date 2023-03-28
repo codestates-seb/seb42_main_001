@@ -4,7 +4,6 @@ package com.codestates.server_001_withskey.domain.article.mapper;
 import com.codestates.server_001_withskey.domain.article.dto.ArticleDto;
 import com.codestates.server_001_withskey.domain.article.dto.SectionDto;
 import com.codestates.server_001_withskey.domain.article.entity.Article;
-import com.codestates.server_001_withskey.domain.article.entity.Section;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class ArticleMapper {
         ArticleDto.Response response = new ArticleDto.Response();
 
         response.setArticleId(article.getArticleId());
-        response.setAricleTitle(article.getTitle());
+        response.setArticleTitle(article.getTitle());
 
         return response;
     }
@@ -33,7 +32,7 @@ public class ArticleMapper {
         ArticleDto.Detail detail = new ArticleDto.Detail();
 
         detail.setArticleId(article.getArticleId());
-        detail.setAricleTitle(article.getTitle());
+        detail.setArticleTitle(article.getTitle());
 
         List<SectionDto.Response> sectionList = article.getSections()
                         .stream().map(section -> {

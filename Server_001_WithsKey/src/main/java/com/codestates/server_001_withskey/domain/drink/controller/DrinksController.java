@@ -48,6 +48,7 @@ public class DrinksController {
 
 
 
+
     @GetMapping("/{drink-id}")
     @Transactional
     public ResponseEntity getDrink(@PathVariable("drink-id")@Positive long drinkId) {
@@ -63,6 +64,9 @@ public class DrinksController {
         TastingNoteDto.Response tastingNote = tastingNoteMapper.tastingNoteToResponse(drink.getTastingNote());
         response.setTastingNote(tastingNote);
 
+        //Set RecommandDrink2
+        List<Drink> drinks = drinkService.findRecommandDrinksByTag(drink);
+        response.setRecommandDrinks(mapper.drinksToRecomands(drinks));
 
         return new ResponseEntity(response, HttpStatus.OK);
     }
