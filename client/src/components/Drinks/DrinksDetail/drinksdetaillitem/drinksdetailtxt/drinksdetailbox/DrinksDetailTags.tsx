@@ -7,29 +7,30 @@ interface ITagProps {
 
 function DrinksDetailTags({ tagName }: ITagProps) {
   return (
-    <TagsContainer>
-      <div>{tagName}</div>
-    </TagsContainer>
+    <MainContainer>
+      <TagsContainer>{tagName}</TagsContainer>
+    </MainContainer>
   );
 }
 
 export default DrinksDetailTags;
 
-const TagsContainer = styled.div`
+const MainContainer = styled.div`
   display: flex;
+`;
 
-  div {
-    color: var(--color-main);
-    font-size: var(--text-x-small);
-    border: 1px solid var(--color-main);
-    border-radius: var(--medium);
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: var(--3x-small);
-    padding: var(--2x-small);
-    transition: .5s;
+const TagsContainer = styled.div`
+  color: var(--color-main);
+  font-size: var(--text-x-small);
+  border: 1px solid var(--color-main);
+  border-radius: var(--medium);
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--3x-small);
+  padding: var(--2x-small);
+  transition: .5s;
 
     &:hover {
       transition: .5s;
@@ -37,5 +38,17 @@ const TagsContainer = styled.div`
       color: var(--color-white);
       border: 1px solid var(--color-main);
     }
+
+    @media only screen and (max-width: 768px) {
+      color: var(--color-main);
+      font-size: var(--text-small);
+      border: 1px solid var(--color-main);
+      border-radius: var(--medium);
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--3x-small);
+      padding: var(--2x-small);
   }
-`;
+`

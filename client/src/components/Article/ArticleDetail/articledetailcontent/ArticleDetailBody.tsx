@@ -25,6 +25,7 @@ export default ArticleDetailBody;
 
 const MainContainer = styled.div`
   display: flex;
+  flex-direction: column;
   color: var(--color-main);
   width: 100%;
   padding: var(--large) var(--2x-large) var(--2x-large) var(--2x-large);
@@ -36,8 +37,13 @@ const MainContainer = styled.div`
     padding-left: var(--large);
   }
 
+  p {
+    margin: var(--2x-small) 0;
+  }
+
   @media only screen and (max-width: 450px) {
-    padding: var(--large); 
+    padding: 0 var(--medium) var(--medium) var(--medium);
+    font-size: calc(var(--large) / 2);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
