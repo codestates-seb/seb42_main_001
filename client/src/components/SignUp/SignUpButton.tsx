@@ -9,9 +9,13 @@ interface props {
 
 const SignUpButton = ({ loginMode }: props) => {
   const handleLogin = () => {
-    window.location.assign(
-      `${process.env.REACT_APP_BASE_URL}/oauth2/authorization/google`,
-    );
+    loginMode === 'Google'
+      ? window.location.assign(
+          `${process.env.REACT_APP_BASE_URL}/oauth2/authorization/google`,
+        )
+      : window.location.assign(
+          `${process.env.REACT_APP_BASE_URL}/members/guest/login`,
+        );
   };
 
   return (
