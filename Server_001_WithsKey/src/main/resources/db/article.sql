@@ -44,8 +44,8 @@ INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('양조�
 자기 자신도 알콜에 사멸해버리고 말아요. 독특한 성질이죠?
 
 따라서 일반적인 발효 환경에서는 20도까지가 양조주에서는 최대값이에요.','양조주',1);
-INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류주는 발효 과정을 통해 빚은 술을 끓여서 응축시킨 술이에요!
 
+INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류주는 발효 과정을 통해 빚은 술을 끓여서 응축시킨 술이에요!
 왜 애써 만든 술을 끓일까요?
 
 알콜은 섭씨 78.4도에서 끓기 시작해서 기화돼요.
@@ -75,8 +75,6 @@ INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('흔히 
 인위적으로 조미한 것이 오늘날 우리가 마시는 초록병 소주에요.
 
 즉, 오히려 증류 과정 자체는 희석식 소주가 많이 한다고 볼 수 있겠죠?','쿠키 지식',1);
-
-
 
 INSERT INTO article(TITLE, TYPES) VALUES ('위스키의 탄생', 'tutorial');
 INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES ('증류기법이 도입된 직후, 술의 도수는 매우 높아졌어요.

@@ -1,4 +1,6 @@
-INSERT INTO article(ARTICLE_ID, TITLE, TYPES) VALUES (100, '페이머스 그라우스','blended');
+INSERT INTO article(ARTICLE_ID, TITLE, TYPES)VALUES (100, '페이머스 그라우스','blended');
+
+
 INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('https://main-001-image.s3.ap-northeast-2.amazonaws.com/blended/%EB%B8%94%EB%A0%8C%EB%94%94%EB%93%9C-%ED%8E%98%EC%9D%B4%EB%A8%B8%EC%8A%A4%EA%B7%B8%EB%A1%9C%EC%9A%B0%EC%A6%88.JPG','1. 페이머스 그라우스',100);
 INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES(' * 생산 지역 : 스코틀랜드
  * 도수 : 40%

@@ -53,7 +53,7 @@ INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES(' * 생�
 INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('맥캘란 12년 더블 캐스크는 강렬한 유러피언 셰리 오크와 달콤한 아메리칸 셰리 오크의 조합으로 탄생했습니다.
 아메리칸 셰리 오크를 제작하는 방법으로는 아메리카에서 갓 벌목한 나무를 스페인으로 옮겨 제작한 오크통에 셰리 와인을 담은 뒤 위스키 숙성을 위해 맥캘란 증류소로 옮겨집니다.
 그렇게 아메리칸 셰리 오크통에서 숙성한 위스키와 정통 유러피언 셰리 오크통에서 숙성한 위스키를 혼합했습니다.
-\''맥캘란 12년 더블 캐스크\''는 건포도, 토피, 캐러멜 등 부드러운 셰리의 풍미가 조화로운 복합적이면서도 뛰어난 밸런스를 보여줍니다.','특징',114);
+맥캘란 12년 더블 캐스크는 건포도, 토피, 캐러멜 등 부드러운 셰리의 풍미가 조화로운 복합적이면서도 뛰어난 밸런스를 보여줍니다.','특징',114);
 INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : 바닐라, 버터, 사과, 오렌지
 맛 : 건포도, 감귤류 시트러스, 캐러멜','맛과 향',114);
 
@@ -61,16 +61,16 @@ INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : �
 
 
 
-INSERT INTO ARTICLE(ARTICLE_ID, TITLE, TYPES) VALUES (115,'발베니 12 더블우드', 'single');
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/%EC%8B%B1%EA%B8%80-%EB%B0%9C%EB%B2%A0%EB%8B%8812.png','5. 발베니 12 더블우드',115);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES(' * 생산 지역 : 스코틀랜드
+INSERT INTO article(ARTICLE_ID, TITLE, TYPES) VALUES (115,'발베니 12 더블우드', 'single');
+INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('https://main-001-image.s3.ap-northeast-2.amazonaws.com/single/%EC%8B%B1%EA%B8%80-%EB%B0%9C%EB%B2%A0%EB%8B%8812.png','5. 발베니 12 더블우드',115);
+INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES(' * 생산 지역 : 스코틀랜드
  * 도수 : 40%
  * 용량 : 700ml
  * 가격대 : 9-10만원대  ','제품 정보',115);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('윌리엄 그랜트의 5대 몰트 마스터인 데이비드 스튜어트가 개발해 지금은 대중화된 \''피니쉬\'' 기법을 사용해 만든 대표적인 위스키입니다.
+INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('윌리엄 그랜트의 5대 몰트 마스터인 데이비드 스튜어트가 개발해 지금은 대중화된 "피니쉬 기법"을 사용해 만든 대표적인 위스키입니다.
 11년 6개월은 아메리칸 버번 오크통에서 숙성하고, 나머지 6개월은 쉐리 숙성에 사용되는 유러피언 오크통으로 마무리(finishing)하는 기법으로
 여유로운 향기가 풍기는 발베니의 스테디 셀러 중 하나입니다.','특징',115);
-INSERT INTO SECTION(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : 과일, 건포도, 벌꿀, 바닐라
+INSERT INTO section(SECTION_CONTENT, SECTION_TITLE, ARTICLE_ID) VALUES('향 : 과일, 건포도, 벌꿀, 바닐라
 맛 : 견과류, 계피, 스파이시, 건포도','맛과 향',115);
 
 
