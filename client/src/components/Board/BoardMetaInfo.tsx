@@ -10,7 +10,7 @@ interface BoardMetaInfoProps {
     tagName: string;
   }>;
   like: number;
-  likes?: boolean;
+  likes: boolean;
   comment: number;
 }
 

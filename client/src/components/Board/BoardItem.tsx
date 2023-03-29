@@ -17,7 +17,7 @@ interface BoardItemprops {
       tagId: number;
       tagName: string;
     }>;
-    like?: boolean;
+    like: boolean;
     likeCount: number;
     commentCount: number;
     createdAt: string;
