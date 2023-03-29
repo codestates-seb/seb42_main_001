@@ -5,7 +5,7 @@ INSERT INTO member_roles(member_member_ID, ROLES) VALUES(2, 'USER');
 INSERT INTO member(member_ID,DISPLAY_NAME, EMAIL, OAUTH_TYPE) VALUES(100,'guest', 'guest@guest.com', 'google');
 INSERT INTO member_roles(member_member_ID, ROLES) VALUES(100, 'USER');
 
-# INSERT INTO board (board_ID, board_TITLE, CONTENT, member_ID) VALUES (100, '제목1', '내용1', 1);
+INSERT INTO board (board_ID, board_TITLE, CONTENT, member_ID) VALUES (100, 'hello world!', '위스키의 세계로 어서오세요!', 1);
 # INSERT INTO board (board_ID, board_TITLE, CONTENT, member_ID) VALUES (101, '제목2', '내용2', 1);
 # INSERT INTO board (board_ID, board_TITLE, CONTENT, member_ID) VALUES (102, '제목3', '내용3', 1);
 # INSERT INTO board (board_ID, board_TITLE, CONTENT, member_ID) VALUES (103, '제목4', '내용4', 1);

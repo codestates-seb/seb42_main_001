@@ -14,7 +14,6 @@ spring:
 #      path: /h2
   datasource:
     url: jdbc:mysql://main-001-db.claqadurzooy.ap-northeast-2.rds.amazonaws.com:3306/main?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    initialization-mode: always
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: admin
     password: ${/main001/mysql/password}
@@ -34,4 +33,4 @@ spring:
   sql:
     init:
       data-locations: classpath:db/*
-      mode: always
+      mode: never
