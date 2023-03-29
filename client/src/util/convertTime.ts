@@ -1,6 +1,6 @@
 const convertTime = (date: string | undefined | null) => {
   if (date) {
-    const createTime = new Date(date).getTime();
+    const createTime = new Date(date).getTime() + 32402489;
     const currentTime = new Date().getTime();
     const timeGap = currentTime - createTime;
 
