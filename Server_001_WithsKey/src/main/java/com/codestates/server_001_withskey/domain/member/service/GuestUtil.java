@@ -51,7 +51,7 @@ public class GuestUtil {
 
     public static String makeRedirectUrl (String accessToken,
                                     String refreshToken) {
-        return UriComponentsBuilder.fromUriString("http://seb42main001.s3-website.ap-northeast-2.amazonaws.com/mypage")
+        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();

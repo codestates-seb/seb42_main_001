@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🔨 chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="be" />
+        <entry key="$PROJECT_DIR$" value="merge" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -253,10 +252,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Server_001_WithsKey [bootJar]" />
-        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
         <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
+        <item itemvalue="Gradle.Server_001_WithsKey [clean]" />
         <item itemvalue="Gradle.Server_001_WithsKey [build]" />
+        <item itemvalue="Gradle.Server_001_WithsKey [bootJar]" />
         <item itemvalue="Gradle.TagRepositoryTests.testTagBoard" />
       </list>
     </recent_temporary>
@@ -662,7 +661,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/updateSQL" />
+                        <option value="feserver" />
                       </list>
                     </value>
                   </entry>
