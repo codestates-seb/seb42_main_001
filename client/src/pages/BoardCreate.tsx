@@ -41,7 +41,7 @@ function BoardCreate() {
       const res = await axios.get(`/boards/${editId}`);
       setIsEditData((prev) => res.data);
       setTags((prev) => res.data.tags);
-      setBoardImageUrl((prev) => res.data.boardImageUrl);
+      setBoardImageUrl((prev) => res.data.boardImages);
     };
     const getItem = localStorage.getItem('data');
     const getEditItem = localStorage.getItem('editData');
@@ -132,6 +132,7 @@ function BoardCreate() {
     imageId: number;
     boardImageUrl: string;
   }) => {
+    console.log(boardImageUrl);
     setBoardImageUrl((prev) => [...prev, url]);
   };
 
