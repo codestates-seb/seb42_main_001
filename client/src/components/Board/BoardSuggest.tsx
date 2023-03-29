@@ -19,12 +19,13 @@ function BoardSuggest() {
 export default BoardSuggest;
 
 const OuterContainer = styled.div`
-  width: 370px;
+  width: 30%;
   height: auto;
   max-height: 600px;
+  max-width: 350px;
   position: absolute;
-  top: 130px;
-  left: 1000px;
+  top: 8.5%;
+  left: 70%;
 
   @media only screen and (max-width: 768px) {
     display: none;
