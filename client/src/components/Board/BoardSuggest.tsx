@@ -24,7 +24,7 @@ const OuterContainer = styled.div`
   max-height: 600px;
   max-width: 350px;
   position: absolute;
-  top: 9.25%;
+  top: 130px;
   left: 70%;
 
   @media only screen and (max-width: 768px) {
