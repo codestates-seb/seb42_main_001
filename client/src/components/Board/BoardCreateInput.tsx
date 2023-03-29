@@ -102,6 +102,19 @@ const InputContainer = styled.div`
     border: none;
     outline: none;
   }
+
+  @media only screen and (max-width: 768px) {
+    height: 100vh;
+    padding: var(--large);
+
+    input {
+      height: 20px;
+      font-weight: var(--weight-small);
+      font-size: var(--text-large);
+      line-height: 35px;
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 const EditorContainer = styled.div`
@@ -109,4 +122,12 @@ const EditorContainer = styled.div`
   height: auto;
   padding-top: 30px;
   border-top: 1px solid var(--color-sub-light-gray);
+
+  @media only screen and (max-width: 768px) {
+    padding-top: 20px;
+    > div {
+      height: 80vh !important;
+      font-size: var(--text-small) !important;
+    }
+  }
 `;

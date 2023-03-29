@@ -132,7 +132,6 @@ function BoardCreate() {
     imageId: number;
     boardImageUrl: string;
   }) => {
-    console.log(boardImageUrl);
     setBoardImageUrl((prev) => [...prev, url]);
   };
 
@@ -234,6 +233,10 @@ const BoardCreateController = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    height: 100px;
+  }
 `;
 
 const BoardCreateTagController = styled.div`
@@ -241,6 +244,10 @@ const BoardCreateTagController = styled.div`
   align-items: center;
   flex-grow: 1;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    width: 50vw;
+  }
 `;
 
 const SvgSize = styled.div`
