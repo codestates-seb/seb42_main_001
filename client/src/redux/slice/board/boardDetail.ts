@@ -6,12 +6,12 @@ import { Data, ILikeList } from '../../../util/interfaces/boards.interface';
 interface boardDetailState {
   detailData: {
     [key: string]: any;
-    like?: boolean;
+    like: boolean;
   };
 }
 
 const initialState: boardDetailState = {
-  detailData: {},
+  detailData: { like: false },
 };
 
 export const boardDetailSlice = createSlice({

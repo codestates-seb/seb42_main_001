@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useAppDispatch } from '../../redux/hooks/hooks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
@@ -16,12 +16,16 @@ import {
 interface BoardLikesProps {
   boardId: number;
   like?: number;
-  likes?: boolean;
+  likes: boolean;
 }
 
 function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
-  const [isLike, setIsLike] = useState(likes);
+  const [isLike, setIsLike] = useState(false);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setIsLike(likes);
+  }, [likes]);
 
   const handleLikeChange = () => {
     if (isLike) {
