@@ -9,7 +9,7 @@ import {
   modifyAboutMe,
   modifyProfilePicture,
 } from '../../redux/slice/auth/authSlice';
-import defaultImg from '../../assets/img/brandon-green-21jzeYnvZTY-unsplash.jpg';
+import defaultImg from '../../assets/img/victor-hughes-OSLyizm8ovY-unsplash.jpg';
 
 interface InfoProps {
   editMode: boolean;

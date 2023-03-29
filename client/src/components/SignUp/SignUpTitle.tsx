@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const SignUpTitle = () => {
   return <SignUpTitleContent>WITH'S KEY</SignUpTitleContent>;
@@ -7,8 +7,7 @@ const SignUpTitle = () => {
 export default SignUpTitle;
 
 const SignUpTitleContent = styled.div`
-  font-family: "Bayon", sans-serif;
-  margin-bottom: 120px;
+  font-family: 'Bayon', sans-serif;
   color: var(--color-main);
   font-size: var(--large);
   font-weight: var(--weight-large);
