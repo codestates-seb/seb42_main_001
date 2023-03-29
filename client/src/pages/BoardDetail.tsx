@@ -124,6 +124,7 @@ const BoardDetailContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    padding: var(--large);
   }
 `;
 
@@ -139,6 +140,7 @@ const BoardCommentsContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    padding: var(--x-small);
   }
 `;
 
@@ -147,6 +149,13 @@ const BoardDetailHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: var(--2x-large) 0;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--large) 0;
+  }
 `;
 
 const BoardDetailController = styled.div`
@@ -154,6 +163,12 @@ const BoardDetailController = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    padding-top: var(--medium);
+    justify-content: flex-end;
+  }
 `;
 
 const BoardDetailBody = styled.div`
@@ -173,10 +188,18 @@ const CommentInputContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: var(--x-small);
+
+  @media only screen and (max-width: 768px) {
+    height: 20vh;
+  }
 `;
 
 const CommentsCount = styled.div`
   font-weight: var(--weight-large);
   font-size: var(--text-small);
   line-height: 16px;
+
+  @media only screen and (max-width: 768px) {
+    margin-left: var(--x-small);
+  }
 `;

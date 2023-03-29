@@ -13,4 +13,9 @@ export default BoardDetailTitle;
 const TitleContainer = styled.div`
   font-weight: var(--weight-large);
   font-size: var(--text-large);
+
+  @media only screen and (max-width: 768px) {
+    font-weight: var(--weight-large);
+    font-size: 5vw;
+  }
 `;

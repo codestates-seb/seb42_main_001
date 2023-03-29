@@ -41,7 +41,7 @@ function BoardCreate() {
       const res = await customAxios.get(`/boards/${editId}`);
       setIsEditData(prev => res.data);
       setTags(prev => res.data.tags);
-      setBoardImageUrl(prev => res.data.boardImageUrl);
+      setBoardImageUrl(prev => res.data.boardImages);
     };
     const getItem = localStorage.getItem('data');
     const getEditItem = localStorage.getItem('editData');
@@ -232,6 +232,10 @@ const BoardCreateController = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    height: 100px;
+  }
 `;
 
 const BoardCreateTagController = styled.div`
@@ -239,6 +243,10 @@ const BoardCreateTagController = styled.div`
   align-items: center;
   flex-grow: 1;
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    width: 50vw;
+  }
 `;
 
 const SvgSize = styled.div`

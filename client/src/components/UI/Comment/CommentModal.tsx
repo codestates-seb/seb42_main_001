@@ -46,7 +46,9 @@ function CommentModal({
   const handleBoardDelte = async () => {
     try {
       await customAxios.delete(`/boards/${boardId}`);
+      alert('성공적으로 삭제했습니다.');
       navigate('/board/list');
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }

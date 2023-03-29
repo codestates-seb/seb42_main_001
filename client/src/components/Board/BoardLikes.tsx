@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks/hooks';
-import { useState } from 'react';
 
 import customAxios from '../../api/customAxios';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
@@ -16,12 +16,16 @@ import {
 interface BoardLikesProps {
   boardId: number;
   like?: number;
-  likes?: boolean;
+  likes: boolean;
 }
 
 function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
-  const [isLike, setIsLike] = useState(likes);
+  const [isLike, setIsLike] = useState(false);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setIsLike(likes);
+  }, [likes]);
 
   const handleLikeChange = () => {
     if (isLike) {
@@ -64,10 +68,18 @@ const LikesWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: 768px) {
+    margin-right: 3vw;
+  }
+
   svg {
     margin-right: 5px;
     color: var(--color-main);
     font-size: var(--medium);
+
+    @media only screen and (max-width: 768px) {
+      font-size: 4vw;
+    }
   }
 `;
 
@@ -75,4 +87,8 @@ const LikesCount = styled.div`
   font-size: var(--x-small);
   font-weight: var(--weight-medium);
   color: var(--color-main);
+
+  @media only screen and (max-width: 768px) {
+    font-size: 4vw;
+  }
 `;
