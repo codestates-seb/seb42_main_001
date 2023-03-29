@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🔨 chore: board 초기 데이터 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🔨 chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,14 +294,13 @@
       <workItem from="1679984527204" duration="715000" />
       <workItem from="1679985274091" duration="5944000" />
       <workItem from="1680046082033" duration="396000" />
-      <workItem from="1680051438692" duration="88000" />
-    </task>
-    <task id="LOCAL-00044" summary="✨ feat: yml 설정변경 및 redis 적용">
-      <created>1679297055631</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1679297055631</updated>
+      <workItem from="1680051438692" duration="925000" />
+      <workItem from="1680052877662" duration="1428000" />
+      <workItem from="1680062566788" duration="684000" />
+      <workItem from="1680065049752" duration="3727000" />
+      <workItem from="1680070032117" duration="571000" />
+      <workItem from="1680073198271" duration="757000" />
+      <workItem from="1680074253899" duration="280000" />
     </task>
     <task id="LOCAL-00045" summary="✨ feat: tag_Drink 임시 데이터 추가">
       <created>1679303905675</created>
@@ -642,7 +638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679989333030</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="🔨 chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정">
+      <created>1680051553805</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1680051553805</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +662,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="merge" />
+                        <option value="origin/updateSQL" />
                       </list>
                     </value>
                   </entry>
@@ -677,7 +680,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 리디렉션 URI 작성 수정" />
     <MESSAGE value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
     <MESSAGE value="✨ feat: 주소지 변경 로직" />
     <MESSAGE value="✨ feat: 주소지 변경 로직2" />
@@ -702,7 +704,8 @@
     <MESSAGE value="✨ feat: RDS DB 연결, DB 환경에 맞춰 스키마 변경" />
     <MESSAGE value="✨ chore: gradle 의존성 수정(runtimeonly option 제거)" />
     <MESSAGE value=" chore: board 초기 데이터 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value=" chore: board 초기 데이터 수정" />
+    <MESSAGE value=" chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value=" chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

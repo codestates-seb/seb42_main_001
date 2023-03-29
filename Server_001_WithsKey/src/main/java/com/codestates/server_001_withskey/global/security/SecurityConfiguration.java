@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -63,7 +64,41 @@ public class SecurityConfiguration {
                 .apply(customFilterConfigurer)
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
-                                .anyRequest().permitAll()
+                        //로그아웃 요청은 사용자, 관리자 권한
+                        .antMatchers(HttpMethod.GET,"/members/logout").hasAnyRole("USER","ADMIN")
+                        // 회원 정보 변경 요청 사용자, 관리자
+                        .antMatchers(HttpMethod.PATCH,"/members").hasAnyRole("USER","ADMIN")
+                        // 회원 정보 삭제 요청 사용자, 관리자
+                        .antMatchers(HttpMethod.DELETE,"/members").hasAnyRole("USER","ADMIN")
+                        // 회원 정보 조회 요청 사용자, 관리자
+                        .antMatchers(HttpMethod.GET,"/members/mypage").hasAnyRole("USER","ADMIN")
+                        // 게시글 생성 요청 회원, 관리자
+                        .antMatchers(HttpMethod.POST,"/boards").hasAnyRole("USER","ADMIN")
+                        // 게시글 수정 요청 회원, 관리자
+                        .antMatchers(HttpMethod.PATCH,"/boards/{board-id}").hasAnyRole("USER","ADMIN")
+                        // 게시글 삭제 요청 회원, 관리자
+                        .antMatchers(HttpMethod.DELETE,"/boards/{board-id}").hasAnyRole("USER","ADMIN")
+                        // 게시글-댓글 등록 요청 회원,관리자
+                        .antMatchers(HttpMethod.POST,"/comments/boards").hasAnyRole("USER","ADMIN")
+                        // 게시글-댓글 수정 요청 회원,관리자
+                        .antMatchers(HttpMethod.PATCH,"/comments/boards/{commentBoard-id}").hasAnyRole("USER","ADMIN")
+                        // 게시글-댓글 삭제 요청 회원, 관리자
+                        .antMatchers(HttpMethod.DELETE,"/comments/boards/{commentBoard-id}").hasAnyRole("USER","ADMIN")
+                        // 주류 댓글 등록 요청 회원, 관리자
+                        .antMatchers(HttpMethod.POST,"/comments/drinks").hasAnyRole("USER","ADMIN")
+                        // 주류 댓글 수정 요청
+                        .antMatchers(HttpMethod.PATCH,"/comments/drinks/{commentDrink-id}").hasAnyRole("USER","ADMIN")
+                        // 주류 댓글 삭제 요청
+                        .antMatchers(HttpMethod.DELETE,"/comments/drinks/{commentDrink-id}").hasAnyRole("USER","ADMIN")
+                        // 게시글 좋아요 등록 요청
+                        .antMatchers(HttpMethod.POST,"/likes/boards/{board-id}").hasAnyRole("USER","ADMIN")
+                        // 게시글 좋아요 삭제 요청
+                        .antMatchers(HttpMethod.DELETE,"/likes/boards/{board-id}").hasAnyRole("USER","ADMIN")
+                        // 주류 좋아요 등록 요청
+                        .antMatchers(HttpMethod.POST,"/likes/drinks/{drink-id}").hasAnyRole("USER","ADMIN")
+                        // 주류 좋아요 삭제 요청
+                        .antMatchers(HttpMethod.DELETE,"/likes/drinks/{drink-id}").hasAnyRole("USER","ADMIN")
+                        .anyRequest().permitAll()
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .successHandler(new OAuth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService,memberRepository))
