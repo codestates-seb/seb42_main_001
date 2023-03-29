@@ -42,18 +42,19 @@ const BoardContentsTitle = styled.div`
 
 const BoardContentsBody = styled.div`
   width: 100%;
-  height: 100px;
+  height: 150px;
   line-height: var(--medium);
   font-size: var(--text-small);
   font-weight: var(--weight-x-small);
   overflow: hidden;
-  > div {
-    > div {
-      > p {
-        @media only screen and (max-width: 768px) {
-          font-size: 3vw !important;
-        }
-      }
+
+  p {
+    > img {
+      max-height: 100px;
+      padding: 10px 0;
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 3vw !important;
     }
   }
 `;
