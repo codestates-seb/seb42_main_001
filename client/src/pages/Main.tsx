@@ -1,8 +1,9 @@
-import React from "react";
-import MainMain from "../components/Main/MainMain";
+import MainVisual from "../components/Main/MainVisual";
 
 function Main() {
-  return <MainMain />;
+  return (
+    <MainVisual />
+  )
 }
 
 export default Main;
