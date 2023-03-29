@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import axios from 'axios';
 import { useNavigate } from 'react-router';
 
+import customAxios from '../../../api/customAxios';
 import Card from '../Card';
 
 interface CommentProps {
@@ -25,7 +25,7 @@ function CommentModal({
 
   const handleDrinksCommentDelte = async () => {
     try {
-      await axios.delete(`/comments/drinks/${drinkCommentId}`);
+      await customAxios.delete(`/comments/drinks/${drinkCommentId}`);
       alert('성공적으로 삭제했습니다.');
       window.location.reload();
     } catch (error) {
@@ -35,7 +35,7 @@ function CommentModal({
 
   const handleBoardCommentDelte = async () => {
     try {
-      await axios.delete(`/comments/boards/${boardCommentId}`);
+      await customAxios.delete(`/comments/boards/${boardCommentId}`);
       alert('성공적으로 삭제했습니다.');
       window.location.reload();
     } catch (error) {
@@ -45,7 +45,7 @@ function CommentModal({
 
   const handleBoardDelte = async () => {
     try {
-      await axios.delete(`/boards/${boardId}`);
+      await customAxios.delete(`/boards/${boardId}`);
       navigate('/board/list');
     } catch (error) {
       console.log(error);
