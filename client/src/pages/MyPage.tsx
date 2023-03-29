@@ -4,11 +4,13 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import MyPageContent from '../components/MyPage/MyPageContent';
 import MyPageInfo from '../components/MyPage/MyPageInfo';
-import { useAppDispatch } from '../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 import { loginSuccess } from '../redux/slice/auth/authSlice';
 import customAxios from '../api/customAxios';
+import Loading from '../components/UI/Loading';
 
 function MyPage() {
+  const isLogin = useAppSelector(state => state.auth.isLogin);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -35,14 +37,28 @@ function MyPage() {
       };
 
       handleLoginProcess();
+    } else {
+      const initializeUserInfo = async () => {
+        try {
+          const res = await customAxios.get(`/members/mypage`);
+
+          dispatch(loginSuccess({ userInfo: res.data }));
+        } catch (e) {
+          console.error(e);
+        }
+      };
+
+      initializeUserInfo();
     }
   }, [dispatch, navigate, searchParams]);
 
-  return (
+  return isLogin ? (
     <MainContainer>
       <MyPageInfo />
       <MyPageContent />
     </MainContainer>
+  ) : (
+    <Loading></Loading>
   );
 }
 
