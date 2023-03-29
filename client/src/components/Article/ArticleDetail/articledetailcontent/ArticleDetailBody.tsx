@@ -11,11 +11,12 @@ function ArticleDetailBody({ content }: props) {
   return (
     <MainContainer>
       {content.includes('http') ? (
-        <img src={`${content}`} alt="drinkImg"></img>
+        <img src={`${content}`} alt='drinkImg'></img>
       ) : (
         <ReactMarkdown
           children={content}
-          remarkPlugins={[remarkGfm]}></ReactMarkdown>
+          remarkPlugins={[remarkGfm]}
+        ></ReactMarkdown>
       )}
     </MainContainer>
   );
