@@ -26,7 +26,7 @@ function BoardDetail() {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const data = useAppSelector(state => state.boardDetail.detailData);
+  const data = useAppSelector((state) => state.boardDetail.detailData);
 
   useEffect(() => {
     const boardData = async () => {
@@ -40,7 +40,7 @@ function BoardDetail() {
   }, [boardId, dispatch]);
 
   const handleModalOpen = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
   const handleBoardEdit = () => {
@@ -71,6 +71,7 @@ function BoardDetail() {
                 {isOpen ? (
                   <CommentModal
                     boardId={data?.boardId}
+                    memberId={data.memberId}
                     handleBoardEdit={handleBoardEdit}
                     handleModalOpen={handleModalOpen}
                   />
