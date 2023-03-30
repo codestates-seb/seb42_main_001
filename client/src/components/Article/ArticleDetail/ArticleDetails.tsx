@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
 
 import ArticleDetailContent from './ArticleDetailContent';
 import ArticleDetailMenu from './ArticleDetailMenu';
+import customAxios from '../../../api/customAxios';
 
 function ArticleDetails() {
   const { articleType } = useParams();
@@ -16,7 +16,7 @@ function ArticleDetails() {
   useEffect(() => {
     const getArticleList = async () => {
       try {
-        const res = await axios.get(`/articles?type=${articleType}`);
+        const res = await customAxios.get(`/articles?type=${articleType}`);
         if (res.status === 200) {
           setArticleList(res.data);
           setArticleId(res.data[0].articleId);

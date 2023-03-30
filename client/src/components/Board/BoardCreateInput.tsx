@@ -2,8 +2,8 @@ import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import axios from 'axios';
 
+import customAxios from '../../api/customAxios';
 import Card from '../UI/Card';
 import React from 'react';
 import { Data, SetData } from '../../util/interfaces/boards.interface';
@@ -49,21 +49,21 @@ function BoardCreateInput({
     <Card>
       <InputContainer>
         <input
-          type='text'
+          type="text"
           placeholder={'제목을 입력해 주세요'}
           value={isTitle ? isTitle : ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             title(e.target.value);
             setTitle(e.target.value);
           }}
-        ></input>
+        />
         <EditorContainer>
           <Editor
             initialValue={'내용을 입력해주세요'}
-            previewStyle='vertical'
-            height='600px'
+            previewStyle="vertical"
+            height="600px"
             ref={editorRef}
-            initialEditType='markdown'
+            initialEditType="markdown"
             useCommandShortcut={true}
             onChange={handleContentChange}
             hooks={{
@@ -71,7 +71,7 @@ function BoardCreateInput({
                 const formData = new FormData();
                 formData.append('file', blob);
 
-                const img = await axios.post('/spring/upload', formData);
+                const img = await customAxios.post('/spring/upload', formData);
                 const url = img.data[0].boardImageUrl;
                 image(img.data[0]);
 

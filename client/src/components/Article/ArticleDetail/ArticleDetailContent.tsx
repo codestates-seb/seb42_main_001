@@ -3,7 +3,7 @@ import ArticleDetailBody from './articledetailcontent/ArticleDetailBody';
 import ArticleDetailTitle from './articledetailcontent/ArticleDetailTitle';
 import styled from 'styled-components';
 import Card from '../../UI/Card';
-import axios from 'axios';
+import customAxios from '../../../api/customAxios';
 
 interface props {
   articleId: number | undefined;
@@ -16,7 +16,7 @@ function ArticleDetailContent({ articleId }: props) {
     if (articleId) {
       const getArticleData = async () => {
         try {
-          const res = await axios.get(`/articles/${articleId}`);
+          const res = await customAxios.get(`/articles/${articleId}`);
           if (res.status === 200) {
             setArticleData(res.data.sectionList);
           }
@@ -35,18 +35,18 @@ function ArticleDetailContent({ articleId }: props) {
         <SizeContainer>
           {articleData.length
             ? articleData.map(
-              (
-                ele: { sectionTitle: string; sectionContent: string },
-                idx,
-              ) => (
-                <div key={idx}>
-                  <ArticleDetailTitle
-                    title={ele.sectionTitle}></ArticleDetailTitle>
-                  <ArticleDetailBody
-                    content={ele.sectionContent}></ArticleDetailBody>
-                </div>
-              ),
-            )
+                (
+                  ele: { sectionTitle: string; sectionContent: string },
+                  idx,
+                ) => (
+                  <div key={idx}>
+                    <ArticleDetailTitle
+                      title={ele.sectionTitle}></ArticleDetailTitle>
+                    <ArticleDetailBody
+                      content={ele.sectionContent}></ArticleDetailBody>
+                  </div>
+                ),
+              )
             : null}
         </SizeContainer>
       </Card>

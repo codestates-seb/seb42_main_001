@@ -13,7 +13,7 @@ import BoardTags from '../components/Board/BoardTags';
 import Comment from '../components/UI/Comment/Comment';
 import CommentInput from '../components/UI/Comment/CommentInput';
 import BoardSuggest from '../components/Board/BoardSuggest';
-import axios from 'axios';
+import customAxios from '../api/customAxios';
 import CommentModal from '../components/UI/Comment/CommentModal';
 import Loading from '../components/UI/Loading';
 import { getBoardDetailData } from '../redux/slice/board/boardDetail';
@@ -26,12 +26,12 @@ function BoardDetail() {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.boardDetail.detailData);
+  const data = useAppSelector(state => state.boardDetail.detailData);
 
   useEffect(() => {
     const boardData = async () => {
-      const res = await axios.get(`/boards/${boardId}`);
-      const listData = await axios.get(`/boards?page=1&size=16`);
+      const res = await customAxios.get(`/boards/${boardId}`);
+      const listData = await customAxios.get(`/boards?page=1&size=16`);
       const likeList = listData.data.likeList;
       dispatch(getBoardDetailData({ data: res.data, likeList }));
       setIsLoding(true);
@@ -40,7 +40,7 @@ function BoardDetail() {
   }, [boardId, dispatch]);
 
   const handleModalOpen = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(prev => !prev);
   };
 
   const handleBoardEdit = () => {

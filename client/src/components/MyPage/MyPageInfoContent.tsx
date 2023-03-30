@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useRef } from 'react';
-import axios from 'axios';
 
+import customAxios from '../../api/customAxios';
 import { RiImageAddLine } from 'react-icons/ri';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import {
@@ -36,7 +36,7 @@ function MyPageInfoContent({ editMode }: InfoProps) {
       const formData = new FormData();
       formData.append('file', curfiles['0']);
 
-      const res = await axios.post('/spring/upload', formData);
+      const res = await customAxios.post('/spring/upload', formData);
 
       if (res.status === 200) {
         const imgUrl = res.data[0].boardImageUrl;

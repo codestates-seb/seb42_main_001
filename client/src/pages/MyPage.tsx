@@ -1,39 +1,36 @@
-import axios from 'axios';
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import MyPageContent from '../components/MyPage/MyPageContent';
 import MyPageInfo from '../components/MyPage/MyPageInfo';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 import { loginSuccess } from '../redux/slice/auth/authSlice';
+import customAxios from '../api/customAxios';
+import Loading from '../components/UI/Loading';
 
 function MyPage() {
-  const dispatch = useAppDispatch();
   const isLogin = useAppSelector(state => state.auth.isLogin);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!isLogin) {
+    if (searchParams.get('Authorization')) {
       const handleLoginProcess = async () => {
         try {
-          const url = new URL(window.location.href);
           const token = {
-            accessToken: `Bearer ${url.searchParams.get('Authorization')}`,
-            refreshToken: `${url.searchParams.get('Refresh')}`,
+            accessToken: `Bearer ${searchParams.get('Authorization')}`,
+            refreshToken: `${searchParams.get('Refresh')}`,
           };
-          const res = await axios.get(`/members/mypage`, {
-            headers: {
-              Authorization: token.accessToken,
-              Refresh: token.refreshToken,
-            },
-          });
-          if (res.status === 200) {
-            const userInfo = res.data;
-            dispatch(loginSuccess({ userInfo: userInfo }));
-            localStorage.clear();
-            localStorage.setItem('accessToken', token.accessToken);
-            localStorage.setItem('refreshToken', token.refreshToken);
-            window.location.replace('/mypage');
-          }
+
+          localStorage.setItem('accessToken', token.accessToken);
+          localStorage.setItem('refreshToken', token.refreshToken);
+
+          const res = await customAxios.get('/members/mypage');
+
+          dispatch(loginSuccess({ userInfo: res.data }));
+          navigate('/mypage');
         } catch (e) {
           console.error(e);
         }
@@ -41,27 +38,27 @@ function MyPage() {
 
       handleLoginProcess();
     } else {
-      const getUserInfo = async () => {
+      const initializeUserInfo = async () => {
         try {
-          const res = await axios.get(`/members/mypage`);
-          if (res.status === 200) {
-            const userInfo = res.data;
-            dispatch(loginSuccess({ userInfo: userInfo }));
-          }
+          const res = await customAxios.get(`/members/mypage`);
+
+          dispatch(loginSuccess({ userInfo: res.data }));
         } catch (e) {
           console.error(e);
         }
       };
 
-      getUserInfo();
+      initializeUserInfo();
     }
-  });
+  }, [dispatch, navigate, searchParams]);
 
-  return (
+  return isLogin ? (
     <MainContainer>
       <MyPageInfo />
       <MyPageContent />
     </MainContainer>
+  ) : (
+    <Loading></Loading>
   );
 }
 

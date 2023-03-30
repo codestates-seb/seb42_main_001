@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
 import Card from '../Card';
+import customAxios from '../../../api/customAxios';
 
 interface CommentInputProps {
   drinkId?: number;
@@ -30,9 +30,9 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
         commentContent: commentValue,
       };
       try {
-        await axios.post(
+        await customAxios.post(
           drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : '',
-          drinkId ? newDrinks : boardId ? newBoards : null
+          drinkId ? newDrinks : boardId ? newBoards : null,
         );
         setCommentValue('');
         alert('성공적으로 작성되었습니다.');
@@ -58,20 +58,19 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
               onChange={handleCommentValueChange}
               onKeyDown={handleInputKey}
               value={commentValue}
-              placeholder='댓글을 작성해 주세요'
+              placeholder="댓글을 작성해 주세요"
             />
           </Card>
         </SearchContainer>
       </section>
       <Button
-        type='submit'
+        type="submit"
         width={`--5x-large`}
         height={`--2x-large`}
         bgColor={`--color-main`}
         borderColor={`--color-main`}
         color={`--color-white`}
-        onClick={handleDrinksPost}
-      >
+        onClick={handleDrinksPost}>
         submit
       </Button>
     </MainContainer>

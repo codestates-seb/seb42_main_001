@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
+import customAxios from '../../api/customAxios';
 import Card from '../UI/Card';
 
 interface props {
@@ -17,7 +17,7 @@ function MyPageDrinkLike({ ele }: props) {
   useEffect(() => {
     const getDrinkData = async (id: number) => {
       try {
-        const res = await axios.get(`drinks/${id}`);
+        const res = await customAxios.get(`drinks/${id}`);
         if (res.status === 200) {
           setDrinkImg(res.data.drinkImageUrl);
         }
