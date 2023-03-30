@@ -12,6 +12,7 @@ function ArticleDetails() {
     { articleId: number; articleTitle: string }[]
   >([]);
   const [articleId, setArticleId] = useState<number>(articleList[0]?.articleId);
+  const [isActive, setIsActive] = useState<number>(articleId);
 
   useEffect(() => {
     const getArticleList = async () => {
@@ -31,6 +32,7 @@ function ArticleDetails() {
 
   const handleIdChange = (value: number) => {
     setArticleId(value);
+    setIsActive(value);
   };
 
   return (
@@ -39,6 +41,7 @@ function ArticleDetails() {
         <ArticleDetailMenu
           handleIdChange={handleIdChange}
           articleList={articleList}
+          isActive={isActive}
         />
       </FlexMenu>
       <FlexContent>
