@@ -52,6 +52,7 @@ const MainContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     margin-right: 80px;
+    color: var(--color-main);
 `
 
 const TextWrap = styled.div`

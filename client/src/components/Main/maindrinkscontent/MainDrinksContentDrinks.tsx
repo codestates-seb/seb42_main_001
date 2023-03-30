@@ -39,7 +39,7 @@ function MainDrinksContentDrinks() {
 export default MainDrinksContentDrinks
 
 const MainContainer = styled.div`
-    width: 70%;
+    width: 100%;
     height: 100%;
     overflow: scroll;
     display: flex;
