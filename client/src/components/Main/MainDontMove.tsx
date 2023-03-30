@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import MainArrowButton from "./MainArrowButton";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import ArrowLeft from '../../assets/icon/arrow-01.png'
+import ArrowRight from '../../assets/icon/arrow-02.png'
 
 interface MainDontMoveProps {
   handlePreClick: () => void;
@@ -22,8 +22,8 @@ const MainDontMove = ({
 
   return (
     <MainDontMoveContauner>
-      <MainArrowButton arrow={<SlArrowLeft />} onClick={handleLeft} />
-      <MainArrowButton arrow={<SlArrowRight />} onClick={handleRight} />
+      <ImgWrap src={ArrowLeft} alt='ArrowLeft' onClick={handleLeft} />
+      <ImgWrap src={ArrowRight} alt='ArrowRight' onClick={handleRight} />
     </MainDontMoveContauner>
   );
 };
@@ -31,7 +31,7 @@ const MainDontMove = ({
 export default MainDontMove;
 
 const MainDontMoveContauner = styled.div`
-  width: 100%;
+  width: 85%;
   height: 100%;
   position: absolute;
   display: flex;
@@ -39,3 +39,8 @@ const MainDontMoveContauner = styled.div`
   align-items: center;
   z-index: 10;
 `;
+
+const ImgWrap = styled.img`
+  cursor: pointer;
+  width: 90px;
+`
