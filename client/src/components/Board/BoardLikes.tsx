@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks/hooks';
-import { useState } from 'react';
-import axios from 'axios';
 
+import customAxios from '../../api/customAxios';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import {
   boardLikeCheck,
@@ -16,32 +16,36 @@ import {
 interface BoardLikesProps {
   boardId: number;
   like?: number;
-  likes?: boolean;
+  likes: boolean;
 }
 
 function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
-  const [isLike, setIsLike] = useState(likes);
+  const [isLike, setIsLike] = useState(false);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setIsLike(likes);
+  }, [likes]);
 
   const handleLikeChange = () => {
     if (isLike) {
-      axios
+      customAxios
         .delete(`/likes/boards/${boardId}`)
-        .then((res) => {
+        .then(res => {
           setIsLike(false);
           dispatch(boardLikeUncheck({ data: false, boardId }));
           dispatch(boardDetailUnLike({ data: false }));
         })
-        .catch((err) => console.log(Error, err));
+        .catch(err => console.log(Error, err));
     } else {
-      axios
+      customAxios
         .post(`/likes/boards/${boardId}`)
-        .then((res) => {
+        .then(res => {
           setIsLike(true);
           dispatch(boardLikeCheck({ data: true, boardId }));
           dispatch(boardDetailLike({ data: true }));
         })
-        .catch((err) => console.log(Error, err));
+        .catch(err => console.log(Error, err));
     }
   };
   return (

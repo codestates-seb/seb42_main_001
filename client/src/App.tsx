@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import axios from 'axios';
-import { useAppDispatch } from './redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from './redux/hooks/hooks';
 
+import customAxios from './api/customAxios';
 import Main from './pages/Main';
 import MainLayout from './components/layout/MainLayout';
 import BaseLayout from './components/layout/BaseLayout';
@@ -18,28 +18,24 @@ import Tags from './pages/Tags';
 import ArticleDetail from './pages/ArticleDetail';
 import { loginSuccess } from './redux/slice/auth/authSlice';
 
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-axios.defaults.headers.common['Authorization'] =
-  localStorage.getItem('accessToken');
-axios.defaults.headers.common['Refresh'] = localStorage.getItem('refreshToken');
-
 function App() {
+  const isLogin = useAppSelector(state => state.auth.isLogin);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const initializeUserInfo = async () => {
-      try {
-        const res = await axios.get(`/members/mypage`);
-        if (res.status === 200) {
-          const userInfo = res.data;
-          dispatch(loginSuccess({ userInfo: userInfo }));
-          console.log('confirm app rerender');
+    if (!isLogin) {
+      const initializeUserInfo = async () => {
+        try {
+          const res = await customAxios.get(`/members/mypage`);
+
+          dispatch(loginSuccess({ userInfo: res.data }));
+        } catch (e) {
+          console.error(e);
         }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    initializeUserInfo();
+      };
+
+      initializeUserInfo();
+    }
   });
 
   return (

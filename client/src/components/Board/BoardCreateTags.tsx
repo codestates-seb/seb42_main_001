@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import BoardCreateTag from "./BoardCreateTag";
+import BoardCreateTag from './BoardCreateTag';
 
 interface BoardCreateTagsProps {
   tags: Array<{ tagId: number; tagName: string }>;
@@ -22,4 +22,8 @@ export default BoardCreateTags;
 const ListContainer = styled.ul`
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    width: 30vw;
+    overflow-x: scroll;
+  }
 `;

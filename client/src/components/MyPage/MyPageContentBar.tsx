@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface BarProps {
   setSelectedBar?: (state: boolean) => void;
@@ -14,7 +13,7 @@ function MyPageContentBar({
 }: BarProps) {
   const handleTrueChange = () => {
     if (setSelectedBarBorad) {
-      setSelectedBarBorad("Comments");
+      setSelectedBarBorad('Comments');
     } else if (setSelectedBar) {
       setSelectedBar(true);
     }
@@ -22,7 +21,7 @@ function MyPageContentBar({
 
   const handleFalseChange = () => {
     if (setSelectedBarBorad) {
-      setSelectedBarBorad("Likes");
+      setSelectedBarBorad('Likes');
     } else if (setSelectedBar) {
       setSelectedBar(false);
     }
@@ -30,7 +29,7 @@ function MyPageContentBar({
 
   const handleMiddleChange = () => {
     if (setSelectedBarBorad) {
-      setSelectedBarBorad("My");
+      setSelectedBarBorad('My');
     }
   };
 
@@ -58,7 +57,7 @@ const BarContainer = styled.div`
   border: 1px solid var(--color-main);
   border-radius: var(--medium);
   margin-right: var(--3x-small);
-  margin-bottom: var(--large);
+  margin-bottom: var(--x-small);
   transition: 0.5s;
   cursor: pointer;
 
