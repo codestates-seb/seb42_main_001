@@ -14,9 +14,8 @@ function MainDrinksContent() {
 export default MainDrinksContent
 
 const MainContainer = styled.div`
-    width: 100%;
+    width: 1420px;
     height: 50vh;
-    padding: 0 320px;
     display: flex;
     justify-content: center;
     align-items: center;

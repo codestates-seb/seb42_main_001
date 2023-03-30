@@ -1,19 +1,23 @@
 import customAxios from '../../../api/customAxios';
-import { IDrinks } from '../../../util/interfaces/drinks.inerface';
 
 import { useState, useEffect, useCallback } from 'react';
 import MainDrinksContentDrink from './MainDrinksContentDrink';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+interface IDrinks {
+    drinkId: number;
+    drinkName: string;
+    imageUrl: string;
+}
+
 function MainDrinksContentDrinks() {
     const [drinksData, setDrinksData] = useState<IDrinks[]>([])
 
     const handleDrinksData = useCallback(async () => {
         try {
-            const res = await customAxios.get('/drinks');
-            const { data } = res;
-            setDrinksData(data.data);
+            const res = await customAxios.get('/drinks/best');
+            setDrinksData(res.data);
         } catch (error) {
             console.log(error);
         }
@@ -28,7 +32,7 @@ function MainDrinksContentDrinks() {
             {drinksData.map(drink => {
                 return (
                     <Link to={`/drinks/${drink.drinkId}`} key={drink.drinkId}>
-                        <MainDrinksContentDrink drinkName={drink.drinkName} drinkImg={drink.drinkImageUrl} />
+                        <MainDrinksContentDrink drinkName={drink.drinkName} drinkImg={drink.imageUrl} />
                     </Link>
                 )
             })}
@@ -39,7 +43,7 @@ function MainDrinksContentDrinks() {
 export default MainDrinksContentDrinks
 
 const MainContainer = styled.div`
-    width: 70%;
+    width: 100%;
     height: 100%;
     overflow: scroll;
     display: flex;

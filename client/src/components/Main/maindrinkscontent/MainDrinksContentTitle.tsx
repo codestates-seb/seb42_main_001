@@ -7,7 +7,8 @@ function MainDrinksContentTitle() {
                 Best Drinks
             </TitleWrap>
             <BodyWrap>
-                지금 가장 인기 많은 술을 만나 보세요!
+                지금 가장 인기 많은 술을
+                만나 보세요!
             </BodyWrap>
         </MainContainer>
     )
@@ -16,6 +17,7 @@ function MainDrinksContentTitle() {
 export default MainDrinksContentTitle
 
 const MainContainer = styled.div`
+    width: 25%;
     color: var(--color-white);
 `
 
