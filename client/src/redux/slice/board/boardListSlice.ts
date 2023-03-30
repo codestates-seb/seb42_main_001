@@ -53,11 +53,7 @@ export const boardListSlice = createSlice({
         state.listData = NotData;
       }
     },
-    boardListFiltered: (state, { payload: data }: PayloadAction<string>) => {
-      state.filteredData = state.listData.filter((el) =>
-        el.boardTitle.includes(data)
-      );
-    },
+
     boardLikeCheck: (
       state,
       {
@@ -82,12 +78,8 @@ export const boardListSlice = createSlice({
   },
 });
 
-export const {
-  boardListItemAdd,
-  boardListFiltered,
-  boardLikeCheck,
-  boardLikeUncheck,
-} = boardListSlice.actions;
+export const { boardListItemAdd, boardLikeCheck, boardLikeUncheck } =
+  boardListSlice.actions;
 
 export const selectBoardList = (state: RootState) => state.boardList;
 
