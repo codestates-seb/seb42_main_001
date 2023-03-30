@@ -166,7 +166,7 @@ const ContainerBox2Text = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    padding-right: 600px;
+    padding-right: 500px;
 `;
 const Box2TextTitle = styled.div`
     font-size: var(--2x-large);
