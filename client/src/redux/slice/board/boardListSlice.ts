@@ -47,22 +47,13 @@ export const boardListSlice = createSlice({
         }
         return result;
       }, []);
-      if (
-        state.listData.length !== 0 &&
-        // state.listData.filter((el) => el.boardId === data[0].boardId).length ===
-        //   0
-        NotData.length !== 0
-      ) {
+      if (state.listData.length !== 0 && NotData.length !== 0) {
         state.listData = [...state.listData, ...NotData];
       } else if (state.listData.length === 0) {
         state.listData = NotData;
       }
     },
-    boardListFiltered: (state, { payload: data }: PayloadAction<string>) => {
-      state.filteredData = state.listData.filter((el) =>
-        el.boardTitle.includes(data)
-      );
-    },
+
     boardLikeCheck: (
       state,
       {
@@ -87,12 +78,8 @@ export const boardListSlice = createSlice({
   },
 });
 
-export const {
-  boardListItemAdd,
-  boardListFiltered,
-  boardLikeCheck,
-  boardLikeUncheck,
-} = boardListSlice.actions;
+export const { boardListItemAdd, boardLikeCheck, boardLikeUncheck } =
+  boardListSlice.actions;
 
 export const selectBoardList = (state: RootState) => state.boardList;
 

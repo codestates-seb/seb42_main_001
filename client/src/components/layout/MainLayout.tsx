@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
-import styled from "styled-components";
+import { Outlet } from 'react-router-dom';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import styled from 'styled-components';
 
 interface MainLayoutProps {
   bgColor?: boolean;
-  img?: boolean;
 }
 
 function MainLayout({ bgColor }: MainLayoutProps) {
-
   return (
     <DefaultSize bgColor={bgColor}>
       {bgColor ? (
@@ -36,7 +34,6 @@ const DefaultSize = styled.div<MainLayoutProps>`
   height: 100%;
   background-color: ${(props) =>
     props.bgColor ? `var(--color-sub-light-gray)` : `var(--color-main)`};
-
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -44,7 +41,8 @@ const DefaultSize = styled.div<MainLayoutProps>`
 `;
 
 const Container = styled.div<MainLayoutProps>`
-  color: var(--color-sub-light-gray);
+  color: var(--color-main);
+  background-color: var(--color-sub-light-gray);
   width: 85%;
   max-width: 1420px;
   height: 100%;
