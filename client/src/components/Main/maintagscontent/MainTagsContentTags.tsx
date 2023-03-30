@@ -44,7 +44,14 @@ function MainTagsContentTags() {
 export default MainTagsContentTags
 
 const MainContainer = styled.div`
-    color: var(--color-main);
+    width: 70%;
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 80px;
 `
 
 const TextWrap = styled.div`
@@ -57,8 +64,9 @@ const SubTextWrap = styled.div`
 `
 
 const TagWrap = styled.div`
-    width: 750px;
-    display: flex;
+    width: 100%;
     overflow: scroll;
-    margin-right: 80px;
+    display: flex;
+    align-items: center;
+    /* margin-right: 80px; */
 `

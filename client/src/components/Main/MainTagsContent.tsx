@@ -16,7 +16,7 @@ export default MainTagsContent
 const MainContainer = styled.div`
     width: 100%;
     height: 50vh;
-    padding: 0 320px;
+    padding: 0 450px;
     display: flex;
     justify-content: center;
     align-items: center;
