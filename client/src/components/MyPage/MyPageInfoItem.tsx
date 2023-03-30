@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import axios from 'axios';
 
+import customAxios from '../../api/customAxios';
 import { useNavigate } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { logoutSuccess } from '../../redux/slice/auth/authSlice';
@@ -23,7 +23,7 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
 
   const handleUserFalseChange = async () => {
     try {
-      const res = await axios.patch('/members', {
+      const res = await customAxios.patch('/members', {
         displayName,
         aboutMe,
         profilePicture,
@@ -38,7 +38,8 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.get(`/members/logout`);
+      const res = await customAxios.get(`/members/logout`);
+
       if (res.status === 200) {
         dispatch(logoutSuccess());
         localStorage.removeItem('accessToken');

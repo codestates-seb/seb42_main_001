@@ -1,5 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 import Card from '../UI/Card';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
@@ -30,7 +32,12 @@ function MyPageBoardComment({ board, ele }: MyPageBoardCommentProps) {
               <div>{convertTime(ele.createdAt)}</div>
             </div>
             <div>
-              <span>{ele.content}</span>
+              <span>
+                <ReactMarkdown
+                  children={ele.content ? ele.content : ''}
+                  remarkPlugins={[remarkGfm]}
+                />
+              </span>
               <div>
                 <LikesWrapper>
                   <IoMdHeartEmpty />
@@ -73,10 +80,14 @@ const MainContainer = styled.div`
   > div {
     display: flex;
     justify-content: space-between;
+
     > span {
       color: var(--color-sub-gray);
       margin-top: var(--x-small);
+      max-height: var(--medium);
+      overflow: hidden;
     }
+
     > div {
       display: flex;
     }

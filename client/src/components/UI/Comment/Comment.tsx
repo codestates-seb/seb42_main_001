@@ -4,7 +4,7 @@ import Card from '../Card';
 import CommentModal from './CommentModal';
 import More from '../More';
 import Button from '../Button';
-import axios from 'axios';
+import customAxios from '../../../api/customAxios';
 import convertTime from '../../../util/convertTime';
 
 interface CommentProps {
@@ -38,7 +38,7 @@ function Comment({ comments }: CommentProps) {
         const editComment = {
           commentContent,
         };
-        axios.patch(
+        customAxios.patch(
           `/comments/drinks/${comments?.drinkCommentId}`,
           editComment
         );
@@ -49,7 +49,7 @@ function Comment({ comments }: CommentProps) {
         const editComment = {
           commentContent,
         };
-        axios.patch(
+        customAxios.patch(
           `/comments/boards/${comments?.boardCommentId}`,
           editComment
         );
@@ -77,6 +77,7 @@ function Comment({ comments }: CommentProps) {
               <CommentModal
                 drinkCommentId={comments?.drinkCommentId}
                 boardCommentId={comments?.boardCommentId}
+                memberId={comments?.memberId}
                 onClick={setEdit}
                 handleModalOpen={handleModalOpen}
               />

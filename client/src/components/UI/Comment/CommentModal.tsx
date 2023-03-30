@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-import axios from 'axios';
 import { useNavigate } from 'react-router';
 
+import customAxios from '../../../api/customAxios';
 import Card from '../Card';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 
 interface CommentProps {
   drinkCommentId?: number;
   boardCommentId?: number;
   boardId?: number;
+  memberId?: number;
   onClick?: (state: boolean) => void;
   handleModalOpen: (state: boolean) => void;
   handleBoardEdit?: () => void;
@@ -17,15 +19,17 @@ function CommentModal({
   drinkCommentId,
   boardCommentId,
   boardId,
+  memberId,
   onClick,
   handleModalOpen,
   handleBoardEdit,
 }: CommentProps) {
   const navigate = useNavigate();
+  const nowMemberId = useAppSelector((state) => state.auth.userInfo.memberId);
 
   const handleDrinksCommentDelte = async () => {
     try {
-      await axios.delete(`/comments/drinks/${drinkCommentId}`);
+      await customAxios.delete(`/comments/drinks/${drinkCommentId}`);
       alert('성공적으로 삭제했습니다.');
       window.location.reload();
     } catch (error) {
@@ -35,7 +39,7 @@ function CommentModal({
 
   const handleBoardCommentDelte = async () => {
     try {
-      await axios.delete(`/comments/boards/${boardCommentId}`);
+      await customAxios.delete(`/comments/boards/${boardCommentId}`);
       alert('성공적으로 삭제했습니다.');
       window.location.reload();
     } catch (error) {
@@ -45,8 +49,10 @@ function CommentModal({
 
   const handleBoardDelte = async () => {
     try {
-      await axios.delete(`/boards/${boardId}`);
+      await customAxios.delete(`/boards/${boardId}`);
+      alert('성공적으로 삭제했습니다.');
       navigate('/board/list');
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -54,26 +60,41 @@ function CommentModal({
 
   const handleCommentDelete = () => {
     if (drinkCommentId || boardCommentId) {
-      if (window.confirm('댓글을 삭제하시겠습니까?')) {
-        if (drinkCommentId) {
-          handleDrinksCommentDelte();
-        } else if (boardCommentId) {
-          handleBoardCommentDelte();
+      if (memberId === nowMemberId) {
+        if (window.confirm('댓글을 삭제하시겠습니까?')) {
+          if (drinkCommentId) {
+            handleDrinksCommentDelte();
+          } else if (boardCommentId) {
+            handleBoardCommentDelte();
+          }
         }
+      } else {
+        handleModalOpen(false);
+        alert('댓글을 삭제할 권한이 없습니다.');
       }
     } else if (boardId) {
-      if (window.confirm('글을 삭제하시겠습니까?')) {
-        handleBoardDelte();
+      if (memberId === nowMemberId) {
+        if (window.confirm('글을 삭제하시겠습니까?')) {
+          handleBoardDelte();
+        }
+      } else {
+        handleModalOpen(false);
+        alert('글을 삭제할 권한이 없습니다.');
       }
     }
   };
 
   const handleCommentEdit = () => {
-    if (onClick) {
+    if (memberId === nowMemberId) {
+      if (onClick) {
+        handleModalOpen(false);
+        onClick(true);
+      } else if (handleBoardEdit) {
+        handleBoardEdit();
+      }
+    } else {
       handleModalOpen(false);
-      onClick(true);
-    } else if (handleBoardEdit) {
-      handleBoardEdit();
+      alert('댓글을 수정할 권한이 없습니다.');
     }
   };
 

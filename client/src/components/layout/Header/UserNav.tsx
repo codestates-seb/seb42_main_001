@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useAppSelector } from '../../../redux/hooks/hooks';
-import defaultImg from '../../../assets/img/brandon-green-21jzeYnvZTY-unsplash.jpg';
+import defaultImg from '../../../assets/img/victor-hughes-OSLyizm8ovY-unsplash.jpg';
 
 interface UserNavProps {
   profileColor?: string;

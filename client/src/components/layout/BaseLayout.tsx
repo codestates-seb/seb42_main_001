@@ -34,7 +34,7 @@ export default BaseLayout;
 
 const DefaultSize = styled.div<MainLayoutProps>`
   width: 100vw;
-  height: auto;
+  height: 100%;
   background-color: ${(props) =>
     props.bgColor ? `var(--color-sub-light-gray)` : `var(--color-main)`};
   display: flex;

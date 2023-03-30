@@ -1,21 +1,21 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../store/store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { RootState } from '../../store/store';
 
-import { Data, ILikeList } from "../../../util/interfaces/boards.interface";
+import { Data, ILikeList } from '../../../util/interfaces/boards.interface';
 
 interface boardDetailState {
   detailData: {
     [key: string]: any;
-    like?: boolean;
+    like: boolean;
   };
 }
 
 const initialState: boardDetailState = {
-  detailData: {},
+  detailData: { like: false },
 };
 
 export const boardDetailSlice = createSlice({
-  name: "boardList",
+  name: 'boardList',
   initialState,
   reducers: {
     getBoardDetailData: (

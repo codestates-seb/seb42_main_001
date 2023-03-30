@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import Card from "../UI/Card";
-import MyPageContentBar from "./MyPageContentBar";
-import styled from "styled-components";
-import MyPageBoardBox from "./MyPageBoardBox";
+import { useState } from 'react';
+import styled from 'styled-components';
+
+import Card from '../UI/Card';
+import MyPageContentBar from './MyPageContentBar';
+import MyPageBoardBox from './MyPageBoardBox';
 
 function MyPageBoard() {
-  const [selectedBarBorad, setSelectedBarBorad] = useState("Likes");
+  const [selectedBarBorad, setSelectedBarBorad] = useState('Likes');
 
   return (
     <MarginContainer>
@@ -28,6 +29,8 @@ export default MyPageBoard;
 const MarginContainer = styled.div`
   width: 100%;
   margin-left: var(--x-small);
+  width: 65%;
+  flex: 1 0 auto;
 `;
 
 const MainContainer = styled.div`

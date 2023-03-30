@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+
 import Card from '../UI/Card';
 import MyPageContentBar from './MyPageContentBar';
 import MyPageDrinksBox from './MyPageDrinksBox';
@@ -25,6 +26,8 @@ export default MyPageDrinks;
 const MarginContainer = styled.div`
   width: 100%;
   margin-right: var(--x-small);
+  width: 30%;
+  flex: 0 0 auto;
 `;
 
 const MainContainer = styled.div`
