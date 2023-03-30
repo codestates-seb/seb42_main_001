@@ -54,12 +54,12 @@ function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
 export default DrinksInfo;
 
 const InfoContainer = styled.div`
-  width: 100%;
+  width: 97%;
   display: flex;
   flex: 1;
   margin: var(--3x-large) 0;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
     @media only screen and (max-width: 768px) {
       margin: var(--large);

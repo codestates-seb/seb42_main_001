@@ -10,15 +10,15 @@ function DrinksItem({ drinksData, likesData }: IDrinksProps) {
   return (
     <Margin>
       <Card>
-        <ItemContainer>
-          <DrinksItemBox drinksData={drinksData} likesData={likesData} />
-          <SubContainer>
-            <Link to={`/drinks/${drinksData.drinkId}`}>
+        <Link to={`/drinks/${drinksData.drinkId}`} >
+          <ItemContainer>
+            <DrinksItemBox drinksData={drinksData} likesData={likesData} />
+            <SubContainer>
               <DrinksItemBody drinksData={drinksData} />
               <DrinksItemLevel drinksData={drinksData} />
-            </Link>
-          </SubContainer>
-        </ItemContainer>
+            </SubContainer>
+          </ItemContainer>
+        </Link>
       </Card>
     </Margin>
   );

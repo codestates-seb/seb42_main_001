@@ -1,54 +1,42 @@
-import { useState, useRef } from "react";
 import styled from "styled-components";
-import Button from "../../../UI/Button";
+// import Button from "../../../UI/Button";
 import DrinksTags from "./DrinksTags";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/navigation/navigation.min.css";
+import SwiperCore, { Navigation } from "swiper";
+
+SwiperCore.use([Navigation]);
 
 interface TagProps {
   tagData: { tagId: number; tagName?: string; }[]
 }
 
 function DrinksTagList({ tagData }: TagProps) {
-  const [tagPage, setTagPage] = useState(7)
-  const pageRef = useRef<HTMLDivElement>(null);
-  // const [tagData, setTagData] = useState<Tags[]>([])
-
-  const handleRightClick = () => {
-    setTagPage(prev => prev + 7)
-    pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
-  };
-
-  const handleLeftClick = () => {
-    if (tagPage < 0) {
-      setTagPage(0)
-    } else {
-      setTagPage(prev => prev - 7)
-    }
-    pageRef.current?.scrollTo({ left: Number(`${tagPage}00`), top: 0, behavior: "smooth" });
-  };
 
   return (
-    <DisplayContainer>
-      <Button
-        type="button"
-        width={`--x-large`}
-        radius={`--large`}
-        onClick={handleLeftClick}
-        borderColor={`--color-main`}
-      >{`<`}</Button>
-      <TagListContainer ref={pageRef}>
-        {tagData.map(el => {
-          return <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} />
-        })
-        }
-      </TagListContainer>
-      <Button
-        type="button"
-        width={`--x-large`}
-        radius={`--large`}
-        onClick={handleRightClick}
-        borderColor={`--color-main`}
-      >{`>`}</Button>
-    </DisplayContainer>
+    <>
+      <DisplayContainer>
+        <Swiper
+          className="swiper-container"
+          spaceBetween={60}
+          slidesPerView={11}
+          navigation
+          scrollbar={{ draggable: true }}
+        >
+          <TagListContainer>
+            {tagData.map(el => {
+              return (
+                <SwiperSlide className='swiper-slide'>
+                  <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} />
+                </SwiperSlide>);
+            })}
+          </TagListContainer>
+        </Swiper>
+      </DisplayContainer>
+    </>
+
   );
 }
 
@@ -57,7 +45,44 @@ export default DrinksTagList;
 const DisplayContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 95%;
+  width: 93%;
+  margin-right: var(--x-large);
+
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
+  mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
+
+	.swiper-button-next {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-white);
+    border-radius: 50px;
+    color: var(--color-main);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-white);
+    border-radius: 50px;
+    color: var(--color-main);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	}
+
+  .swiper-button-next::after,
+	.swiper-button-prev::after {
+    font-size: 15px;
+    transition: 0.3s;
+	}
+
+  .swiper-button-next:hover,
+	.swiper-button-prev:hover {
+    transition: 0.3s;
+    background-color: var(--color-main);
+    color: var(--color-white);
+	}
+
+
 
     @media only screen and (max-width: 768px) {
       display: none;

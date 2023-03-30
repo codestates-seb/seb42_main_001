@@ -2,15 +2,12 @@ import { useState, useEffect } from 'react';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import styled from 'styled-components';
 
-import customAxios from '../../../../../../api/customAxios';
 import { IDrinksProps } from '../../../../../../util/interfaces/drinks.inerface';
 import { setLikes } from '../../../../../../redux/slice/drinks/drinksListSlice';
-import {
-  useAppSelector,
-  useAppDispatch,
-} from '../../../../../../redux/hooks/hooks';
 import { setIsLoading } from '../../../../../../redux/slice/drinks/drinksListSlice';
+import { useAppSelector, useAppDispatch } from '../../../../../../redux/hooks/hooks';
 import { useNavigate } from 'react-router';
+import customAxios from '../../../../../../api/customAxios';
 
 function DrinksItemLikes({ drinksData }: IDrinksProps) {
   const { likesData } = useAppSelector((state) => state.drinkslist);

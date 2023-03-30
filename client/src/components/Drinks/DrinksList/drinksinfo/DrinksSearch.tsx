@@ -25,8 +25,9 @@ function DrinksSearch({ search, setSearch }: ISearchProps) {
 export default DrinksSearch;
 
 const SearchContainer = styled.div`
-  width: 92%;
+  width: 93%;
   margin: var(--2x-small) 0;
+  margin-right: var(--x-large);
 
   input {
     width: 100%;
