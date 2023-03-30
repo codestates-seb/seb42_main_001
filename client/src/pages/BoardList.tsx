@@ -62,11 +62,15 @@ function BoardList() {
             setInput={setInput}
           />
           <ListContainer>
-            {filteredDatas?.map((filteredData) => {
-              return (
-                <BoardItem key={filteredData.boardId} data={filteredData} />
-              );
-            })}
+            {filteredDatas.length === 0 ? (
+              <ListText>{`현재 페이지에서 '${input}'란 단어의 검색 결과가 없습니다.`}</ListText>
+            ) : (
+              filteredDatas?.map((filteredData) => {
+                return (
+                  <BoardItem key={filteredData.boardId} data={filteredData} />
+                );
+              })
+            )}
           </ListContainer>
         </Wrapper>
       )}
@@ -79,6 +83,7 @@ export default BoardList;
 const Wrapper = styled.div`
   width: 100%;
   height: auto;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,13 +92,14 @@ const Wrapper = styled.div`
 const ListContainer = styled.div`
   margin-bottom: calc(var(--4x-large) * 5);
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+`;
 
-  /* @media only screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-  } */
+const ListText = styled.div`
+  font-size: var(--text-large);
+  font-weight: var(--weight-medium);
 `;
