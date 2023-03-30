@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components"
-import MainDontMove from "../Main2/MainDontMove";
+import MainDontMove from "./MainDontMove";
 import MainBannerContentTitle from "./mainbannercontent/MainBannerContentTitle"
 import bowmore from '../../assets/img/bowmore.jpg'
 import irish from '../../assets/img/irish.jpg'
