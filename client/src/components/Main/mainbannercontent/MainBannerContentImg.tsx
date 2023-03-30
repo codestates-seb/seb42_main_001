@@ -1,4 +1,3 @@
-import ReactFullpage from '@fullpage/react-fullpage'
 import styled from 'styled-components'
 import bowmore from '../../../assets/img/bowmore.jpg'
 
