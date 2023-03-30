@@ -57,6 +57,7 @@ const SizeContainer = styled.button<{ isActive: any }>`
   width: 100%;
   display: flex;
   border: 0;
+  color: var(--color-main);
   border-radius: var(--3x-small);
   background-color: ${(props) => (props.isActive ? `var(--color-white)` : `var(--color-sub-dark-gray)`)};
   padding: var(--medium);

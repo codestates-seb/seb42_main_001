@@ -31,15 +31,21 @@ const MainContainer = styled.div`
   width: 100%;
   padding: var(--large) var(--2x-large) var(--2x-large) var(--2x-large);
   font-size: var(--small);
-  white-space: pre-wrap;
   line-height: calc(var(--x-small) * 2);
 
   ul {
     padding-left: var(--large);
   }
 
+
+
   p {
     margin: var(--2x-small) 0;
+  }
+
+  img {
+    display: flex;
+    width: 200px;
   }
 
   @media only screen and (max-width: 450px) {
