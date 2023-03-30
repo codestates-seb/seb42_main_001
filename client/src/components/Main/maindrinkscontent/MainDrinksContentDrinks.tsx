@@ -32,7 +32,6 @@ function MainDrinksContentDrinks() {
                     </Link>
                 )
             })}
-
         </MainContainer>
     )
 }

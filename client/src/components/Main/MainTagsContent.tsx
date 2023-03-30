@@ -5,8 +5,8 @@ import MainTagsContentTags from "./maintagscontent/MainTagsContentTags"
 function MainTagsContent() {
     return (
         <MainContainer>
-            <MainTagsContentImg />
             <MainTagsContentTags />
+            <MainTagsContentImg />
         </MainContainer>
     )
 }
