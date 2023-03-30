@@ -1,4 +1,4 @@
-import axios from 'axios';
+import customAxios from '../../../api/customAxios';
 import { IDrinks } from '../../../util/interfaces/drinks.inerface';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -11,7 +11,7 @@ function MainDrinksContentDrinks() {
 
     const handleDrinksData = useCallback(async () => {
         try {
-            const res = await axios.get('/drinks');
+            const res = await customAxios.get('/drinks');
             const { data } = res;
             setDrinksData(data.data);
         } catch (error) {

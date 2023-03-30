@@ -1,17 +1,34 @@
 import styled from "styled-components"
 
-function MainTagsContentTag() {
+interface ITagProps {
+    tagName: string | undefined;
+}
+
+function MainTagsContentTag({ tagName }: ITagProps) {
     return (
-        <TagWrap>
-            dd
-        </TagWrap>
+        <MainContainer>
+            <TagWrap>
+                {tagName}
+            </TagWrap>
+        </MainContainer>
     )
 }
 
 export default MainTagsContentTag
 
+const MainContainer = styled.div`
+    margin-right: 20px;
+`
+
 const TagWrap = styled.div`
-    width: 100%;
-    height: 30px;
-    border: 1px solid var(--colo-main);
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--color-main);
+    border-radius: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--x-small);
+    text-align: center;
 `
