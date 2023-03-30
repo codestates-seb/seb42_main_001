@@ -47,12 +47,7 @@ export const boardListSlice = createSlice({
         }
         return result;
       }, []);
-      if (
-        state.listData.length !== 0 &&
-        // state.listData.filter((el) => el.boardId === data[0].boardId).length ===
-        //   0
-        NotData.length !== 0
-      ) {
+      if (state.listData.length !== 0 && NotData.length !== 0) {
         state.listData = [...state.listData, ...NotData];
       } else if (state.listData.length === 0) {
         state.listData = NotData;
