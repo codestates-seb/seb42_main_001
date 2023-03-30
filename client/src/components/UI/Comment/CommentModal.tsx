@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router';
 
 import customAxios from '../../../api/customAxios';
 import Card from '../Card';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 
 interface CommentProps {
   drinkCommentId?: number;
   boardCommentId?: number;
   boardId?: number;
+  memberId?: number;
   onClick?: (state: boolean) => void;
   handleModalOpen: (state: boolean) => void;
   handleBoardEdit?: () => void;
@@ -17,11 +19,16 @@ function CommentModal({
   drinkCommentId,
   boardCommentId,
   boardId,
+  memberId,
   onClick,
   handleModalOpen,
   handleBoardEdit,
 }: CommentProps) {
   const navigate = useNavigate();
+  const nowMemberId = useAppSelector((state) => state.auth.userInfo.memberId);
+
+  console.log(memberId);
+  console.log(nowMemberId);
 
   const handleDrinksCommentDelte = async () => {
     try {
@@ -56,16 +63,26 @@ function CommentModal({
 
   const handleCommentDelete = () => {
     if (drinkCommentId || boardCommentId) {
-      if (window.confirm('댓글을 삭제하시겠습니까?')) {
-        if (drinkCommentId) {
-          handleDrinksCommentDelte();
-        } else if (boardCommentId) {
-          handleBoardCommentDelte();
+      if (memberId === nowMemberId) {
+        if (window.confirm('댓글을 삭제하시겠습니까?')) {
+          if (drinkCommentId) {
+            handleDrinksCommentDelte();
+          } else if (boardCommentId) {
+            handleBoardCommentDelte();
+          }
         }
+      } else {
+        handleModalOpen(false);
+        alert('댓글을 삭제할 권한이 없습니다.');
       }
     } else if (boardId) {
-      if (window.confirm('글을 삭제하시겠습니까?')) {
-        handleBoardDelte();
+      if (memberId === nowMemberId) {
+        if (window.confirm('글을 삭제하시겠습니까?')) {
+          handleBoardDelte();
+        }
+      } else {
+        handleModalOpen(false);
+        alert('글을 삭제할 권한이 없습니다.');
       }
     }
   };
