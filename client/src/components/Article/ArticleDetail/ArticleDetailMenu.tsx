@@ -8,9 +8,10 @@ interface MenuProps {
     articleId: number;
     articleTitle: string;
   }>;
+  isActive: number;
 }
 
-function ArticleDetailMenu({ handleIdChange, articleList }: MenuProps) {
+function ArticleDetailMenu({ handleIdChange, articleList, isActive }: MenuProps) {
   return (
     <MainContainer>
       {articleList.length
@@ -20,6 +21,7 @@ function ArticleDetailMenu({ handleIdChange, articleList }: MenuProps) {
             title={ele.articleTitle}
             handlIdChange={handleIdChange}
             value={ele.articleId}
+            isActive={isActive}
           />
         ))
         : null}
