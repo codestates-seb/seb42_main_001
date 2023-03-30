@@ -10,7 +10,7 @@ function MainTagsContentTags() {
     const [tagData, setTagData] = useState<ITags[]>([])
 
     const handleDrinksTagData = async () => {
-        const res = await customAxios.get(`/tags`);
+        const res = await customAxios.get(`/tags/best`);
         setTagData(res.data);
     };
 
