@@ -27,9 +27,6 @@ function CommentModal({
   const navigate = useNavigate();
   const nowMemberId = useAppSelector((state) => state.auth.userInfo.memberId);
 
-  console.log(memberId);
-  console.log(nowMemberId);
-
   const handleDrinksCommentDelte = async () => {
     try {
       await customAxios.delete(`/comments/drinks/${drinkCommentId}`);
