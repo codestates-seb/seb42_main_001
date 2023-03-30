@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import irish from '../../../assets/img/irish.jpg'
+import jackdaniels from '../../../assets/img/jackdaniels(low).jpg'
 
 function MainTagsContentImg() {
     return (
         <div>
-            <ImgWrap src={irish} alt='irish' />
+            <ImgWrap src={jackdaniels} alt='irish' />
         </div>
     )
 }

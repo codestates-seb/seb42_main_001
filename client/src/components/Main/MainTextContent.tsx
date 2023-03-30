@@ -15,7 +15,7 @@ function MainTextContent() {
 export default MainTextContent
 
 const MainContainer = styled.div`
-    width: 100%;
+    width: 1420px;
     height: 100%;
     display: flex;
     justify-content: center;

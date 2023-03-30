@@ -14,10 +14,10 @@ function MainTagsContent() {
 export default MainTagsContent
 
 const MainContainer = styled.div`
-    width: 100%;
+    width: 1420px;
     height: 50vh;
-    padding: 0 450px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--color-sub-light-gray);
 `

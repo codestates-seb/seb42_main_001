@@ -10,7 +10,7 @@ function MainTagsContentTags() {
     const [tagData, setTagData] = useState<ITags[]>([])
 
     const handleDrinksTagData = async () => {
-        const res = await customAxios.get(`/tags`);
+        const res = await customAxios.get(`/tags/best`);
         setTagData(res.data);
     };
 
@@ -52,6 +52,7 @@ const MainContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     margin-right: 80px;
+    color: var(--color-main);
 `
 
 const TextWrap = styled.div`

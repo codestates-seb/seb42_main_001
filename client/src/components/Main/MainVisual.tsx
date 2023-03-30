@@ -14,11 +14,15 @@ function MainVisual() {
         <MainContainer>
             <Header />
             <MainBannerContent />
-            <MainTextContent />
-            <MainDrinksContent />
-            <SubContainer>
+            <GrayBg>
+                <MainTextContent />
+            </GrayBg>
+            <MainBg>
+                <MainDrinksContent />
+            </MainBg>
+            <GrayBg>
                 <MainTagsContent />
-            </SubContainer>
+            </GrayBg>
             <Footer />
         </MainContainer>
     )
@@ -27,9 +31,28 @@ function MainVisual() {
 export default MainVisual
 
 const MainContainer = styled.div`
-    background-color: var(--color-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
-const SubContainer = styled.div`
+const GrayBg = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     background-color: var(--color-sub-light-gray);
+`
+
+const MainBg = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-main);
 `

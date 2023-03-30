@@ -31,4 +31,12 @@ const TagWrap = styled.div`
     align-items: center;
     font-size: var(--x-small);
     text-align: center;
+    color: var(--color-main);
+    transition: 0.5s;
+
+     &:hover {
+        transition: 0.5s;
+        background-color: var(--color-main);
+        color: var(--color-white);
+     }
 `
