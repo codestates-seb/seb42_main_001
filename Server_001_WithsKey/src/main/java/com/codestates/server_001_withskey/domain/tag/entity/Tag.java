@@ -15,15 +15,7 @@ import lombok.*;
 @Builder
 @ToString(exclude = {"board","tagBoardList","tagDrinkList"})
 public class Tag implements Comparable<Tag>{
-    @Override
-    public int compareTo(Tag tag) {
-        if (this.tagBoardList.size() < tag.tagBoardList.size()) {
-            return 1;
-        } else if (this.tagBoardList.size() < tag.tagBoardList.size()) {
-            return -1;
-        }
-        return 0;
-    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +33,14 @@ public class Tag implements Comparable<Tag>{
 
     @OneToMany(mappedBy = "tag")
     private List<TagDrink> tagDrinkList = new ArrayList<>();
+
+    @Override
+    public int compareTo(Tag tag) {
+        if (this.tagBoardList.size() < tag.getTagBoardList().size()) {
+            return 1;
+        } else if (this.tagBoardList.size() > tag.getTagBoardList().size()) {
+            return -1;
+        }
+        return 0;
+    }
 }
