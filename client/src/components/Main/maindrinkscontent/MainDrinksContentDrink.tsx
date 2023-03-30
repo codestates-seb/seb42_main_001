@@ -34,8 +34,8 @@ const ContentWrap = styled.div`
   align-items: center;
 
   @media only screen and (max-width: 1150px) {
-    width: 150px;
-    height: 200px;
+    width: 100px;
+    height: 150px;
   }
 `;
 
@@ -43,6 +43,10 @@ const ImgWrap = styled.img`
   width: auto;
   height: 110px;
   margin-bottom: 20px;
+
+  @media only screen and (max-width: 1150px) {
+    height: 80px;
+  }
 `;
 
 const TextWrap = styled.div`
