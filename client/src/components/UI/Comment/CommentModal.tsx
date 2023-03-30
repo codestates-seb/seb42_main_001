@@ -85,11 +85,16 @@ function CommentModal({
   };
 
   const handleCommentEdit = () => {
-    if (onClick) {
+    if (memberId === nowMemberId) {
+      if (onClick) {
+        handleModalOpen(false);
+        onClick(true);
+      } else if (handleBoardEdit) {
+        handleBoardEdit();
+      }
+    } else {
       handleModalOpen(false);
-      onClick(true);
-    } else if (handleBoardEdit) {
-      handleBoardEdit();
+      alert('댓글을 수정할 권한이 없습니다.');
     }
   };
 
