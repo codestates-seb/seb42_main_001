@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { useAppDispatch } from '../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 
 import customAxios from '../../api/customAxios';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
@@ -12,6 +12,7 @@ import {
   boardDetailLike,
   boardDetailUnLike,
 } from '../../redux/slice/board/boardDetail';
+import { useNavigate } from 'react-router';
 
 interface BoardLikesProps {
   boardId: number;
@@ -21,31 +22,41 @@ interface BoardLikesProps {
 
 function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
   const [isLike, setIsLike] = useState(false);
+  const [login, setLogin] = useState(false);
+  const { isLogin } = useAppSelector((state) => state.auth);
+
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLike(likes);
-  }, [likes]);
+    setLogin(isLogin);
+  }, [likes, isLogin]);
 
   const handleLikeChange = () => {
-    if (isLike) {
-      customAxios
-        .delete(`/likes/boards/${boardId}`)
-        .then(res => {
-          setIsLike(false);
-          dispatch(boardLikeUncheck({ data: false, boardId }));
-          dispatch(boardDetailUnLike({ data: false }));
-        })
-        .catch(err => console.log(Error, err));
+    if (login) {
+      if (isLike) {
+        customAxios
+          .delete(`/likes/boards/${boardId}`)
+          .then((res) => {
+            setIsLike(false);
+            dispatch(boardLikeUncheck({ data: false, boardId }));
+            dispatch(boardDetailUnLike({ data: false }));
+          })
+          .catch((err) => console.log(Error, err));
+      } else {
+        customAxios
+          .post(`/likes/boards/${boardId}`)
+          .then((res) => {
+            setIsLike(true);
+            dispatch(boardLikeCheck({ data: true, boardId }));
+            dispatch(boardDetailLike({ data: true }));
+          })
+          .catch((err) => console.log(Error, err));
+      }
     } else {
-      customAxios
-        .post(`/likes/boards/${boardId}`)
-        .then(res => {
-          setIsLike(true);
-          dispatch(boardLikeCheck({ data: true, boardId }));
-          dispatch(boardDetailLike({ data: true }));
-        })
-        .catch(err => console.log(Error, err));
+      alert('로그인이 필요한 서비스입니다.');
+      navigate('/signup');
     }
   };
   return (
