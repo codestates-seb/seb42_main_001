@@ -14,7 +14,17 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString(exclude = {"board","tagBoardList","tagDrinkList"})
-public class Tag {
+public class Tag implements Comparable<Tag>{
+    @Override
+    public int compareTo(Tag tag) {
+        if (this.tagBoardList.size() < tag.tagBoardList.size()) {
+            return 1;
+        } else if (this.tagBoardList.size() < tag.tagBoardList.size()) {
+            return -1;
+        }
+        return 0;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long tagId;
