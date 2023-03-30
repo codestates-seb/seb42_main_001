@@ -71,7 +71,7 @@ public class SecurityConfiguration {
                         // 회원 정보 삭제 요청 사용자, 관리자
                         .antMatchers(HttpMethod.DELETE,"/members").hasAnyRole("USER","ADMIN")
                         // 회원 정보 조회 요청 사용자, 관리자
-                        .antMatchers(HttpMethod.GET,"/members/mypage").hasAnyRole("USER","ADMIN")
+//                        .antMatchers(HttpMethod.GET,"/members/mypage").hasAnyRole("USER","ADMIN")
                         // 게시글 생성 요청 회원, 관리자
                         .antMatchers(HttpMethod.POST,"/boards").hasAnyRole("USER","ADMIN")
                         // 게시글 수정 요청 회원, 관리자
