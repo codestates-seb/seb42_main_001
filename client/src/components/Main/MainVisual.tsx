@@ -1,4 +1,4 @@
-import ReactFullpage from "@fullpage/react-fullpage"
+// import ReactFullpage from "@fullpage/react-fullpage"
 import styled from "styled-components"
 import Footer from "../layout/Footer/Footer"
 import Header from "../layout/Header/Header"
