@@ -33,11 +33,9 @@ const MainContainer = styled.div`
   font-size: var(--small);
   line-height: calc(var(--x-small) * 2);
 
-  ul {
+  ul, ol {
     padding-left: var(--large);
   }
-
-
 
   p {
     margin: var(--2x-small) 0;

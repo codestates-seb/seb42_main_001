@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import ArticleDetailBack from '../components/Article/ArticleDetail/ArticleDetailBack'
 import ArticleDetails from '../components/Article/ArticleDetail/ArticleDetails'

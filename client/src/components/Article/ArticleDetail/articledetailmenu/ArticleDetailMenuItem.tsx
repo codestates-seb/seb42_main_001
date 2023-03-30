@@ -40,16 +40,6 @@ const MainContainer = styled.div<{ isActive: number }>`
   opacity: 1;
   font-weight: var(--weight-small);
   transition: 0.4s;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 1;
-    transition: 0.4s;
-  }
-  &:active {
-    opacity: 1;
-    transition: 0.4s;
-  }
 `;
 
 const SizeContainer = styled.button<{ isActive: any }>`
@@ -62,4 +52,11 @@ const SizeContainer = styled.button<{ isActive: any }>`
   background-color: ${(props) => (props.isActive ? `var(--color-white)` : `var(--color-sub-dark-gray)`)};
   padding: var(--medium);
   transition: 0.4s;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+    color: var(--color-main);
+    }
 `;
