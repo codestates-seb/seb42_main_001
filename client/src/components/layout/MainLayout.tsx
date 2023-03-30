@@ -19,7 +19,9 @@ function MainLayout({ bgColor }: MainLayoutProps) {
       ) : (
         <Header profileColor={`--color-main`} hover={`--color-white`} />
       )}
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
       <Footer />
     </DefaultSize>
   );
@@ -36,4 +38,15 @@ const DefaultSize = styled.div<MainLayoutProps>`
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+`;
+
+const Container = styled.div<MainLayoutProps>`
+  color: var(--color-main);
+  background-color: var(--color-sub-light-gray);
+  width: 85%;
+  max-width: 1420px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
