@@ -82,9 +82,10 @@ const MainContainer = styled.div`
     justify-content: space-between;
 
     > span {
+      max-width: 80%;
+      max-height: var(--medium);
       color: var(--color-sub-gray);
       margin-top: var(--x-small);
-      max-height: var(--medium);
       overflow: hidden;
     }
 
