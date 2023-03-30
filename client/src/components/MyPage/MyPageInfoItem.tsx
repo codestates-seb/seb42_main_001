@@ -52,6 +52,26 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
     }
   };
 
+  const handleDeleteMember = async () => {
+    const result = window.confirm('정말 탈퇴하시겠습니까?');
+
+    if (result) {
+      try {
+        const res = await customAxios.delete('/members');
+
+        if (res.status === 200) {
+          dispatch(logoutSuccess());
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('refreshToken');
+          alert('탈퇴되었습니다');
+          navigate('/');
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  };
+
   return (
     <MainContainer>
       {editMode ? (
@@ -64,7 +84,7 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
             정보 수정
           </ItemContainer>
           <ItemContainer onClick={handleLogout}>로그아웃</ItemContainer>
-          <ItemContainer>회원 탈퇴</ItemContainer>
+          <ItemContainer onClick={handleDeleteMember}>회원 탈퇴</ItemContainer>
         </>
       )}
     </MainContainer>
