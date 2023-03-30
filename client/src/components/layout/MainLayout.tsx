@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
@@ -7,7 +7,7 @@ import irish from "../../assets/img/irish.jpg";
 import jackblack from "../../assets/img/jack-black.jpg";
 import bowmore from "../../assets/img/bowmore.jpg";
 import drink1887 from "../../assets/img/1887.jpg";
-import MainDontMove from "../Main/MainDontMove";
+import MainDontMove from "../Main2/MainDontMove";
 
 interface MainLayoutProps {
   bgColor?: boolean;
