@@ -9,21 +9,25 @@ import Button from '../UI/Button';
 interface BoardInfoProps {
   search: boolean;
   setSearch: (state: boolean) => void;
+  setInput: (state: string) => void;
 }
 
-function BoardInfo({ search, setSearch }: BoardInfoProps) {
+function BoardInfo({ search, setSearch, setInput }: BoardInfoProps) {
   const [isInput, setIsInput] = useState('');
 
   const handleSearchChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsInput('');
     setSearch(search ? false : true);
   };
 
   return (
     <InfoContainer>
       {search ? (
-        <BoardSearch isInput={isInput} setIsInput={setIsInput} />
+        <BoardSearch
+          isInput={isInput}
+          setIsInput={setIsInput}
+          setInput={setInput}
+        />
       ) : (
         <MarginDiv>
           <BoardCreate />

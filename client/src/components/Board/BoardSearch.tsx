@@ -1,24 +1,19 @@
-import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks';
-import { boardListFiltered } from '../../redux/slice/board/boardListSlice';
+import { useAppSelector } from '../../redux/hooks/hooks';
 import Card from '../UI/Card';
 
 interface IBoardSearchProps {
   isInput: string;
   setIsInput: (state: string) => void;
+  setInput: (state: string) => void;
 }
 
-function BoardSearch({ isInput, setIsInput }: IBoardSearchProps) {
+function BoardSearch({ isInput, setIsInput, setInput }: IBoardSearchProps) {
   const data = useAppSelector((state) => state.boardList.listData);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(boardListFiltered(isInput));
-  }, [isInput, dispatch]);
 
   const handleDataFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (data) {
+      setInput(e.target.value.toString());
       setIsInput(e.target.value.toString());
     }
   };
