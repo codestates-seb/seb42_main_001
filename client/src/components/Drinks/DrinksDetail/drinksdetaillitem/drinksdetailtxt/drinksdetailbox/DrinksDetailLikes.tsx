@@ -1,13 +1,29 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import { IDrinksDetailProps } from '../../../../../../util/interfaces/drinks.inerface'
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
+import { IDrinksDetailProps } from '../../../../../../util/interfaces/drinks.inerface';
+import { useAppSelector } from '../../../../../../redux/hooks/hooks';
+import { useNavigate } from 'react-router';
 
 function DrinksDetailLikes({ drinksDetail }: IDrinksDetailProps) {
   const [likes, setlikes] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  const { isLogin } = useAppSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setLogin(isLogin);
+  }, [isLogin]);
 
   const handleLikesChange = () => {
-    setlikes((prev) => !prev);
+    if (login) {
+      setlikes((prev) => !prev);
+    } else {
+      alert('로그인이 필요한 서비스입니다.');
+      navigate('/signup');
+    }
   };
 
   return (
