@@ -26,7 +26,7 @@ function MainBannerContent() {
   useEffect(() => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % 4);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [page]);
 
@@ -39,42 +39,44 @@ function MainBannerContent() {
         />
       </Wrap>
 
-      <ContentBox page={page}>
-        <ContainerBox>
-          <Container>
-            <TextWarp>
-              <MainBannerContentTitle />
-            </TextWarp>
-          </Container>
-        </ContainerBox>
-        <>
-          <ContainerBox1>
-            <ContainerBox1Text>
-              <Box1TextTitle>New Drinks</Box1TextTitle>
-              <Box1TextBody>
-                <p>The old bushmills distillery</p>
-                <p>Irish Whiskey</p>
-              </Box1TextBody>
-            </ContainerBox1Text>
-          </ContainerBox1>
-          <ContainerBox2>
-            <ContainerBox2Text>
-              <Box2TextTitle>Jack Daniels</Box2TextTitle>
-              <Box2TextBody>
-                <p>Olad No.7 Brand</p>
-              </Box2TextBody>
-            </ContainerBox2Text>
-          </ContainerBox2>
-          <ContainerBox3>
-            <ContainerBox3Text>
-              <Box3TextTitle>Since 1887</Box3TextTitle>
-              <Box3TextBody>
-                <p>Old Drinks, With's Key</p>
-              </Box3TextBody>
-            </ContainerBox3Text>
-          </ContainerBox3>
-        </>
-      </ContentBox>
+      <ContentWrap>
+        <ContentBox page={page}>
+          <ContainerBox>
+            <Container>
+              <TextWarp>
+                <MainBannerContentTitle />
+              </TextWarp>
+            </Container>
+          </ContainerBox>
+          <>
+            <ContainerBox1>
+              <ContainerBox1Text>
+                <Box1TextTitle>New Drinks</Box1TextTitle>
+                <Box1TextBody>
+                  <p>The old bushmills distillery</p>
+                  <p>Irish Whiskey</p>
+                </Box1TextBody>
+              </ContainerBox1Text>
+            </ContainerBox1>
+            <ContainerBox2>
+              <ContainerBox2Text>
+                <Box2TextTitle>Jack Daniels</Box2TextTitle>
+                <Box2TextBody>
+                  <p>Olad No.7 Brand</p>
+                </Box2TextBody>
+              </ContainerBox2Text>
+            </ContainerBox2>
+            <ContainerBox3>
+              <ContainerBox3Text>
+                <Box3TextTitle>Since 1887</Box3TextTitle>
+                <Box3TextBody>
+                  <p>Old Drinks, With's Key</p>
+                </Box3TextBody>
+              </ContainerBox3Text>
+            </ContainerBox3>
+          </>
+        </ContentBox>
+      </ContentWrap>
     </>
   );
 }
@@ -91,15 +93,24 @@ const TextWarp = styled.div`
   width: 100%;
   margin-bottom: 400px;
   margin-left: 100px;
+  @media only screen and (max-width: 1150px) {
+    margin-bottom: 50vh;
+    margin-left: 5vw;
+  }
+`;
+
+const ContentWrap = styled.div`
+  width: 100vw;
+  overflow-x: hidden;
 `;
 
 const ContentBox = styled.div<{ page: number }>`
-  width: 400%;
+  width: 400vw;
   height: 100vh;
   display: flex;
   margin-left: 300%;
   transition: 1.5s;
-  transform: ${(props) => `translateX(-${props.page * 25}%)`};
+  transform: ${(props) => `translateX(-${75 + props.page * 25}%)`};
 `;
 
 const Container = styled.div<MainLayoutProps>`
@@ -112,7 +123,7 @@ const Container = styled.div<MainLayoutProps>`
 `;
 
 const ContainerBox = styled.div<MainLayoutProps>`
-  width: 100%;
+  width: 100vw;
   background-image: url(${bowmore});
   background-repeat: no-repeat;
   background-size: cover;
@@ -121,7 +132,7 @@ const ContainerBox = styled.div<MainLayoutProps>`
   align-items: center;
 
   @media only screen and(max-width: 768px) {
-    width: 100%;
+    width: 100vw;
     background-position: 40% 50%;
     background-size: cover;
   }
@@ -136,6 +147,12 @@ const ContainerBox1Text = styled.div`
   display: flex;
   flex-direction: column;
   padding: 440px;
+
+  @media only screen and (max-width: 1150px) {
+    padding: 0;
+    padding-top: 10vh;
+    align-items: center;
+  }
 `;
 const Box1TextTitle = styled.div`
   font-size: var(--x-large);
@@ -159,6 +176,13 @@ const ContainerBox2Text = styled.div`
   justify-content: center;
   align-items: flex-end;
   padding-right: 500px;
+
+  @media only screen and (max-width: 1150px) {
+    padding-bottom: 50vh;
+    padding-right: 0;
+    align-items: center;
+    text-align: center;
+  }
 `;
 const Box2TextTitle = styled.div`
   font-size: var(--2x-large);
@@ -180,6 +204,12 @@ const ContainerBox3Text = styled.div`
   display: flex;
   flex-direction: column;
   padding: 460px 380px;
+
+  @media only screen and (max-width: 1150px) {
+    padding: 0;
+    padding-top: 10vh;
+    align-items: center;
+  }
 `;
 const Box3TextTitle = styled.div`
   font-size: var(--x-large);

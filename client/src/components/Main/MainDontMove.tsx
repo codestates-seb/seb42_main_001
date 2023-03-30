@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import ArrowLeft from '../../assets/icon/arrow-01.png'
-import ArrowRight from '../../assets/icon/arrow-02.png'
+import ArrowLeft from '../../assets/icon/arrow-01.png';
+import ArrowRight from '../../assets/icon/arrow-02.png';
 
 interface MainDontMoveProps {
   handlePreClick: () => void;
@@ -43,4 +43,8 @@ const MainDontMoveContauner = styled.div`
 const ImgWrap = styled.img`
   cursor: pointer;
   width: 90px;
-`
+
+  @media only screen and (max-width: 1150px) {
+    width: 50px;
+  }
+`;
