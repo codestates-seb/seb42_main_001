@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🔨 chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🔨 chore: 로그인 리다이렉트 Url 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +61,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="merge" />
+        <entry key="$PROJECT_DIR$" value="feserver" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -300,13 +301,8 @@
       <workItem from="1680070032117" duration="571000" />
       <workItem from="1680073198271" duration="757000" />
       <workItem from="1680074253899" duration="280000" />
-    </task>
-    <task id="LOCAL-00045" summary="✨ feat: tag_Drink 임시 데이터 추가">
-      <created>1679303905675</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1679303905675</updated>
+      <workItem from="1680097754217" duration="451000" />
+      <workItem from="1680134931302" duration="33000" />
     </task>
     <task id="LOCAL-00046" summary="✨ feat: snack_drink 임시 추가">
       <created>1679304357476</created>
@@ -644,7 +640,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680051553805</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="🔨 chore: 로그인 리다이렉트 Url 수정">
+      <created>1680097831576</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1680097831577</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +682,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" fix: 회원가입 후 로그인 한 회원 닉네임이 반영되지 않도록 함." />
     <MESSAGE value="✨ feat: 주소지 변경 로직" />
     <MESSAGE value="✨ feat: 주소지 변경 로직2" />
     <MESSAGE value="✨ feat: 주소지 변경 로직23" />
@@ -704,7 +706,8 @@
     <MESSAGE value="✨ chore: gradle 의존성 수정(runtimeonly option 제거)" />
     <MESSAGE value=" chore: board 초기 데이터 수정" />
     <MESSAGE value=" chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value=" chore: 로그인 리다이렉트 Url S3로 꽂히도록 수정" />
+    <MESSAGE value=" chore: 로그인 리다이렉트 Url 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value=" chore: 로그인 리다이렉트 Url 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
