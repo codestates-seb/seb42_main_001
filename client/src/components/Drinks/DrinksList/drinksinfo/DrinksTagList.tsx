@@ -45,10 +45,10 @@ export default DrinksTagList;
 const DisplayContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 95%;
-  padding-left: var(--small);
+  width: 93%;
+  margin-right: var(--x-large);
 
-  /* -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 100%); */
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
   mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
 
 	.swiper-button-next {
