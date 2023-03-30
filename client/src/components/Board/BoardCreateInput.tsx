@@ -49,7 +49,7 @@ function BoardCreateInput({
     <Card>
       <InputContainer>
         <input
-          type="text"
+          type='text'
           placeholder={'제목을 입력해 주세요'}
           value={isTitle ? isTitle : ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,10 +60,10 @@ function BoardCreateInput({
         <EditorContainer>
           <Editor
             initialValue={'내용을 입력해주세요'}
-            previewStyle="vertical"
-            height="600px"
+            previewStyle='vertical'
+            height='600px'
             ref={editorRef}
-            initialEditType="markdown"
+            initialEditType='markdown'
             useCommandShortcut={true}
             onChange={handleContentChange}
             hooks={{
