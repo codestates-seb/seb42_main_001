@@ -39,42 +39,44 @@ function MainBannerContent() {
         />
       </Wrap>
 
-      <ContentBox page={page}>
-        <ContainerBox>
-          <Container>
-            <TextWarp>
-              <MainBannerContentTitle />
-            </TextWarp>
-          </Container>
-        </ContainerBox>
-        <>
-          <ContainerBox1>
-            <ContainerBox1Text>
-              <Box1TextTitle>New Drinks</Box1TextTitle>
-              <Box1TextBody>
-                <p>The old bushmills distillery</p>
-                <p>Irish Whiskey</p>
-              </Box1TextBody>
-            </ContainerBox1Text>
-          </ContainerBox1>
-          <ContainerBox2>
-            <ContainerBox2Text>
-              <Box2TextTitle>Jack Daniels</Box2TextTitle>
-              <Box2TextBody>
-                <p>Olad No.7 Brand</p>
-              </Box2TextBody>
-            </ContainerBox2Text>
-          </ContainerBox2>
-          <ContainerBox3>
-            <ContainerBox3Text>
-              <Box3TextTitle>Since 1887</Box3TextTitle>
-              <Box3TextBody>
-                <p>Old Drinks, With's Key</p>
-              </Box3TextBody>
-            </ContainerBox3Text>
-          </ContainerBox3>
-        </>
-      </ContentBox>
+      <ContentWrap>
+        <ContentBox page={page}>
+          <ContainerBox>
+            <Container>
+              <TextWarp>
+                <MainBannerContentTitle />
+              </TextWarp>
+            </Container>
+          </ContainerBox>
+          <>
+            <ContainerBox1>
+              <ContainerBox1Text>
+                <Box1TextTitle>New Drinks</Box1TextTitle>
+                <Box1TextBody>
+                  <p>The old bushmills distillery</p>
+                  <p>Irish Whiskey</p>
+                </Box1TextBody>
+              </ContainerBox1Text>
+            </ContainerBox1>
+            <ContainerBox2>
+              <ContainerBox2Text>
+                <Box2TextTitle>Jack Daniels</Box2TextTitle>
+                <Box2TextBody>
+                  <p>Olad No.7 Brand</p>
+                </Box2TextBody>
+              </ContainerBox2Text>
+            </ContainerBox2>
+            <ContainerBox3>
+              <ContainerBox3Text>
+                <Box3TextTitle>Since 1887</Box3TextTitle>
+                <Box3TextBody>
+                  <p>Old Drinks, With's Key</p>
+                </Box3TextBody>
+              </ContainerBox3Text>
+            </ContainerBox3>
+          </>
+        </ContentBox>
+      </ContentWrap>
     </>
   );
 }
@@ -93,13 +95,18 @@ const TextWarp = styled.div`
   margin-left: 100px;
 `;
 
+const ContentWrap = styled.div`
+  width: 100vw;
+  overflow-x: hidden;
+`;
+
 const ContentBox = styled.div<{ page: number }>`
   width: 400%;
   height: 100vh;
   display: flex;
   margin-left: 300%;
   transition: 1.5s;
-  transform: ${(props) => `translateX(-${props.page * 25}%)`};
+  transform: ${(props) => `translateX(-${75 + props.page * 25}%)`};
 `;
 
 const Container = styled.div<MainLayoutProps>`
