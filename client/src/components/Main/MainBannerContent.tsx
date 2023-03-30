@@ -1,20 +1,86 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components"
-import MainBannerContentArrow from "./mainbannercontent/MainBannerContentArrow"
-import MainBannerContentImg from "./mainbannercontent/MainBannerContentImg"
+import MainDontMove from "../Main2/MainDontMove";
 import MainBannerContentTitle from "./mainbannercontent/MainBannerContentTitle"
+import bowmore from '../../assets/img/bowmore.jpg'
+import irish from '../../assets/img/irish.jpg'
+import jackblack from '../../assets/img/jack-black.jpg'
+import drink1887 from '../../assets/img/1887.jpg'
+
+interface MainLayoutProps {
+    bgColor?: boolean;
+    img?: boolean;
+}
 
 function MainBannerContent() {
+    const [page, setPage] = useState(0);
+
+    const handlePreClick = () => {
+        setPage((prev) => (prev - 1 + 4) % 4);
+    };
+
+    const handleNextClick = () => {
+        setPage((prev) => (prev + 1) % 4);
+    };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setPage((prev) => (prev + 1) % 4);
+        }, 4000000);
+        return () => clearInterval(interval);
+    }, [page]);
+
+
+
     return (
         <>
             <Wrap>
-                <BodyWrap>
-                    <TextWarp>
-                        <MainBannerContentTitle />
-                    </TextWarp>
-                    <MainBannerContentArrow />
-                </BodyWrap>
-                <MainBannerContentImg />
+                <MainDontMove
+                    handlePreClick={handlePreClick}
+                    handleNextClick={handleNextClick}
+                />
             </Wrap>
+
+            <ContentBox page={page}>
+                <ContainerBox>
+                    <Container>
+                        <TextWarp>
+                            <MainBannerContentTitle />
+                        </TextWarp>
+                    </Container>
+                </ContainerBox>
+                <>
+                    <ContainerBox1 >
+                        <ContainerBox1Text>
+                            <Box1TextTitle>New Drinks</Box1TextTitle>
+                            <Box1TextBody>
+                                <p>The old bushmills distillery</p>
+                                <p>Irish Whiskey</p>
+                            </Box1TextBody>
+                        </ContainerBox1Text>
+                    </ContainerBox1>
+                    <ContainerBox2>
+                        <ContainerBox2Text>
+                            <Box2TextTitle>Jack Daniels</Box2TextTitle>
+                            <Box2TextBody>
+                                <p>Olad No.7 Brand</p>
+                            </Box2TextBody>
+                        </ContainerBox2Text>
+                    </ContainerBox2>
+                    <ContainerBox3>
+                        <ContainerBox3Text>
+                            <Box3TextTitle>
+                                Since 1887
+                            </Box3TextTitle>
+                            <Box3TextBody>
+                                <p>
+                                    Old Drinks, With's Key
+                                </p>
+                            </Box3TextBody>
+                        </ContainerBox3Text>
+                    </ContainerBox3>
+                </>
+            </ContentBox>
         </>
     )
 }
@@ -24,16 +90,113 @@ export default MainBannerContent
 
 const Wrap = styled.div`
     width: 100%;
-    height: 100%;
-    position: relative;
-`
-
-const BodyWrap = styled.div`
-    width: 100%;
-    position: absolute;
+    display: flex;
+    justify-content: center;
 `
 
 const TextWarp = styled.div`
     width: 100%;
-    padding: 160px 320px;
+    margin-bottom: 400px;
+    margin-left: 100px;
 `
+
+const ContentBox = styled.div<{ page: number }>`
+    width: 400%;
+    height: 100vh;
+    display: flex;
+    margin-left: 300%;
+    transition: 1.5s;
+    transform: ${(props) => `translateX(-${props.page * 25}%)`};
+`;
+
+const Container = styled.div<MainLayoutProps>`
+    width: 100%;
+    max-width: 1420px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+const ContainerBox = styled.div<MainLayoutProps>`
+    width: 100%;
+    background-image: url(${bowmore});
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+        @media only screen and(max-width: 768px) {
+        width: 100%;
+        background-position: 40% 50%;
+        background-size: cover;
+        }
+`;
+
+const ContainerBox1 = styled(ContainerBox) <MainLayoutProps>`
+    background-image: url(${irish})
+`;
+const ContainerBox1Text = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 440px;
+`;
+const Box1TextTitle = styled.div`
+    font-size: var(--x-large);
+    font-weight: var(--weight-large);
+    color: var(--color-white);
+    margin-bottom: 20px;
+`;
+const Box1TextBody = styled.div`
+    font-size: var(--small);
+    color: var(--color-white);
+`;
+
+
+const ContainerBox2 = styled(ContainerBox) <MainLayoutProps>`
+    background-image: url(${jackblack})
+`;
+const ContainerBox2Text = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 600px;
+`;
+const Box2TextTitle = styled.div`
+    font-size: var(--2x-large);
+    font-weight: var(--weight-large);
+    color: var(--color-white);
+    margin-bottom: 20px;
+`;
+const Box2TextBody = styled.div`
+    font-size: var(--small);
+    color: var(--color-white);
+`;
+
+
+const ContainerBox3 = styled(ContainerBox) <MainLayoutProps>`
+    background-image: url(${drink1887})
+`;
+const ContainerBox3Text = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 460px 380px;
+`
+const Box3TextTitle = styled.div`
+    font-size: var(--x-large);
+    font-weight: var(--weight-large);
+    color: var(--color-white);
+    margin-bottom: 20px;
+`;
+const Box3TextBody = styled.div`
+    font-size: var(--small);
+    color: var(--color-white);
+`;
