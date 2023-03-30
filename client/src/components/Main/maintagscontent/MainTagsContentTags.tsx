@@ -14,10 +14,8 @@ function MainTagsContentTags() {
         setTagData(res.data);
     };
 
-    console.log(tagData)
     useEffect(() => {
         handleDrinksTagData()
-        console.log('zz')
     }, [])
 
     return (
