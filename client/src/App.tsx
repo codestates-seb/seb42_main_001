@@ -40,9 +40,7 @@ function App() {
 
   return (
     <Routes>
-      <Route element={<MainLayout img />}>
-        <Route path="/" element={<Main />} />
-      </Route>
+      <Route path='/' element={<Main />} />
       <Route element={<MainLayout bgColor />}>
         <Route path="/board/create" element={<BoardCreate />} />
         <Route path="/board/edit/:editId" element={<BoardCreate />} />

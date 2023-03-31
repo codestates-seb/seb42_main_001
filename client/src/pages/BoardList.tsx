@@ -13,14 +13,17 @@ function BoardList() {
   const [endPage, setEndPage] = useState(1);
   const [search, setSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const isData = useAppSelector(state => state.boardList.listData);
-  const filteredData = useAppSelector(state => state.boardList.filteredData);
+  const [input, setInput] = useState('');
+
+  const datas = useAppSelector((state) => state.boardList.listData);
+  const filteredDatas = datas.filter((data) => data.boardTitle.includes(input));
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
-      const res = await customAxios.get(`/boards?page=${isPage}&size=16`);
+      const res = await customAxios.get(`/boards?page=${isPage}&size=10`);
       const { data, likeList } = res.data;
       if (data.length !== 0) {
         dispatch(boardListItemAdd({ data, likeList }));
@@ -33,7 +36,7 @@ function BoardList() {
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
       if (scrollTop + clientHeight >= scrollHeight - 100 && endPage >= isPage) {
-        setPage(prev => prev + 1);
+        setPage((prev) => prev + 1);
       }
     };
 
@@ -53,11 +56,21 @@ function BoardList() {
         <Loading />
       ) : (
         <Wrapper onClick={handleSearchClose}>
-          <BoardInfo search={search} setSearch={setSearch} />
+          <BoardInfo
+            search={search}
+            setSearch={setSearch}
+            setInput={setInput}
+          />
           <ListContainer>
-            {(filteredData.length === 0 ? isData : filteredData)?.map(el => {
-              return <BoardItem key={el.boardId} data={el} />;
-            })}
+            {filteredDatas.length === 0 ? (
+              <ListText>{`현재 페이지에서 '${input}'란 단어의 검색 결과가 없습니다.`}</ListText>
+            ) : (
+              filteredDatas?.map((filteredData) => {
+                return (
+                  <BoardItem key={filteredData.boardId} data={filteredData} />
+                );
+              })
+            )}
           </ListContainer>
         </Wrapper>
       )}
@@ -70,6 +83,7 @@ export default BoardList;
 const Wrapper = styled.div`
   width: 100%;
   height: auto;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,13 +92,14 @@ const Wrapper = styled.div`
 const ListContainer = styled.div`
   margin-bottom: calc(var(--4x-large) * 5);
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+`;
 
-  /* @media only screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-  } */
+const ListText = styled.div`
+  font-size: var(--text-large);
+  font-weight: var(--weight-medium);
 `;
