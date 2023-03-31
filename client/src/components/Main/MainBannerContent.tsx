@@ -6,6 +6,7 @@ import bowmore from '../../assets/img/bowmore.jpg';
 import irish from '../../assets/img/irish.jpg';
 import jackblack from '../../assets/img/jack-black.jpg';
 import drink1887 from '../../assets/img/1887.jpg';
+import Header from "../layout/Header/Header"
 
 interface MainLayoutProps {
   bgColor?: boolean;
@@ -31,7 +32,13 @@ function MainBannerContent() {
   }, [page]);
 
   return (
-    <>
+    <div>
+
+      <HeaderWrap>
+        <Header headerBgColor={`--color-trans`}
+          headerColor={`--color-white`} />
+      </HeaderWrap>
+
       <Wrap>
         <MainDontMove
           handlePreClick={handlePreClick}
@@ -77,11 +84,18 @@ function MainBannerContent() {
           </>
         </ContentBox>
       </ContentWrap>
-    </>
+    </div>
   );
 }
 
 export default MainBannerContent;
+
+
+const HeaderWrap = styled.div`
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+`
 
 const Wrap = styled.div`
   width: 100%;
@@ -138,15 +152,16 @@ const ContainerBox = styled.div<MainLayoutProps>`
   }
 `;
 
-const ContainerBox1 = styled(ContainerBox)<MainLayoutProps>`
+const ContainerBox1 = styled(ContainerBox) <MainLayoutProps>`
   background-image: url(${irish});
 `;
 const ContainerBox1Text = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;  
   flex-direction: column;
-  padding: 440px;
+  padding-left: 450px;
 
   @media only screen and (max-width: 1150px) {
     padding: 0;
@@ -165,7 +180,7 @@ const Box1TextBody = styled.div`
   color: var(--color-white);
 `;
 
-const ContainerBox2 = styled(ContainerBox)<MainLayoutProps>`
+const ContainerBox2 = styled(ContainerBox) <MainLayoutProps>`
   background-image: url(${jackblack});
 `;
 const ContainerBox2Text = styled.div`
@@ -195,7 +210,7 @@ const Box2TextBody = styled.div`
   color: var(--color-white);
 `;
 
-const ContainerBox3 = styled(ContainerBox)<MainLayoutProps>`
+const ContainerBox3 = styled(ContainerBox) <MainLayoutProps>`
   background-image: url(${drink1887});
 `;
 const ContainerBox3Text = styled.div`
@@ -203,7 +218,8 @@ const ContainerBox3Text = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 460px 380px;
+  justify-content: center;
+  padding-left: 350px;
 
   @media only screen and (max-width: 1150px) {
     padding: 0;

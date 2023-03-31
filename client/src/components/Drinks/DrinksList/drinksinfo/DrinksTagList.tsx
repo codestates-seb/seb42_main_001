@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import Button from "../../../UI/Button";
 import DrinksTags from "./DrinksTags";
 
 import { Swiper, SwiperSlide } from "swiper/react";
