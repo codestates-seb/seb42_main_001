@@ -59,11 +59,11 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
     }
   };
 
-  const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleDrinksPost();
-    }
-  };
+  // const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter') {
+  //     handleDrinksPost();
+  //   }
+  // };
 
   return (
     <MainContainer>
@@ -72,7 +72,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
           <Card>
             <input
               onChange={handleCommentValueChange}
-              onKeyDown={handleInputKey}
+              // onKeyDown={handleInputKey}
               value={commentValue}
               placeholder='댓글을 작성해 주세요'
             />

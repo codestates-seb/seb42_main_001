@@ -61,8 +61,10 @@ export const boardListSlice = createSlice({
       }: PayloadAction<{ data: boolean; boardId: number }>
     ) => {
       const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
-      filtered.likeCount = filtered.likeCount + 1;
-      filtered.like = data;
+      if (filtered) {
+        filtered.likeCount = filtered.likeCount + 1;
+        filtered.like = data;
+      }
     },
 
     boardLikeUncheck: (
@@ -72,8 +74,10 @@ export const boardListSlice = createSlice({
       }: PayloadAction<{ data: boolean; boardId: number }>
     ) => {
       const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
-      filtered.likeCount = filtered.likeCount - 1;
-      filtered.like = data;
+      if (filtered) {
+        filtered.likeCount = filtered.likeCount - 1;
+        filtered.like = data;
+      }
     },
   },
 });
