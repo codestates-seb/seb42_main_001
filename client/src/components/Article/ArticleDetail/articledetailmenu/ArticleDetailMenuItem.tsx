@@ -10,18 +10,9 @@ interface MenuItemProps {
 }
 
 function ArticleDetailMenuItem({ title, value, handlIdChange, isActive }: MenuItemProps) {
-  // const [isActive, setIsActive] = useState<boolean>(false);
-
-  // const handleClick = () => {
-  //   setIsActive(prev => !prev);
-  //   handlIdChange(value);
-  //   console.log('zz')
-  // };
-
   return (
     <MainContainer isActive={isActive}>
       <Card>
-        {/* <SizeContainer isActive={isActive} onClick={() => handlIdChange(value)}> */}
         <SizeContainer isActive={isActive === value} onClick={() => handlIdChange(value)}>
           {title}
         </SizeContainer>
@@ -49,14 +40,15 @@ const SizeContainer = styled.button<{ isActive: any }>`
   border: 0;
   color: var(--color-main);
   border-radius: var(--3x-small);
-  background-color: ${(props) => (props.isActive ? `var(--color-white)` : `var(--color-sub-dark-gray)`)};
+  background-color: ${(props) => (props.isActive ? `var(--color-white)` : `rgba(57, 50, 50, 0.5)`)};
   padding: var(--medium);
   transition: 0.4s;
   opacity: 1;
 
   &:hover {
     opacity: 0.8;
+    background-color: var(--color-white);
     transition: 0.4s;
-    color: var(--color-main);
+    color: black;
     }
 `;

@@ -12,9 +12,10 @@ function MainTagsContentImg() {
 export default MainTagsContentImg;
 
 const ImgWrap = styled.img`
-  height: 40vh;
+  height: 35vh;
   border-radius: var(--2x-small);
   box-shadow: 1px 1px 30px rgba(59, 30, 30, 0.7);
+  
   @media only screen and (max-width: 1150px) {
     display: none;
   }

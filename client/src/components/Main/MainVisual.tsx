@@ -1,7 +1,7 @@
 // import ReactFullpage from "@fullpage/react-fullpage"
 import styled from "styled-components"
 import Footer from "../layout/Footer/Footer"
-import Header from "../layout/Header/Header"
+// import Header from "../layout/Header/Header"
 import MainBannerContent from "./MainBannerContent"
 import MainDrinksContent from "./MainDrinksContent"
 import MainTagsContent from "./MainTagsContent"
@@ -12,7 +12,6 @@ function MainVisual() {
 
     return (
         <MainContainer>
-            <Header />
             <MainBannerContent />
             <GrayBg>
                 <MainTextContent />
@@ -29,6 +28,11 @@ function MainVisual() {
 }
 
 export default MainVisual
+
+const HeaderWrap = styled.div`
+    width: 100%;
+    position: relative;
+`
 
 const MainContainer = styled.div`
     display: flex;

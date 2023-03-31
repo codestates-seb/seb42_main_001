@@ -22,7 +22,6 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100vh;
   background-color: var(--color-sub-light-gray);
-  padding: 0 320px;
 
   @media only screen and (max-width: 1150px) {
     flex-direction: column;

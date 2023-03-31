@@ -15,7 +15,7 @@ function MainTextContentImg() {
 export default MainTextContentImg;
 
 const MainContainer = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100%;
   display: flex;
   align-items: center;
