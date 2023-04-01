@@ -1,25 +1,28 @@
-import React from "react";
-import DrinksDetailLikes from "./drinksdetailbox/DrinksDetailLikes";
-import DrinksDetailTags from "./drinksdetailbox/DrinksDetailTags";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { IDrinksDetailProps } from '../../../../../util/interfaces/drinks.inerface'
-import DrinksDetailCount from "./drinksdetailbox/DrinksDetailCount";
+import React from 'react';
+import DrinksDetailLikes from './drinksdetailbox/DrinksDetailLikes';
+import DrinksDetailTags from './drinksdetailbox/DrinksDetailTags';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { IDrinksDetailLike } from '../../../../../util/interfaces/drinks.inerface';
+import DrinksDetailCount from './drinksdetailbox/DrinksDetailCount';
 
-function DrinksDetailBox({ drinksDetail }: IDrinksDetailProps) {
+function DrinksDetailBox({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   return (
     <BoxContainer>
       <TagContainer>
-        {drinksDetail?.tags?.map(el => {
+        {drinksDetail?.tags?.map((el) => {
           return (
             <Link to={`/tags/${el.tagId}`} key={el.tagId}>
               <DrinksDetailTags tagName={el.tagName} />
             </Link>
-          )
+          );
         })}
       </TagContainer>
       <MarginContainer>
-        <DrinksDetailLikes drinksDetail={drinksDetail} />
+        <DrinksDetailLikes
+          drinksDetail={drinksDetail}
+          drinksLike={drinksLike}
+        />
       </MarginContainer>
       <DrinksDetailCount drinksDetail={drinksDetail} />
     </BoxContainer>
@@ -36,9 +39,9 @@ const BoxContainer = styled.div`
   justify-content: space-between;
 
   @media only screen and (max-width: 768px) {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 `;
 
@@ -48,10 +51,10 @@ const TagContainer = styled.div`
   justify-content: flex-start;
 
   @media only screen and (max-width: 768px) {
-  margin-bottom: var(--medium);
+    margin-bottom: var(--medium);
   }
-`
+`;
 
 const MarginContainer = styled.div`
   margin-right: var(--medium);
-`
+`;

@@ -37,7 +37,9 @@ export const boardListSlice = createSlice({
           ),
         };
       });
+
       state.likeList = likeList;
+
       const NotData = result.reduce((acc: BoardDataProps[], cur) => {
         let result: BoardDataProps[] = [...acc];
         if (
@@ -47,6 +49,7 @@ export const boardListSlice = createSlice({
         }
         return result;
       }, []);
+
       if (state.listData.length !== 0 && NotData.length !== 0) {
         state.listData = [...state.listData, ...NotData];
       } else if (state.listData.length === 0) {
