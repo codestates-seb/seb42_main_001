@@ -40,27 +40,30 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
     : displayedDrinks;
 
   return (
-    <>
-      <ContentsContainer>
-        {drinksToShow.length > 0 ? (
-          drinksToShow.map((drink) => (
+    <ContentsContainer>
+      {drinksToShow.length > 0 ? (
+        <>
+          {drinksToShow.map((drink) => (
             <DrinksItem key={drink.drinkId} drinksData={drink} />
-          ))
-        ) : (
-          <div>
-            현재 페이지에서 '{search}'란 단어의 검색 결과가 없습니다.
-          </div>
-        )}
-      </ContentsContainer>
-      <Pagination
-        total={drinkTagData.length !== 0
-          ? drinkTagData.length
-          : filteredDrinks.length}
-        limit={limit}
-        page={page}
-        setPage={setPage}
-        setLimit={setLimit} />
-    </>
+          ))}
+          <Pagination
+            total={
+              drinkTagData.length !== 0
+                ? drinkTagData.length
+                : filteredDrinks.length
+            }
+            limit={limit}
+            page={page}
+            setPage={setPage}
+            setLimit={setLimit}
+          />
+        </>
+      ) : (
+        <div>
+          현재 페이지에서 '{search}'란 단어의 검색 결과가 없습니다.
+        </div>
+      )}
+    </ContentsContainer>
   );
 }
 
@@ -71,7 +74,7 @@ const ContentsContainer = styled.div`
   height: 100%;
   flex-wrap: wrap;
   display: flex;
-  margin-bottom: var(--4x-large);
+  margin-bottom: calc(var(--4x-large) * 2);
   justify-content: center;
 
     @media only screen and (max-width: 768px) {

@@ -43,7 +43,6 @@ export default DrinksTagList;
 
 const DisplayContainer = styled.div`
   width: 100%;
-  max-width: 1100px;
 
   -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
   mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);

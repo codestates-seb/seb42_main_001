@@ -45,7 +45,7 @@ const Pagination = ({ total, limit, page, setPage }: PaginationProps) => {
 export default Pagination;
 
 const MainContainer = styled.div`
-    margin-bottom: calc(var(--4x-large) * 2);
+    margin-top: var(--4x-large);
     display: flex;
     justify-content: center;
     align-items: center;
