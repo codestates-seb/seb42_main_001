@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEventHandler } from 'react';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import styled from 'styled-components';
 
@@ -25,9 +25,10 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
     setLogin(isLogin);
   }, [drinksData.drinkId, likesData, isLogin]);
 
-  const handleLikesData = async () => {
+  const handleLikesData: MouseEventHandler<SVGElement> = async (e) => {
     if (login) {
       if (like) {
+        e.preventDefault();
         try {
           await customAxios.delete(`/likes/drinks/${drinksData.drinkId}`);
           dispatch(setLikes());
@@ -37,6 +38,7 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
           console.log(error);
         }
       } else {
+        e.preventDefault();
         try {
           await customAxios.post(`/likes/drinks/${drinksData.drinkId}`);
           dispatch(setLikes());
@@ -47,6 +49,7 @@ function DrinksItemLikes({ drinksData }: IDrinksProps) {
         }
       }
     } else {
+      e.preventDefault();
       alert('로그인이 필요한 서비스입니다.');
       navigate('/signup');
     }

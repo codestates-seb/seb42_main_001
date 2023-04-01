@@ -44,13 +44,17 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
         dispatch(logoutSuccess());
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        alert('로그아웃되었습니다');
+        alert('로그아웃 되었습니다.');
         navigate('/');
       }
     } catch (e) {
       console.error(e);
     }
   };
+
+  const handleAccount = () => {
+    alert('준비 중입니다.')
+  }
 
   return (
     <MainContainer>
@@ -64,7 +68,7 @@ function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
             정보 수정
           </ItemContainer>
           <ItemContainer onClick={handleLogout}>로그아웃</ItemContainer>
-          <ItemContainer>회원 탈퇴</ItemContainer>
+          <ItemContainer onClick={handleAccount}>회원 탈퇴</ItemContainer>
         </>
       )}
     </MainContainer>
