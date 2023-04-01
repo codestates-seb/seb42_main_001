@@ -10,14 +10,15 @@ SwiperCore.use([Navigation]);
 
 interface TagProps {
   tagData: { tagId: number; tagName?: string; }[]
+  setPage: (state: number) => void;
 }
 
-function DrinksTagList({ tagData }: TagProps) {
+function DrinksTagList({ tagData, setPage }: TagProps) {
 
   return (
     <>
       <DisplayContainer>
-        <Swiper
+        <MySwiper
           className="swiper-container"
           spaceBetween={60}
           slidesPerView={11}
@@ -27,12 +28,13 @@ function DrinksTagList({ tagData }: TagProps) {
           <TagListContainer>
             {tagData.map(el => {
               return (
-                <SwiperSlide className='swiper-slide'>
-                  <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} />
-                </SwiperSlide>);
+                <SwiperSlide>
+                  <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} setPage={setPage} />
+                </SwiperSlide>
+              );
             })}
           </TagListContainer>
-        </Swiper>
+        </MySwiper>
       </DisplayContainer>
     </>
 
@@ -42,7 +44,7 @@ function DrinksTagList({ tagData }: TagProps) {
 export default DrinksTagList;
 
 const DisplayContainer = styled.div`
-  width: 100%;
+  width: 93%;
 
   -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
   mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
@@ -81,6 +83,10 @@ const DisplayContainer = styled.div`
     @media only screen and (max-width: 768px) {
       display: none;
     }
+`
+
+const MySwiper = styled(Swiper)`
+  display: flex;
 `
 
 const TagListContainer = styled.div`

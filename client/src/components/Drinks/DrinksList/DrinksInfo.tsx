@@ -30,7 +30,7 @@ function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
     <InfoContainer>
       {searchButton
         ? <DrinkSearch search={search} setSearch={setSearch} />
-        : <DrinksTagList tagData={tagData} />
+        : <DrinksTagList tagData={tagData} setPage={setPage} />
       }
 
       <ButtonMargin>

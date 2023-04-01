@@ -35,7 +35,7 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
 
   const displayedDrinks = filteredDrinks.slice(offset, offset + limit);
 
-  const drinksToShow = (searchTag === drinkTagValue && drinkTagValue !== 0)
+  const drinksToShow = (searchTag === drinkTagValue)
     ? drinkTagData.slice(offset, offset + limit)
     : displayedDrinks;
 
@@ -46,17 +46,19 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
           {drinksToShow.map((drink) => (
             <DrinksItem key={drink.drinkId} drinksData={drink} />
           ))}
-          <Pagination
-            total={
-              drinkTagData.length !== 0
-                ? drinkTagData.length
-                : filteredDrinks.length
-            }
-            limit={limit}
-            page={page}
-            setPage={setPage}
-            setLimit={setLimit}
-          />
+          {drinksToShow.length > 7 ?
+            <Pagination
+              total={
+                drinkTagData.length !== 0
+                  ? drinkTagData.length
+                  : filteredDrinks.length
+              }
+              limit={limit}
+              page={page}
+              setPage={setPage}
+              setLimit={setLimit}
+            /> : null}
+
         </>
       ) : (
         <div>
