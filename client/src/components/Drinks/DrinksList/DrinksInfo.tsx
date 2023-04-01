@@ -32,6 +32,7 @@ function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
         ? <DrinkSearch search={search} setSearch={setSearch} />
         : <DrinksTagList tagData={tagData} />
       }
+
       <ButtonMargin>
         <Button
           type="button"
@@ -47,6 +48,7 @@ function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
           </SvgSize>
         </Button>
       </ButtonMargin>
+
     </InfoContainer>
   );
 }
@@ -54,12 +56,12 @@ function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
 export default DrinksInfo;
 
 const InfoContainer = styled.div`
-  width: 97%;
-  display: flex;
-  flex: 1;
+  width: 100%;
   margin: var(--3x-large) 0;
+  padding: 0 calc(var(--x-large) / 2);
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
     @media only screen and (max-width: 768px) {
       margin: var(--large);

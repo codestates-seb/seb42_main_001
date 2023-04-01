@@ -25,10 +25,10 @@ function DrinksSearch({ search, setSearch }: ISearchProps) {
 export default DrinksSearch;
 
 const SearchContainer = styled.div`
-  width: 93%;
+  width: 100%;
   margin: var(--2x-small) 0;
   margin-right: var(--x-large);
-
+  
   input {
     width: 100%;
     height: 60px;

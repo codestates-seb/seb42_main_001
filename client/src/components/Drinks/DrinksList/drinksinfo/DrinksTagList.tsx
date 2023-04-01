@@ -42,10 +42,8 @@ function DrinksTagList({ tagData }: TagProps) {
 export default DrinksTagList;
 
 const DisplayContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 93%;
-  margin-right: var(--x-large);
+  width: 100%;
+  max-width: 1100px;
 
   -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
   mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
@@ -81,8 +79,6 @@ const DisplayContainer = styled.div`
     color: var(--color-white);
 	}
 
-
-
     @media only screen and (max-width: 768px) {
       display: none;
     }
@@ -90,7 +86,7 @@ const DisplayContainer = styled.div`
 
 const TagListContainer = styled.div`
   display: flex;
-  width: 90%;
+  width: 100%;
   overflow: overlay;
   
     &::-webkit-scrollbar {
