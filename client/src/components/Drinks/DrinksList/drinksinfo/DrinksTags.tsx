@@ -6,14 +6,15 @@ interface Tags {
   tagId: number;
   tagName?: string;
   onClick?: () => void;
+  setPage: (state: number) => void;
 };
 
-
-function DrinksTags({ tagId, tagName }: Tags) {
+function DrinksTags({ tagId, tagName, setPage }: Tags) {
   const dispatch = useDispatch()
 
   const handleTagSearchValueChange = () => {
     dispatch(setSearchTag(tagId))
+    setPage(1)
   }
 
   return (
@@ -31,7 +32,6 @@ const TagsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0 var(--small);
   
   div {
     cursor: pointer;
