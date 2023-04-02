@@ -87,7 +87,7 @@ const ContentsContainer = styled.div`
       align-items: center;
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       width: 100%;
       display: flex;
       flex-direction: column;

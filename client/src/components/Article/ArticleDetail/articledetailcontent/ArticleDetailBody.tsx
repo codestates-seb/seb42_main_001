@@ -46,7 +46,7 @@ const MainContainer = styled.div`
     width: 200px;
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 479px) {
     padding: 0 var(--medium) var(--medium) var(--medium);
     font-size: calc(var(--large) / 2);
     display: flex;

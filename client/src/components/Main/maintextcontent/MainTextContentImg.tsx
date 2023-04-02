@@ -16,24 +16,38 @@ export default MainTextContentImg;
 
 const MainContainer = styled.div`
   width: 90%;
-  height: 100%;
   display: flex;
   align-items: center;
   margin-left: var(--x-large);
 
-  @media only screen and (max-width: 1150px) {
+  a {
+    display: flex;
+    align-items: center;
     justify-content: center;
+  }
+
+  @media only screen and (max-width: 1024px) {
     margin-left: 0;
-    height: 50%;
+    margin-top: var(--large);
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin-top: var(--large);
   }
 `;
 
 const ImgWrap = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40vw;
   border-radius: var(--2x-small);
   box-shadow: 1px 1px 30px rgba(59, 30, 30, 0.7);
-  @media only screen and (max-width: 1150px) {
-    width: 50vw;
-    max-width: 270px;
+
+  @media only screen and (max-width: 1024px) {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

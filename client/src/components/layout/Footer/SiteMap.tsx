@@ -25,7 +25,11 @@ const SiteContainer = styled.div`
   font-size: var(--text-small);
   color: var(--color-sub-dark-gray);
 
-  @media only screen and (max-width: 280px) {
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 320px) {
     display: none;
   }
 `

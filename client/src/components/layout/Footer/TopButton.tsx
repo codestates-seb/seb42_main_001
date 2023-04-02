@@ -20,15 +20,15 @@ export default TopButton;
 
 const TopButtonStyled = styled.button`
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border: 1px solid var(--color-sub-dark-gray);
   padding-top: 4px;
   border-radius: 50%;
   background-color: transparent;
   color: var(--color-sub-dark-gray);
 
-  @media only screen and (max-width: 280px) {
+  @media only screen and (max-width: 320px) {
     cursor: pointer;
     width: 50px;
     height: 50px;

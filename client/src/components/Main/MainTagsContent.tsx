@@ -22,4 +22,21 @@ const MainContainer = styled.div`
   align-items: center;
   background-color: var(--color-sub-light-gray);
   padding: 0 30px;
+
+  @media only screen and (max-width: 1024px) {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: var(--3x-large) 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: var(--3x-large) 0;
+    
+  }
 `;

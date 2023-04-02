@@ -29,7 +29,7 @@ export default DrinksItem;
 const Margin = styled.div`
   margin: 0 calc(var(--large) / 2) calc(var(--4x-large) / 2) calc(var(--large) / 2);
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 479px) {
     margin: 0 0 calc(var(--4x-large) / 2) 0;
   }
 `;
@@ -55,7 +55,7 @@ const ItemContainer = styled.div`
       min-width: 240px;
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       max-width: 300px;
       min-height: 0;
     }

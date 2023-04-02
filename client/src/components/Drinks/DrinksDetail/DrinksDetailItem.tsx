@@ -22,6 +22,14 @@ const ItemContainer = styled.div`
   flex: 1 1 0;
   margin-top: var(--4x-large);
 
+  @media only screen and (max-width: 1042px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media only screen and (max-width: 768px) {
     width: 100%;
     display: flex;

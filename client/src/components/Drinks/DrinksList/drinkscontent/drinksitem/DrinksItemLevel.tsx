@@ -26,7 +26,7 @@ const LevelContainer = styled.div`
   padding: var(--small);
   border-top: 1px solid var(--color-sub-light-gray);
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       min-width: 240px;
       width: 100%;
     }

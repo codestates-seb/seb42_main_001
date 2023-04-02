@@ -22,6 +22,13 @@ const TastingContainer = styled.div`
   align-items: center;
   padding: var(--medium) 0;
 
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   @media only screen and (max-width: 768px) {
     width: 100%;
     display: flex;

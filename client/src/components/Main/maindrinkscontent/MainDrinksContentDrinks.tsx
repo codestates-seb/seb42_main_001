@@ -53,7 +53,9 @@ const MainContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-right: 80px;
-  @media only screen and (max-width: 1150px) {
+
+  @media only screen and (max-width: 1024px) {
     margin-right: 0;
+    height: auto;
   }
 `;

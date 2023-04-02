@@ -22,8 +22,10 @@ const MainContainer = styled.div`
   align-items: center;
   padding: 0 30px;
 
-  @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1024px) {
+    width: 80%;
+    height: 100%;
     flex-direction: column;
-    padding: 0 20px;
+    padding: var(--3x-large) 0;
   }
 `;

@@ -14,8 +14,11 @@ export default MainDrinksContentTitle;
 const MainContainer = styled.div`
   width: 25%;
   color: var(--color-white);
-  @media only screen and (max-width: 1150px) {
+  margin-left: var(--large);
+
+  @media only screen and (max-width: 1024px) {
     width: 100%;
+    margin-top: var(--x-large);
   }
 `;
 
@@ -23,8 +26,8 @@ const TitleWrap = styled.div`
   font-size: var(--x-large);
   margin-bottom: var(--x-small);
   white-space: nowrap;
-  @media only screen and (max-width: 1150px) {
-    font-size: var(--medium);
+
+  @media only screen and (max-width: 1024px) {
     margin: var(--3x-small) 0;
     text-align: center;
   }
@@ -32,7 +35,8 @@ const TitleWrap = styled.div`
 
 const BodyWrap = styled.div`
   margin-bottom: var(--x-large);
-  @media only screen and (max-width: 1150px) {
+
+  @media only screen and (max-width: 1024px) {
     white-space: nowrap;
     margin: var(--3x-small) 0;
     text-align: center;

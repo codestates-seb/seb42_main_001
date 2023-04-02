@@ -41,7 +41,6 @@ export default MainTagsContentTags;
 
 const MainContainer = styled.div`
   width: 100%;
-  height: 100%;
   overflow: scroll;
   display: flex;
   flex-direction: column;
@@ -49,8 +48,14 @@ const MainContainer = styled.div`
   align-items: flex-start;
   margin-right: 80px;
   color: var(--color-main);
-  @media only screen and (max-width: 1150px) {
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    height: 100%;
     margin-right: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -65,8 +70,8 @@ const SubTextWrap = styled.div`
 
 const TagWrap = styled.div`
   width: 100%;
+  height: 100%;
   overflow: scroll;
   display: flex;
   align-items: center;
-  /* margin-right: 80px; */
 `;

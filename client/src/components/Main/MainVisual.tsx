@@ -6,8 +6,6 @@ import MainTagsContent from "./MainTagsContent"
 import MainTextContent from "./MainTextContent"
 
 function MainVisual() {
-
-
     return (
         <MainContainer>
             <MainBannerContent />
