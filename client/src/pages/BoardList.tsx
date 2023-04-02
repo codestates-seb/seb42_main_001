@@ -63,7 +63,9 @@ function BoardList() {
           />
           <ListContainer>
             {filteredDatas.length === 0 ? (
-              <ListText>{`현재 페이지에서 '${input}'란 단어의 검색 결과가 없습니다.`}</ListText>
+              <div>
+                현재 페이지에서 '{input}'란 단어의 검색 결과가 없습니다.
+              </div>
             ) : (
               filteredDatas?.map((filteredData) => {
                 return (
@@ -97,9 +99,4 @@ const ListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-`;
-
-const ListText = styled.div`
-  font-size: var(--text-large);
-  font-weight: var(--weight-medium);
 `;
