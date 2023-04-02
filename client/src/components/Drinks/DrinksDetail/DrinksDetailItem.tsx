@@ -1,15 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import DrinksDetailImg from "./drinksdetaillitem/DrinksDetailImg";
-import DrinksDetailTxt from "./drinksdetaillitem/DrinksDetailTxt";
-import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface'
+import React from 'react';
+import styled from 'styled-components';
+import DrinksDetailImg from './drinksdetaillitem/DrinksDetailImg';
+import DrinksDetailTxt from './drinksdetaillitem/DrinksDetailTxt';
+import { IDrinksDetailLike } from '../../../util/interfaces/drinks.inerface';
 
-function DrinksDetailItem({ drinksDetail }: IDrinksDetailProps) {
-
+function DrinksDetailItem({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   return (
     <ItemContainer>
       <DrinksDetailImg drinksDetail={drinksDetail} />
-      <DrinksDetailTxt drinksDetail={drinksDetail} />
+      <DrinksDetailTxt drinksDetail={drinksDetail} drinksLike={drinksLike} />
     </ItemContainer>
   );
 }

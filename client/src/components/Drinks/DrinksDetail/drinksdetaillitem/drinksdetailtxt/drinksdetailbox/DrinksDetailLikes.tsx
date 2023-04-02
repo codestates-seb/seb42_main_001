@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
-import { IDrinksDetailProps } from '../../../../../../util/interfaces/drinks.inerface';
+import { IDrinksDetailLike } from '../../../../../../util/interfaces/drinks.inerface';
 import { useAppSelector } from '../../../../../../redux/hooks/hooks';
 import { useNavigate } from 'react-router';
+import customAxios from '../../../../../../api/customAxios';
 
-function DrinksDetailLikes({ drinksDetail }: IDrinksDetailProps) {
+function DrinksDetailLikes({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   const [likes, setlikes] = useState(false);
   const [login, setLogin] = useState(false);
+  const [count, setCount] = useState(0);
 
   const { isLogin } = useAppSelector((state) => state.auth);
 
@@ -15,11 +17,31 @@ function DrinksDetailLikes({ drinksDetail }: IDrinksDetailProps) {
 
   useEffect(() => {
     setLogin(isLogin);
-  }, [isLogin]);
+    if (drinksDetail) {
+      setCount(drinksDetail.likeCount);
+      setlikes(drinksLike);
+    }
+  }, [isLogin, drinksDetail, drinksLike]);
 
   const handleLikesChange = () => {
     if (login) {
-      setlikes((prev) => !prev);
+      if (likes) {
+        customAxios
+          .delete(`/likes/drinks/${drinksDetail?.drinkId}`)
+          .then((res) => {
+            setCount((prev) => prev - 1);
+            setlikes(false);
+          })
+          .catch((err) => console.log(Error, err));
+      } else {
+        customAxios
+          .post(`/likes/drinks/${drinksDetail?.drinkId}`)
+          .then((res) => {
+            setCount((prev) => prev + 1);
+            setlikes(true);
+          })
+          .catch((err) => console.log(Error, err));
+      }
     } else {
       alert('로그인이 필요한 서비스입니다.');
       navigate('/signup');
@@ -33,7 +55,7 @@ function DrinksDetailLikes({ drinksDetail }: IDrinksDetailProps) {
       ) : (
         <IoMdHeartEmpty onClick={handleLikesChange} />
       )}
-      <span>{drinksDetail?.likeCount}</span>
+      <span>{count}</span>
     </LikesSize>
   );
 }
