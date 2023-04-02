@@ -27,7 +27,7 @@ function MainBannerContent() {
   useEffect(() => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % 4);
-    }, 5000000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [page]);
 
