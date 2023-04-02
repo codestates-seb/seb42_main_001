@@ -4,6 +4,7 @@ import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import { IDrinksDetailLike } from '../../../../../../util/interfaces/drinks.inerface';
 import { useAppSelector } from '../../../../../../redux/hooks/hooks';
 import { useNavigate } from 'react-router';
+import customAxios from '../../../../../../api/customAxios';
 
 function DrinksDetailLikes({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   const [likes, setlikes] = useState(false);
@@ -25,11 +26,21 @@ function DrinksDetailLikes({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   const handleLikesChange = () => {
     if (login) {
       if (likes) {
-        setCount((prev) => prev - 1);
-        setlikes(false);
+        customAxios
+          .delete(`/likes/drinks/${drinksDetail?.drinkId}`)
+          .then((res) => {
+            setCount((prev) => prev - 1);
+            setlikes(false);
+          })
+          .catch((err) => console.log(Error, err));
       } else {
-        setCount((prev) => prev + 1);
-        setlikes(true);
+        customAxios
+          .post(`/likes/drinks/${drinksDetail?.drinkId}`)
+          .then((res) => {
+            setCount((prev) => prev + 1);
+            setlikes(true);
+          })
+          .catch((err) => console.log(Error, err));
       }
     } else {
       alert('로그인이 필요한 서비스입니다.');
