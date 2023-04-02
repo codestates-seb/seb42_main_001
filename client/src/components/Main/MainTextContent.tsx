@@ -23,8 +23,14 @@ const MainContainer = styled.div`
   height: 100vh;
   background-color: var(--color-sub-light-gray);
 
-  @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1024px) {
+    height: 100%;
     flex-direction: column;
-    padding: 0;
+    padding: var(--3x-large) 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    height: 100%;
+    padding: var(--3x-large) 0;
   }
 `;

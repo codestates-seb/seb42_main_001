@@ -36,7 +36,7 @@ const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media only screen and (max-width: 280px) {
+  @media only screen and (max-width: 320px) {
     display: flex;
     justify-content: center;
   }

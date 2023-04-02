@@ -27,25 +27,22 @@ function MainBannerContent() {
   useEffect(() => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % 4);
-    }, 5000);
+    }, 5000000);
     return () => clearInterval(interval);
   }, [page]);
 
   return (
     <div>
-
       <HeaderWrap>
         <Header headerBgColor={`--color-trans`}
           headerColor={`--color-white`} />
       </HeaderWrap>
-
       <Wrap>
         <MainDontMove
           handlePreClick={handlePreClick}
           handleNextClick={handleNextClick}
         />
       </Wrap>
-
       <ContentWrap>
         <ContentBox page={page}>
           <ContainerBox>
@@ -107,7 +104,8 @@ const TextWarp = styled.div`
   width: 100%;
   margin-bottom: 400px;
   margin-left: 100px;
-  @media only screen and (max-width: 1150px) {
+  
+  @media only screen and (max-width: 1024px) {
     margin-bottom: 50vh;
     margin-left: 5vw;
   }
@@ -145,10 +143,8 @@ const ContainerBox = styled.div<MainLayoutProps>`
   justify-content: center;
   align-items: center;
 
-  @media only screen and(max-width: 768px) {
-    width: 100vw;
-    background-position: 40% 50%;
-    background-size: cover;
+  @media only screen and (max-width: 1024px) {
+    background-position: 40%;
   }
 `;
 
@@ -163,9 +159,10 @@ const ContainerBox1Text = styled.div`
   flex-direction: column;
   padding-left: 450px;
 
-  @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1024px) {
     padding: 0;
-    padding-top: 10vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 `;
@@ -192,7 +189,7 @@ const ContainerBox2Text = styled.div`
   align-items: flex-end;
   padding-right: 500px;
 
-  @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1024px) {
     padding-bottom: 50vh;
     padding-right: 0;
     align-items: center;
@@ -221,7 +218,7 @@ const ContainerBox3Text = styled.div`
   justify-content: center;
   padding-left: 350px;
 
-  @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1024px) {
     padding: 0;
     padding-top: 10vh;
     align-items: center;

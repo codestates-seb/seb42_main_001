@@ -37,10 +37,4 @@ const TagWrap = styled.div`
     background-color: var(--color-main);
     color: var(--color-white);
   }
-
-  @media only screen and (max-width: 1150px) {
-    width: 60px;
-    height: 60px;
-    font-size: var(--2x-small);
-  }
 `;
