@@ -46,7 +46,7 @@ const InfoContainer = styled.div`
       margin-bottom: calc(var(--2x-large) / 2);
     }    
     
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       width: 100%;
       display: flex;
       flex-direction: column;

@@ -31,7 +31,7 @@ const InfoContainer = styled.div`
   align-items: center;
   padding: var(--large) var(--large) 0 var(--large);
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -48,7 +48,7 @@ const TagContainer = styled.div`
       display: none;
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       width: 100%;
       display: flex;
       align-items: center;

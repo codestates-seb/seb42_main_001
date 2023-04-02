@@ -27,6 +27,20 @@ const TitleContainer = styled.div`
     font-size: var(--3x-large);
   }
 
+    @media only screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: var(--4x-large) 0;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: var(--3x-large);
+        }
+    }
+
     @media only screen and (max-width: 768px) {
       display: flex;
       flex-direction: column;
@@ -41,7 +55,7 @@ const TitleContainer = styled.div`
       }
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       width: 80%;
       display: flex;
       flex-direction: column;

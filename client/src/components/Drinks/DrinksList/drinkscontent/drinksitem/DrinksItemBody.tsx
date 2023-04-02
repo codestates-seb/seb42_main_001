@@ -29,7 +29,7 @@ const BodyContainer = styled.div`
       margin-bottom: var(--x-small);
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       min-width: 200px;
       height: auto;  
       margin-bottom: var(--x-small);
@@ -50,7 +50,7 @@ const BodyImg = styled.img`
       margin-bottom: var(--x-small);
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       width: 130px;
       height: auto;
       margin-top: var(--x-small);
@@ -63,7 +63,7 @@ const BodyText = styled.div`
   font-size: var(--text-medium);
   font-weight: var(--weight-large);
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
       display: flex;
       align-items: center;
       flex-direction: column;

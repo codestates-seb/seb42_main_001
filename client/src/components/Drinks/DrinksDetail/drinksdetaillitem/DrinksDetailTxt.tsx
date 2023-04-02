@@ -28,6 +28,15 @@ const TxtContainer = styled.div`
   margin-left: var(--4x-large);
   padding: var(--medium) 0;
 
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
   @media only screen and (max-width: 768px) {
     width: 100%;
     height: auto;

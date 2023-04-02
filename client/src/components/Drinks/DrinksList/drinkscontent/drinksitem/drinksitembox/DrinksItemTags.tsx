@@ -43,7 +43,7 @@ const TagsContainer = styled.div`
       border: 1px solid var(--color-main);
     }
 
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 479px) {
     height: 30px;
     font-size: calc(var(--text-x-large) / 2);
     display: flex;
