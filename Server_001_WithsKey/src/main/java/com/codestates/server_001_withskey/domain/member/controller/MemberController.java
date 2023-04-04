@@ -20,12 +20,11 @@ import com.codestates.server_001_withskey.domain.like.service.LikeDrinkService;
 import com.codestates.server_001_withskey.domain.member.dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
+import com.codestates.server_001_withskey.domain.member.service.GuestUtil;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
 import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -47,9 +46,7 @@ import java.util.concurrent.TimeUnit;
 public class  MemberController {
 
     private final MemberMapperImpl memberMapper;
-
     private final MemberService memberService;
-
     private final BoardMapperImpl boardMapper;
     private final CommentBoardService commentBoardService;
     private final CommentBoardMapper commentBoardMapper;
@@ -58,17 +55,19 @@ public class  MemberController {
     private final CommentDrinkMapper commentDrinkMapper;
     private final LikeDrinkService likeDrinkService;
     private final DrinkMapper drinkMapper;
+    private final TokenRedisRepository tokenRedisRepository;
+    private final JwtTokenizer jwtTokenizer;
+    private final GuestUtil guestUtil;
 
 
-    @GetMapping("/login")
-    public ResponseEntity login(HttpServletResponse response) throws IOException {
-        response.sendRedirect("http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
-        return new ResponseEntity(HttpStatus.OK);
+    @GetMapping("/guest/login")
+    public void guestLogin(HttpServletResponse response) throws IOException {
+        String accessToken = guestUtil.delegateGuestAccessToken();
+        String refreshToken = guestUtil.delegateGuestRefreshToken();
+        String redirectUrl = guestUtil.makeRedirectUrl(accessToken, refreshToken);
+
+        response.sendRedirect(redirectUrl);
     }
-    @Autowired
-    private TokenRedisRepository tokenRedisRepository;
-    @Autowired
-    private JwtTokenizer jwtTokenizer;
 
     @GetMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request) {
@@ -141,4 +140,5 @@ public class  MemberController {
         memberService.deletedMember(memberId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
+
 }

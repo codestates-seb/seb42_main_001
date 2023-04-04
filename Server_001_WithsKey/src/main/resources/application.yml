@@ -1,24 +1,16 @@
 spring:
-  profiles:
-    active: local
----
-spring:
-  profiles:
-    active: deploy
----
-
-spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:mysql://main001.ctmvpylzede6.ap-northeast-2.rds.amazonaws.com:23306/main001
+    username: david
+    password: 001mainproject
+    driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
   jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -28,4 +20,4 @@ spring:
     open-in-view: false
   sql:
     init:
-      data-locations: classpath:db/* #{classpath:article.sql, import.sql} # 경로 변경
+      data-locations: classpath:db/*
