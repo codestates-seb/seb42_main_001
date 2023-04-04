@@ -68,47 +68,48 @@
 
 | 메인 화면 |                            로그인                            |
 | :-------: | :----------------------------------------------------------: |
-|           | <img src="C:\Users\MEcmp\AppData\Roaming\Typora\typora-user-images\image-20230331102350893.png" alt="image-20230331102350893" style="zoom:50%;" /> |
+| <img src="https://user-images.githubusercontent.com/115635503/229692831-ecd52aef-0957-41d4-8888-06e4044d3ae2.gif" height="300px" /> |  <img src="https://user-images.githubusercontent.com/115635503/229688536-73d84c5c-a18e-4aad-8068-a50430dabfa8.gif" height="300px" /> |
 
 |       아티클 리스트       |        아티클 디테일        |
 | :-----------------------: | :-------------------------: |
-|                           |                             |
 | 위스키 튜토리얼 코스 선택 | 위스키 튜토리얼 컨텐츠 조회 |
+| ![articleList](https://user-images.githubusercontent.com/115635503/229688647-3599b485-a79b-433c-9ae2-89ed96515f87.gif) | ![articleDetail](https://user-images.githubusercontent.com/115635503/229688652-c4a7898e-0e10-4972-88b3-480fcd7b4cef.gif) |
+
 
 | 드링크 리스트 검색 | 드링크 리스트 태그 |
 | :----------------: | :----------------: |
-|                    |                    |
 | 이름으로 술 검색 가능 | 태그로 술 목록 조회 가능 |
+| ![drinksSearch](https://user-images.githubusercontent.com/115635503/229689005-c6d0cfc9-16bc-4498-b7f5-248cf0253929.gif) | ![drinksTag](https://user-images.githubusercontent.com/115635503/229689010-591993de-73cf-47ee-b4b5-dd3399ba61ac.gif) |
 
 | 드링크 리스트 페이지네이션 | 드링크 리스트 좋아요 |
 | :------------------------: | :------------------: |
-|                            |                      |
 | 드링크 목록 페이지네이션 제공 | 리스트에서 좋아요 가능 |
+| ![drinksPagination](https://user-images.githubusercontent.com/115635503/229688951-cbabab89-72b7-4bcb-9c8a-1b8e974f981f.gif) | ![drinksLike](https://user-images.githubusercontent.com/115635503/229688947-9715f3fe-f8dd-48ba-aa0b-e2bab139cbbb.gif) |
 
 | 드링크 디테일 | 드링크 디테일 코멘트 |
 | :-----------: | :------------------: |
-|               |                      |
 | 술에 대한 상세 정보 제공 | 술에 대한 댓글 등록 기능 |
+| ![drinksDetail](https://user-images.githubusercontent.com/115635503/229688912-5d6b77b6-320b-461d-b082-b41da50940e0.gif) | ![drinksDetailComment](https://user-images.githubusercontent.com/115635503/229688933-f68fab6b-f38d-4f10-90a6-959ca55ea066.gif) |
 
 | 보드 리스트 검색 | 보드 리스트 무한 스크롤 |
 | :--------------: | :---------------------: |
-|                  |                         |
 | 제목으로 게시글 검색 가능 | 스크롤링을 통해 게시글을 지속적으로 갱신 및 조회 |
+| ![boardSearch](https://user-images.githubusercontent.com/115635503/229688903-a8dc55b5-975d-4509-a132-42e0693f4bfd.gif) | ![boardScroll](https://user-images.githubusercontent.com/115635503/229688852-62866e72-4816-4253-b068-0462c63ddb93.gif) |
 
 | 보드 리스트 좋아요 | 보드 작성 |
 | :----------------: | :-------: |
-|                    |           |
 | 게시글 리스트에서 좋아요 가능 | 이미지 등록 및 마크다운 형식 지원 |
+| ![boardLike](https://user-images.githubusercontent.com/115635503/229688844-edd2d517-715e-4afc-b906-7ad69cdd6c1d.gif) | ![boardCreate](https://user-images.githubusercontent.com/115635503/229688824-baa39694-bd9e-4129-a84e-ae4d54c23b6a.gif) |
 
 | 보드 디테일 추천 보드 | 보드 디테일 코멘트 |
 | :-------------------: | :----------------: |
-|                       |                    |
 | 조회한 게시글과 연관된 게시글 추천 | 조회한 게시글에 댓글 가능 |
+| ![boardSuggest](https://user-images.githubusercontent.com/115635503/229688908-e721df99-18fb-4d79-8900-1b35e4e65a13.gif) | ![boardDetailComment](https://user-images.githubusercontent.com/115635503/229688832-2b2665e6-8035-45d2-ab06-88842ecd4a13.gif) |
 
 | 마이페이지 | 태그 |
 | :--------: | :--: |
-|            |      |
 | 정보 수정, 로그아웃, 좋아요, 작성한 게시글, 댓글 목록 조회 | 연관된 드링크와 게시글을 조회 |
+| ![myPage](https://user-images.githubusercontent.com/115635503/229689158-0913b496-174c-4e39-b51d-2d6bae9acea8.gif) | ![tag](https://user-images.githubusercontent.com/115635503/229689184-dfd9c821-1536-47c7-92af-fd24b13cdfbd.gif) |
 
 
 <br><br>
