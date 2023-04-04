@@ -1,29 +1,35 @@
 import styled from 'styled-components';
-import axios from 'axios';
 
+import customAxios from '../../api/customAxios';
 import { useNavigate } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { logoutSuccess } from '../../redux/slice/auth/authSlice';
 
 interface InfoProps {
-  userInfo: boolean;
-  setUserInfo: (state: boolean) => void;
+  editMode: boolean;
+  setEditMode: (state: boolean) => void;
 }
 
-function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
+function MyPageInfoItem({ editMode, setEditMode }: InfoProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { displayName, aboutMe } = useAppSelector(state => state.auth.userInfo);
+  const { displayName, aboutMe, profilePicture } = useAppSelector(
+    state => state.auth.userInfo,
+  );
 
   const handleUserTrueChange = () => {
-    setUserInfo(true);
+    setEditMode(true);
   };
 
   const handleUserFalseChange = async () => {
     try {
-      const res = await axios.patch('/members', { displayName, aboutMe });
+      const res = await customAxios.patch('/members', {
+        displayName,
+        aboutMe,
+        profilePicture,
+      });
       if (res.status === 200) {
-        setUserInfo(false);
+        setEditMode(false);
       }
     } catch (e) {
       console.error(e);
@@ -32,12 +38,13 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.get(`/members/logout`);
+      const res = await customAxios.get(`/members/logout`);
+
       if (res.status === 200) {
         dispatch(logoutSuccess());
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        alert('로그아웃되었습니다');
+        alert('로그아웃 되었습니다.');
         navigate('/');
       }
     } catch (e) {
@@ -45,9 +52,13 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
     }
   };
 
+  const handleAccount = () => {
+    alert('준비 중입니다.')
+  }
+
   return (
     <MainContainer>
-      {userInfo ? (
+      {editMode ? (
         <TrueItemContainer onClick={handleUserFalseChange}>
           수정 완료
         </TrueItemContainer>
@@ -57,7 +68,7 @@ function MyPageInfoItem({ userInfo, setUserInfo }: InfoProps) {
             정보 수정
           </ItemContainer>
           <ItemContainer onClick={handleLogout}>로그아웃</ItemContainer>
-          <ItemContainer>회원 탈퇴</ItemContainer>
+          <ItemContainer onClick={handleAccount}>회원 탈퇴</ItemContainer>
         </>
       )}
     </MainContainer>

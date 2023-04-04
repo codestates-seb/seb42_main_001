@@ -83,3 +83,8 @@ export interface IDrinksDetail {
 export interface IDrinksDetailProps {
   drinksDetail?: IDrinksDetail;
 }
+
+export interface IDrinksDetailLike {
+  drinksDetail?: IDrinksDetail;
+  drinksLike: boolean;
+}

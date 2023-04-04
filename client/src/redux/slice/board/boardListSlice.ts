@@ -28,8 +28,19 @@ export const boardListSlice = createSlice({
         payload: { data, likeList },
       }: PayloadAction<{ data: BoardDataProps[]; likeList: ILikeList[] }>
     ) => {
+      const result = data.map((board: BoardDataProps) => {
+        return {
+          ...board,
+          like: likeList.some(
+            (el: { boardId: number; boardTitle: string }) =>
+              el.boardId === board.boardId
+          ),
+        };
+      });
+
       state.likeList = likeList;
-      const NotData = data.reduce((acc: BoardDataProps[], cur) => {
+
+      const NotData = result.reduce((acc: BoardDataProps[], cur) => {
         let result: BoardDataProps[] = [...acc];
         if (
           state.listData.filter((el) => cur.boardId === el.boardId).length === 0
@@ -38,22 +49,14 @@ export const boardListSlice = createSlice({
         }
         return result;
       }, []);
-      if (
-        state.listData.length !== 0 &&
-        // state.listData.filter((el) => el.boardId === data[0].boardId).length ===
-        //   0
-        NotData.length !== 0
-      ) {
+
+      if (state.listData.length !== 0 && NotData.length !== 0) {
         state.listData = [...state.listData, ...NotData];
       } else if (state.listData.length === 0) {
         state.listData = NotData;
       }
     },
-    boardListFiltered: (state, { payload: data }: PayloadAction<string>) => {
-      state.filteredData = state.listData.filter((el) =>
-        el.boardTitle.includes(data)
-      );
-    },
+
     boardLikeCheck: (
       state,
       {
@@ -61,8 +64,10 @@ export const boardListSlice = createSlice({
       }: PayloadAction<{ data: boolean; boardId: number }>
     ) => {
       const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
-      filtered.likeCount = filtered.likeCount + 1;
-      filtered.like = data;
+      if (filtered) {
+        filtered.likeCount = filtered.likeCount + 1;
+        filtered.like = data;
+      }
     },
 
     boardLikeUncheck: (
@@ -72,18 +77,16 @@ export const boardListSlice = createSlice({
       }: PayloadAction<{ data: boolean; boardId: number }>
     ) => {
       const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
-      filtered.likeCount = filtered.likeCount - 1;
-      filtered.like = data;
+      if (filtered) {
+        filtered.likeCount = filtered.likeCount - 1;
+        filtered.like = data;
+      }
     },
   },
 });
 
-export const {
-  boardListItemAdd,
-  boardListFiltered,
-  boardLikeCheck,
-  boardLikeUncheck,
-} = boardListSlice.actions;
+export const { boardListItemAdd, boardLikeCheck, boardLikeUncheck } =
+  boardListSlice.actions;
 
 export const selectBoardList = (state: RootState) => state.boardList;
 

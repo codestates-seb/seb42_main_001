@@ -1,8 +1,11 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../../../redux/hooks/hooks';
+
 import Button from '../Button';
 import Card from '../Card';
+import customAxios from '../../../api/customAxios';
+import { useNavigate } from 'react-router';
 
 interface CommentInputProps {
   drinkId?: number;
@@ -11,43 +14,56 @@ interface CommentInputProps {
 
 function CommentInput({ drinkId, boardId }: CommentInputProps) {
   const [commentValue, setCommentValue] = useState('');
+  const [Login, setLogin] = useState(false);
+
+  const { isLogin } = useAppSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setLogin(isLogin);
+  }, [isLogin]);
 
   const handleCommentValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCommentValue(e.target.value);
   };
 
   const handleDrinksPost = async () => {
-    if (commentValue.trim() === '') {
-      alert('댓글을 작성해주세요');
-    } else {
-      const newDrinks = {
-        drinkId,
-        commentContent: commentValue,
-      };
+    if (Login) {
+      if (commentValue.trim() === '') {
+        alert('댓글을 작성해주세요');
+      } else {
+        const newDrinks = {
+          drinkId,
+          commentContent: commentValue,
+        };
 
-      const newBoards = {
-        boardId,
-        commentContent: commentValue,
-      };
-      try {
-        await axios.post(
-          drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : '',
-          drinkId ? newDrinks : boardId ? newBoards : null
-        );
-        setCommentValue('');
-        alert('성공적으로 작성되었습니다.');
-        window.location.reload();
-      } catch (error) {
-        console.log(error);
+        const newBoards = {
+          boardId,
+          commentContent: commentValue,
+        };
+        try {
+          await customAxios.post(
+            drinkId ? `/comments/drinks` : boardId ? `/comments/boards` : '',
+            drinkId ? newDrinks : boardId ? newBoards : null
+          );
+          setCommentValue('');
+          alert('성공적으로 작성되었습니다.');
+          window.location.reload();
+        } catch (error) {
+          console.log(error);
+        }
       }
+    } else {
+      alert('로그인이 필요한 서비스입니다.');
+      navigate('/signup');
     }
   };
 
-  const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleDrinksPost();
-    }
-  };
+  // const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter') {
+  //     handleDrinksPost();
+  //   }
+  // };
 
   return (
     <MainContainer>
@@ -56,7 +72,7 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
           <Card>
             <input
               onChange={handleCommentValueChange}
-              onKeyDown={handleInputKey}
+              // onKeyDown={handleInputKey}
               value={commentValue}
               placeholder='댓글을 작성해 주세요'
             />

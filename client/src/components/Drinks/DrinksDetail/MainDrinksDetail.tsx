@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import DrinksDetailComment from "./DrinksDetailComment";
-import DrinksDetailContent from "./DrinksDetailContent";
-import DrinksDetailItem from "./DrinksDetailItem";
-import { IDrinksDetailProps } from "../../../util/interfaces/drinks.inerface";
+import React from 'react';
+import styled from 'styled-components';
+import DrinksDetailComment from './DrinksDetailComment';
+import DrinksDetailContent from './DrinksDetailContent';
+import DrinksDetailItem from './DrinksDetailItem';
+import { IDrinksDetailLike } from '../../../util/interfaces/drinks.inerface';
 
-function MainDrinksDetail({ drinksDetail }: IDrinksDetailProps) {
+function MainDrinksDetail({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   return (
     <MainDetailContainer>
-      <DrinksDetailItem drinksDetail={drinksDetail} />
+      <DrinksDetailItem drinksDetail={drinksDetail} drinksLike={drinksLike} />
       <DrinksDetailContent drinksDetail={drinksDetail} />
       <DrinksDetailComment drinksDetail={drinksDetail} />
     </MainDetailContainer>

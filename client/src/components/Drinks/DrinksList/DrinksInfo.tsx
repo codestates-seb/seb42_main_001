@@ -1,6 +1,6 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
-import DrinksTagList from "./DrinksTagList";
-import DrinkSearch from "./DrinksSearch";
+import { useState, Dispatch, SetStateAction } from "react";
+import DrinksTagList from "./drinksinfo/DrinksTagList";
+import DrinkSearch from "./drinksinfo/DrinksSearch";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import Button from "../../UI/Button";
@@ -30,21 +30,25 @@ function DrinksInfo({ tagData, search, setSearch, setPage }: ISearchProps) {
     <InfoContainer>
       {searchButton
         ? <DrinkSearch search={search} setSearch={setSearch} />
-        : <DrinksTagList tagData={tagData} />
+        : <DrinksTagList tagData={tagData} setPage={setPage} />
       }
-      <Button
-        type="button"
-        width={`--x-large`}
-        radius={`--large`}
-        color={`--color-white`}
-        bgColor={`--color-main`}
-        borderColor={`--color-main`}
-        onClick={handleSearchChange}
-      >
-        <SvgSize>
-          <AiOutlineSearch />
-        </SvgSize>
-      </Button>
+
+      <ButtonMargin>
+        <Button
+          type="button"
+          width={`--x-large`}
+          radius={`--large`}
+          color={`--color-white`}
+          bgColor={`--color-main`}
+          borderColor={`--color-main`}
+          onClick={handleSearchChange}
+        >
+          <SvgSize>
+            <AiOutlineSearch />
+          </SvgSize>
+        </Button>
+      </ButtonMargin>
+
     </InfoContainer>
   );
 }
@@ -53,15 +57,16 @@ export default DrinksInfo;
 
 const InfoContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex: 1;
   margin: var(--3x-large) 0;
+  padding: 0 calc(var(--x-large) / 2);
+  display: flex;
   align-items: center;
   justify-content: space-between;
 
-  @media only screen and (max-width: 768px) {
-  justify-content: end;
-  }
+    @media only screen and (max-width: 768px) {
+      margin: var(--large);
+      justify-content: flex-end;
+    }
 `;
 
 const SvgSize = styled.div`
@@ -71,3 +76,8 @@ const SvgSize = styled.div`
   align-items: center;
   margin: var(--2x-small) 0;
 `;
+
+const ButtonMargin = styled.div`
+  margin: calc(var(--2x-small) * 2)  0;
+  margin-left: 10px;
+`

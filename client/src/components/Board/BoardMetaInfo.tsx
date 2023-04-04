@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import BoardStats from "./BoardStats";
-import BoardTags from "./BoardTags";
+import BoardStats from './BoardStats';
+import BoardTags from './BoardTags';
 
 interface BoardMetaInfoProps {
   boardId: number;
@@ -10,7 +10,7 @@ interface BoardMetaInfoProps {
     tagName: string;
   }>;
   like: number;
-  likes?: boolean;
+  likes: boolean;
   comment: number;
 }
 

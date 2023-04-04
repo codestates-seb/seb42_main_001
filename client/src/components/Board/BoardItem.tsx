@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import Card from '../UI/Card';
 import BoardContents from './BoardContents';
 import BoardMetaInfo from './BoardMetaInfo';
 import BoardAuthorInfo from './BoardAuthorInfo';
-import { Link } from 'react-router-dom';
 
 interface BoardItemprops {
   data: {
@@ -18,7 +17,7 @@ interface BoardItemprops {
       tagId: number;
       tagName: string;
     }>;
-    like?: boolean;
+    like: boolean;
     likeCount: number;
     commentCount: number;
     createdAt: string;
@@ -31,12 +30,12 @@ function BoardItem({ data }: BoardItemprops) {
     <MarginContainer>
       <Card>
         <ItemContainer>
-          <BoardAuthorInfo
-            userName={data.memberName}
-            userImage={data.profileImageUrl}
-            date={data.createdAt}
-          />
           <Link to={`/board/detail/${data.boardId}`}>
+            <BoardAuthorInfo
+              userName={data.memberName}
+              userImage={data.profileImageUrl}
+              date={data.createdAt}
+            />
             <BoardContents title={data.boardTitle} content={data.content} />
           </Link>
           <BoardMetaInfo
@@ -58,6 +57,11 @@ const MarginContainer = styled.div`
   margin-bottom: calc(var(--4x-large) / 2);
   margin-right: var(--x-small);
   margin-left: var(--x-small);
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    margin-bottom: calc(var(--2x-large) / 2);
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -77,9 +81,11 @@ const ItemContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
+    padding: var(--large);
   }
 
   > a {
     width: 100%;
+    max-width: 680px;
   }
 `;

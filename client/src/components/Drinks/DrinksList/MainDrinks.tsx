@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import DrinksContents from './DrinksContents';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import customAxios from '../../../api/customAxios';
+import DrinksContents from './DrinksContents';
 import DrinksInfo from './DrinksInfo';
 import Loading from '../../UI/Loading';
-import axios from 'axios';
 
-import { setDrinksData, setLikesData, setIsLoading } from '../../../redux/slice/drinks/drinksListSlice'
-import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice'
-import { RootState } from '../../../redux/store/store'
+import {
+  setDrinksData,
+  setLikesData,
+  setIsLoading,
+} from '../../../redux/slice/drinks/drinksListSlice';
+import { setTagData } from '../../../redux/slice/drinks/drinksTagsSlice';
+import { RootState } from '../../../redux/store/store';
 
 function MainDrinks() {
   const [search, setSearch] = useState<string>('');
   const [page, setPage] = useState<number>(1);
   const dispatch = useDispatch();
 
-  const { isLoading, searchTag } = useSelector((state: RootState) => state.drinkslist);
+  const { isLoading, searchTag } = useSelector(
+    (state: RootState) => state.drinkslist,
+  );
   const { tagData } = useSelector((state: RootState) => state.drinksTags);
 
   useEffect(() => {
     const handleDrinksTagData = async () => {
-      const res = await axios.get(`/tags`);
+      const res = await customAxios.get(`/tags`);
       dispatch(setTagData(res.data));
     };
     const handleDrinksData = async () => {
       try {
-        const res = await axios.get('/drinks');
+        const res = await customAxios.get('/drinks');
         const { data } = res;
         dispatch(setDrinksData(data.data));
         dispatch(setLikesData(data.likeList));
@@ -33,10 +39,10 @@ function MainDrinks() {
       } catch (error) {
         console.log(error);
       }
-    }
-    handleDrinksTagData()
-    handleDrinksData()
-  }, [dispatch])
+    };
+    handleDrinksTagData();
+    handleDrinksData();
+  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,8 +54,18 @@ function MainDrinks() {
         <Loading />
       ) : (
         <MainDrinksContainer>
-          <DrinksInfo tagData={tagData} search={search} setSearch={setSearch} setPage={setPage} />
-          <DrinksContents search={search} searchTag={searchTag} page={page} setPage={setPage} />
+          <DrinksInfo
+            tagData={tagData}
+            search={search}
+            setSearch={setSearch}
+            setPage={setPage}
+          />
+          <DrinksContents
+            search={search}
+            searchTag={searchTag}
+            page={page}
+            setPage={setPage}
+          />
         </MainDrinksContainer>
       )}
     </>

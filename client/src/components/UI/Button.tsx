@@ -52,7 +52,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   border: none;
   border: 1px solid
     ${(props) =>
-      props.borderColor ? `var(${props.borderColor})` : `var(--color-main)`};
+    props.borderColor ? `var(${props.borderColor})` : `var(--color-main)`};
   border-radius: ${(props) =>
     props.radius ? `var(${props.radius})` : `var(--2x-small)`};
   background-color: ${(props) =>
@@ -62,11 +62,11 @@ const ButtonStyled = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${(props) =>
-      props.bgColor ? `var(--color-white)` : `var(--color-main)`};
+    props.bgColor ? `var(--color-white)` : `var(--color-main)`};
     color: ${(props) =>
-      props.color ? `var(--color-main)` : `var(--color-white)`};
+    props.color ? `var(--color-main)` : `var(--color-white)`};
     border: 1px solid
       ${(props) =>
-        props.borderColor ? `var(${props.borderColor})` : `var(--color-white)`};
+    props.borderColor ? `var(${props.borderColor})` : `var(--color-white)`};
   }
 `;

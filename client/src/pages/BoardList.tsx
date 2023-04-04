@@ -1,50 +1,50 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 
+import customAxios from '../api/customAxios';
 import BoardInfo from '../components/Board/BoardInfo';
 import BoardItem from '../components/Board/BoardItem';
-
 import { boardListItemAdd } from '../redux/slice/board/boardListSlice';
 import Loading from '../components/UI/Loading';
 
 function BoardList() {
-  const [isPage, setPage] = useState(1); // 현재 페이지 저장
+  const [isPage, setPage] = useState(1);
+  const [endPage, setEndPage] = useState(1);
   const [search, setSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const isData = useAppSelector((state) => state.boardList.listData);
-  const filteredData = useAppSelector((state) => state.boardList.filteredData);
+  const [input, setInput] = useState('');
+
+  const datas = useAppSelector((state) => state.boardList.listData);
+  const filteredDatas = datas.filter((data) => data.boardTitle.includes(input));
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // 처음 데이터 받아오고 현재 페이지가 바뀔때 데이터 받아오고 items에 저장
-    setIsLoading(true); // 데이터의 갯수를 16으로 나누면 page의 번호를 알수 있다?
+    setIsLoading(true);
     const fetchData = async () => {
-      const res = await axios.get(`/boards?page=${isPage}&size=16`);
-
+      const res = await customAxios.get(`/boards?page=${isPage}&size=10`);
       const { data, likeList } = res.data;
       if (data.length !== 0) {
         dispatch(boardListItemAdd({ data, likeList }));
       }
+      setEndPage(res.data.pageInfo.totalPage);
       setIsLoading(false);
     };
+
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      if (scrollTop + clientHeight >= scrollHeight - 100 && endPage >= isPage) {
+        setPage((prev) => prev + 1);
+      }
+    };
+
     fetchData();
-  }, [isPage, dispatch]);
-
-  const handleScroll = () => {
-    // 스크롤 위치 감지 콜백 함수
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    // 마지막 페이지 조건 추가
-    if (scrollTop + clientHeight >= scrollHeight - 100) {
-      setPage((prev) => prev + 1);
-    }
-  };
-
-  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPage, dispatch]);
 
   const handleSearchClose = () => {
     setSearch(false);
@@ -56,11 +56,23 @@ function BoardList() {
         <Loading />
       ) : (
         <Wrapper onClick={handleSearchClose}>
-          <BoardInfo search={search} setSearch={setSearch} />
+          <BoardInfo
+            search={search}
+            setSearch={setSearch}
+            setInput={setInput}
+          />
           <ListContainer>
-            {(filteredData.length === 0 ? isData : filteredData)?.map((el) => {
-              return <BoardItem key={el.boardId} data={el} />;
-            })}
+            {filteredDatas.length === 0 ? (
+              <div>
+                현재 페이지에서 '{input}'란 단어의 검색 결과가 없습니다.
+              </div>
+            ) : (
+              filteredDatas?.map((filteredData) => {
+                return (
+                  <BoardItem key={filteredData.boardId} data={filteredData} />
+                );
+              })
+            )}
           </ListContainer>
         </Wrapper>
       )}
@@ -73,6 +85,7 @@ export default BoardList;
 const Wrapper = styled.div`
   width: 100%;
   height: auto;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,13 +94,9 @@ const Wrapper = styled.div`
 const ListContainer = styled.div`
   margin-bottom: calc(var(--4x-large) * 5);
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
-  @media only screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-  }
+  align-items: center;
 `;

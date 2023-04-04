@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: article 완성">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✨ feat: 로그인 리디렉션 경로 수정3">
+      <change afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/article.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/db/board.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,34 +262,9 @@
       <workItem from="1679483539070" duration="2211000" />
       <workItem from="1679533351467" duration="5628000" />
       <workItem from="1679619686781" duration="10559000" />
-    </task>
-    <task id="LOCAL-00037" summary="✨ feat: MyPage - 술에 쓴 댓글 조회 기능 추가">
-      <created>1679223419017</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1679223419017</updated>
-    </task>
-    <task id="LOCAL-00038" summary="✨ feat: MyPage - 좋아요 한 술">
-      <created>1679277203666</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1679277203666</updated>
-    </task>
-    <task id="LOCAL-00039" summary="✨ feat: 로컬 설정 변경">
-      <created>1679277358760</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1679277358760</updated>
-    </task>
-    <task id="LOCAL-00040" summary="✨ feat: 리다이렉트 토큰 전달">
-      <created>1679285437834</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1679285437834</updated>
+      <workItem from="1679917815967" duration="941000" />
+      <workItem from="1679925351972" duration="273000" />
+      <workItem from="1679979002157" duration="2990000" />
     </task>
     <task id="LOCAL-00041" summary="✨ feat: 설정 프로파일 추가">
       <created>1679290151321</created>
@@ -604,7 +581,35 @@
       <option name="project" value="LOCAL" />
       <updated>1679878370254</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="✨ feat: article 오타 수정">
+      <created>1679894600578</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1679894600578</updated>
+    </task>
+    <task id="LOCAL-00087" summary="✨ feat: 로그인 리디렉션 경로 수정">
+      <created>1679917873635</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1679917873635</updated>
+    </task>
+    <task id="LOCAL-00088" summary="✨ feat: 로그인 리디렉션 경로 수정2">
+      <created>1679925373672</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1679925373672</updated>
+    </task>
+    <task id="LOCAL-00089" summary="✨ feat: 로그인 리디렉션 경로 수정3">
+      <created>1679925416215</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1679925416216</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,10 +644,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: 실행 조건 수정" />
-    <MESSAGE value="✨ feat: S3config 배포 환경에 맞게 수정2" />
-    <MESSAGE value="✨ feat: 초기데이터 수정" />
-    <MESSAGE value="✨ feat: 초기데이터 수정2" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 추가" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 수정" />
     <MESSAGE value="✨ feat: recommandDrinks 기능 수정2" />
@@ -664,7 +665,11 @@
     <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
     <MESSAGE value="✨ feat: yml 추가" />
     <MESSAGE value="✨ feat: article 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: article 완성" />
+    <MESSAGE value="✨ feat: article 오타 수정" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정2" />
+    <MESSAGE value="✨ feat: 로그인 리디렉션 경로 수정3" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ feat: 로그인 리디렉션 경로 수정3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

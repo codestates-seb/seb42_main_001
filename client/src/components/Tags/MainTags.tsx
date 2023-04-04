@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
 
+import customAxios from '../../api/customAxios';
 import { useAppDispatch } from '../../redux/hooks/hooks';
 import { getTagData } from '../../redux/slice/tag/tagSlice';
 import TagsBody from './TagsBody';
@@ -15,7 +15,7 @@ const MainTags = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/tags/${tagid}`);
+        const res = await customAxios.get(`/tags/${tagid}`);
         if (res.status === 200) {
           dispatch(getTagData(res.data));
         }

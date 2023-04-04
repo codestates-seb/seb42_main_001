@@ -2,8 +2,8 @@ import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import axios from 'axios';
 
+import customAxios from '../../api/customAxios';
 import Card from '../UI/Card';
 import React from 'react';
 import { Data, SetData } from '../../util/interfaces/boards.interface';
@@ -56,7 +56,7 @@ function BoardCreateInput({
             title(e.target.value);
             setTitle(e.target.value);
           }}
-        ></input>
+        />
         <EditorContainer>
           <Editor
             initialValue={'내용을 입력해주세요'}
@@ -71,7 +71,7 @@ function BoardCreateInput({
                 const formData = new FormData();
                 formData.append('file', blob);
 
-                const img = await axios.post('/spring/upload', formData);
+                const img = await customAxios.post('/spring/upload', formData);
                 const url = img.data[0].boardImageUrl;
                 image(img.data[0]);
 
@@ -102,6 +102,19 @@ const InputContainer = styled.div`
     border: none;
     outline: none;
   }
+
+  @media only screen and (max-width: 768px) {
+    height: 100vh;
+    padding: var(--large);
+
+    input {
+      height: 20px;
+      font-weight: var(--weight-small);
+      font-size: var(--text-large);
+      line-height: 35px;
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 const EditorContainer = styled.div`
@@ -109,4 +122,12 @@ const EditorContainer = styled.div`
   height: auto;
   padding-top: 30px;
   border-top: 1px solid var(--color-sub-light-gray);
+
+  @media only screen and (max-width: 768px) {
+    padding-top: 20px;
+    > div {
+      height: 80vh !important;
+      font-size: var(--text-small) !important;
+    }
+  }
 `;

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import DrinksItem from "./DrinksItem";
+import { useState } from "react";
+import DrinksItem from "./drinkscontent/DrinksItem";
 import styled from "styled-components";
 import { IDrinks } from "../../../util/interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";
@@ -20,7 +20,7 @@ interface Tags {
 }
 
 function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any {
-  const [limit, setLimit] = useState<number>(16);
+  const [limit, setLimit] = useState<number>(8);
   const offset = (page - 1) * limit;
 
   const { drinksData } = useSelector((state: RootState) => state.drinkslist);
@@ -28,40 +28,44 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
   const drinkTagData: IDrinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
   const drinkTagValue: number | null = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId ?? null : null;
 
-  const filtered: IDrinks[] = drinksData.filter((el: IDrinks) => {
-    return search.toLowerCase() === ""
-      ? el
-      : el.drinkName.toLowerCase().includes(search);
+  const filteredDrinks = drinksData.filter((drink) => {
+    return search.toLowerCase() === "" ||
+      drink.drinkName.toLowerCase().includes(search.toLowerCase());
   });
 
+  const displayedDrinks = filteredDrinks.slice(offset, offset + limit);
+
+  const drinksToShow = (searchTag === drinkTagValue)
+    ? drinkTagData.slice(offset, offset + limit)
+    : displayedDrinks;
+
   return (
-    <>
-      <ContentsContainer>
+    <ContentsContainer>
+      {drinksToShow.length > 0 ? (
+        <>
+          {drinksToShow.map((drink) => (
+            <DrinksItem key={drink.drinkId} drinksData={drink} />
+          ))}
+          {drinksToShow.length > 7 ?
+            <Pagination
+              total={
+                drinkTagData.length !== 0
+                  ? drinkTagData.length
+                  : filteredDrinks.length
+              }
+              limit={limit}
+              page={page}
+              setPage={setPage}
+              setLimit={setLimit}
+            /> : null}
 
-        {searchTag === drinkTagValue && drinkTagValue !== 0
-          ? drinkTagData.slice(offset, offset + limit).map(el => {
-            return (
-              <DrinksItem key={el.drinkId} drinksData={el} />
-            );
-          })
-          : filtered.slice(offset, offset + limit).map(el => {
-            return (
-              <DrinksItem key={el.drinkId} drinksData={el} />
-            );
-          })}
-
-      </ContentsContainer>
-      <Pagination
-        total={drinkTagData.length !== 0
-          ? drinkTagData.length
-          : filtered.length
-        }
-        limit={limit}
-        page={page}
-        setPage={setPage}
-        setLimit={setLimit}
-      />
-    </>
+        </>
+      ) : (
+        <div>
+          현재 페이지에서 '{search}'란 단어의 검색 결과가 없습니다.
+        </div>
+      )}
+    </ContentsContainer>
   );
 }
 
@@ -72,13 +76,21 @@ const ContentsContainer = styled.div`
   height: 100%;
   flex-wrap: wrap;
   display: flex;
-  margin-bottom: var(--4x-large);
+  margin-bottom: calc(var(--4x-large) * 2);
   justify-content: center;
 
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media only screen and (max-width: 479px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 `;

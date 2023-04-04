@@ -34,4 +34,5 @@ const TagWrapper = styled.div`
   padding: var(--2x-small);
   font-weight: var(--weight-x-small);
   font-size: var(--text-small);
+  white-space: nowrap;
 `;

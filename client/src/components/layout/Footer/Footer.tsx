@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import SiteMap from "./SiteMap";
@@ -36,4 +35,9 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 320px) {
+    display: flex;
+    justify-content: center;
+  }
 `;

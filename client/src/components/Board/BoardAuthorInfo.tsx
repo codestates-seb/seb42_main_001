@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { FaUserCircle } from 'react-icons/fa';
 import convertTime from '../../util/convertTime';
+import woodford from '../../assets/img/woodford.jpg';
 
 interface BoardAuthorInfoProps {
   userName?: string;
@@ -12,7 +12,11 @@ interface BoardAuthorInfoProps {
 function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage ? <img src={userImage} alt="userImage" /> : <FaUserCircle />}
+      {userImage ? (
+        <img src={userImage} alt='userImage' />
+      ) : (
+        <img src={woodford} alt='userImage' />
+      )}
       <BoardAuthorInfoName>
         {userName}
         <p>{convertTime(date)}</p>
@@ -30,9 +34,10 @@ const BoardAuthorInfoContainer = styled.div`
   display: flex;
   align-items: center;
 
-  > svg {
+  > img {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
   }
 `;
 

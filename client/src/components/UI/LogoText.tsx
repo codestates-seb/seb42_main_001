@@ -1,6 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import logoWhite from '../../assets/img/logo/withskey_b.png'
+import logoBlack from '../../assets/img/logo/withskey_w.png'
 
 interface LogoTextProps {
   headerColor?: string;
@@ -9,8 +10,11 @@ interface LogoTextProps {
 function LogoText({ headerColor }: LogoTextProps) {
   return (
     <Link to="/">
-      <Logo headerColor={headerColor}>WITH'S kEY</Logo>
-      <LogoMobile headerColor={headerColor}>WS</LogoMobile>
+      <Logo headerColor={headerColor}>
+        {headerColor ? <ImgContainer src={logoBlack} alt={`with's key`} />
+          : <ImgContainer src={logoWhite} alt={`with's key`} />
+        }
+      </Logo>
     </Link>
   );
 }
@@ -18,32 +22,10 @@ function LogoText({ headerColor }: LogoTextProps) {
 export default LogoText;
 
 const Logo = styled.div<LogoTextProps>`
-  font-family: "Bayon", sans-serif;
-  font-size: var(--text-medium);
-  color: ${(props) =>
-    props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
+  display:flex;
   transition: 1s;
-  width: 100px;
-
-  &:hover {
-    letter-spacing: 2px;
-  }
-
-  @media only screen and (max-width: 768px) {
-  display: none;
-}
 `;
 
-const LogoMobile = styled.div< LogoTextProps>`
-  font-family: "Bayon", sans-serif;
-  font-size: var(--text-medium);
-  color: ${(props) =>
-    props.headerColor ? `var(${props.headerColor})` : `var(--color-main)`};
-  transition: 1s;
-  width: 30px;
-  display: none;
-
-  @media only screen and (max-width: 768px) {
-  display: block;
-}
+const ImgContainer = styled.img`
+  width: 55px;
 `

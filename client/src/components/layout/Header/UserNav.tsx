@@ -1,16 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+import { useAppSelector } from '../../../redux/hooks/hooks';
+import defaultImg from '../../../assets/img/victor-hughes-OSLyizm8ovY-unsplash.jpg';
 
 interface UserNavProps {
   profileColor?: string;
 }
 
 function UserNav({ profileColor }: UserNavProps) {
+  const profilePicture = useAppSelector(
+    state => state.auth.userInfo.profilePicture,
+  );
+
   return (
     <UserContainer>
       <Link to="/mypage">
-        <PorfileImg profileColor={profileColor} />
+        <PorfileImg profileColor={profileColor}>
+          <img
+            src={profilePicture ? `${profilePicture}` : defaultImg}
+            alt="profilePicture"></img>
+        </PorfileImg>
       </Link>
     </UserContainer>
   );
@@ -24,12 +34,16 @@ const UserContainer = styled.div`
   justify-content: end;
 
   @media only screen and (max-width: 768px) {
-  width: 40px;
+    width: 40px;
+  }
+
+  @media only screen and (max-width: 280px) {
+    display: none;
   }
 `;
 
 const PorfileImg = styled.div<UserNavProps>`
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.profileColor ? `var(${props.profileColor})` : `var(--color-white)`};
   width: 40px;
   height: 40px;
@@ -38,4 +52,10 @@ const PorfileImg = styled.div<UserNavProps>`
   justify-content: center;
   border-radius: var(--large);
   cursor: pointer;
+
+  > img {
+    width: 95%;
+    height: 95%;
+    border-radius: var(--3x-large);
+  }
 `;

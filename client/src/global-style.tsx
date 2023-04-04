@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-sub-gray: #D0D0D0;
     --color-sub-light-gray: #E4E4E4;
     --color-white: #FFFFFF;
+    --color-trans: rgba(255, 255, 255, 0);
 
     /* font-size */
     --text-x-small: 11px;
