@@ -8,10 +8,10 @@
 # testing
 /coverage
 
-# production
+## production
 /build
 
-# misc
+## misc
 .DS_Store
 .env.local
 .env.development.local
@@ -29,7 +29,7 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### STS ####
+#### STS ####
 .apt_generated
 .classpath
 .factorypath
