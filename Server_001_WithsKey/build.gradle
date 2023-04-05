@@ -39,6 +39,7 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
     runtimeOnly'io.jsonwebtoken:jjwt-jackson:0.11.5'
     implementation 'com.google.code.gson:gson'
+    implementation 'com.mysql:mysql-connector-j:8.0.31'
 
     implementation 'com.mysql:mysql-connector-j:8.0.31'
 
