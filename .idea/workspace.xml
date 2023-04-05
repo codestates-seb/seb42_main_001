@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: .gitignore 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: .gitignore 및 Response 객체 주석 수정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -318,13 +316,7 @@
       <workItem from="1680569068538" duration="1176000" />
       <workItem from="1680573121476" duration="239000" />
       <workItem from="1680573488673" duration="447000" />
-    </task>
-    <task id="LOCAL-00051" summary="✨ feat: sql Drink Url S3 것으로 반영">
-      <created>1679363549104</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1679363549104</updated>
+      <workItem from="1680689138734" duration="693000" />
     </task>
     <task id="LOCAL-00052" summary="✨ feat: tastingNote.sql 수정">
       <created>1679363690078</created>
@@ -662,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680569441953</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="✏️ chore: .gitignore 및 Response 객체 주석 수정">
+      <created>1680689269041</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1680689269041</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +696,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: Article 엔드포인트 수정" />
     <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
     <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
     <MESSAGE value="✨ feat: Comment Drink 로직 수정2" />
@@ -722,7 +720,8 @@
     <MESSAGE value="✨ feat: 다른 회원의 MyPage 조회하기" />
     <MESSAGE value=" fix: 다른 회원의 MyPage 조회하기" />
     <MESSAGE value="✏️ chore: .gitignore 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: .gitignore 수정" />
+    <MESSAGE value="✏️ chore: .gitignore 및 Response 객체 주석 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: .gitignore 및 Response 객체 주석 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
