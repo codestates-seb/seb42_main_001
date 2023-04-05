@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="🐛 fix: 다른 회원의 MyPage 조회하기">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: .gitignore 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,14 +315,9 @@
       <workItem from="1680246583502" duration="581000" />
       <workItem from="1680247494424" duration="117000" />
       <workItem from="1680402494629" duration="1787000" />
-      <workItem from="1680569068538" duration="323000" />
-    </task>
-    <task id="LOCAL-00050" summary="✨ feat: delete LikeDrink 수정">
-      <created>1679321294791</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1679321294791</updated>
+      <workItem from="1680569068538" duration="1176000" />
+      <workItem from="1680573121476" duration="239000" />
+      <workItem from="1680573488673" duration="447000" />
     </task>
     <task id="LOCAL-00051" summary="✨ feat: sql Drink Url S3 것으로 반영">
       <created>1679363549104</created>
@@ -660,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680159021485</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="✏️ chore: .gitignore 수정">
+      <created>1680569441953</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1680569441953</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +697,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: Security 의존성 수정" />
     <MESSAGE value="✨ feat: Article 엔드포인트 수정" />
     <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
     <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
@@ -720,7 +721,8 @@
     <MESSAGE value="✨ feat: BestDrink, BestTag API 추가" />
     <MESSAGE value="✨ feat: 다른 회원의 MyPage 조회하기" />
     <MESSAGE value=" fix: 다른 회원의 MyPage 조회하기" />
-    <option name="LAST_COMMIT_MESSAGE" value=" fix: 다른 회원의 MyPage 조회하기" />
+    <MESSAGE value="✏️ chore: .gitignore 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: .gitignore 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
