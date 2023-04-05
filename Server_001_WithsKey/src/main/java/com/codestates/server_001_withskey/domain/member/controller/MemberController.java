@@ -133,6 +133,40 @@ public class  MemberController {
         return new ResponseEntity(myPage, HttpStatus.OK);
     }
 
+    @GetMapping("/mypage/{member-id}")
+    @Transactional
+    public ResponseEntity getMyPage(@PathVariable("member-id") long memberId) {
+        Member findMember = memberService.findMemberById(memberId);
+
+        MemberDto.MyPage myPage = memberMapper.memberToMyPage(findMember);
+
+        //멤버가 작성한 board List -> Response로 바꿔서 set
+        List<BoardDto.Response> myBoard = boardMapper.BoardsToDtos(findMember.getBoards());
+        myPage.setWriteBoards(myBoard);
+
+        //멤버가 작성한 게시글 CommentList -> MyPage로 바꿔서 set
+        List<CommentBoard> comments = commentBoardService.findAllByMemberId(findMember.getMemberId());
+        List<CommentBoardDto.MyPage> myComment = commentBoardMapper.commentsToMyPageComments(comments);
+        myPage.setWriteBoardComments(myComment);
+
+        //멤버가 작성한 술 ComentList
+        List<CommentDrink> commentDrinksList = commentDrinkService.findAllByMemberId(findMember.getMemberId());
+        List<CommentDrinkDto.MyPage> myDrinkComment = commentDrinkMapper.commentsToMyPages(commentDrinksList);
+        myPage.setWriteDrinkComments(myDrinkComment);
+
+        //멤버가 좋아요한 Board 리스트
+        List<Board> likeList = likeBoardService.getLikeBoardsByMemberId(findMember.getMemberId());
+        List<BoardDto.Response> myLikeBoard = boardMapper.BoardsToDtos(likeList);
+        myPage.setLikeBoards(myLikeBoard);
+
+        //멤버가 좋아요한 Drink 리스트
+        List<Drink> drinkList = likeDrinkService.getLikeDrinksByMemberId(findMember.getMemberId());
+        List<DrinkDto.Short> myLikeDrink = drinkMapper.drinksToShorts(drinkList);
+        myPage.setLikeDrinks(myLikeDrink);
+
+        return new ResponseEntity(myPage, HttpStatus.OK);
+    }
+
     @DeleteMapping
     @Transactional
     public ResponseEntity deleteMember() {

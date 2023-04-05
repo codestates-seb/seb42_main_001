@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class DuoResponseDto <T, P>{
+    //2개 이상 데이터를 Response하는 경우 사용하는 객체
     T data;
     P likeList;
 

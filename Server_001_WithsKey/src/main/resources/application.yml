@@ -1,16 +1,26 @@
 spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles:
+    active: deploy
+---
+
+spring:
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
   datasource:
-    url: jdbc:mysql://main001.ctmvpylzede6.ap-northeast-2.rds.amazonaws.com:23306/main001
-    username: david
-    password: 001mainproject
+    url: jdbc:mysql://main-001-db.claqadurzooy.ap-northeast-2.rds.amazonaws.com:3306/main?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
-    initialization-mode: always
+    username: admin
+    password: ${/main001/mysql/password}
   jpa:
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
@@ -18,6 +28,9 @@ spring:
         hbm2ddl:
           import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
     open-in-view: false
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   sql:
     init:
       data-locations: classpath:db/*
+      mode: never

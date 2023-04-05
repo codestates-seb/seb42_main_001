@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Drink extends Auditable {
+public class Drink extends Auditable implements Comparable<Drink>{
     @Id
     @GeneratedValue
     private long drinkId;
@@ -54,5 +54,15 @@ public class Drink extends Auditable {
 
     @OneToMany(mappedBy = "drink")
     private List<SnackDrink> snackDrinks;
+
+    @Override
+    public int compareTo(Drink drink) {
+        if (this.likeDrinksList.size() < drink.likeDrinksList.size()) {
+            return 1;
+        } else if (this.likeDrinksList.size() > drink.likeDrinksList.size()) {
+            return -1;
+        }
+        return 0;
+    }
 }
 //1:1에서는 주 테이블에 @JoinColum(name="부 테이블의 PK명")을 붙인다.
