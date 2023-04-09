@@ -20,12 +20,11 @@ import com.codestates.server_001_withskey.domain.like.service.LikeDrinkService;
 import com.codestates.server_001_withskey.domain.member.dto.MemberDto;
 import com.codestates.server_001_withskey.domain.member.entity.Member;
 import com.codestates.server_001_withskey.domain.member.mapper.MemberMapperImpl;
+import com.codestates.server_001_withskey.domain.member.service.GuestUtil;
 import com.codestates.server_001_withskey.domain.member.service.MemberService;
 import com.codestates.server_001_withskey.global.security.Jwt.JwtTokenizer;
 import com.codestates.server_001_withskey.global.security.Redis.TokenRedisRepository;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -47,9 +46,7 @@ import java.util.concurrent.TimeUnit;
 public class  MemberController {
 
     private final MemberMapperImpl memberMapper;
-
     private final MemberService memberService;
-
     private final BoardMapperImpl boardMapper;
     private final CommentBoardService commentBoardService;
     private final CommentBoardMapper commentBoardMapper;
@@ -58,17 +55,19 @@ public class  MemberController {
     private final CommentDrinkMapper commentDrinkMapper;
     private final LikeDrinkService likeDrinkService;
     private final DrinkMapper drinkMapper;
+    private final TokenRedisRepository tokenRedisRepository;
+    private final JwtTokenizer jwtTokenizer;
+    private final GuestUtil guestUtil;
 
 
-    @GetMapping("/login")
-    public ResponseEntity login(HttpServletResponse response) throws IOException {
-        response.sendRedirect("http://ec2-52-79-163-159.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google");
-        return new ResponseEntity(HttpStatus.OK);
+    @GetMapping("/guest/login")
+    public void guestLogin(HttpServletResponse response) throws IOException {
+        String accessToken = guestUtil.delegateGuestAccessToken();
+        String refreshToken = guestUtil.delegateGuestRefreshToken();
+        String redirectUrl = guestUtil.makeRedirectUrl(accessToken, refreshToken);
+
+        response.sendRedirect(redirectUrl);
     }
-    @Autowired
-    private TokenRedisRepository tokenRedisRepository;
-    @Autowired
-    private JwtTokenizer jwtTokenizer;
 
     @GetMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request) {
@@ -134,6 +133,40 @@ public class  MemberController {
         return new ResponseEntity(myPage, HttpStatus.OK);
     }
 
+    @GetMapping("/mypage/{member-id}")
+    @Transactional
+    public ResponseEntity getMyPage(@PathVariable("member-id") long memberId) {
+        Member findMember = memberService.findMemberById(memberId);
+
+        MemberDto.MyPage myPage = memberMapper.memberToMyPage(findMember);
+
+        //멤버가 작성한 board List -> Response로 바꿔서 set
+        List<BoardDto.Response> myBoard = boardMapper.BoardsToDtos(findMember.getBoards());
+        myPage.setWriteBoards(myBoard);
+
+        //멤버가 작성한 게시글 CommentList -> MyPage로 바꿔서 set
+        List<CommentBoard> comments = commentBoardService.findAllByMemberId(findMember.getMemberId());
+        List<CommentBoardDto.MyPage> myComment = commentBoardMapper.commentsToMyPageComments(comments);
+        myPage.setWriteBoardComments(myComment);
+
+        //멤버가 작성한 술 ComentList
+        List<CommentDrink> commentDrinksList = commentDrinkService.findAllByMemberId(findMember.getMemberId());
+        List<CommentDrinkDto.MyPage> myDrinkComment = commentDrinkMapper.commentsToMyPages(commentDrinksList);
+        myPage.setWriteDrinkComments(myDrinkComment);
+
+        //멤버가 좋아요한 Board 리스트
+        List<Board> likeList = likeBoardService.getLikeBoardsByMemberId(findMember.getMemberId());
+        List<BoardDto.Response> myLikeBoard = boardMapper.BoardsToDtos(likeList);
+        myPage.setLikeBoards(myLikeBoard);
+
+        //멤버가 좋아요한 Drink 리스트
+        List<Drink> drinkList = likeDrinkService.getLikeDrinksByMemberId(findMember.getMemberId());
+        List<DrinkDto.Short> myLikeDrink = drinkMapper.drinksToShorts(drinkList);
+        myPage.setLikeDrinks(myLikeDrink);
+
+        return new ResponseEntity(myPage, HttpStatus.OK);
+    }
+
     @DeleteMapping
     @Transactional
     public ResponseEntity deleteMember() {
@@ -141,4 +174,5 @@ public class  MemberController {
         memberService.deletedMember(memberId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
+
 }

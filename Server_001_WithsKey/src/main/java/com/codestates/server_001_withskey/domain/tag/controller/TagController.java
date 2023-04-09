@@ -13,6 +13,8 @@ import com.codestates.server_001_withskey.domain.drink.mapper.*;
 import com.codestates.server_001_withskey.domain.tag.mapper.TagMapperImpl;
 import com.codestates.server_001_withskey.domain.tag.repository.TagBoardRepository;
 import com.codestates.server_001_withskey.domain.tag.service.TagService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -85,6 +87,13 @@ public class TagController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/best")
+    @Transactional
+    public ResponseEntity getBestTags(){
+        List<Tag> tags = tagService.getBestTags();
+        List<TagDto.Info> response = mapper.tagsToInfos(tags);
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
 }
 
 // 전체 조회

@@ -68,6 +68,9 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 //        getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
 //        // v2
         // 사용자에게 makeRedirectUrl 메서드를 활용하여 endpoint + accessToken + RefreshToken을 보냄.
+
+        log.info("refer : {}", request.getHeader("Referer"));
+
         getRedirectStrategy().sendRedirect(request, response, makeRedirectUrl(accessToken, refreshToken));
     }
     // v2
@@ -76,18 +79,15 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
         // UriComponentsBuilder를 사용하여 scheme+host+port+path 형식으로 구성한다.
         // ex: http://localhost:8080/mypage
-        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage")
+        return UriComponentsBuilder.fromUriString("http://seb42main001.s3-website.ap-northeast-2.amazonaws.com/mypage")
                 .queryParam("Authorization", accessToken)
                 .queryParam("Refresh", refreshToken)
                 .build().toUriString();
     }
-    // v1
-//    private String makeRedirectUrl (String accessToken, String refreshToken) {
-//        return UriComponentsBuilder.fromUriString("http://localhost:3000/mypage?")
-//                .queryParam("Authorization", accessToken)
-//                .queryParam("Refresh", refreshToken)
-//                .build().toUriString();
-//    }
+
+    //http://seb42main001.s3-website.ap-northeast-2.amazonaws.com/mypage
+    //http://localhost:3000/mypage
+
     // email을 기준으로 새로운 회원 객체를 생성하고 DB에 회원 객체 저장.
     // OAuth2 인증에 성공한 뒤 사용자의 이메일을 저장하는데 사용됨.
     private void saveMember(String email) {
