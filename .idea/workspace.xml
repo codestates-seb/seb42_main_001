@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: .gitignore 및 Response 객체 주석 수정" />
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: Response 객체 주석 코드 삽입">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/domain/member/service/GuestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/java/com/codestates/server_001_withskey/global/security/OAuth2/OAuth2MemberSuccessHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,8 +53,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -317,20 +321,10 @@
       <workItem from="1680573121476" duration="239000" />
       <workItem from="1680573488673" duration="447000" />
       <workItem from="1680689138734" duration="693000" />
-    </task>
-    <task id="LOCAL-00052" summary="✨ feat: tastingNote.sql 수정">
-      <created>1679363690078</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1679363690078</updated>
-    </task>
-    <task id="LOCAL-00053" summary="✨ feat: tastingNote 칼럼 변경 전 저장">
-      <created>1679365309207</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1679365309207</updated>
+      <workItem from="1680692157509" duration="418000" />
+      <workItem from="1680748662319" duration="1707000" />
+      <workItem from="1680953301914" duration="2205000" />
+      <workItem from="1681009886333" duration="192000" />
     </task>
     <task id="LOCAL-00054" summary="✨ feat: tastingNote 칼럼 및 엔티티 필드 수정">
       <created>1679365926845</created>
@@ -661,7 +655,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680689269041</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="✏️ chore: .gitignore 및 Response 객체 주석 수정">
+      <created>1680692269518</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1680692269518</updated>
+    </task>
+    <task id="LOCAL-00102" summary="✏️ chore: Response 객체 주석 코드 삽입">
+      <created>1680692386148</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1680692386148</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -670,6 +678,36 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="0fe5723b-c783-4d76-bb69-7e6ae65c3df2">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/updateSQL" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -678,7 +716,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="updateSQL" />
+                        <option value="origin/updateSQL" />
                       </list>
                     </value>
                   </entry>
@@ -694,10 +732,13 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="0fe5723b-c783-4d76-bb69-7e6ae65c3df2" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: Article 엔드포인트 수정2" />
-    <MESSAGE value="✨ feat: Tutorial Article 추가 내용 작성" />
     <MESSAGE value="✨ feat: Comment Drink 로직 수정2" />
     <MESSAGE value="✨ feat: deploy yml 수정" />
     <MESSAGE value="✨ feat: Blended.sql 작성" />
@@ -721,7 +762,9 @@
     <MESSAGE value=" fix: 다른 회원의 MyPage 조회하기" />
     <MESSAGE value="✏️ chore: .gitignore 수정" />
     <MESSAGE value="✏️ chore: .gitignore 및 Response 객체 주석 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: .gitignore 및 Response 객체 주석 수정" />
+    <MESSAGE value="✏️ chore: 주석 코드 삽입" />
+    <MESSAGE value="✏️ chore: Response 객체 주석 코드 삽입" />
+    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: Response 객체 주석 코드 삽입" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
