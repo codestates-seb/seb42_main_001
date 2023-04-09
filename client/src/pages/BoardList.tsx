@@ -21,7 +21,6 @@ function BoardList() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
       const res = await customAxios.get(`/boards?page=${isPage}&size=10`);
       const { data, likeList } = res.data;
@@ -40,8 +39,9 @@ function BoardList() {
       }
     };
 
-    fetchData();
     window.addEventListener('scroll', handleScroll);
+    setIsLoading(true);
+    fetchData();
     return () => window.removeEventListener('scroll', handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPage, dispatch]);

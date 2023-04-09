@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.google.code.gson:gson'
     implementation 'com.mysql:mysql-connector-j:8.0.31'
 
+    implementation 'com.mysql:mysql-connector-j:8.0.31'
+
     implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.1' // S3 용
     implementation 'com.coveo:spring-boot-parameter-store-integration:1.1.2' // Parameter Store
 }
@@ -54,3 +56,4 @@ tasks.named('asciidoctor') {
     inputs.dir snippetsDir
     dependsOn test
 }
+

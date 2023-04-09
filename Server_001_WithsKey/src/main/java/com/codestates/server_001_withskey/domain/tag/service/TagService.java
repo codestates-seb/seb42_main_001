@@ -8,6 +8,8 @@ import com.codestates.server_001_withskey.domain.tag.repository.TagDrinkReposito
 import com.codestates.server_001_withskey.domain.tag.repository.TagRepository;
 import com.codestates.server_001_withskey.global.advice.BusinessLogicException;
 import com.codestates.server_001_withskey.global.advice.ExceptionCode;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -58,7 +60,11 @@ public class TagService {
         return findTag;
     }
 
-    //
+    public List<Tag> getBestTags(){
+        List<Tag> tags = tagRepository.findAll();
+        Collections.sort(tags);
+        return tags.subList(0,13);
+    }
 
 }
 //    // 전체 조회(실패)

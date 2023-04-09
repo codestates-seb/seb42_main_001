@@ -34,14 +34,14 @@ function BoardCreate() {
   useEffect(() => {
     const tagsData = async () => {
       const res = await customAxios.get(`/tags`);
-      setTagData(prevTag => res.data);
+      setTagData((prevTag) => res.data);
     };
 
     const editData = async () => {
       const res = await customAxios.get(`/boards/${editId}`);
-      setIsEditData(prev => res.data);
-      setTags(prev => res.data.tags);
-      setBoardImageUrl(prev => res.data.boardImages);
+      setIsEditData((prev) => res.data);
+      setTags((prev) => res.data.tags);
+      setBoardImageUrl((prev) => res.data.boardImages);
     };
     const getItem = localStorage.getItem('data');
     const getEditItem = localStorage.getItem('editData');
@@ -52,7 +52,7 @@ function BoardCreate() {
       if (getEditItem) {
         if (
           window.confirm(
-            '전에 작성하던 게시글이 남아 있습니다. 불러오시겠습니까?',
+            '전에 작성하던 게시글이 남아 있습니다. 불러오시겠습니까?'
           )
         ) {
           const item = JSON.parse(getEditItem);
@@ -69,7 +69,7 @@ function BoardCreate() {
     } else if (getItem) {
       if (
         window.confirm(
-          '전에 작성하던 게시글이 남아 있습니다. 불러오시겠습니까?',
+          '전에 작성하던 게시글이 남아 있습니다. 불러오시겠습니까?'
         )
       ) {
         const item = JSON.parse(getItem);
@@ -93,7 +93,7 @@ function BoardCreate() {
       };
       const jsonData = JSON.stringify(setData);
       localStorage.setItem(editId ? 'editData' : 'data', jsonData);
-      setTime(prev => prev + 1);
+      setTime((prev) => prev + 1);
     }, 30000);
     return () => clearInterval(interval);
 
@@ -102,7 +102,7 @@ function BoardCreate() {
 
   const handleTagSearchOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setSearchOpen(prev => !prev);
+    setSearchOpen((prev) => !prev);
   };
   const handleTagSearchClose = () => {
     setSearchOpen(false);
@@ -111,13 +111,13 @@ function BoardCreate() {
   const handleAddTag = (ele: { tagId: number; tagName: string }) => {
     if (tags.length === 0) {
       setTags([ele]);
-    } else if (tags.filter(el => el.tagId === ele.tagId).length === 0) {
-      setTags(prev => [...prev, ele]);
+    } else if (tags.filter((el) => el.tagId === ele.tagId).length === 0) {
+      setTags((prev) => [...prev, ele]);
     }
   };
 
   const handleRemoveTag = (ele: { tagId: number; tagName: string }) => {
-    setTags(prev => prev.filter(el => el.tagId !== ele.tagId));
+    setTags((prev) => prev.filter((el) => el.tagId !== ele.tagId));
   };
 
   const handleBoardTitle = (title: string) => {
@@ -132,7 +132,7 @@ function BoardCreate() {
     imageId: number;
     boardImageUrl: string;
   }) => {
-    setBoardImageUrl(prev => [...prev, url]);
+    setBoardImageUrl((prev) => [...prev, url]);
   };
 
   const handleBoardSubmit = () => {
@@ -150,23 +150,23 @@ function BoardCreate() {
       if (!editId) {
         customAxios
           .post(`/boards`, newBoard)
-          .then(res => {
+          .then((res) => {
             localStorage.removeItem('data');
             navigate('/board/list');
             alert('성공적으로 작성되었습니다.');
             window.location.reload();
           })
-          .catch(err => console.log(Error, err));
+          .catch((err) => console.log(Error, err));
       } else {
         customAxios
           .patch(`/boards/${editId}`, newBoard)
-          .then(res => {
+          .then((res) => {
             localStorage.removeItem('editData');
             navigate('/board/list');
             alert('성공적으로 수정되었습니다.');
             window.location.reload();
           })
-          .catch(err => console.log(Error, err));
+          .catch((err) => console.log(Error, err));
       }
     }
   };
@@ -178,10 +178,11 @@ function BoardCreate() {
           <BoardCreateTagController>
             <Button
               onClick={handleTagSearchOpen}
-              type="button"
+              type='button'
               width={`--x-large`}
               radius={`--large`}
-              borderColor={`--color-main`}>
+              borderColor={`--color-main`}
+            >
               <SvgSize>
                 <BsPlusLg />
               </SvgSize>

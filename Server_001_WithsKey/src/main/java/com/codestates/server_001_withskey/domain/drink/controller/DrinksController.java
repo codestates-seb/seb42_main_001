@@ -92,4 +92,12 @@ public class DrinksController {
 
         return new ResponseEntity(new DuoResponseDto<>(responses, likeList), HttpStatus.OK);
     }
+
+    @GetMapping("/best")
+    @Transactional
+    public ResponseEntity getBestDrinks(){
+        List<Drink> drinks = drinkService.getBestDrinks();
+        List<DrinkDto.Recommand> recommands = mapper.drinksToRecomands(drinks);
+        return new ResponseEntity(recommands, HttpStatus.OK);
+    }
 }
