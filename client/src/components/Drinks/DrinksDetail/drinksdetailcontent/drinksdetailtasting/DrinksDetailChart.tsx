@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { IDrinksDetailProps } from '../../../../../util/interfaces/drinks.inerface'
 
@@ -26,23 +25,22 @@ function DrinksDetailChart({ drinksDetail }: IDrinksDetailProps) {
       {
         label: 'Tasting Note',
         data: tastingValues,
+        //데이터 꼭짓점.
         backgroundColor: 'white',
+        pointRadius: 5,
+        pointHoverRadius: 8,
+        pointBackgroundColor: '#823308',
       },
     ],
   };
 
-  const options: ChartOptions<'radar'> & ChartOptions = {
+  // const options: ChartOptions<'radar'> & ChartOptions = {
+  const options: ChartOptions<'radar'> = {
     elements: {
       //데이터 속성.
       line: {
         borderWidth: 3,
         borderColor: '#db9927c0',
-      },
-      //데이터 꼭짓점.
-      point: {
-        pointRadius: 5,
-        pointHoverRadius: 8,
-        pointBackgroundColor: '#823308',
       },
     },
     scales: {
