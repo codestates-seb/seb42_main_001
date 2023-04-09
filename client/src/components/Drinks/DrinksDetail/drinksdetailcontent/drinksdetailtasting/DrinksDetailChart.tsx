@@ -34,7 +34,6 @@ function DrinksDetailChart({ drinksDetail }: IDrinksDetailProps) {
     ],
   };
 
-  // const options: ChartOptions<'radar'> & ChartOptions = {
   const options: ChartOptions<'radar'> = {
     elements: {
       //데이터 속성.
