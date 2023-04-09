@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: S3 호스팅 주소 수정">
+    <list default="true" id="7a635af5-cdba-48f8-8cc6-59aa011d7443" name="Changes" comment="✏️ chore: S3 호스팅 주소 수정2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Server_001_WithsKey/src/main/resources/application-deploy.yml" afterDir="false" />
     </list>
@@ -323,14 +323,7 @@
       <workItem from="1680692157509" duration="418000" />
       <workItem from="1680748662319" duration="1707000" />
       <workItem from="1680953301914" duration="2205000" />
-      <workItem from="1681009886333" duration="603000" />
-    </task>
-    <task id="LOCAL-00055" summary="✨ feat:Drink에 동일한 태그 추가">
-      <created>1679371793151</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1679371793151</updated>
+      <workItem from="1681009886333" duration="829000" />
     </task>
     <task id="LOCAL-00056" summary="✨ feat: 몽키 숄더 이전까지 테이스팅 노트 적용">
       <created>1679373383529</created>
@@ -668,7 +661,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681010126305</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="✏️ chore: S3 호스팅 주소 수정2">
+      <created>1681010500982</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1681010500982</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,7 +738,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="✨ feat: deploy yml 수정" />
     <MESSAGE value="✨ feat: Blended.sql 작성" />
     <MESSAGE value="✨ feat: 로그인 성공 시 리다이렉트 url 수정" />
     <MESSAGE value="✨ feat: 초기 데이터 삽입 후 리다이렉트 url 수정" />
@@ -763,7 +762,8 @@
     <MESSAGE value="✏️ chore: 주석 코드 삽입" />
     <MESSAGE value="✏️ chore: Response 객체 주석 코드 삽입" />
     <MESSAGE value="✏️ chore: S3 호스팅 주소 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: S3 호스팅 주소 수정" />
+    <MESSAGE value="✏️ chore: S3 호스팅 주소 수정2" />
+    <option name="LAST_COMMIT_MESSAGE" value="✏️ chore: S3 호스팅 주소 수정2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

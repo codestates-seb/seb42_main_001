@@ -45,7 +45,7 @@ file:
 cloud:
   aws:
     s3:
-      bucket: ${/main001/cloud.aws.s3.bucket}
+      bucket: ${/main001/cloud.aws.s3.bucketname}
     credentials:
       access-key: ${/main001/cloud.aws.s3.credentials.accesskey}
       secret-key: ${/main001/cloud.aws.s3.credentials.secretkey}
@@ -59,4 +59,4 @@ awsParameterStorePropertySource:
   enabled: true
 
 redirect:
-  oauth2login: ${/main001/redirect/oauth2loginurl}
+  oauth2login: ${/main001/oauth2.redirecturi}
