@@ -37,7 +37,6 @@ function DrinksTagList({ tagData, setPage }: TagProps) {
         </MySwiper>
       </DisplayContainer>
     </>
-
   );
 }
 
@@ -46,8 +45,8 @@ export default DrinksTagList;
 const DisplayContainer = styled.div`
   width: 93%;
 
-  -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
-  mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 1%);
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 2%);
+  mask-image: linear-gradient(to left, transparent 0%, #e4e4e4 2%);
 
 	.swiper-button-next {
     width: 40px;

@@ -20,20 +20,17 @@ const Pagination = ({ total, limit, page, setPage }: PaginationProps) => {
                 <ButtonArrow onClick={() => setPage(page - 1)} disabled={page === 1}>
                     {`<`}
                 </ButtonArrow>
-
                 {Array(numPages)
                     .fill(0)
                     .map((_, i) => (
                         <Button
                             key={i + 1}
                             onClick={() => setPage(i + 1)}
-                            aria-current={page === i + 1 ? "page" : null}
                             isActive={page === (i + 1)}
                         >
                             {i + 1}
                         </Button>
                     ))}
-
                 <ButtonArrow onClick={() => setPage(page + 1)} disabled={page === numPages}>
                     {`>`}
                 </ButtonArrow>
