@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import DrinksDetailImg from './drinksDetaillItem/DrinksDetailImg';
-import DrinksDetailTxt from './drinksDetaillItem/DrinksDetailTxt';
+import DrinksDetailImg from './drinksDetailItem/DrinksDetailImg';
+import DrinksDetailTxt from './drinksDetailItem/DrinksDetailTxt';
 import { IDrinksDetailLike } from '../../../util/interfaces/drinks.inerface';
 
 function DrinksDetailItem({ drinksDetail, drinksLike }: IDrinksDetailLike) {
