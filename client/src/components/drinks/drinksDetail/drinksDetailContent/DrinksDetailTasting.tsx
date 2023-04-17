@@ -1,4 +1,3 @@
-import React from "react";
 import DrinksDetailChart from "./drinksDetailTasting/DrinksDetailChart";
 import DrinksDetailChartTitle from "./drinksDetailTasting/DrinksDetailChartTitle";
 import styled from "styled-components";
