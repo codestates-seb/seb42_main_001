@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import DrinksDetailSnacks from "./drinksDetailContent/DrinksDetailSnacks";
 import DrinksDetailTasting from "./drinksDetailContent/DrinksDetailTasting";

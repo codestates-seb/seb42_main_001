@@ -1,5 +1,5 @@
 import React from 'react'
-import MainDrinks from '../components/drinks/drinksList/MainDrinks'
+import MainDrinks from '../components/drinks/DrinksList/MainDrinks'
 
 function DrinksList() {
   return (
