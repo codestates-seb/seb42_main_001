@@ -7,7 +7,6 @@ import Pagination from "../../UI/Pagination";
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store/store'
 
-
 interface ISearchProps {
   search: string;
   searchTag: number;
@@ -24,46 +23,35 @@ function DrinksContents({ search, searchTag, page, setPage }: ISearchProps): any
   const offset = (page - 1) * limit;
 
   const { drinksData } = useSelector((state: RootState) => state.drinkslist);
+  const { tagData } = useSelector((state: RootState) => state.drinksTags);
 
   const drinkTagData: IDrinks[] = drinksData.filter((drink: Tags) => drink.tags.some(tag => tag.tagId === searchTag));
-  const drinkTagValue: number | null = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId ?? null : null;
-
-  const filteredDrinks = drinksData.filter((drink) => {
-    return search.toLowerCase() === "" ||
-      drink.drinkName.toLowerCase().includes(search.toLowerCase());
-  });
-
+  const filteredDrinks = drinksData.filter((drink) => search.toLowerCase() === "" || drink.drinkName.toLowerCase().includes(search.toLowerCase()));
   const displayedDrinks = filteredDrinks.slice(offset, offset + limit);
 
-  const drinksToShow = (searchTag === drinkTagValue)
-    ? drinkTagData.slice(offset, offset + limit)
-    : displayedDrinks;
+  const drinkTagValue = drinkTagData.length > 0 ? drinkTagData[0].tags.find(tag => tag.tagId === searchTag)?.tagId : null;
+  const drinksToShow = searchTag === drinkTagValue ? drinkTagData.slice(offset, offset + limit) : (searchTag !== 0 && drinkTagValue === null) ? [] : displayedDrinks;
+
+  /** Tag 클릭 시 해당하는 Tag가 Drinks에 없을 경우 div 반환 */
+  const text = tagData.find(item => item.tagId === searchTag)?.tagName;
 
   return (
     <ContentsContainer>
       {drinksToShow.length > 0 ? (
         <>
-          {drinksToShow.map((drink) => (
-            <DrinksItem key={drink.drinkId} drinksData={drink} />
-          ))}
-          {drinksToShow.length > 7 ?
+          {drinksToShow.map((drink) => <DrinksItem key={drink.drinkId} drinksData={drink} />)}
+          {drinksToShow.length > 7 && (
             <Pagination
-              total={
-                drinkTagData.length !== 0
-                  ? drinkTagData.length
-                  : filteredDrinks.length
-              }
+              total={drinkTagData.length || filteredDrinks.length}
               limit={limit}
               page={page}
               setPage={setPage}
               setLimit={setLimit}
-            /> : null}
-
+            />
+          )}
         </>
       ) : (
-        <div>
-          현재 페이지에서 '{search}'란 단어의 검색 결과가 없습니다.
-        </div>
+        <div>{drinkTagValue === null ? `현재 페이지에서 '${text}'의 검색 결과가 없습니다.` : `현재 페이지에서 '${search}'란 단어의 검색 결과가 없습니다.`}</div>
       )}
     </ContentsContainer>
   );
