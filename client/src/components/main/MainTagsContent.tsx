@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import MainTagsContentImg from './maintagscontent/MainTagsContentImg';
-import MainTagsContentTags from './maintagscontent/MainTagsContentTags';
+import MainTagsContentImg from './mainTagsContent/MainTagsContentImg';
+import MainTagsContentTags from './mainTagsContent/MainTagsContentTags';
 
 function MainTagsContent() {
   return (

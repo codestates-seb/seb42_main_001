@@ -1,4 +1,3 @@
-import React from 'react'
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import styled from 'styled-components';
 import { IDrinksDetailProps } from '../../../../../../util/interfaces/drinks.inerface'

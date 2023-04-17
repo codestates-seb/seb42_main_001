@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import DrinksDetailImg from './drinksDetaillItem/DrinksDetailImg';
 import DrinksDetailTxt from './drinksDetaillItem/DrinksDetailTxt';

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import DrinksDetailComment from './DrinksDetailComment';
 import DrinksDetailContent from './DrinksDetailContent';
