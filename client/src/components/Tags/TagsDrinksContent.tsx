@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useAppSelector } from '../../redux/hooks/hooks';
 
-import DrinksItem from '../Drinks/DrinksList/drinkscontent/DrinksItem';
+import DrinksItem from '../drinks/drinksList/drinksContent/DrinksItem';
 
 const TagsDrinksContent = () => {
   const drinksList = useAppSelector(state => state.tag.tagData.drink);

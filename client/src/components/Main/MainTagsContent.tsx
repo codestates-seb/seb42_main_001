@@ -15,16 +15,14 @@ export default MainTagsContent;
 
 const MainContainer = styled.div`
   max-width: 1420px;
-  width: 100%;
+  width: 85%;
   height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-sub-light-gray);
-  padding: 0 30px;
 
   @media only screen and (max-width: 1024px) {
-    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -32,7 +30,6 @@ const MainContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;

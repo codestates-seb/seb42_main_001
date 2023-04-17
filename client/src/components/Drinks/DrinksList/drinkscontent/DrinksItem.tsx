@@ -1,6 +1,6 @@
-import DrinksItemBox from "./drinksitem/DrinksItemBox";
-import DrinksItemBody from "./drinksitem/DrinksItemBody";
-import DrinksItemLevel from "./drinksitem/DrinksItemLevel";
+import DrinksItemBox from "./drinksItem/DrinksItemBox";
+import DrinksItemBody from "./drinksItem/DrinksItemBody";
+import DrinksItemLevel from "./drinksItem/DrinksItemLevel";
 import Card from "../../../UI/Card";
 import styled from "styled-components";
 import { Link } from "react-router-dom";

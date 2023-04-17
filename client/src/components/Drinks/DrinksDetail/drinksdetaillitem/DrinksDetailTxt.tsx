@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import DrinksDetailBox from './drinksdetailtxt/DrinksDetailBox';
-import DrinksDetailInfo from './drinksdetailtxt/DrinksDetailInfo';
-import DrinksDetailTitle from './drinksdetailtxt/DrinksDetailTitle';
+import DrinksDetailBox from './drinksDetailTxt/DrinksDetailBox';
+import DrinksDetailInfo from './drinksDetailTxt/DrinksDetailInfo';
+import DrinksDetailTitle from './drinksDetailTxt/DrinksDetailTitle';
 import { IDrinksDetailLike } from '../../../../util/interfaces/drinks.inerface';
 
 function DrinksDetailTxt({ drinksDetail, drinksLike }: IDrinksDetailLike) {

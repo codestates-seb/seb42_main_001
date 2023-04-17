@@ -1,6 +1,6 @@
 import React from "react";
-import DrinksDetailChart from "./drinksdetailtasting/DrinksDetailChart";
-import DrinksDetailChartTitle from "./drinksdetailtasting/DrinksDetailChartTitle";
+import DrinksDetailChart from "./drinksDetailTasting/DrinksDetailChart";
+import DrinksDetailChartTitle from "./drinksDetailTasting/DrinksDetailChartTitle";
 import styled from "styled-components";
 import { IDrinksDetailProps } from '../../../../util/interfaces/drinks.inerface'
 
