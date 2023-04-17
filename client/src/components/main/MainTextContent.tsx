@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import MainTextContentImg from './maintextcontent/MainTextContentImg';
-import MainTextContentTitle from './maintextcontent/MainTextContentTitle';
+import MainTextContentImg from './mainTextContent/MainTextContentImg';
+import MainTextContentTitle from './mainTextContent/MainTextContentTitle';
 
 function MainTextContent() {
   return (

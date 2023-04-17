@@ -1,4 +1,3 @@
-import React from 'react';
 import DrinksDetailLikes from './drinksDetailBox/DrinksDetailLikes';
 import DrinksDetailTags from './drinksDetailBox/DrinksDetailTags';
 import styled from 'styled-components';

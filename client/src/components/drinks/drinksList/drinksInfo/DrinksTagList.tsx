@@ -28,8 +28,8 @@ function DrinksTagList({ tagData, setPage }: TagProps) {
           <TagListContainer>
             {tagData.map(el => {
               return (
-                <SwiperSlide>
-                  <DrinksTags key={el.tagId} tagId={el.tagId} tagName={el.tagName} setPage={setPage} />
+                <SwiperSlide key={el.tagId}>
+                  <DrinksTags tagId={el.tagId} tagName={el.tagName} setPage={setPage} />
                 </SwiperSlide>
               );
             })}

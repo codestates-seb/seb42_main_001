@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import MainDrinksContentDrinks from './maindrinkscontent/MainDrinksContentDrinks';
-import MainDrinksContentTitle from './maindrinkscontent/MainDrinksContentTitle';
+import MainDrinksContentDrinks from './mainDrinksContent/MainDrinksContentDrinks';
+import MainDrinksContentTitle from './mainDrinksContent/MainDrinksContentTitle';
 
 function MainDrinksContent() {
   return (
