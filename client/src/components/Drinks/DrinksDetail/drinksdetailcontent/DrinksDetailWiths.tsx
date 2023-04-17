@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import DrinksDetailWith from "./drinksdetailwiths/DrinksDetailWith";
-import DrinksDetailWithTitle from "./drinksdetailwiths/DrinksDetailWithTitle";
+import DrinksDetailWith from "./drinksDetailWiths/DrinksDetailWith";
+import DrinksDetailWithTitle from "./drinksDetailWiths/DrinksDetailWithTitle";
 import { IDrinksDetailProps } from '../../../../util/interfaces/drinks.inerface'
 import { Link } from "react-router-dom";
 

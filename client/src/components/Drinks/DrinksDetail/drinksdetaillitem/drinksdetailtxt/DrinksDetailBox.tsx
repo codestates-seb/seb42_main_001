@@ -1,10 +1,10 @@
 import React from 'react';
-import DrinksDetailLikes from './drinksdetailbox/DrinksDetailLikes';
-import DrinksDetailTags from './drinksdetailbox/DrinksDetailTags';
+import DrinksDetailLikes from './drinksDetailBox/DrinksDetailLikes';
+import DrinksDetailTags from './drinksDetailBox/DrinksDetailTags';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { IDrinksDetailLike } from '../../../../../util/interfaces/drinks.inerface';
-import DrinksDetailCount from './drinksdetailbox/DrinksDetailCount';
+import DrinksDetailCount from './drinksDetailBox/DrinksDetailCount';
 
 function DrinksDetailBox({ drinksDetail, drinksLike }: IDrinksDetailLike) {
   return (

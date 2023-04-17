@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DrinksItem from "./drinkscontent/DrinksItem";
+import DrinksItem from "./drinksContent/DrinksItem";
 import styled from "styled-components";
 import { IDrinks } from "../../../util/interfaces/drinks.inerface";
 import Pagination from "../../UI/Pagination";

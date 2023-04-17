@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import DrinksDetailImg from './drinksdetaillitem/DrinksDetailImg';
-import DrinksDetailTxt from './drinksdetaillitem/DrinksDetailTxt';
+import DrinksDetailImg from './drinksDetaillItem/DrinksDetailImg';
+import DrinksDetailTxt from './drinksDetaillItem/DrinksDetailTxt';
 import { IDrinksDetailLike } from '../../../util/interfaces/drinks.inerface';
 
 function DrinksDetailItem({ drinksDetail, drinksLike }: IDrinksDetailLike) {

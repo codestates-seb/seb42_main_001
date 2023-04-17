@@ -1,5 +1,5 @@
-import DrinksLikes from "./drinksitembox/DrinksItemLikes";
-import DrinksItemTags from "./drinksitembox/DrinksItemTags";
+import DrinksLikes from "./drinksItemBox/DrinksItemLikes";
+import DrinksItemTags from "./drinksItemBox/DrinksItemTags";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IDrinksProps } from "../../../../../util/interfaces/drinks.inerface";
