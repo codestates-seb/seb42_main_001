@@ -23,7 +23,6 @@ const MainContainer = styled.div`
   background-color: var(--color-sub-light-gray);
 
   @media only screen and (max-width: 1024px) {
-    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -31,7 +30,6 @@ const MainContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;

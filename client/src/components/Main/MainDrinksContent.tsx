@@ -22,7 +22,6 @@ const MainContainer = styled.div`
   align-items: center;
 
   @media only screen and (max-width: 1024px) {
-    width: 80%;
     height: 100%;
     flex-direction: column;
     padding: var(--3x-large) 0;

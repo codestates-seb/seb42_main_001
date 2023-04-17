@@ -24,12 +24,14 @@ const MainContainer = styled.div`
   background-color: var(--color-sub-light-gray);
 
   @media only screen and (max-width: 1024px) {
+  width: 80%;
     height: 100%;
     flex-direction: column;
     padding: var(--3x-large) 0;
   }
 
   @media only screen and (max-width: 768px) {
+  width: 80%;
     height: 100%;
     padding: var(--3x-large) 0;
   }
