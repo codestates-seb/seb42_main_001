@@ -2,24 +2,23 @@ import styled from 'styled-components';
 
 import convertTime from '../../util/convertTime';
 import woodford from '../../assets/img/woodford.jpg';
+import { IBoardAuthorInfo } from '../../util/interfaces/boards.interface';
 
-interface BoardAuthorInfoProps {
-  userName?: string;
-  userImage?: string;
-  date?: string;
-}
-
-function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
+function BoardAuthorInfo({
+  memberName,
+  profileImageUrl,
+  createdAt,
+}: IBoardAuthorInfo) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage ? (
-        <img src={userImage} alt='userImage' />
+      {profileImageUrl ? (
+        <img src={profileImageUrl} alt='userImage' />
       ) : (
         <img src={woodford} alt='userImage' />
       )}
       <BoardAuthorInfoName>
-        {userName}
-        <p>{convertTime(date)}</p>
+        {memberName}
+        <p>{convertTime(createdAt)}</p>
       </BoardAuthorInfoName>
     </BoardAuthorInfoContainer>
   );

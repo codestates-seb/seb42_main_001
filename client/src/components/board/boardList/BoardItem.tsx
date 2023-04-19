@@ -1,49 +1,37 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Card from '../UI/Card';
+import Card from '../../UI/Card';
 import BoardContents from './BoardContents';
 import BoardMetaInfo from './BoardMetaInfo';
-import BoardAuthorInfo from './BoardAuthorInfo';
+import BoardAuthorInfo from '.././BoardAuthorInfo';
+import { IBoardData } from '../../../util/interfaces/boards.interface';
 
-interface BoardItemprops {
-  data: {
-    boardId: number;
-    memberId: number;
-    memberName: string;
-    profileImageUrl: string;
-    boardTitle: string;
-    content: string;
-    tags: Array<{
-      tagId: number;
-      tagName: string;
-    }>;
-    like: boolean;
-    likeCount: number;
-    commentCount: number;
-    createdAt: string;
-    modifiedAt: string;
-  };
+interface IBoardItemProps {
+  data: IBoardData;
 }
 
-function BoardItem({ data }: BoardItemprops) {
+function BoardItem({ data }: IBoardItemProps) {
   return (
     <MarginContainer>
       <Card>
         <ItemContainer>
           <Link to={`/board/detail/${data.boardId}`}>
             <BoardAuthorInfo
-              userName={data.memberName}
-              userImage={data.profileImageUrl}
-              date={data.createdAt}
+              memberName={data.memberName}
+              profileImageUrl={data.profileImageUrl}
+              createdAt={data.createdAt}
             />
-            <BoardContents title={data.boardTitle} content={data.content} />
+            <BoardContents
+              boardTitle={data.boardTitle}
+              content={data.content}
+            />
           </Link>
           <BoardMetaInfo
             boardId={data.boardId}
             tags={data.tags}
-            like={data.likeCount}
-            comment={data.commentCount}
-            likes={data.like}
+            likeCount={data.likeCount}
+            commentCount={data.commentCount}
+            like={data.like}
           />
         </ItemContainer>
       </Card>

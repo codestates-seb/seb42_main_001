@@ -1,16 +1,9 @@
 import styled from 'styled-components';
 
-import Card from '../UI/Card';
+import Card from '../../UI/Card';
+import { ICreateTag } from '../../../util/interfaces/boards.interface';
 
-interface props {
-  ele: {
-    tagId: number;
-    tagName: string;
-  };
-  onClick: (ele: { tagId: number; tagName: string }) => void;
-}
-
-function BoardCreateTag({ ele, onClick }: props) {
+function BoardCreateTag({ ele, onClick }: ICreateTag) {
   return (
     <OuterWrapper onClick={() => onClick(ele)}>
       <Card>

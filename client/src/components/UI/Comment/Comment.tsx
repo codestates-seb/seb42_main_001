@@ -6,22 +6,15 @@ import More from '../More';
 import Button from '../Button';
 import customAxios from '../../../api/customAxios';
 import convertTime from '../../../util/convertTime';
+import { IComments } from '../../../util/interfaces/boards.interface';
 
-interface CommentProps {
-  comments?: {
-    drinkCommentId?: number;
-    boardCommentId?: number;
-    commentId: number;
-    memberId: number;
-    displayName: string;
-    commentContent: string;
-    createAt: string | null;
-  };
+interface ICommentProps {
+  comments?: IComments;
 }
 
-function Comment({ comments }: CommentProps) {
+function Comment({ comments }: ICommentProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [edit, setEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   const [commentContent, setCommentContent] = useState(
     comments?.commentContent
   );
@@ -42,7 +35,7 @@ function Comment({ comments }: CommentProps) {
           `/comments/drinks/${comments?.drinkCommentId}`,
           editComment
         );
-        setEdit((prev) => !prev);
+        setIsEdit((prev) => !prev);
         alert('성공적으로 수정했습니다.');
         window.location.reload();
       } else if (comments?.boardCommentId) {
@@ -53,7 +46,7 @@ function Comment({ comments }: CommentProps) {
           `/comments/boards/${comments?.boardCommentId}`,
           editComment
         );
-        setEdit((prev) => !prev);
+        setIsEdit((prev) => !prev);
         alert('성공적으로 수정했습니다.');
         window.location.reload();
       }
@@ -78,13 +71,13 @@ function Comment({ comments }: CommentProps) {
                 drinkCommentId={comments?.drinkCommentId}
                 boardCommentId={comments?.boardCommentId}
                 memberId={comments?.memberId}
-                onClick={setEdit}
+                setIsEdit={setIsEdit}
                 handleModalOpen={handleModalOpen}
               />
             ) : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
-          {edit ? (
+          {isEdit ? (
             <CommentEditContainer>
               <CommentEditInput>
                 <input value={commentContent} onChange={handleEditInput} />

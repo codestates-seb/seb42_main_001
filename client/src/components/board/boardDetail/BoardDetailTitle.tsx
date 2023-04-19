@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useAppSelector } from '../../redux/hooks/hooks';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 
 function BoardDetailTitle() {
   const { boardTitle } = useAppSelector(

@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
 import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
+import { IBoardComments } from '../../util/interfaces/boards.interface';
 
-interface BoardCommentsProps {
-  comment?: number;
-}
-
-function BoardComments({ comment }: BoardCommentsProps) {
+function BoardComments({ commentCount }: IBoardComments) {
   return (
     <CommentsWrapper>
       <HiOutlineChatBubbleOvalLeft />
-      <CommentsCount>{comment}</CommentsCount>
+      <CommentsCount>{commentCount}</CommentsCount>
     </CommentsWrapper>
   );
 }

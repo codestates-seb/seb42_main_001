@@ -1,24 +1,19 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import Card from '../UI/Card';
+import Card from '../../UI/Card';
 import BoardCreateTag from './BoardCreateTag';
+import { ITagSearch } from '../../../util/interfaces/boards.interface';
 
-interface props {
-  tagData: Array<{
-    tagId: number;
-    tagName: string;
-  }>;
-  onClick: (ele: { tagId: number; tagName: string }) => void;
-}
-
-function BoardTagSearch({ tagData, onClick }: props) {
+function BoardTagSearch({ tagsData, handleTagAdd }: ITagSearch) {
   const [inputValue, setInputValue] = useState<string>('');
-  const [options, setOptions] = useState(tagData);
+  const [searchDatas, setSearchDatas] = useState(tagsData);
 
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    setOptions(tagData.filter((ele) => ele.tagName.includes(e.target.value)));
+    setSearchDatas(
+      tagsData.filter((ele) => ele.tagName.includes(e.target.value))
+    );
   };
 
   const handlePropagation = (e: React.MouseEvent<HTMLInputElement>) => {
@@ -35,10 +30,14 @@ function BoardTagSearch({ tagData, onClick }: props) {
           onChange={handleInputValue}
           onClick={handlePropagation}
         />
-        {options.length ? (
+        {searchDatas.length ? (
           <DropDown>
-            {options.map((ele) => (
-              <BoardCreateTag key={ele.tagId} ele={ele} onClick={onClick} />
+            {searchDatas.map((ele) => (
+              <BoardCreateTag
+                key={ele.tagId}
+                ele={ele}
+                onClick={handleTagAdd}
+              />
             ))}
           </DropDown>
         ) : null}

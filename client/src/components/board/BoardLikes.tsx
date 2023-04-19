@@ -13,28 +13,23 @@ import {
   boardDetailUnLike,
 } from '../../redux/slice/board/boardDetail';
 import { useNavigate } from 'react-router';
+import { IBoardLikes } from '../../util/interfaces/boards.interface';
 
-interface BoardLikesProps {
-  boardId: number;
-  like?: number;
-  likes: boolean;
-}
-
-function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
+function BoardLikes({ likeCount, like, boardId }: IBoardLikes) {
   const [isLike, setIsLike] = useState(false);
-  const [login, setLogin] = useState(false);
-  const { isLogin } = useAppSelector((state) => state.auth);
+  const [isLogin, setIsLogin] = useState(false);
+  const login = useAppSelector((state) => state.auth.isLogin);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLike(likes);
-    setLogin(isLogin);
-  }, [likes, isLogin]);
+    setIsLike(like);
+    setIsLogin(login);
+  }, [like, login]);
 
   const handleLikeChange = () => {
-    if (login) {
+    if (isLogin) {
       if (isLike) {
         customAxios
           .delete(`/likes/boards/${boardId}`)
@@ -66,7 +61,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
       ) : (
         <IoMdHeartEmpty onClick={handleLikeChange} />
       )}
-      <LikesCount>{like}</LikesCount>
+      <LikesCount>{likeCount}</LikesCount>
     </LikesWrapper>
   );
 }

@@ -2,17 +2,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import BoardTag from './BoardTag';
+import { IBoardTags } from '../../util/interfaces/boards.interface';
 
-interface BoardTagsProps {
-  tags?: Array<{
-    tagId: number;
-    tagName: string;
-  }>;
-}
-
-function BoardTags({ tags }: BoardTagsProps) {
+function BoardTags({ tags }: IBoardTags) {
   return (
-    <TagsBox>
+    <Wapper>
       {tags &&
         tags.map((el) => {
           return (
@@ -23,13 +17,13 @@ function BoardTags({ tags }: BoardTagsProps) {
             </Link>
           );
         })}
-    </TagsBox>
+    </Wapper>
   );
 }
 
 export default BoardTags;
 
-const TagsBox = styled.div`
+const Wapper = styled.div`
   display: flex;
   height: 25px;
   @media only screen and (max-width: 768px) {

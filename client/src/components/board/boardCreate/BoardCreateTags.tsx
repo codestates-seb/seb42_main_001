@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
 import BoardCreateTag from './BoardCreateTag';
+import { IBoardCreateTags } from '../../../util/interfaces/boards.interface';
 
-interface BoardCreateTagsProps {
-  tags: Array<{ tagId: number; tagName: string }>;
-  onClick: (ele: { tagId: number; tagName: string }) => void;
-}
-
-function BoardCreateTags({ tags, onClick }: BoardCreateTagsProps) {
+function BoardCreateTags({ tags, handleTagRemove }: IBoardCreateTags) {
   return (
     <ListContainer>
       {tags.map((el) => (
-        <BoardCreateTag key={el.tagId} ele={el} onClick={onClick} />
+        <BoardCreateTag key={el.tagId} ele={el} onClick={handleTagRemove} />
       ))}
     </ListContainer>
   );

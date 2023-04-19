@@ -6,29 +6,25 @@ import Button from '../Button';
 import Card from '../Card';
 import customAxios from '../../../api/customAxios';
 import { useNavigate } from 'react-router';
+import { ICommentInput } from '../../../util/interfaces/boards.interface';
 
-interface CommentInputProps {
-  drinkId?: number;
-  boardId?: number;
-}
-
-function CommentInput({ drinkId, boardId }: CommentInputProps) {
+function CommentInput({ drinkId, boardId }: ICommentInput) {
   const [commentValue, setCommentValue] = useState('');
-  const [Login, setLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
-  const { isLogin } = useAppSelector((state) => state.auth);
+  const login = useAppSelector((state) => state.auth.isLogin);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setLogin(isLogin);
-  }, [isLogin]);
+    setIsLogin(login);
+  }, [login]);
 
   const handleCommentValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCommentValue(e.target.value);
   };
 
   const handleDrinksPost = async () => {
-    if (Login) {
+    if (isLogin) {
       if (commentValue.trim() === '') {
         alert('댓글을 작성해주세요');
       } else {
@@ -58,12 +54,6 @@ function CommentInput({ drinkId, boardId }: CommentInputProps) {
       navigate('/signup');
     }
   };
-
-  // const handleInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  //   if (e.key === 'Enter') {
-  //     handleDrinksPost();
-  //   }
-  // };
 
   return (
     <MainContainer>

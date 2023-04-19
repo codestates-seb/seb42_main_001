@@ -1,33 +1,23 @@
 import styled from 'styled-components';
 
 import BoardStats from './BoardStats';
-import BoardTags from './BoardTags';
-
-interface BoardMetaInfoProps {
-  boardId: number;
-  tags: Array<{
-    tagId: number;
-    tagName: string;
-  }>;
-  like: number;
-  likes: boolean;
-  comment: number;
-}
+import BoardTags from '../BoardTags';
+import { IBoardMetaInfo } from '../../../util/interfaces/boards.interface';
 
 function BoardMetaInfo({
   tags,
+  likeCount,
+  commentCount,
   like,
-  comment,
-  likes,
   boardId,
-}: BoardMetaInfoProps) {
+}: IBoardMetaInfo) {
   return (
     <BoardMetaInfoContainer>
       <BoardTags tags={tags} />
       <BoardStats
+        likeCount={likeCount}
+        commentCount={commentCount}
         like={like}
-        comment={comment}
-        likes={likes}
         boardId={boardId}
       />
     </BoardMetaInfoContainer>
