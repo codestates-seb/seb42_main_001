@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ArticleListItem from '../components/Article/ArticleList/ArticleListItem';
+import ArticleListItem from '../components/article/articleList/ArticleListItem';
 
 function ArticleList() {
   return (

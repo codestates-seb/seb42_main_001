@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useAppSelector } from '../../../redux/hooks/hooks';
-import Card from '../../UI/Card';
+import Card from '../../ui/Card';
 import { IBoardSearch } from '../../../util/interfaces/boards.interface';
 
 function BoardSearch({ isInput, setIsInput, setInput }: IBoardSearch) {

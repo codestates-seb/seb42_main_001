@@ -6,7 +6,7 @@ import customAxios from '../api/customAxios';
 import BoardInfo from '../components/board/boardList/BoardInfo';
 import BoardItem from '../components/board/boardList/BoardItem';
 import { boardListItemAdd } from '../redux/slice/board/boardListSlice';
-import Loading from '../components/UI/Loading';
+import Loading from '../components/ui/Loading';
 
 function BoardList() {
   const [page, setPage] = useState(1);

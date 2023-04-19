@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Card from "../../../../UI/Card";
+import Card from "../../../../ui/Card";
 
 function DrinksDetailWith({ drinksDetail }: any) {
   return (

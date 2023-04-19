@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import Card from '../UI/Card';
+import Card from '../ui/Card';
 import MyPageContentBar from './MyPageContentBar';
 import MyPageDrinksBox from './MyPageDrinksBox';
 

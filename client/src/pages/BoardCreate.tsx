@@ -6,7 +6,7 @@ import { BsPlusLg } from 'react-icons/bs';
 import BoardCreateTags from '../components/board/boardCreate/BoardCreateTags';
 import BoardCreateBtn from '../components/board/boardCreate/BoardCreateBtn';
 import BoardCreateInput from '../components/board/boardCreate/BoardCreateInput';
-import Button from '../components/UI/Button';
+import Button from '../components/ui/Button';
 import BoardTagSearch from '../components/board/boardCreate/BoardTagSearch';
 import customAxios from '../api/customAxios';
 import {

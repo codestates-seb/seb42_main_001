@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ArticleDetailBack from '../components/Article/ArticleDetail/ArticleDetailBack'
-import ArticleDetails from '../components/Article/ArticleDetail/ArticleDetails'
+import ArticleDetailBack from '../components/article/articleDetail/ArticleDetailBack'
+import ArticleDetails from '../components/article/articleDetail/ArticleDetails'
 
 function ArticleDetail() {
     return (

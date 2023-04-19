@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import BoardCreate from './BoardCreate';
 import BoardSearch from './BoardSearch';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Button from '../../UI/Button';
+import Button from '../../ui/Button';
 import { IBoardInfo } from '../../../util/interfaces/boards.interface';
 
 function BoardInfo({ isSearch, setIsLoading, setInput }: IBoardInfo) {

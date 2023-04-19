@@ -2,7 +2,7 @@ import { useState } from "react";
 import DrinksItem from "./drinksContent/DrinksItem";
 import styled from "styled-components";
 import { IDrinks } from "../../../util/interfaces/drinks.inerface";
-import Pagination from "../../UI/Pagination";
+import Pagination from "../../ui/Pagination";
 
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store/store'

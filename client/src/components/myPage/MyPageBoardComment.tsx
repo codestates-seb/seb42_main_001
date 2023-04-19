@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-import Card from '../UI/Card';
+import Card from '../ui/Card';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { HiOutlineChatBubbleOvalLeft } from 'react-icons/hi2';
 import convertTime from '../../util/convertTime';

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import customAxios from '../../api/customAxios';
-import Card from '../UI/Card';
+import Card from '../ui/Card';
 
 interface props {
   ele: {

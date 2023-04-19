@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Card from '../UI/Card';
+import Card from '../ui/Card';
 import SignUpButton from './SignUpButton';
 import SignUpFooter from './SignUpFooter';
 import SignUpTitle from './SignUpTitle';

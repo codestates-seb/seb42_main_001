@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import customAxios from '../../../api/customAxios';
 import DrinksContents from './DrinksContents';
 import DrinksInfo from './DrinksInfo';
-import Loading from '../../UI/Loading';
+import Loading from '../../ui/Loading';
 
 import {
   setDrinksData,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Card from "../../../UI/Card";
+import Card from "../../../ui/Card";
 import { IDrinksDetailProps } from '../../../../util/interfaces/drinks.inerface'
 
 function DrinksDetailImg({ drinksDetail }: IDrinksDetailProps) {

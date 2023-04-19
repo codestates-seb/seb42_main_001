@@ -1,5 +1,5 @@
 import { IBoardCreateBtn } from '../../../util/interfaces/boards.interface';
-import Button from '../../UI/Button';
+import Button from '../../ui/Button';
 
 function BoardCreateBtn({ handleBoardSubmit }: IBoardCreateBtn) {
   return (
