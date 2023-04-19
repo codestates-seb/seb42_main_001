@@ -21,7 +21,7 @@ interface CommentProps {
 
 function Comment({ comments }: CommentProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [edit, setEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   const [commentContent, setCommentContent] = useState(
     comments?.commentContent
   );
@@ -42,7 +42,7 @@ function Comment({ comments }: CommentProps) {
           `/comments/drinks/${comments?.drinkCommentId}`,
           editComment
         );
-        setEdit((prev) => !prev);
+        setIsEdit((prev) => !prev);
         alert('성공적으로 수정했습니다.');
         window.location.reload();
       } else if (comments?.boardCommentId) {
@@ -53,7 +53,7 @@ function Comment({ comments }: CommentProps) {
           `/comments/boards/${comments?.boardCommentId}`,
           editComment
         );
-        setEdit((prev) => !prev);
+        setIsEdit((prev) => !prev);
         alert('성공적으로 수정했습니다.');
         window.location.reload();
       }
@@ -78,13 +78,13 @@ function Comment({ comments }: CommentProps) {
                 drinkCommentId={comments?.drinkCommentId}
                 boardCommentId={comments?.boardCommentId}
                 memberId={comments?.memberId}
-                onClick={setEdit}
+                setIsEdit={setIsEdit}
                 handleModalOpen={handleModalOpen}
               />
             ) : null}
           </CommentAuthorInfo>
           <CommentContents>{comments?.commentContent}</CommentContents>
-          {edit ? (
+          {isEdit ? (
             <CommentEditContainer>
               <CommentEditInput>
                 <input value={commentContent} onChange={handleEditInput} />

@@ -26,14 +26,18 @@ function BoardDetail() {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.boardDetail.detailData);
+  const boardDetailData = useAppSelector(
+    (state) => state.boardDetail.detailData
+  );
 
   useEffect(() => {
     const boardData = async () => {
-      const res = await customAxios.get(`/boards/${boardId}`);
-      const listData = await customAxios.get(`/boards?page=1&size=16`);
-      const likeList = listData.data.likeList;
-      dispatch(getBoardDetailData({ data: res.data, likeList }));
+      const boardData = await customAxios.get(`/boards/${boardId}`);
+      const boardListData = await customAxios.get(`/boards?page=1&size=16`);
+      const likeListData = boardListData.data.likeList;
+      dispatch(
+        getBoardDetailData({ data: boardData.data, likeList: likeListData })
+      );
       setIsLoding(true);
     };
     boardData();
@@ -54,24 +58,24 @@ function BoardDetail() {
           <BoardSuggest />
           <BoardDetailContainer>
             <BoardAuthorInfo
-              userName={data?.memberName}
-              userImage={data?.profileImageUrl}
-              date={data?.createdAt}
+              memberName={boardDetailData?.memberName}
+              profileImageUrl={boardDetailData?.profileImageUrl}
+              createdAt={boardDetailData?.createdAt}
             />
             <BoardDetailHeader>
               <BoardDetailTitle />
               <BoardDetailController>
                 <BoardLikes
-                  like={data?.likeCount}
-                  boardId={data.boardId}
-                  likes={data.like}
+                  likeCount={boardDetailData?.likeCount}
+                  boardId={boardDetailData.boardId}
+                  like={boardDetailData.like}
                 />
-                <BoardComments comment={data?.commentCount} />
+                <BoardComments commentCount={boardDetailData?.commentCount} />
                 <More handleModalOpen={handleModalOpen} />
                 {isOpen ? (
                   <CommentModal
-                    boardId={data?.boardId}
-                    memberId={data.memberId}
+                    boardId={boardDetailData?.boardId}
+                    memberId={boardDetailData.memberId}
                     handleBoardEdit={handleBoardEdit}
                     handleModalOpen={handleModalOpen}
                   />
@@ -80,17 +84,17 @@ function BoardDetail() {
             </BoardDetailHeader>
             <BoardDetailBody>
               <BoardDetailContents />
-              <BoardTags tags={data.tags} />
+              <BoardTags tags={boardDetailData.tags} />
             </BoardDetailBody>
           </BoardDetailContainer>
           <BoardCommentsContainer>
-            <CommentsCount>{`Comments ${data?.commentCount}`}</CommentsCount>
+            <CommentsCount>{`Comments ${boardDetailData?.commentCount}`}</CommentsCount>
             <CommentInputContainer>
-              <CommentInput boardId={data?.boardId} />
+              <CommentInput boardId={boardDetailData?.boardId} />
             </CommentInputContainer>
             <ListContainer>
-              {data?.comments.map((el: IComments) => {
-                return <Comment key={el.commentId} comments={el} />;
+              {boardDetailData?.comments.map((comment: IComments) => {
+                return <Comment key={comment.commentId} comments={comment} />;
               })}
             </ListContainer>
           </BoardCommentsContainer>

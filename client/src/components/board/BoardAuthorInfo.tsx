@@ -4,22 +4,26 @@ import convertTime from '../../util/convertTime';
 import woodford from '../../assets/img/woodford.jpg';
 
 interface BoardAuthorInfoProps {
-  userName?: string;
-  userImage?: string;
-  date?: string;
+  memberName?: string;
+  profileImageUrl?: string;
+  createdAt?: string;
 }
 
-function BoardAuthorInfo({ userName, userImage, date }: BoardAuthorInfoProps) {
+function BoardAuthorInfo({
+  memberName,
+  profileImageUrl,
+  createdAt,
+}: BoardAuthorInfoProps) {
   return (
     <BoardAuthorInfoContainer>
-      {userImage ? (
-        <img src={userImage} alt='userImage' />
+      {profileImageUrl ? (
+        <img src={profileImageUrl} alt='userImage' />
       ) : (
         <img src={woodford} alt='userImage' />
       )}
       <BoardAuthorInfoName>
-        {userName}
-        <p>{convertTime(date)}</p>
+        {memberName}
+        <p>{convertTime(createdAt)}</p>
       </BoardAuthorInfoName>
     </BoardAuthorInfoContainer>
   );

@@ -16,11 +16,11 @@ import { useNavigate } from 'react-router';
 
 interface BoardLikesProps {
   boardId: number;
-  like?: number;
-  likes: boolean;
+  likeCount?: number;
+  like: boolean;
 }
 
-function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
+function BoardLikes({ likeCount, like, boardId }: BoardLikesProps) {
   const [isLike, setIsLike] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const login = useAppSelector((state) => state.auth.isLogin);
@@ -29,9 +29,9 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLike(likes);
+    setIsLike(like);
     setIsLogin(login);
-  }, [likes, login]);
+  }, [like, login]);
 
   const handleLikeChange = () => {
     if (isLogin) {
@@ -66,7 +66,7 @@ function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
       ) : (
         <IoMdHeartEmpty onClick={handleLikeChange} />
       )}
-      <LikesCount>{like}</LikesCount>
+      <LikesCount>{likeCount}</LikesCount>
     </LikesWrapper>
   );
 }

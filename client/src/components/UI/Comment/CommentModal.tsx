@@ -10,7 +10,7 @@ interface CommentProps {
   boardCommentId?: number;
   boardId?: number;
   memberId?: number;
-  onClick?: (state: boolean) => void;
+  setIsEdit?: (state: boolean) => void;
   handleModalOpen: (state: boolean) => void;
   handleBoardEdit?: () => void;
 }
@@ -20,12 +20,12 @@ function CommentModal({
   boardCommentId,
   boardId,
   memberId,
-  onClick,
+  setIsEdit,
   handleModalOpen,
   handleBoardEdit,
 }: CommentProps) {
   const navigate = useNavigate();
-  const nowMemberId = useAppSelector((state) => state.auth.userInfo.memberId);
+  const userMemberId = useAppSelector((state) => state.auth.userInfo.memberId);
 
   const handleDrinksCommentDelte = async () => {
     try {
@@ -60,7 +60,7 @@ function CommentModal({
 
   const handleCommentDelete = () => {
     if (drinkCommentId || boardCommentId) {
-      if (memberId === nowMemberId) {
+      if (memberId === userMemberId) {
         if (window.confirm('댓글을 삭제하시겠습니까?')) {
           if (drinkCommentId) {
             handleDrinksCommentDelte();
@@ -73,7 +73,7 @@ function CommentModal({
         alert('댓글을 삭제할 권한이 없습니다.');
       }
     } else if (boardId) {
-      if (memberId === nowMemberId) {
+      if (memberId === userMemberId) {
         if (window.confirm('글을 삭제하시겠습니까?')) {
           handleBoardDelte();
         }
@@ -85,10 +85,10 @@ function CommentModal({
   };
 
   const handleCommentEdit = () => {
-    if (memberId === nowMemberId) {
-      if (onClick) {
+    if (memberId === userMemberId) {
+      if (setIsEdit) {
         handleModalOpen(false);
-        onClick(true);
+        setIsEdit(true);
       } else if (handleBoardEdit) {
         handleBoardEdit();
       }
