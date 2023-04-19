@@ -24,17 +24,18 @@ export const boardDetailSlice = createSlice({
         payload: { data, likeList },
       }: PayloadAction<{ data: IData; likeList: ILikeList[] }>
     ) => {
-      const mapping = data.comments.map((el) => {
-        el.boardCommentId = el.commentId;
-        return el;
+      const mappingData = data.comments.map((comment) => {
+        comment.boardCommentId = comment.commentId;
+        return comment;
       });
 
       state.detailData = {
         ...data,
-        like: likeList.some((el) => el.boardId === data.boardId),
-        comments: mapping,
+        like: likeList.some((like) => like.boardId === data.boardId),
+        comments: mappingData,
       };
     },
+
     boardDetailLike: (
       state,
       { payload: { data } }: PayloadAction<{ data: boolean }>
@@ -42,6 +43,7 @@ export const boardDetailSlice = createSlice({
       state.detailData.likeCount = state.detailData.likeCount + 1;
       state.detailData.like = data;
     },
+
     boardDetailUnLike: (
       state,
       { payload: { data } }: PayloadAction<{ data: boolean }>
