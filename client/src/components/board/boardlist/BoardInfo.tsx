@@ -5,14 +5,9 @@ import BoardCreate from './BoardCreate';
 import BoardSearch from './BoardSearch';
 import { AiOutlineSearch } from 'react-icons/ai';
 import Button from '../../UI/Button';
+import { IBoardInfo } from '../../../util/interfaces/boards.interface';
 
-interface BoardInfoProps {
-  isSearch: boolean;
-  setIsLoading: (state: boolean) => void;
-  setInput: (state: string) => void;
-}
-
-function BoardInfo({ isSearch, setIsLoading, setInput }: BoardInfoProps) {
+function BoardInfo({ isSearch, setIsLoading, setInput }: IBoardInfo) {
   const [isInput, setIsInput] = useState('');
 
   const handleSearchChange = (e: React.MouseEvent<HTMLButtonElement>) => {

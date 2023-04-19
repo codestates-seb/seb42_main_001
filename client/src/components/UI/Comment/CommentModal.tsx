@@ -4,16 +4,7 @@ import { useNavigate } from 'react-router';
 import customAxios from '../../../api/customAxios';
 import Card from '../Card';
 import { useAppSelector } from '../../../redux/hooks/hooks';
-
-interface CommentProps {
-  drinkCommentId?: number;
-  boardCommentId?: number;
-  boardId?: number;
-  memberId?: number;
-  setIsEdit?: (state: boolean) => void;
-  handleModalOpen: (state: boolean) => void;
-  handleBoardEdit?: () => void;
-}
+import { IComment } from '../../../util/interfaces/boards.interface';
 
 function CommentModal({
   drinkCommentId,
@@ -23,7 +14,7 @@ function CommentModal({
   setIsEdit,
   handleModalOpen,
   handleBoardEdit,
-}: CommentProps) {
+}: IComment) {
   const navigate = useNavigate();
   const userMemberId = useAppSelector((state) => state.auth.userInfo.memberId);
 

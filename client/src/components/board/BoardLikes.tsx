@@ -13,14 +13,9 @@ import {
   boardDetailUnLike,
 } from '../../redux/slice/board/boardDetail';
 import { useNavigate } from 'react-router';
+import { IBoardLikes } from '../../util/interfaces/boards.interface';
 
-interface BoardLikesProps {
-  boardId: number;
-  likeCount?: number;
-  like: boolean;
-}
-
-function BoardLikes({ likeCount, like, boardId }: BoardLikesProps) {
+function BoardLikes({ likeCount, like, boardId }: IBoardLikes) {
   const [isLike, setIsLike] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const login = useAppSelector((state) => state.auth.isLogin);

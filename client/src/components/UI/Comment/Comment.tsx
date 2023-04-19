@@ -6,20 +6,13 @@ import More from '../More';
 import Button from '../Button';
 import customAxios from '../../../api/customAxios';
 import convertTime from '../../../util/convertTime';
+import { IComments } from '../../../util/interfaces/boards.interface';
 
-interface CommentProps {
-  comments?: {
-    drinkCommentId?: number;
-    boardCommentId?: number;
-    commentId: number;
-    memberId: number;
-    displayName: string;
-    commentContent: string;
-    createAt: string | null;
-  };
+interface ICommentProps {
+  comments?: IComments;
 }
 
-function Comment({ comments }: CommentProps) {
+function Comment({ comments }: ICommentProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [commentContent, setCommentContent] = useState(

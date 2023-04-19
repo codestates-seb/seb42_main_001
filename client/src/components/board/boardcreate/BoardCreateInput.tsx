@@ -6,18 +6,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import customAxios from '../../../api/customAxios';
 import Card from '../../UI/Card';
 import React from 'react';
-import { Data, SetData } from '../../../util/interfaces/boards.interface';
-
-interface BoardCreateInputProps {
-  handleBoardTitleChange: (title: string) => void;
-  handleBoardContentChange: (content: string) => void;
-  handleBoardImageAdd: (url: {
-    imageId: number;
-    boardImageUrl: string;
-  }) => void;
-  editData?: Data;
-  preData?: SetData;
-}
+import { IBoardCreateInput } from '../../../util/interfaces/boards.interface';
 
 function BoardCreateInput({
   handleBoardTitleChange,
@@ -25,7 +14,7 @@ function BoardCreateInput({
   handleBoardImageAdd,
   editData,
   preData,
-}: BoardCreateInputProps) {
+}: IBoardCreateInput) {
   const editorRef = useRef<Editor>(null);
   const [title, setTitle] = useState(editData?.boardTitle);
 

@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 import { useAppSelector } from '../../../redux/hooks/hooks';
 import Card from '../../UI/Card';
+import { IBoardSearch } from '../../../util/interfaces/boards.interface';
 
-interface IBoardSearchProps {
-  isInput: string;
-  setIsInput: (state: string) => void;
-  setInput: (state: string) => void;
-}
-
-function BoardSearch({ isInput, setIsInput, setInput }: IBoardSearchProps) {
+function BoardSearch({ isInput, setIsInput, setInput }: IBoardSearch) {
   const data = useAppSelector((state) => state.boardList.listData);
 
   const handleDataFilter = (e: React.ChangeEvent<HTMLInputElement>) => {

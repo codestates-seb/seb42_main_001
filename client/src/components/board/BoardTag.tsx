@@ -1,10 +1,7 @@
 import styled from 'styled-components';
+import { IBoardTag } from '../../util/interfaces/boards.interface';
 
-interface BoardTagProps {
-  tag: string;
-}
-
-function BoardTag({ tag }: BoardTagProps) {
+function BoardTag({ tag }: IBoardTag) {
   return (
     <TagWrapper>
       <div>{tag}</div>

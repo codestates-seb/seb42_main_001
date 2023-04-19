@@ -1,12 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { RiMoreLine } from "react-icons/ri";
+import { RiMoreLine } from 'react-icons/ri';
+import { ICommentModal } from '../../util/interfaces/boards.interface';
 
-interface CommentModalProps {
-  handleModalOpen?: () => void;
-}
-
-function More({ handleModalOpen }: CommentModalProps) {
+function More({ handleModalOpen }: ICommentModal) {
   return (
     <IconWrapper onClick={handleModalOpen}>
       <RiMoreLine />

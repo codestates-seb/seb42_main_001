@@ -2,15 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import BoardTag from './BoardTag';
+import { IBoardTags } from '../../util/interfaces/boards.interface';
 
-interface BoardTagsProps {
-  tags?: Array<{
-    tagId: number;
-    tagName: string;
-  }>;
-}
-
-function BoardTags({ tags }: BoardTagsProps) {
+function BoardTags({ tags }: IBoardTags) {
   return (
     <Wapper>
       {tags &&

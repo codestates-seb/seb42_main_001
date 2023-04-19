@@ -9,27 +9,26 @@ import BoardCreateInput from '../components/board/boardcreate/BoardCreateInput';
 import Button from '../components/UI/Button';
 import BoardTagSearch from '../components/board/boardcreate/BoardTagSearch';
 import customAxios from '../api/customAxios';
-import { Data, SetData } from '../util/interfaces/boards.interface';
+import {
+  IData,
+  IImgs,
+  ISetData,
+  ITags,
+} from '../util/interfaces/boards.interface';
 
 function BoardCreate() {
   const [isSearch, setIsSearch] = useState<boolean>(false);
   const [tagsData, setTagsData] = useState([]);
   const [boardTitle, setBoardTitle] = useState('');
   const [boardContent, setBoardContent] = useState('');
-  const [boardImageUrl, setBoardImageUrl] = useState<Imgs[]>([]);
-  const [tags, setTags] = useState<Tags[]>([]);
-  const [editData, setEditData] = useState<Data>();
-  const [preData, setPreData] = useState<SetData>();
+  const [boardImageUrl, setBoardImageUrl] = useState<IImgs[]>([]);
+  const [tags, setTags] = useState<ITags[]>([]);
+  const [editData, setEditData] = useState<IData>();
+  const [preData, setPreData] = useState<ISetData>();
   const [time, setTime] = useState(0);
 
   const navigate = useNavigate();
   const { editId } = useParams();
-
-  type Tags = { tagId: number; tagName: string };
-  type Imgs = {
-    imageId: number;
-    boardImageUrl: string;
-  };
 
   useEffect(() => {
     const tagsData = async () => {

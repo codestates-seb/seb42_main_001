@@ -2,18 +2,13 @@ import styled from 'styled-components';
 
 import convertTime from '../../util/convertTime';
 import woodford from '../../assets/img/woodford.jpg';
-
-interface BoardAuthorInfoProps {
-  memberName?: string;
-  profileImageUrl?: string;
-  createdAt?: string;
-}
+import { IBoardAuthorInfo } from '../../util/interfaces/boards.interface';
 
 function BoardAuthorInfo({
   memberName,
   profileImageUrl,
   createdAt,
-}: BoardAuthorInfoProps) {
+}: IBoardAuthorInfo) {
   return (
     <BoardAuthorInfoContainer>
       {profileImageUrl ? (

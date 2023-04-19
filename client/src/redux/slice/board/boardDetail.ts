@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
 
-import { Data, ILikeList } from '../../../util/interfaces/boards.interface';
+import { IData, ILikeList } from '../../../util/interfaces/boards.interface';
 
 interface boardDetailState {
   detailData: {
@@ -22,7 +22,7 @@ export const boardDetailSlice = createSlice({
       state,
       {
         payload: { data, likeList },
-      }: PayloadAction<{ data: Data; likeList: ILikeList[] }>
+      }: PayloadAction<{ data: IData; likeList: ILikeList[] }>
     ) => {
       const mapping = data.comments.map((el) => {
         el.boardCommentId = el.commentId;

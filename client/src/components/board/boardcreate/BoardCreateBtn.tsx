@@ -1,10 +1,7 @@
+import { IBoardCreateBtn } from '../../../util/interfaces/boards.interface';
 import Button from '../../UI/Button';
 
-interface BoardCreateBtnProps {
-  handleBoardSubmit: () => void;
-}
-
-function BoardCreateBtn({ handleBoardSubmit }: BoardCreateBtnProps) {
+function BoardCreateBtn({ handleBoardSubmit }: IBoardCreateBtn) {
   return (
     <Button
       type='submit'

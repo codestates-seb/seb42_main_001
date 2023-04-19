@@ -6,13 +6,9 @@ import Button from '../Button';
 import Card from '../Card';
 import customAxios from '../../../api/customAxios';
 import { useNavigate } from 'react-router';
+import { ICommentInput } from '../../../util/interfaces/boards.interface';
 
-interface CommentInputProps {
-  drinkId?: number;
-  boardId?: number;
-}
-
-function CommentInput({ drinkId, boardId }: CommentInputProps) {
+function CommentInput({ drinkId, boardId }: ICommentInput) {
   const [commentValue, setCommentValue] = useState('');
   const [isLogin, setIsLogin] = useState(false);
 

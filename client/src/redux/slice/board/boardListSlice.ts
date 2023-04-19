@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
 
 import {
-  BoardDataProps,
+  IBoardData,
   ILikeList,
 } from '../../../util/interfaces/boards.interface';
 
 interface boardListState {
-  listData: BoardDataProps[];
-  filteredData: BoardDataProps[];
+  listData: IBoardData[];
+  filteredData: IBoardData[];
   likeList: ILikeList[];
 }
 
@@ -26,9 +26,9 @@ export const boardListSlice = createSlice({
       state,
       {
         payload: { data, likeList },
-      }: PayloadAction<{ data: BoardDataProps[]; likeList: ILikeList[] }>
+      }: PayloadAction<{ data: IBoardData[]; likeList: ILikeList[] }>
     ) => {
-      const result = data.map((board: BoardDataProps) => {
+      const result = data.map((board: IBoardData) => {
         return {
           ...board,
           like: likeList.some(
@@ -40,8 +40,8 @@ export const boardListSlice = createSlice({
 
       state.likeList = likeList;
 
-      const NotData = result.reduce((acc: BoardDataProps[], cur) => {
-        let result: BoardDataProps[] = [...acc];
+      const NotData = result.reduce((acc: IBoardData[], cur) => {
+        let result: IBoardData[] = [...acc];
         if (
           state.listData.filter((el) => cur.boardId === el.boardId).length === 0
         ) {

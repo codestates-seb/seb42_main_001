@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 import { Viewer } from '@toast-ui/react-editor';
+import { IBoardContents } from '../../../util/interfaces/boards.interface';
 
-interface BoardContentsProps {
-  boardTitle?: string;
-  content?: string;
-}
-
-function BoardContents({ boardTitle, content }: BoardContentsProps) {
+function BoardContents({ boardTitle, content }: IBoardContents) {
   return (
     <BoardContentsContainer>
       <BoardContentsTitle>{boardTitle}</BoardContentsTitle>

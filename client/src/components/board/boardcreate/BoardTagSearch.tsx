@@ -3,16 +3,9 @@ import { useState } from 'react';
 
 import Card from '../../UI/Card';
 import BoardCreateTag from './BoardCreateTag';
+import { ITagSearch } from '../../../util/interfaces/boards.interface';
 
-interface props {
-  tagsData: Array<{
-    tagId: number;
-    tagName: string;
-  }>;
-  handleTagAdd: (ele: { tagId: number; tagName: string }) => void;
-}
-
-function BoardTagSearch({ tagsData, handleTagAdd }: props) {
+function BoardTagSearch({ tagsData, handleTagAdd }: ITagSearch) {
   const [inputValue, setInputValue] = useState<string>('');
   const [searchDatas, setSearchDatas] = useState(tagsData);
 
