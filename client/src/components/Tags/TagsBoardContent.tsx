@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useAppSelector } from '../../redux/hooks/hooks';
 
-import BoardItem from '../board/boardlist/BoardItem';
+import BoardItem from '../board/boardList/BoardItem';
 
 const TagsBoardContent = () => {
   const boardsList = useAppSelector((state) => state.tag.tagData.board);

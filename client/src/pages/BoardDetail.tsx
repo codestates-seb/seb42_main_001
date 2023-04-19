@@ -4,15 +4,15 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 
 import BoardAuthorInfo from '../components/board/BoardAuthorInfo';
-import BoardDetailTitle from '../components/board/boarddetail/BoardDetailTitle';
+import BoardDetailTitle from '../components/board/boardDetail/BoardDetailTitle';
 import BoardLikes from '../components/board/BoardLikes';
 import BoardComments from '../components/board/BoardComments';
 import More from '../components/UI/More';
-import BoardDetailContents from '../components/board/boarddetail/BoardDetailContents';
+import BoardDetailContents from '../components/board/boardDetail/BoardDetailContents';
 import BoardTags from '../components/board/BoardTags';
 import Comment from '../components/UI/Comment/Comment';
 import CommentInput from '../components/UI/Comment/CommentInput';
-import BoardSuggest from '../components/board/boarddetail/BoardSuggest';
+import BoardSuggest from '../components/board/boardDetail/BoardSuggest';
 import customAxios from '../api/customAxios';
 import CommentModal from '../components/UI/Comment/CommentModal';
 import Loading from '../components/UI/Loading';
