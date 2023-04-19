@@ -4,16 +4,21 @@ import BoardComments from '../BoardComments';
 
 interface BoardStatsProps {
   boardId: number;
-  like: number;
-  comment: number;
-  likes: boolean;
+  likeCount: number;
+  commentCount: number;
+  like: boolean;
 }
 
-function BoardStats({ like, comment, likes, boardId }: BoardStatsProps) {
+function BoardStats({
+  likeCount,
+  commentCount,
+  like,
+  boardId,
+}: BoardStatsProps) {
   return (
     <BoardStatsContainer>
-      <BoardLikes like={like} likes={likes} boardId={boardId} />
-      <BoardComments comment={comment} />
+      <BoardLikes likeCount={likeCount} like={like} boardId={boardId} />
+      <BoardComments commentCount={commentCount} />
     </BoardStatsContainer>
   );
 }

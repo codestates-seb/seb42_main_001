@@ -7,22 +7,22 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import Button from '../../UI/Button';
 
 interface BoardInfoProps {
-  search: boolean;
-  setSearch: (state: boolean) => void;
+  isSearch: boolean;
+  setIsLoading: (state: boolean) => void;
   setInput: (state: string) => void;
 }
 
-function BoardInfo({ search, setSearch, setInput }: BoardInfoProps) {
+function BoardInfo({ isSearch, setIsLoading, setInput }: BoardInfoProps) {
   const [isInput, setIsInput] = useState('');
 
   const handleSearchChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setSearch(search ? false : true);
+    setIsLoading(isSearch ? false : true);
   };
 
   return (
     <InfoContainer>
-      {search ? (
+      {isSearch ? (
         <BoardSearch
           isInput={isInput}
           setIsInput={setIsInput}

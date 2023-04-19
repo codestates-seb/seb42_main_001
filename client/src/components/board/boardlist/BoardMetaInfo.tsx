@@ -9,25 +9,25 @@ interface BoardMetaInfoProps {
     tagId: number;
     tagName: string;
   }>;
-  like: number;
-  likes: boolean;
-  comment: number;
+  likeCount: number;
+  like: boolean;
+  commentCount: number;
 }
 
 function BoardMetaInfo({
   tags,
+  likeCount,
+  commentCount,
   like,
-  comment,
-  likes,
   boardId,
 }: BoardMetaInfoProps) {
   return (
     <BoardMetaInfoContainer>
       <BoardTags tags={tags} />
       <BoardStats
+        likeCount={likeCount}
+        commentCount={commentCount}
         like={like}
-        comment={comment}
-        likes={likes}
         boardId={boardId}
       />
     </BoardMetaInfoContainer>
