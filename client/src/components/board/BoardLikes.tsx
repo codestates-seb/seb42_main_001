@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 
-import customAxios from '../../api/customAxios';
+import customAxios from '../../../api/customAxios';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import {
   boardLikeCheck,
   boardLikeUncheck,
-} from '../../redux/slice/board/boardListSlice';
+} from '../../../redux/slice/board/boardListSlice';
 import {
   boardDetailLike,
   boardDetailUnLike,
-} from '../../redux/slice/board/boardDetail';
+} from '../../../redux/slice/board/boardDetail';
 import { useNavigate } from 'react-router';
 
 interface BoardLikesProps {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import Card from '../UI/Card';
+import Card from '../../UI/Card';
 import BoardCreateTag from './BoardCreateTag';
 
 interface props {

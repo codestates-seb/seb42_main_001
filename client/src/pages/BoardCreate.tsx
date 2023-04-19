@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import { BsPlusLg } from 'react-icons/bs';
-import BoardCreateTags from '../components/Board/BoardCreateTags';
-import BoardCreateBtn from '../components/Board/BoardCreateBtn';
-import BoardCreateInput from '../components/Board/BoardCreateInput';
+import BoardCreateTags from '../components/board/boardcreate/BoardCreateTags';
+import BoardCreateBtn from '../components/board/boardcreate/BoardCreateBtn';
+import BoardCreateInput from '../components/board/boardcreate/BoardCreateInput';
 import Button from '../components/UI/Button';
-import BoardTagSearch from '../components/Board/BoardTagSearch';
+import BoardTagSearch from '../components/board/boardcreate/BoardTagSearch';
 import customAxios from '../api/customAxios';
 import { Data, SetData } from '../util/interfaces/boards.interface';
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import BoardStats from './BoardStats';
-import BoardTags from './BoardTags';
+import BoardTags from '../BoardTags';
 
 interface BoardMetaInfoProps {
   boardId: number;

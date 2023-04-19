@@ -1,4 +1,4 @@
-import Button from "../UI/Button";
+import Button from '../../UI/Button';
 
 interface BoardCreateBtnProps {
   onClick: () => void;
@@ -7,7 +7,7 @@ interface BoardCreateBtnProps {
 function BoardCreateBtn({ onClick }: BoardCreateBtnProps) {
   return (
     <Button
-      type="submit"
+      type='submit'
       bgColor={`--color-main`}
       color={`--color-white`}
       borderColor={`--color-main`}

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import { useAppSelector } from '../../redux/hooks/hooks';
 
-import BoardItem from '../Board/BoardItem';
+import BoardItem from '../board/boardlist/BoardItem';
 
 const TagsBoardContent = () => {
-  const boardsList = useAppSelector(state => state.tag.tagData.board);
+  const boardsList = useAppSelector((state) => state.tag.tagData.board);
 
   return (
     <BoardContentContainer>
       {boardsList
-        ? boardsList.map(ele => (
+        ? boardsList.map((ele) => (
             <BoardItem key={ele.boardId} data={ele}></BoardItem>
           ))
         : null}

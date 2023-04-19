@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 
-import customAxios from '../../api/customAxios';
-import Card from '../UI/Card';
+import customAxios from '../../../api/customAxios';
+import Card from '../../UI/Card';
 import React from 'react';
-import { Data, SetData } from '../../util/interfaces/boards.interface';
+import { Data, SetData } from '../../../util/interfaces/boards.interface';
 
 interface BoardCreateInputProps {
   title: (title: string) => void;

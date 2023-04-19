@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 
 import customAxios from '../api/customAxios';
-import BoardInfo from '../components/Board/BoardInfo';
-import BoardItem from '../components/Board/BoardItem';
+import BoardInfo from '../components/board/boardlist/BoardInfo';
+import BoardItem from '../components/board/boardlist/BoardItem';
 import { boardListItemAdd } from '../redux/slice/board/boardListSlice';
 import Loading from '../components/UI/Loading';
 

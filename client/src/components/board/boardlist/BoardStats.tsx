@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import BoardLikes from './BoardLikes';
-import BoardComments from './BoardComments';
+import BoardLikes from '../BoardLikes';
+import BoardComments from '../BoardComments';
 
 interface BoardStatsProps {
   boardId: number;

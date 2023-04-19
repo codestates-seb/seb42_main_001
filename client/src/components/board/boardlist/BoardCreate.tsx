@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
-import Button from '../UI/Button';
-import { useAppSelector } from '../../redux/hooks/hooks';
+import Button from '../../UI/Button';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 import { useEffect, useState } from 'react';
 
 function BoardCreate() {

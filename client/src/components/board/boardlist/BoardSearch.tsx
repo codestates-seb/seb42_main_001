@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { useAppSelector } from '../../redux/hooks/hooks';
-import Card from '../UI/Card';
+import { useAppSelector } from '../../../redux/hooks/hooks';
+import Card from '../../UI/Card';
 
 interface IBoardSearchProps {
   isInput: string;
