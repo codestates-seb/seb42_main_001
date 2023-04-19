@@ -1,6 +1,5 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './Header/Header';
+import Header from './header/Header';
 import styled from 'styled-components';
 import bowmore from '../../assets/img/bowmore.jpg';
 

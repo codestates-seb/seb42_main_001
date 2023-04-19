@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Footer from "../layout/Footer/Footer"
+import Footer from "../layout/footer/Footer"
 import MainBannerContent from "./MainBannerContent"
 import MainDrinksContent from "./MainDrinksContent"
 import MainTagsContent from "./MainTagsContent"

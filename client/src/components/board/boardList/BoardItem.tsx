@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Card from '../../UI/Card';
+import Card from '../../ui/Card';
 import BoardContents from './BoardContents';
 import BoardMetaInfo from './BoardMetaInfo';
 import BoardAuthorInfo from '.././BoardAuthorInfo';

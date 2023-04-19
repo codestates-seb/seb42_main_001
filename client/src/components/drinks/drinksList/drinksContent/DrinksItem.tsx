@@ -1,7 +1,7 @@
 import DrinksItemBox from "./drinksItem/DrinksItemBox";
 import DrinksItemBody from "./drinksItem/DrinksItemBody";
 import DrinksItemLevel from "./drinksItem/DrinksItemLevel";
-import Card from "../../../UI/Card";
+import Card from "../../../ui/Card";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IDrinksProps } from "../../../../util/interfaces/drinks.inerface";

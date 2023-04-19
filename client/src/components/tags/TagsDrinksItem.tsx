@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Card from "../UI/Card";
+import Card from "../ui/Card";
 
 const TagsDrinksItem = () => {
   return (

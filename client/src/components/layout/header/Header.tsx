@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import LogoText from '../../UI/LogoText';
-import Button from '../../UI/Button';
+import LogoText from '../../ui/LogoText';
+import Button from '../../ui/Button';
 import MenuNav from './MenuNav';
 import UserNav from './UserNav';
 import { useAppSelector } from '../../../redux/hooks/hooks';

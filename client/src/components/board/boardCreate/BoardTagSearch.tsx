@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import Card from '../../UI/Card';
+import Card from '../../ui/Card';
 import BoardCreateTag from './BoardCreateTag';
 import { ITagSearch } from '../../../util/interfaces/boards.interface';
 

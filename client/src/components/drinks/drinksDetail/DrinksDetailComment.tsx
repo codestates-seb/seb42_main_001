@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Comment from '../../UI/Comment/Comment';
-import CommentInput from '../../UI/Comment/CommentInput';
+import Comment from '../../ui/comment/Comment';
+import CommentInput from '../../ui/comment/CommentInput';
 import { IDrinksDetailProps } from '../../../util/interfaces/drinks.inerface';
 
 function DrinksDetailComment({ drinksDetail }: IDrinksDetailProps) {

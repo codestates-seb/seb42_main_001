@@ -3,7 +3,7 @@ import DrinksTagList from "./drinksInfo/DrinksTagList";
 import DrinkSearch from "./drinksInfo/DrinksSearch";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-import Button from "../../UI/Button";
+import Button from "../../ui/Button";
 import { useDispatch } from 'react-redux';
 import { setSearchTag } from '../../../redux/slice/drinks/drinksListSlice'
 

@@ -6,7 +6,7 @@ import bowmore from '../../assets/img/bowmore.jpg';
 import irish from '../../assets/img/irish.jpg';
 import jackblack from '../../assets/img/jack-black.jpg';
 import drink1887 from '../../assets/img/1887.jpg';
-import Header from "../layout/Header/Header"
+import Header from "../layout/header/Header"
 
 interface MainLayoutProps {
   bgColor?: boolean;

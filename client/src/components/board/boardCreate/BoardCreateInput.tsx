@@ -4,7 +4,7 @@ import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 
 import customAxios from '../../../api/customAxios';
-import Card from '../../UI/Card';
+import Card from '../../ui/Card';
 import React from 'react';
 import { IBoardCreateInput } from '../../../util/interfaces/boards.interface';
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import ArticleDetailBody from './articledetailcontent/ArticleDetailBody';
-import ArticleDetailTitle from './articledetailcontent/ArticleDetailTitle';
+import ArticleDetailBody from './articleDetailContent/ArticleDetailBody';
+import ArticleDetailTitle from './articleDetailContent/ArticleDetailTitle';
 import styled from 'styled-components';
-import Card from '../../UI/Card';
+import Card from '../../ui/Card';
 import customAxios from '../../../api/customAxios';
 
 interface props {
@@ -35,18 +35,18 @@ function ArticleDetailContent({ articleId }: props) {
         <SizeContainer>
           {articleData.length
             ? articleData.map(
-                (
-                  ele: { sectionTitle: string; sectionContent: string },
-                  idx,
-                ) => (
-                  <div key={idx}>
-                    <ArticleDetailTitle
-                      title={ele.sectionTitle}></ArticleDetailTitle>
-                    <ArticleDetailBody
-                      content={ele.sectionContent}></ArticleDetailBody>
-                  </div>
-                ),
-              )
+              (
+                ele: { sectionTitle: string; sectionContent: string },
+                idx,
+              ) => (
+                <div key={idx}>
+                  <ArticleDetailTitle
+                    title={ele.sectionTitle}></ArticleDetailTitle>
+                  <ArticleDetailBody
+                    content={ele.sectionContent}></ArticleDetailBody>
+                </div>
+              ),
+            )
             : null}
         </SizeContainer>
       </Card>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ArticleDetailMenuItem from './articledetailmenu/ArticleDetailMenuItem';
+import ArticleDetailMenuItem from './articleDetailMenu/ArticleDetailMenuItem';
 
 interface MenuProps {
   handleIdChange: (value: number) => void;
