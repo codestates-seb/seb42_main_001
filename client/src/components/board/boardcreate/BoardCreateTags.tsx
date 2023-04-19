@@ -4,14 +4,14 @@ import BoardCreateTag from './BoardCreateTag';
 
 interface BoardCreateTagsProps {
   tags: Array<{ tagId: number; tagName: string }>;
-  onClick: (ele: { tagId: number; tagName: string }) => void;
+  handleTagRemove: (ele: { tagId: number; tagName: string }) => void;
 }
 
-function BoardCreateTags({ tags, onClick }: BoardCreateTagsProps) {
+function BoardCreateTags({ tags, handleTagRemove }: BoardCreateTagsProps) {
   return (
     <ListContainer>
       {tags.map((el) => (
-        <BoardCreateTag key={el.tagId} ele={el} onClick={onClick} />
+        <BoardCreateTag key={el.tagId} ele={el} onClick={handleTagRemove} />
       ))}
     </ListContainer>
   );

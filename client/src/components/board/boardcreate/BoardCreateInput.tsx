@@ -9,51 +9,54 @@ import React from 'react';
 import { Data, SetData } from '../../../util/interfaces/boards.interface';
 
 interface BoardCreateInputProps {
-  title: (title: string) => void;
-  content: (content: string) => void;
-  image: (url: { imageId: number; boardImageUrl: string }) => void;
-  iseditData?: Data;
+  handleBoardTitleChange: (title: string) => void;
+  handleBoardContentChange: (content: string) => void;
+  handleBoardImageAdd: (url: {
+    imageId: number;
+    boardImageUrl: string;
+  }) => void;
+  editData?: Data;
   preData?: SetData;
 }
 
 function BoardCreateInput({
-  title,
-  content,
-  image,
-  iseditData,
+  handleBoardTitleChange,
+  handleBoardContentChange,
+  handleBoardImageAdd,
+  editData,
   preData,
 }: BoardCreateInputProps) {
   const editorRef = useRef<Editor>(null);
-  const [isTitle, setTitle] = useState(iseditData?.boardTitle);
+  const [title, setTitle] = useState(editData?.boardTitle);
 
   const handleContentChange = () => {
     if (editorRef.current) {
       const data = editorRef.current.getInstance().getMarkdown();
-      content(data);
+      handleBoardContentChange(data);
     }
   };
 
   useEffect(() => {
-    if (iseditData) {
-      setTitle(iseditData!.boardTitle);
-      title(iseditData!.boardTitle);
-      editorRef.current?.getInstance().setMarkdown(iseditData.content);
+    if (editData) {
+      setTitle(editData!.boardTitle);
+      handleBoardTitleChange(editData!.boardTitle);
+      editorRef.current?.getInstance().setMarkdown(editData.content);
     } else if (preData) {
       setTitle(preData!.boardTitle);
-      title(preData!.boardTitle);
+      handleBoardTitleChange(preData!.boardTitle);
       editorRef.current?.getInstance().setMarkdown(preData.boardContent);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [iseditData, preData]);
+  }, [editData, preData]);
   return (
     <Card>
       <InputContainer>
         <input
           type='text'
           placeholder={'제목을 입력해 주세요'}
-          value={isTitle ? isTitle : ''}
+          value={title ? title : ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            title(e.target.value);
+            handleBoardTitleChange(e.target.value);
             setTitle(e.target.value);
           }}
         />
@@ -71,9 +74,12 @@ function BoardCreateInput({
                 const formData = new FormData();
                 formData.append('file', blob);
 
-                const img = await customAxios.post('/spring/upload', formData);
-                const url = img.data[0].boardImageUrl;
-                image(img.data[0]);
+                const imgData = await customAxios.post(
+                  '/spring/upload',
+                  formData
+                );
+                const url = imgData.data[0].boardImageUrl;
+                handleBoardImageAdd(imgData.data[0]);
 
                 callback(url, '');
               },

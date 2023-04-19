@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import convertTime from '../../../util/convertTime';
-import woodford from '../../../assets/img/woodford.jpg';
+import convertTime from '../../util/convertTime';
+import woodford from '../../assets/img/woodford.jpg';
 
 interface BoardAuthorInfoProps {
   userName?: string;

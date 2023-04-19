@@ -1,10 +1,10 @@
 import Button from '../../UI/Button';
 
 interface BoardCreateBtnProps {
-  onClick: () => void;
+  handleBoardSubmit: () => void;
 }
 
-function BoardCreateBtn({ onClick }: BoardCreateBtnProps) {
+function BoardCreateBtn({ handleBoardSubmit }: BoardCreateBtnProps) {
   return (
     <Button
       type='submit'
@@ -12,7 +12,7 @@ function BoardCreateBtn({ onClick }: BoardCreateBtnProps) {
       color={`--color-white`}
       borderColor={`--color-main`}
       width={`--5x-large`}
-      onClick={onClick}
+      onClick={handleBoardSubmit}
     >
       submit
     </Button>

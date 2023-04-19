@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 
-import customAxios from '../../../api/customAxios';
+import customAxios from '../../api/customAxios';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
 import {
   boardLikeCheck,
   boardLikeUncheck,
-} from '../../../redux/slice/board/boardListSlice';
+} from '../../redux/slice/board/boardListSlice';
 import {
   boardDetailLike,
   boardDetailUnLike,
-} from '../../../redux/slice/board/boardDetail';
+} from '../../redux/slice/board/boardDetail';
 import { useNavigate } from 'react-router';
 
 interface BoardLikesProps {
@@ -22,19 +22,19 @@ interface BoardLikesProps {
 
 function BoardLikes({ like, likes, boardId }: BoardLikesProps) {
   const [isLike, setIsLike] = useState(false);
-  const [login, setLogin] = useState(false);
-  const { isLogin } = useAppSelector((state) => state.auth);
+  const [isLogin, setIsLogin] = useState(false);
+  const login = useAppSelector((state) => state.auth.isLogin);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     setIsLike(likes);
-    setLogin(isLogin);
-  }, [likes, isLogin]);
+    setIsLogin(login);
+  }, [likes, login]);
 
   const handleLikeChange = () => {
-    if (login) {
+    if (isLogin) {
       if (isLike) {
         customAxios
           .delete(`/likes/boards/${boardId}`)

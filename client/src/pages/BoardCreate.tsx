@@ -12,15 +12,15 @@ import customAxios from '../api/customAxios';
 import { Data, SetData } from '../util/interfaces/boards.interface';
 
 function BoardCreate() {
-  const [searchOpen, setSearchOpen] = useState<boolean>(false);
-  const [tagData, setTagData] = useState([]);
+  const [isSearch, setIsSearch] = useState<boolean>(false);
+  const [tagsData, setTagsData] = useState([]);
   const [boardTitle, setBoardTitle] = useState('');
   const [boardContent, setBoardContent] = useState('');
   const [boardImageUrl, setBoardImageUrl] = useState<Imgs[]>([]);
   const [tags, setTags] = useState<Tags[]>([]);
-  const [iseditData, setIsEditData] = useState<Data>();
+  const [editData, setEditData] = useState<Data>();
   const [preData, setPreData] = useState<SetData>();
-  const [isTime, setTime] = useState(0);
+  const [time, setTime] = useState(0);
 
   const navigate = useNavigate();
   const { editId } = useParams();
@@ -34,12 +34,12 @@ function BoardCreate() {
   useEffect(() => {
     const tagsData = async () => {
       const res = await customAxios.get(`/tags`);
-      setTagData((prevTag) => res.data);
+      setTagsData((prevTag) => res.data);
     };
 
     const editData = async () => {
       const res = await customAxios.get(`/boards/${editId}`);
-      setIsEditData((prev) => res.data);
+      setEditData((prev) => res.data);
       setTags((prev) => res.data.tags);
       setBoardImageUrl((prev) => res.data.boardImages);
     };
@@ -98,17 +98,17 @@ function BoardCreate() {
     return () => clearInterval(interval);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTime]);
+  }, [time]);
 
   const handleTagSearchOpen = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setSearchOpen((prev) => !prev);
+    setIsSearch((prev) => !prev);
   };
   const handleTagSearchClose = () => {
-    setSearchOpen(false);
+    setIsSearch(false);
   };
 
-  const handleAddTag = (ele: { tagId: number; tagName: string }) => {
+  const handleTagAdd = (ele: { tagId: number; tagName: string }) => {
     if (tags.length === 0) {
       setTags([ele]);
     } else if (tags.filter((el) => el.tagId === ele.tagId).length === 0) {
@@ -116,19 +116,19 @@ function BoardCreate() {
     }
   };
 
-  const handleRemoveTag = (ele: { tagId: number; tagName: string }) => {
+  const handleTagRemove = (ele: { tagId: number; tagName: string }) => {
     setTags((prev) => prev.filter((el) => el.tagId !== ele.tagId));
   };
 
-  const handleBoardTitle = (title: string) => {
+  const handleBoardTitleChange = (title: string) => {
     setBoardTitle(title);
   };
 
-  const handleBoardContent = (content: string) => {
+  const handleBoardContentChange = (content: string) => {
     setBoardContent(content);
   };
 
-  const handleBoardImage = (url: {
+  const handleBoardImageAdd = (url: {
     imageId: number;
     boardImageUrl: string;
   }) => {
@@ -187,19 +187,19 @@ function BoardCreate() {
                 <BsPlusLg />
               </SvgSize>
             </Button>
-            {searchOpen ? (
-              <BoardTagSearch tagData={tagData} onClick={handleAddTag} />
+            {isSearch ? (
+              <BoardTagSearch tagsData={tagsData} handleTagAdd={handleTagAdd} />
             ) : (
-              <BoardCreateTags tags={tags} onClick={handleRemoveTag} />
+              <BoardCreateTags tags={tags} handleTagRemove={handleTagRemove} />
             )}
           </BoardCreateTagController>
-          <BoardCreateBtn onClick={handleBoardSubmit} />
+          <BoardCreateBtn handleBoardSubmit={handleBoardSubmit} />
         </BoardCreateController>
         <BoardCreateInput
-          title={handleBoardTitle}
-          content={handleBoardContent}
-          image={handleBoardImage}
-          iseditData={iseditData}
+          handleBoardTitleChange={handleBoardTitleChange}
+          handleBoardContentChange={handleBoardContentChange}
+          handleBoardImageAdd={handleBoardImageAdd}
+          editData={editData}
           preData={preData}
         />
       </div>

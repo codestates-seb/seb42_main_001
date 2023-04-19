@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
-import { useAppSelector } from '../../redux/hooks/hooks';
+import { useAppSelector } from '../../../redux/hooks/hooks';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 

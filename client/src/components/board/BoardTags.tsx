@@ -12,7 +12,7 @@ interface BoardTagsProps {
 
 function BoardTags({ tags }: BoardTagsProps) {
   return (
-    <TagsBox>
+    <Wapper>
       {tags &&
         tags.map((el) => {
           return (
@@ -23,13 +23,13 @@ function BoardTags({ tags }: BoardTagsProps) {
             </Link>
           );
         })}
-    </TagsBox>
+    </Wapper>
   );
 }
 
 export default BoardTags;
 
-const TagsBox = styled.div`
+const Wapper = styled.div`
   display: flex;
   height: 25px;
   @media only screen and (max-width: 768px) {
