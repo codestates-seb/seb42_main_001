@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
 import { useInView } from 'react-intersection-observer';
@@ -16,6 +16,8 @@ function BoardList() {
   const [isLoading, setIsLoading] = useState(true);
   const [input, setInput] = useState('');
   const [ref, inView] = useInView();
+
+  const timer = useRef<boolean>(false);
 
   const boardListsData = useAppSelector((state) => state.boardList.listData);
   const filteredDatas = boardListsData.filter((data) =>
@@ -46,12 +48,21 @@ function BoardList() {
     // window.addEventListener('scroll', handleScroll);
     setIsLoading(true);
     fetchData();
-    if (inView && endPage >= page) {
-      setPage((prev) => prev + 1);
-    }
+
     // return () => window.removeEventListener('scroll', handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, dispatch, inView]);
+  }, [page, dispatch]);
+
+  useEffect(() => {
+    if (inView && endPage >= page && !timer.current) {
+      timer.current = true;
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        timer.current = false;
+      }, 200);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
 
   const handleSearchClose = () => {
     setIsSearch(false);
