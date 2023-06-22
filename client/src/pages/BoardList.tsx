@@ -37,19 +37,9 @@ function BoardList() {
       setIsLoading(false);
     };
 
-    // const handleScroll = () => {
-    //   const { scrollTop, scrollHeight, clientHeight } =
-    //     document.documentElement;
-    //   if (scrollTop + clientHeight >= scrollHeight - 100 && endPage >= page) {
-    //     setPage((prev) => prev + 1);
-    //   }
-    // };
-
-    // window.addEventListener('scroll', handleScroll);
     setIsLoading(true);
     fetchData();
 
-    // return () => window.removeEventListener('scroll', handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, dispatch]);
 
