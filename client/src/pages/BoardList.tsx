@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
+import { useInView } from 'react-intersection-observer';
 
 import customAxios from '../api/customAxios';
 import BoardInfo from '../components/board/boardList/BoardInfo';
@@ -14,6 +15,9 @@ function BoardList() {
   const [isSearch, setIsSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [input, setInput] = useState('');
+  const [ref, inView] = useInView();
+
+  const timer = useRef<boolean>(false);
 
   const boardListsData = useAppSelector((state) => state.boardList.listData);
   const filteredDatas = boardListsData.filter((data) =>
@@ -33,20 +37,22 @@ function BoardList() {
       setIsLoading(false);
     };
 
-    const handleScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } =
-        document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight - 100 && endPage >= page) {
-        setPage((prev) => prev + 1);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
     setIsLoading(true);
     fetchData();
-    return () => window.removeEventListener('scroll', handleScroll);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, dispatch]);
+
+  useEffect(() => {
+    if (inView && endPage >= page && !timer.current) {
+      timer.current = true;
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        timer.current = false;
+      }, 200);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
 
   const handleSearchClose = () => {
     setIsSearch(false);
@@ -76,6 +82,7 @@ function BoardList() {
               })
             )}
           </ListContainer>
+          <RefContainer ref={ref} />
         </Wrapper>
       )}
     </>
@@ -94,11 +101,15 @@ const Wrapper = styled.div`
 `;
 
 const ListContainer = styled.div`
-  margin-bottom: calc(var(--4x-large) * 5);
+  margin-bottom: calc(var(--4x-large));
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+`;
+
+const RefContainer = styled.div`
+  height: 10vw;
 `;
