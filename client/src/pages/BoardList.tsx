@@ -12,7 +12,7 @@ import Loading from '../components/UI/Loading';
 function BoardList() {
   const [page, setPage] = useState(1);
   const [endPage, setEndPage] = useState(1);
-  const [isSearch, setIsSearch] = useState(false);
+  const [isSearch, setIsSearch] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [input, setInput] = useState('');
   const [ref, inView] = useInView();
@@ -66,7 +66,7 @@ function BoardList() {
         <Wrapper onClick={handleSearchClose}>
           <BoardInfo
             isSearch={isSearch}
-            setIsLoading={setIsLoading}
+            setIsSearch={setIsSearch}
             setInput={setInput}
           />
           <ListContainer>
