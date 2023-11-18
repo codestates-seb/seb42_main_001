@@ -49,7 +49,7 @@ function BoardList() {
       setTimeout(() => {
         setPage((prev) => prev + 1);
         timer.current = false;
-      }, 200);
+      }, 300);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
@@ -82,7 +82,9 @@ function BoardList() {
               })
             )}
           </ListContainer>
-          <RefContainer ref={ref} />
+          {filteredDatas.length !== 0 && !isSearch ? (
+            <RefContainer ref={ref} />
+          ) : null}
         </Wrapper>
       )}
     </>
@@ -101,7 +103,6 @@ const Wrapper = styled.div`
 `;
 
 const ListContainer = styled.div`
-  margin-bottom: calc(var(--4x-large));
   width: 100%;
   height: 100%;
   display: flex;
@@ -111,5 +112,6 @@ const ListContainer = styled.div`
 `;
 
 const RefContainer = styled.div`
-  height: 10vw;
+  height: 1vw;
+  margin-top: 20vh;
 `;
