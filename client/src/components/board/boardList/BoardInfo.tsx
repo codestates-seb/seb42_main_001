@@ -7,12 +7,12 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import Button from '../../ui/Button';
 import { IBoardInfo } from '../../../util/interfaces/boards.interface';
 
-function BoardInfo({ isSearch, setIsLoading, setInput }: IBoardInfo) {
+function BoardInfo({ isSearch, setIsSearch, setInput }: IBoardInfo) {
   const [isInput, setIsInput] = useState('');
 
   const handleSearchChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsLoading(isSearch ? false : true);
+    setIsSearch(isSearch ? false : true);
   };
 
   return (

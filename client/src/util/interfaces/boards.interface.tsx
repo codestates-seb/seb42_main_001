@@ -68,7 +68,7 @@ export interface ISetData {
 
 export interface IBoardInfo {
   isSearch: boolean;
-  setIsLoading: (state: boolean) => void;
+  setIsSearch: (state: boolean) => void;
   setInput: (state: string) => void;
 }
 
