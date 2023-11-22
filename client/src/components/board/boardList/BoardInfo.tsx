@@ -12,6 +12,8 @@ function BoardInfo({ isSearch, setIsSearch, setInput }: IBoardInfo) {
 
   const handleSearchChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
+    setIsInput('');
+    setInput('');
     setIsSearch(isSearch ? false : true);
   };
 
