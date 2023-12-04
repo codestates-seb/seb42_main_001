@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
 
 import {
-  BoardDataProps,
+  IBoardData,
   ILikeList,
 } from '../../../util/interfaces/boards.interface';
 
 interface boardListState {
-  listData: BoardDataProps[];
-  filteredData: BoardDataProps[];
+  listData: IBoardData[];
+  filteredData: IBoardData[];
   likeList: ILikeList[];
 }
 
@@ -26,22 +26,22 @@ export const boardListSlice = createSlice({
       state,
       {
         payload: { data, likeList },
-      }: PayloadAction<{ data: BoardDataProps[]; likeList: ILikeList[] }>
+      }: PayloadAction<{ data: IBoardData[]; likeList: ILikeList[] }>
     ) => {
-      const result = data.map((board: BoardDataProps) => {
+      const mappingData = data.map((board: IBoardData) => {
         return {
           ...board,
           like: likeList.some(
-            (el: { boardId: number; boardTitle: string }) =>
-              el.boardId === board.boardId
+            (like: { boardId: number; boardTitle: string }) =>
+              like.boardId === board.boardId
           ),
         };
       });
 
       state.likeList = likeList;
 
-      const NotData = result.reduce((acc: BoardDataProps[], cur) => {
-        let result: BoardDataProps[] = [...acc];
+      const NoData = mappingData.reduce((acc: IBoardData[], cur) => {
+        let result: IBoardData[] = [...acc];
         if (
           state.listData.filter((el) => cur.boardId === el.boardId).length === 0
         ) {
@@ -50,10 +50,10 @@ export const boardListSlice = createSlice({
         return result;
       }, []);
 
-      if (state.listData.length !== 0 && NotData.length !== 0) {
-        state.listData = [...state.listData, ...NotData];
+      if (state.listData.length !== 0 && NoData.length !== 0) {
+        state.listData = [...state.listData, ...NoData];
       } else if (state.listData.length === 0) {
-        state.listData = NotData;
+        state.listData = NoData;
       }
     },
 
@@ -63,7 +63,9 @@ export const boardListSlice = createSlice({
         payload: { data, boardId },
       }: PayloadAction<{ data: boolean; boardId: number }>
     ) => {
-      const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
+      const filtered = state.listData.filter(
+        (data) => data.boardId === boardId
+      )[0];
       if (filtered) {
         filtered.likeCount = filtered.likeCount + 1;
         filtered.like = data;
@@ -76,7 +78,9 @@ export const boardListSlice = createSlice({
         payload: { data, boardId },
       }: PayloadAction<{ data: boolean; boardId: number }>
     ) => {
-      const filtered = state.listData.filter((el) => el.boardId === boardId)[0];
+      const filtered = state.listData.filter(
+        (data) => data.boardId === boardId
+      )[0];
       if (filtered) {
         filtered.likeCount = filtered.likeCount - 1;
         filtered.like = data;

@@ -1,29 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks/hooks';
+import { useInView } from 'react-intersection-observer';
 
 import customAxios from '../api/customAxios';
-import BoardInfo from '../components/Board/BoardInfo';
-import BoardItem from '../components/Board/BoardItem';
+import BoardInfo from '../components/board/boardList/BoardInfo';
+import BoardItem from '../components/board/boardList/BoardItem';
 import { boardListItemAdd } from '../redux/slice/board/boardListSlice';
-import Loading from '../components/UI/Loading';
+import Loading from '../components/ui/Loading';
 
 function BoardList() {
-  const [isPage, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const [endPage, setEndPage] = useState(1);
-  const [search, setSearch] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [input, setInput] = useState('');
+  const [ref, inView] = useInView();
 
-  const datas = useAppSelector((state) => state.boardList.listData);
-  const filteredDatas = datas.filter((data) => data.boardTitle.includes(input));
+  const timer = useRef<boolean>(false);
+
+  const boardListsData = useAppSelector((state) => state.boardList.listData);
+  const filteredDatas = boardListsData.filter((data) =>
+    data.boardTitle.includes(input)
+  );
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
-      const res = await customAxios.get(`/boards?page=${isPage}&size=10`);
+      const res = await customAxios.get(`/boards?page=${page}&size=10`);
       const { data, likeList } = res.data;
       if (data.length !== 0) {
         dispatch(boardListItemAdd({ data, likeList }));
@@ -32,22 +37,25 @@ function BoardList() {
       setIsLoading(false);
     };
 
-    const handleScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } =
-        document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight - 100 && endPage >= isPage) {
-        setPage((prev) => prev + 1);
-      }
-    };
-
+    setIsLoading(true);
     fetchData();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPage, dispatch]);
+  }, [page, dispatch]);
+
+  useEffect(() => {
+    if (inView && endPage >= page && !timer.current) {
+      timer.current = true;
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        timer.current = false;
+      }, 300);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
 
   const handleSearchClose = () => {
-    setSearch(false);
+    setIsSearch(false);
   };
 
   return (
@@ -57,8 +65,8 @@ function BoardList() {
       ) : (
         <Wrapper onClick={handleSearchClose}>
           <BoardInfo
-            search={search}
-            setSearch={setSearch}
+            isSearch={isSearch}
+            setIsSearch={setIsSearch}
             setInput={setInput}
           />
           <ListContainer>
@@ -74,6 +82,9 @@ function BoardList() {
               })
             )}
           </ListContainer>
+          {filteredDatas.length !== 0 && !isSearch ? (
+            <RefContainer ref={ref} />
+          ) : null}
         </Wrapper>
       )}
     </>
@@ -92,11 +103,15 @@ const Wrapper = styled.div`
 `;
 
 const ListContainer = styled.div`
-  margin-bottom: calc(var(--4x-large) * 5);
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+`;
+
+const RefContainer = styled.div`
+  height: 1vw;
+  margin-top: 20vh;
 `;

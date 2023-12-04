@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import customAxios from '../api/customAxios';
-import MainDrinksDetail from '../components/Drinks/DrinksDetail/MainDrinksDetail';
+import MainDrinksDetail from '../components/drinks/drinksDetail/MainDrinksDetail';
 import { IDrinksDetail } from '../util/interfaces/drinks.inerface';
 import { ILikes } from '../util/interfaces/drinks.inerface';
 
